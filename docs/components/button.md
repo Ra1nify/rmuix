@@ -1,6 +1,6 @@
 # Button
 
-`Button` is a basic interactive component in Miuix, used to trigger actions or events. It provides multiple style options, including primary buttons, secondary buttons, and text buttons.
+`Button` is a basic interactive component in Rmuix, used to trigger actions or events. It provides multiple style options, including primary buttons, secondary buttons, and text buttons.
 
 <div style="position: relative; height: 200px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=button" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Button
+import io.github.ra1nify.rmuix.kmp.basic.Button
 ```
 
 ## Basic Usage
@@ -26,7 +26,7 @@ Button(
 
 ## Button Types
 
-Miuix provides various types of buttons suitable for different scenarios and levels of importance:
+Rmuix provides various types of buttons suitable for different scenarios and levels of importance:
 
 ### Primary Button
 
@@ -103,7 +103,7 @@ Button(
 | minHeight         | Dp                        | Minimum height of the button      | ButtonDefaults.MinHeight          | No       |
 | colors            | TextButtonColors          | Text button color configuration   | ButtonDefaults.textButtonColors() | No       |
 | insideMargin      | PaddingValues             | Internal padding of the button    | ButtonDefaults.InsideMargin       | No       |
-| textStyle         | TextStyle?                | Text style of the button text     | null (MiuixTheme.textStyles.button)| No      |
+| textStyle         | TextStyle?                | Text style of the button text     | null (RmuixTheme.textStyles.button)| No      |
 | interactionSource | MutableInteractionSource? | Interaction source for the button | null                              | No       |
 | indication        | Indication?               | Indication for click interactions | LocalIndication.current           | No       |
 
@@ -116,15 +116,15 @@ The ButtonDefaults object provides default values and color configurations for b
 | Constant Name | Type          | Description                    | Default Value        |
 | ------------- | ------------- | ------------------------------ | -------------------- |
 | MinWidth      | Dp            | Minimum width of the button    | 58.dp                |
-| MinHeight     | Dp            | Minimum height of the button   | 40.dp                |
-| CornerRadius  | Dp            | Corner radius of the button    | 16.dp                |
-| InsideMargin  | PaddingValues | Internal padding of the button | PaddingValues(horizontal = 16.dp, vertical = 13.dp) |
+| MinHeight     | Dp            | Minimum height of the button   | 44.dp                |
+| CornerRadius  | Dp            | Corner radius of the button    | 21.5.dp              |
+| InsideMargin  | PaddingValues | Internal padding of the button | PaddingValues(horizontal = 12.dp, vertical = 8.dp) |
 
 #### Methods
 
 | Method Name               | Type             | Description                                            |
 | ------------------------- | ---------------- | ------------------------------------------------------ |
-| buttonColors()            | ButtonColors     | Creates color configuration for secondary buttons      |
+| buttonColors()            | ButtonColors     | Creates color configuration for secondary buttons (translucent neutral container: 8% black light / 10% white dark) |
 | buttonColorsPrimary()     | ButtonColors     | Creates color configuration for primary buttons        |
 | textButtonColors()        | TextButtonColors | Creates color configuration for secondary text buttons |
 | textButtonColorsPrimary() | TextButtonColors | Creates color configuration for primary text buttons   |
@@ -138,7 +138,7 @@ Button(
     onClick = { /* Handle click event */ }
 ) {
     Icon(
-        imageVector = MiuixIcons.Favorites,
+        imageVector = RmuixIcons.Favorites,
         contentDescription = "Favorites"
     )
     Spacer(modifier = Modifier.width(8.dp))

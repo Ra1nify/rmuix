@@ -2,31 +2,31 @@
 title: OverlayDropdownPreference
 requiresScaffoldHost: true
 prerequisites:
-  - 必须在 `Scaffold` 中使用以提供 `MiuixPopupHost`
+  - 必须在 `Scaffold` 中使用以提供 `RmuixPopupHost`
   - 未在 `Scaffold` 中使用将导致弹出内容无法渲染
   - 支持多个嵌套或并列的 `Scaffold`，无需额外配置
 hostComponent: Scaffold
-popupHost: MiuixPopupHost
+popupHost: RmuixPopupHost
 ---
 
 # OverlayDropdownPreference
 
-`OverlayDropdownPreference` 是 Miuix 中的下拉菜单组件，提供了标题、摘要和下拉选项列表，支持点击交互，常用于选项设置和列表选择中。
+`OverlayDropdownPreference` 是 Rmuix 中的下拉菜单组件，提供了标题、摘要和下拉选项列表，支持点击交互，常用于选项设置和列表选择中。
 
 <div style="position: relative; height: 360px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=overlayDropdownPreference" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 </div>
 
 ::: danger 使用前提
-此组件依赖 `Scaffold` 提供的 `MiuixPopupHost` 以显示弹出内容。必须在 `Scaffold` 中使用，否则弹出内容无法正常渲染。
+此组件依赖 `Scaffold` 提供的 `RmuixPopupHost` 以显示弹出内容。必须在 `Scaffold` 中使用，否则弹出内容无法正常渲染。
 :::
 
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.OverlayDropdownPreference
-import top.yukonga.miuix.kmp.basic.DropdownEntry
-import top.yukonga.miuix.kmp.basic.DropdownItem
+import io.github.ra1nify.rmuix.kmp.preference.OverlayDropdownPreference
+import io.github.ra1nify.rmuix.kmp.basic.DropdownEntry
+import io.github.ra1nify.rmuix.kmp.basic.DropdownItem
 ```
 
 ## 基本用法

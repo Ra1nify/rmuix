@@ -2,7 +2,7 @@
 title: WindowDialog
 requiresScaffoldHost: false
 prerequisites:
-  - Can be used anywhere, does not require `Scaffold` or `MiuixPopupHost`
+  - Can be used anywhere, does not require `Scaffold` or `RmuixPopupHost`
   - Renders at window level
 hostComponent: None
 popupHost: None
@@ -10,7 +10,7 @@ popupHost: None
 
 # WindowDialog
 
-`WindowDialog` is a window-level dialog component. It renders using platform `Dialog` and does not require `Scaffold` or `MiuixPopupHost`. It supports large-screen optimized animations, system back gesture dismissal, and a composition local to request dismiss from inside content.
+`WindowDialog` is a window-level dialog component. It renders using platform `Dialog` and does not require `Scaffold` or `RmuixPopupHost`. It supports large-screen optimized animations, system back gesture dismissal, and a composition local to request dismiss from inside content.
 
 <div style="position: relative; height: 240px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=windowDialog" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -23,8 +23,8 @@ This component is independent of `Scaffold` and can be used in any composable sc
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.window.WindowDialog
-import top.yukonga.miuix.kmp.theme.LocalDismissState
+import io.github.ra1nify.rmuix.kmp.window.WindowDialog
+import io.github.ra1nify.rmuix.kmp.theme.LocalDismissState
 ```
 
 ## Basic Usage

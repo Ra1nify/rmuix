@@ -2,30 +2,30 @@
 title: OverlayListPopup
 requiresScaffoldHost: true
 prerequisites:
-  - 必须在 `Scaffold` 内使用以提供 `MiuixPopupHost`
+  - 必须在 `Scaffold` 内使用以提供 `RmuixPopupHost`
   - 在 `Scaffold` 外使用会导致弹窗内容不渲染
   - 支持多个嵌套或并列的 `Scaffold`，无需额外配置
 hostComponent: Scaffold
-popupHost: MiuixPopupHost
+popupHost: RmuixPopupHost
 ---
 
 # OverlayListPopup
 
-`OverlayListPopup` 是 Miuix 中的弹出列表组件，用于显示包含多个选项的弹出菜单。它提供了一个轻量级的、浮动的临时列表，适用于各种下拉菜单、上下文菜单等场景。
+`OverlayListPopup` 是 Rmuix 中的弹出列表组件，用于显示包含多个选项的弹出菜单。它提供了一个轻量级的、浮动的临时列表，适用于各种下拉菜单、上下文菜单等场景。
 
 <div style="position: relative; height: 250px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=overlayListPopup" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 </div>
 
 ::: danger 前置条件
-此组件依赖于 `Scaffold` 提供的 `MiuixPopupHost` 来渲染弹窗内容。必须在 `Scaffold` 内部使用，否则弹窗内容将无法正常渲染。
+此组件依赖于 `Scaffold` 提供的 `RmuixPopupHost` 来渲染弹窗内容。必须在 `Scaffold` 内部使用，否则弹窗内容将无法正常渲染。
 :::
 
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.overlay.OverlayListPopup
-import top.yukonga.miuix.kmp.basic.ListPopupColumn
+import io.github.ra1nify.rmuix.kmp.overlay.OverlayListPopup
+import io.github.ra1nify.rmuix.kmp.basic.ListPopupColumn
 ```
 
 ## 基本用法

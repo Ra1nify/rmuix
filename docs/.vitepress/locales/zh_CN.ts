@@ -19,7 +19,7 @@ export default defineConfig({
 
         footer: {
             message: "基于 Apache-2.0 许可发布",
-            copyright: `版权所有 © 2024-${new Date().getFullYear()} compose-miuix-ui`,
+            copyright: `版权所有 © 2024-${new Date().getFullYear()} compose-rmuix-ui`,
         },
 
         nav: [
@@ -44,8 +44,8 @@ export default defineConfig({
                         { text: "文本样式", link: "/zh_CN/guide/textstyles" },
                         { text: "图标系统", link: "/zh_CN/guide/icons" },
                         { text: "工具函数", link: "/zh_CN/guide/utils" },
-                        { text: "导航支持", link: "/zh_CN/guide/miuix-nav" },
-                        { text: "窗口与标题栏", link: "/zh_CN/guide/miuix-window" },
+                        { text: "导航支持", link: "/zh_CN/guide/rmuix-nav" },
+                        { text: "窗口与标题栏", link: "/zh_CN/guide/rmuix-window" },
                         { text: "模糊效果", link: "/zh_CN/guide/blur" },
                         { text: "平滑圆角", link: "/zh_CN/guide/squircle" },
                         { text: "平台支持", link: "/zh_CN/guide/multiplatform" },

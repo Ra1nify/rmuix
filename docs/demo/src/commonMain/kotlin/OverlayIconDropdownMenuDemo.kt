@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -22,20 +22,20 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.DropdownEntry
-import top.yukonga.miuix.kmp.basic.DropdownItem
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.SmallTopAppBar
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Edit
-import top.yukonga.miuix.kmp.icon.extended.MoreCircle
-import top.yukonga.miuix.kmp.icon.extended.SelectAll
-import top.yukonga.miuix.kmp.icon.extended.Sort
-import top.yukonga.miuix.kmp.menu.OverlayIconDropdownMenu
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.DropdownEntry
+import io.github.ra1nify.rmuix.kmp.basic.DropdownItem
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.SmallTopAppBar
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Edit
+import io.github.ra1nify.rmuix.kmp.icon.extended.MoreCircle
+import io.github.ra1nify.rmuix.kmp.icon.extended.SelectAll
+import io.github.ra1nify.rmuix.kmp.icon.extended.Sort
+import io.github.ra1nify.rmuix.kmp.menu.OverlayIconDropdownMenu
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 @Composable
 fun OverlayIconDropdownMenuDemo() {
@@ -89,15 +89,15 @@ fun OverlayIconDropdownMenuDemo() {
                         actions = {
                             OverlayIconDropdownMenu(entry = actionEntry) {
                                 Icon(
-                                    imageVector = MiuixIcons.Edit,
-                                    tint = MiuixTheme.colorScheme.onBackground,
+                                    imageVector = RmuixIcons.Edit,
+                                    tint = RmuixTheme.colorScheme.onBackground,
                                     contentDescription = "Action menu",
                                 )
                             }
                             OverlayIconDropdownMenu(entry = sortEntry) {
                                 Icon(
-                                    imageVector = MiuixIcons.Sort,
-                                    tint = MiuixTheme.colorScheme.onBackground,
+                                    imageVector = RmuixIcons.Sort,
+                                    tint = RmuixTheme.colorScheme.onBackground,
                                     contentDescription = "Sort",
                                 )
                             }
@@ -106,8 +106,8 @@ fun OverlayIconDropdownMenuDemo() {
                                 collapseOnSelection = false,
                             ) {
                                 Icon(
-                                    imageVector = MiuixIcons.SelectAll,
-                                    tint = MiuixTheme.colorScheme.onBackground,
+                                    imageVector = RmuixIcons.SelectAll,
+                                    tint = RmuixTheme.colorScheme.onBackground,
                                     contentDescription = "Multiple selection",
                                 )
                             }
@@ -116,8 +116,8 @@ fun OverlayIconDropdownMenuDemo() {
                                 enabled = false,
                             ) {
                                 Icon(
-                                    imageVector = MiuixIcons.MoreCircle,
-                                    tint = MiuixTheme.colorScheme.disabledOnSecondaryVariant,
+                                    imageVector = RmuixIcons.MoreCircle,
+                                    tint = RmuixTheme.colorScheme.disabledOnSecondaryVariant,
                                     contentDescription = "More",
                                 )
                             }

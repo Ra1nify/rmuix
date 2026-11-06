@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 plugins {
@@ -22,10 +22,10 @@ kotlin {
 
     sourceSets {
         commonMain.dependencies {
-            api(projects.miuixUi)
-            api(projects.miuixPreference)
-            implementation(projects.miuixIcons)
-            implementation(projects.miuixNav)
+            api(projects.rmuixUi)
+            api(projects.rmuixPreference)
+            implementation(projects.rmuixIcons)
+            implementation(projects.rmuixNav)
         }
     }
 }

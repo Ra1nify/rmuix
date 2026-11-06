@@ -10,9 +10,9 @@ fixed expanded, and state-controlled layouts.
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.NavigationRail
-import top.yukonga.miuix.kmp.basic.NavigationRailItem
-import top.yukonga.miuix.kmp.basic.rememberNavigationRailState
+import io.github.ra1nify.rmuix.kmp.basic.NavigationRail
+import io.github.ra1nify.rmuix.kmp.basic.NavigationRailItem
+import io.github.ra1nify.rmuix.kmp.basic.rememberNavigationRailState
 ```
 
 ## Basic Usage
@@ -22,7 +22,7 @@ By default, `NavigationRail` uses the collapsed layout:
 ```kotlin
 var selectedIndex by remember { mutableStateOf(0) }
 val items = listOf("Home", "Profile", "Settings")
-val icons = listOf(MiuixIcons.VerticalSplit, MiuixIcons.Contacts, MiuixIcons.Settings)
+val icons = listOf(RmuixIcons.VerticalSplit, RmuixIcons.Contacts, RmuixIcons.Settings)
 
 Row {
     NavigationRail {
@@ -88,7 +88,7 @@ programmatically. Omit both `state` and `expanded` for a fixed collapsed rail.
 | -------------------------- | -------------------------------------- | --------------------------------------------- | --------------------------------- | -------- |
 | modifier                   | Modifier                               | Modifier applied to the rail                  | Modifier                          | No       |
 | header                     | @Composable (ColumnScope.() -> Unit)?  | Header content (e.g. FAB or Logo)             | null                              | No       |
-| color                      | Color                                  | Background color of the rail                  | MiuixTheme.colorScheme.surface    | No       |
+| color                      | Color                                  | Background color of the rail                  | RmuixTheme.colorScheme.surface    | No       |
 | showDivider                | Boolean                                | Show divider line between rail and content    | true                              | No       |
 | defaultWindowInsetsPadding | Boolean                                | Apply default window insets padding           | true                              | No       |
 | minWidth                   | Dp                                     | Minimum (collapsed) width of the rail         | NavigationRailDefaults.MinWidth   | No       |

@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -16,17 +16,17 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.FloatingToolbar
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.IconButton
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.ToolbarPosition
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Delete
-import top.yukonga.miuix.kmp.icon.extended.Edit
-import top.yukonga.miuix.kmp.preference.ArrowPreference
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.FloatingToolbar
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.IconButton
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.ToolbarPosition
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Delete
+import io.github.ra1nify.rmuix.kmp.icon.extended.Edit
+import io.github.ra1nify.rmuix.kmp.preference.ArrowPreference
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 @Composable
 fun FloatingToolbarDemo() {
@@ -60,16 +60,16 @@ fun FloatingToolbarDemo() {
                                     // or Column
                                     IconButton(onClick = { /* Action 1 */ }) {
                                         Icon(
-                                            imageVector = MiuixIcons.Edit,
+                                            imageVector = RmuixIcons.Edit,
                                             contentDescription = "Edit",
-                                            tint = MiuixTheme.colorScheme.onBackground,
+                                            tint = RmuixTheme.colorScheme.onBackground,
                                         )
                                     }
                                     IconButton(onClick = { /* Action 2 */ }) {
                                         Icon(
-                                            imageVector = MiuixIcons.Delete,
+                                            imageVector = RmuixIcons.Delete,
                                             contentDescription = "Delete",
-                                            tint = MiuixTheme.colorScheme.onBackground,
+                                            tint = RmuixTheme.colorScheme.onBackground,
                                         )
                                     }
                                 }
@@ -100,16 +100,16 @@ fun FloatingToolbarDemo() {
                                     // or Column
                                     IconButton(onClick = { /* Action 1 */ }) {
                                         Icon(
-                                            imageVector = MiuixIcons.Edit,
+                                            imageVector = RmuixIcons.Edit,
                                             contentDescription = "Edit",
-                                            tint = MiuixTheme.colorScheme.onBackground,
+                                            tint = RmuixTheme.colorScheme.onBackground,
                                         )
                                     }
                                     IconButton(onClick = { /* Action 2 */ }) {
                                         Icon(
-                                            imageVector = MiuixIcons.Delete,
+                                            imageVector = RmuixIcons.Delete,
                                             contentDescription = "Delete",
-                                            tint = MiuixTheme.colorScheme.onBackground,
+                                            tint = RmuixTheme.colorScheme.onBackground,
                                         )
                                     }
                                 }

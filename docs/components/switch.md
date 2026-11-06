@@ -1,6 +1,6 @@
 # Switch
 
-`Switch` is a basic toggle component in Miuix used to switch between two states. It provides an interactive switch control with animation effects, suitable for enabling and disabling settings.
+`Switch` is a basic toggle component in Rmuix used to switch between two states. It provides an interactive switch control with animation effects, suitable for enabling and disabling settings.
 
 <div style="position: relative; height: 100px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=switch" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Switch
+import io.github.ra1nify.rmuix.kmp.basic.Switch
 ```
 
 ## Basic Usage
@@ -53,7 +53,20 @@ Switch(
 
 ### SwitchDefaults Object
 
-The SwitchDefaults object provides default color configurations for the Switch component.
+The SwitchDefaults object provides the geometry tokens and default color configurations for the Switch.
+
+#### Properties
+
+| Property Name         | Type | Description                                    | Value  |
+| --------------------- | ---- | ---------------------------------------------- | ------ |
+| Width                 | Dp   | Track width                                    | 44.dp  |
+| Height                | Dp   | Track height                                   | 24.dp  |
+| ThumbSize             | Dp   | Thumb diameter                                 | 18.dp  |
+| ThumbPadding          | Dp   | Inset between thumb and track edge             | 3.dp   |
+| Travel                | Dp   | Thumb travel, `Width - ThumbPadding * 2 - ThumbSize` | 20.dp |
+| ThumbOffsetUnchecked  | Dp   | Resting thumb x when off                       | 3.dp   |
+| ThumbOffsetChecked    | Dp   | Resting thumb x when on                        | 23.dp  |
+| thumbShadow           | Shadow | Thumb drop shadow, applied only while enabled | -      |
 
 #### Methods
 

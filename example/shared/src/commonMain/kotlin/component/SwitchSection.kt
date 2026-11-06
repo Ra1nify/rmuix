@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -17,12 +17,12 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.Switch
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.preference.SwitchPreference
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.SmallTitle
+import io.github.ra1nify.rmuix.kmp.basic.Switch
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.preference.SwitchPreference
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 fun LazyListScope.switchSection() {
     item(key = "switch") {
@@ -86,7 +86,7 @@ fun LazyListScope.switchSection() {
                     endActions = {
                         Text(
                             text = superSwitch.value,
-                            color = MiuixTheme.colorScheme.onSurfaceVariantActions,
+                            color = RmuixTheme.colorScheme.onSurfaceVariantActions,
                         )
                     },
                     onCheckedChange = {

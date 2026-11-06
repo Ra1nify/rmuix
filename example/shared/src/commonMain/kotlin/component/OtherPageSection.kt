@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -8,10 +8,10 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.SmallTitle
+import io.github.ra1nify.rmuix.kmp.preference.ArrowPreference
 import navigation.Route
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.preference.ArrowPreference
 import kotlin.random.Random
 
 fun LazyListScope.otherPageSection() {

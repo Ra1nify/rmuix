@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -25,18 +25,18 @@ import androidx.compose.ui.platform.LocalWindowInfo
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.ButtonDefaults
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.basic.TextButton
-import top.yukonga.miuix.kmp.basic.VerticalDivider
-import top.yukonga.miuix.kmp.layout.DialogDefaults
-import top.yukonga.miuix.kmp.overlay.OverlayDialog
-import top.yukonga.miuix.kmp.preference.ArrowPreference
-import top.yukonga.miuix.kmp.theme.LocalDismissState
-import top.yukonga.miuix.kmp.theme.MiuixTheme
-import top.yukonga.miuix.kmp.window.WindowDialog
+import io.github.ra1nify.rmuix.kmp.basic.ButtonDefaults
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.SmallTitle
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.TextButton
+import io.github.ra1nify.rmuix.kmp.basic.VerticalDivider
+import io.github.ra1nify.rmuix.kmp.layout.DialogDefaults
+import io.github.ra1nify.rmuix.kmp.overlay.OverlayDialog
+import io.github.ra1nify.rmuix.kmp.preference.ArrowPreference
+import io.github.ra1nify.rmuix.kmp.theme.LocalDismissState
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
+import io.github.ra1nify.rmuix.kmp.window.WindowDialog
 
 fun LazyListScope.dialogSection() {
     item(key = "dialog") {
@@ -141,7 +141,7 @@ private fun OverlayDialogDemo(
     OverlayDialog(
         show = show,
         title = "Dialog (O)",
-        summary = "A dialog component inside MiuixPopupHost.",
+        summary = "A dialog component inside RmuixPopupHost.",
         onDismissRequest = onDismissRequest,
         onDismissFinished = onDismissFinished,
         content = {
@@ -174,7 +174,7 @@ private fun WindowDialogDemo(
     WindowDialog(
         show = show,
         title = "Dialog (W)",
-        summary = "A window-level dialog, no MiuixPopupHost required.",
+        summary = "A window-level dialog, no RmuixPopupHost required.",
         onDismissRequest = onDismissRequest,
         onDismissFinished = onDismissFinished,
         content = {
@@ -299,8 +299,8 @@ private fun WideDialogContent(
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     text = "Wide Dialog",
-                    style = MiuixTheme.textStyles.title4,
-                    color = MiuixTheme.colorScheme.onBackground,
+                    style = RmuixTheme.textStyles.title4,
+                    color = RmuixTheme.colorScheme.onBackground,
                     fontWeight = FontWeight.Medium,
                     textAlign = TextAlign.Center,
                 )
@@ -308,8 +308,8 @@ private fun WideDialogContent(
                 Text(
                     modifier = Modifier.fillMaxWidth(),
                     text = "Rotate to landscape to see the effect.",
-                    style = MiuixTheme.textStyles.body1,
-                    color = MiuixTheme.colorScheme.onSurfaceSecondary,
+                    style = RmuixTheme.textStyles.body1,
+                    color = RmuixTheme.colorScheme.onSurfaceSecondary,
                     textAlign = TextAlign.Center,
                 )
             }

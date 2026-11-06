@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
@@ -48,32 +48,32 @@ import androidx.compose.ui.unit.sp
 import component.BackNavigationIcon
 import component.blend.ColorBlendToken
 import component.effect.BgEffectBackground
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.CardDefaults
+import io.github.ra1nify.rmuix.kmp.basic.RmuixScrollBehavior
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.ScrollBehavior
+import io.github.ra1nify.rmuix.kmp.basic.SmallTopAppBar
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.VerticalScrollBar
+import io.github.ra1nify.rmuix.kmp.basic.rememberScrollBarAdapter
+import io.github.ra1nify.rmuix.kmp.blur.BlendColorEntry
+import io.github.ra1nify.rmuix.kmp.blur.BlurBlendMode
+import io.github.ra1nify.rmuix.kmp.blur.BlurDefaults
+import io.github.ra1nify.rmuix.kmp.blur.isRuntimeShaderSupported
+import io.github.ra1nify.rmuix.kmp.blur.layerBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.textureBlur
+import io.github.ra1nify.rmuix.kmp.interfaces.ExperimentalScrollBarApi
+import io.github.ra1nify.rmuix.kmp.overlay.OverlayBottomSheet
+import io.github.ra1nify.rmuix.kmp.preference.ArrowPreference
+import io.github.ra1nify.rmuix.kmp.preference.OverlayDropdownPreference
+import io.github.ra1nify.rmuix.kmp.preference.SwitchPreference
+import io.github.ra1nify.rmuix.kmp.shared.generated.resources.Res
+import io.github.ra1nify.rmuix.kmp.shared.generated.resources.ic_launcher
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 import misc.VersionInfo
 import navigation.Route
 import org.jetbrains.compose.resources.painterResource
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.CardDefaults
-import top.yukonga.miuix.kmp.basic.MiuixScrollBehavior
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.ScrollBehavior
-import top.yukonga.miuix.kmp.basic.SmallTopAppBar
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.basic.VerticalScrollBar
-import top.yukonga.miuix.kmp.basic.rememberScrollBarAdapter
-import top.yukonga.miuix.kmp.blur.BlendColorEntry
-import top.yukonga.miuix.kmp.blur.BlurBlendMode
-import top.yukonga.miuix.kmp.blur.BlurDefaults
-import top.yukonga.miuix.kmp.blur.isRuntimeShaderSupported
-import top.yukonga.miuix.kmp.blur.layerBackdrop
-import top.yukonga.miuix.kmp.blur.textureBlur
-import top.yukonga.miuix.kmp.interfaces.ExperimentalScrollBarApi
-import top.yukonga.miuix.kmp.overlay.OverlayBottomSheet
-import top.yukonga.miuix.kmp.preference.ArrowPreference
-import top.yukonga.miuix.kmp.preference.OverlayDropdownPreference
-import top.yukonga.miuix.kmp.preference.SwitchPreference
-import top.yukonga.miuix.kmp.shared.generated.resources.Res
-import top.yukonga.miuix.kmp.shared.generated.resources.ic_launcher
-import top.yukonga.miuix.kmp.theme.MiuixTheme
 import ui.isInDarkTheme
 import utils.BlurredBar
 import utils.pageContentPadding
@@ -85,7 +85,7 @@ import androidx.compose.ui.graphics.BlendMode as ComposeBlendMode
 fun AboutPage(
     padding: PaddingValues,
 ) {
-    val topAppBarScrollBehavior = MiuixScrollBehavior()
+    val topAppBarScrollBehavior = RmuixScrollBehavior()
     val navigator = LocalNavigator.current
     val lazyListState = rememberLazyListState()
 
@@ -117,9 +117,9 @@ fun AboutPage(
             val barColor = if (blurActive) {
                 Color.Transparent
             } else {
-                if (collapsed) MiuixTheme.colorScheme.surface else Color.Transparent
+                if (collapsed) RmuixTheme.colorScheme.surface else Color.Transparent
             }
-            val titleColor = MiuixTheme.colorScheme.onSurface.copy(
+            val titleColor = RmuixTheme.colorScheme.onSurface.copy(
                 alpha = ((scrollProgress - 0.35f) / 0.65f).coerceIn(0f, 1f),
             )
             BlurredBar(backdrop, blurActive) {
@@ -278,8 +278,8 @@ private fun AboutContent(
                             Modifier
                         },
                     ),
-                text = "Miuix for Compose",
-                color = MiuixTheme.colorScheme.onBackground,
+                text = "Rmuix for Compose",
+                color = RmuixTheme.colorScheme.onBackground,
                 fontWeight = FontWeight.Bold,
                 fontSize = 35.sp,
             )
@@ -291,7 +291,7 @@ private fun AboutContent(
                         scaleX = 1 - (versionCodeProgress * 0.05f)
                         scaleY = 1 - (versionCodeProgress * 0.05f)
                     },
-                color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
+                color = RmuixTheme.colorScheme.onSurfaceVariantSummary,
                 text = "v" + VersionInfo.VERSION_NAME + " (" + VersionInfo.VERSION_CODE + ")",
                 fontSize = 14.sp,
                 textAlign = TextAlign.Center,
@@ -358,7 +358,7 @@ private fun AboutContent(
                                     },
                                 ),
                             colors = CardDefaults.defaultColors(
-                                if (backdrop != null) Color.Transparent else MiuixTheme.colorScheme.surfaceContainer,
+                                if (backdrop != null) Color.Transparent else RmuixTheme.colorScheme.surfaceContainer,
                                 Color.Transparent,
                             ),
                         ) {
@@ -367,19 +367,19 @@ private fun AboutContent(
                                 endActions = {
                                     Text(
                                         text = "GitHub",
-                                        fontSize = MiuixTheme.textStyles.body2.fontSize,
-                                        color = MiuixTheme.colorScheme.onSurfaceVariantActions,
+                                        fontSize = RmuixTheme.textStyles.body2.fontSize,
+                                        color = RmuixTheme.colorScheme.onSurfaceVariantActions,
                                     )
                                 },
-                                onClick = { uriHandler.openUri("https://github.com/compose-miuix-ui/miuix") },
+                                onClick = { uriHandler.openUri("https://github.com/compose-rmuix-ui/rmuix") },
                             )
                             ArrowPreference(
                                 title = "Join Group",
                                 endActions = {
                                     Text(
                                         text = "Telegram",
-                                        fontSize = MiuixTheme.textStyles.body2.fontSize,
-                                        color = MiuixTheme.colorScheme.onSurfaceVariantActions,
+                                        fontSize = RmuixTheme.textStyles.body2.fontSize,
+                                        color = RmuixTheme.colorScheme.onSurfaceVariantActions,
                                     )
                                 },
                                 onClick = { uriHandler.openUri("https://t.me/YuKongA13579") },
@@ -409,7 +409,7 @@ private fun AboutContent(
                                     },
                                 ),
                             colors = CardDefaults.defaultColors(
-                                if (backdrop != null) Color.Transparent else MiuixTheme.colorScheme.surfaceContainer,
+                                if (backdrop != null) Color.Transparent else RmuixTheme.colorScheme.surfaceContainer,
                                 Color.Transparent,
                             ),
                         ) {
@@ -418,8 +418,8 @@ private fun AboutContent(
                                 endActions = {
                                     Text(
                                         text = "Apache-2.0",
-                                        fontSize = MiuixTheme.textStyles.body2.fontSize,
-                                        color = MiuixTheme.colorScheme.onSurfaceVariantActions,
+                                        fontSize = RmuixTheme.textStyles.body2.fontSize,
+                                        color = RmuixTheme.colorScheme.onSurfaceVariantActions,
                                     )
                                 },
                                 onClick = {
@@ -487,7 +487,7 @@ private fun AboutContent(
 private fun ValueText(text: String) {
     Text(
         text = text,
-        fontSize = MiuixTheme.textStyles.body2.fontSize,
-        color = MiuixTheme.colorScheme.onSurfaceVariantActions,
+        fontSize = RmuixTheme.textStyles.body2.fontSize,
+        color = RmuixTheme.colorScheme.onSurfaceVariantActions,
     )
 }

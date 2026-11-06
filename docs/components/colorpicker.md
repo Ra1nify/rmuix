@@ -1,6 +1,6 @@
 # ColorPicker
 
-`ColorPicker` is a color selection component in Miuix that allows users to pick colors by adjusting
+`ColorPicker` is a color selection component in Rmuix that allows users to pick colors by adjusting
 hue, saturation, brightness, and transparency. The component provides an intuitive slider interface
 with haptic feedback and real-time color preview.
 
@@ -11,7 +11,7 @@ with haptic feedback and real-time color preview.
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.ColorPicker
+import io.github.ra1nify.rmuix.kmp.basic.ColorPicker
 ```
 
 ## Basic Usage
@@ -192,7 +192,7 @@ Surface {
     ) {
         Text(
             text = "Select Color",
-            style = MiuixTheme.textStyles.title2
+            style = RmuixTheme.textStyles.title2
         )
         Spacer(modifier = Modifier.height(16.dp))
         ColorPicker(

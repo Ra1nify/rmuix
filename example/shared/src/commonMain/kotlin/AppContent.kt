@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.animation.AnimatedContent
@@ -63,6 +63,61 @@ import androidx.navigationevent.NavigationEventInfo
 import androidx.navigationevent.compose.NavigationBackHandler
 import androidx.navigationevent.compose.rememberNavigationEventState
 import component.liquid.IosLiquidGlassNavigationBar
+import io.github.ra1nify.rmuix.kmp.basic.Badge
+import io.github.ra1nify.rmuix.kmp.basic.FabPosition
+import io.github.ra1nify.rmuix.kmp.basic.FloatingAccessoryButton
+import io.github.ra1nify.rmuix.kmp.basic.FloatingActionButton
+import io.github.ra1nify.rmuix.kmp.basic.FloatingNavigationBar
+import io.github.ra1nify.rmuix.kmp.basic.FloatingNavigationBarItem
+import io.github.ra1nify.rmuix.kmp.basic.FloatingNavigationBarStyle
+import io.github.ra1nify.rmuix.kmp.basic.FloatingToolbar
+import io.github.ra1nify.rmuix.kmp.basic.FloatingToolbarDefaults
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.IconButton
+import io.github.ra1nify.rmuix.kmp.basic.NavigationBar
+import io.github.ra1nify.rmuix.kmp.basic.NavigationBarDisplayMode
+import io.github.ra1nify.rmuix.kmp.basic.NavigationBarItem
+import io.github.ra1nify.rmuix.kmp.basic.NavigationItem
+import io.github.ra1nify.rmuix.kmp.basic.NavigationRail
+import io.github.ra1nify.rmuix.kmp.basic.NavigationRailItem
+import io.github.ra1nify.rmuix.kmp.basic.NavigationRailValue
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.SnackbarHost
+import io.github.ra1nify.rmuix.kmp.basic.SnackbarHostState
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.ToolbarPosition
+import io.github.ra1nify.rmuix.kmp.basic.rememberNavigationRailState
+import io.github.ra1nify.rmuix.kmp.blur.BlendColorEntry
+import io.github.ra1nify.rmuix.kmp.blur.BlurDefaults
+import io.github.ra1nify.rmuix.kmp.blur.LayerBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.highlight.Highlight
+import io.github.ra1nify.rmuix.kmp.blur.layerBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.rememberLayerBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.textureBlur
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Create
+import io.github.ra1nify.rmuix.kmp.icon.extended.Delete
+import io.github.ra1nify.rmuix.kmp.icon.extended.Edit
+import io.github.ra1nify.rmuix.kmp.icon.extended.Home
+import io.github.ra1nify.rmuix.kmp.icon.extended.Image
+import io.github.ra1nify.rmuix.kmp.icon.extended.Link
+import io.github.ra1nify.rmuix.kmp.icon.extended.More
+import io.github.ra1nify.rmuix.kmp.icon.extended.Settings
+import io.github.ra1nify.rmuix.kmp.nav.core.NavBackStack
+import io.github.ra1nify.rmuix.kmp.nav.core.NavCornerClipMode
+import io.github.ra1nify.rmuix.kmp.nav.core.NavDisplay
+import io.github.ra1nify.rmuix.kmp.nav.core.NavDisplayEffects
+import io.github.ra1nify.rmuix.kmp.nav.core.rememberNavBackStack
+import io.github.ra1nify.rmuix.kmp.nav.core.rememberNavSystemCornerRadius
+import io.github.ra1nify.rmuix.kmp.nav.transition.NavSwipeDirection
+import io.github.ra1nify.rmuix.kmp.nav.transition.NavTransition
+import io.github.ra1nify.rmuix.kmp.nav.transition.NavTransitions
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
+import io.github.ra1nify.rmuix.kmp.utils.PagerGestureNestedScrollConnection
+import io.github.ra1nify.rmuix.kmp.utils.PagerInterceptionMode
+import io.github.ra1nify.rmuix.kmp.utils.PagerNavigationSpringSpec
+import io.github.ra1nify.rmuix.kmp.utils.pagerGestureOverride
+import io.github.ra1nify.rmuix.kmp.utils.springAnimateToPage
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.job
@@ -70,59 +125,6 @@ import kotlinx.coroutines.launch
 import navigation.CrossActivityTransition
 import navigation.Navigator
 import navigation.Route
-import top.yukonga.miuix.kmp.basic.Badge
-import top.yukonga.miuix.kmp.basic.FabPosition
-import top.yukonga.miuix.kmp.basic.FloatingActionButton
-import top.yukonga.miuix.kmp.basic.FloatingNavigationBar
-import top.yukonga.miuix.kmp.basic.FloatingNavigationBarItem
-import top.yukonga.miuix.kmp.basic.FloatingToolbar
-import top.yukonga.miuix.kmp.basic.FloatingToolbarDefaults
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.IconButton
-import top.yukonga.miuix.kmp.basic.NavigationBar
-import top.yukonga.miuix.kmp.basic.NavigationBarDisplayMode
-import top.yukonga.miuix.kmp.basic.NavigationBarItem
-import top.yukonga.miuix.kmp.basic.NavigationItem
-import top.yukonga.miuix.kmp.basic.NavigationRail
-import top.yukonga.miuix.kmp.basic.NavigationRailItem
-import top.yukonga.miuix.kmp.basic.NavigationRailValue
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.SnackbarHost
-import top.yukonga.miuix.kmp.basic.SnackbarHostState
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.basic.ToolbarPosition
-import top.yukonga.miuix.kmp.basic.rememberNavigationRailState
-import top.yukonga.miuix.kmp.blur.BlendColorEntry
-import top.yukonga.miuix.kmp.blur.BlurDefaults
-import top.yukonga.miuix.kmp.blur.LayerBackdrop
-import top.yukonga.miuix.kmp.blur.highlight.Highlight
-import top.yukonga.miuix.kmp.blur.layerBackdrop
-import top.yukonga.miuix.kmp.blur.rememberLayerBackdrop
-import top.yukonga.miuix.kmp.blur.textureBlur
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Create
-import top.yukonga.miuix.kmp.icon.extended.Delete
-import top.yukonga.miuix.kmp.icon.extended.Edit
-import top.yukonga.miuix.kmp.icon.extended.Home
-import top.yukonga.miuix.kmp.icon.extended.Image
-import top.yukonga.miuix.kmp.icon.extended.Link
-import top.yukonga.miuix.kmp.icon.extended.More
-import top.yukonga.miuix.kmp.icon.extended.Settings
-import top.yukonga.miuix.kmp.nav.core.NavBackStack
-import top.yukonga.miuix.kmp.nav.core.NavCornerClipMode
-import top.yukonga.miuix.kmp.nav.core.NavDisplay
-import top.yukonga.miuix.kmp.nav.core.NavDisplayEffects
-import top.yukonga.miuix.kmp.nav.core.rememberNavBackStack
-import top.yukonga.miuix.kmp.nav.core.rememberNavSystemCornerRadius
-import top.yukonga.miuix.kmp.nav.transition.NavSwipeDirection
-import top.yukonga.miuix.kmp.nav.transition.NavTransition
-import top.yukonga.miuix.kmp.nav.transition.NavTransitions
-import top.yukonga.miuix.kmp.theme.MiuixTheme
-import top.yukonga.miuix.kmp.utils.PagerGestureNestedScrollConnection
-import top.yukonga.miuix.kmp.utils.PagerInterceptionMode
-import top.yukonga.miuix.kmp.utils.PagerNavigationSpringSpec
-import top.yukonga.miuix.kmp.utils.pagerGestureOverride
-import top.yukonga.miuix.kmp.utils.springAnimateToPage
 import ui.isInDarkTheme
 import utils.FPSMonitor
 import utils.shouldExpandNavigationRail
@@ -134,7 +136,7 @@ private object UIConstants {
     const val COLOR_PAGE_INDEX = 2
     const val TEXT_STYLE_PAGE_INDEX = 3
     const val PAGE_COUNT = 5
-    const val GITHUB_URL = "https://github.com/compose-miuix-ui/miuix"
+    const val GITHUB_URL = "https://github.com/compose-rmuix-ui/rmuix"
 
     val PAGE_TITLES = listOf("Home", "Icon", "Color", "TextStyle", "Settings")
 }
@@ -166,20 +168,20 @@ fun AppContent(
         mainPagerState.syncPage()
     }
 
-    // miuix-nav back stack. The explicit <Route> supertype is required: a bare
+    // rmuix-nav back stack. The explicit <Route> supertype is required: a bare
     // rememberNavBackStack(Route.Main) would infer T = the Route.Main singleton type and fail to
-    // encode the whole sealed hierarchy for save/restore. miuix-nav is reflection-free, so no
+    // encode the whole sealed hierarchy for save/restore. rmuix-nav is reflection-free, so no
     // SerializersModule / SavedStateConfiguration is needed for the @Serializable sealed Route.
     val backStack = rememberNavBackStack<Route>(Route.Main)
     val navigator = remember { Navigator(backStack) }
 
     val navigationItems = remember {
         listOf(
-            NavigationItem(UIConstants.PAGE_TITLES[0], MiuixIcons.Home),
-            NavigationItem(UIConstants.PAGE_TITLES[1], MiuixIcons.Create),
-            NavigationItem(UIConstants.PAGE_TITLES[2], MiuixIcons.Image),
-            NavigationItem(UIConstants.PAGE_TITLES[3], MiuixIcons.Edit),
-            NavigationItem(UIConstants.PAGE_TITLES[4], MiuixIcons.Settings),
+            NavigationItem(UIConstants.PAGE_TITLES[0], RmuixIcons.Home),
+            NavigationItem(UIConstants.PAGE_TITLES[1], RmuixIcons.Create),
+            NavigationItem(UIConstants.PAGE_TITLES[2], RmuixIcons.Image),
+            NavigationItem(UIConstants.PAGE_TITLES[3], RmuixIcons.Edit),
+            NavigationItem(UIConstants.PAGE_TITLES[4], RmuixIcons.Settings),
         )
     }
 
@@ -196,7 +198,7 @@ fun AppContent(
         // Desktop/Web). The two-pane layout animates inside a mid-screen pane, so no screen corner.
         val navCornerRadius = if (isWideScreen) 0.dp else rememberNavSystemCornerRadius()
         val isCrossActivityStyle = appState.navTransitionStyle == 1
-        val backdropColor = MiuixTheme.colorScheme.surface
+        val backdropColor = RmuixTheme.colorScheme.surface
         val isDarkTheme = isInDarkTheme()
         val effects = remember(
             appState.enableCornerClip,
@@ -231,7 +233,7 @@ fun AppContent(
             )
         }
 
-        // Swipe-to-dismiss is opt-in in miuix-nav and off by default; the example gates it behind a
+        // Swipe-to-dismiss is opt-in in rmuix-nav and off by default; the example gates it behind a
         // setting. Directions are physical (not mirrored), so pick per layout direction: rightward
         // back-swipe under LTR, leftward under RTL.
         val swipeBackDirection = when {
@@ -244,7 +246,7 @@ fun AppContent(
         // latter is a fully custom transition defined in this app (navigation/CrossActivityTransition.kt)
         // on the public API, not a library preset. Both are top-level singletons, so the
         // expression itself is stable across recompositions.
-        val navTransition = if (isCrossActivityStyle) CrossActivityTransition else NavTransitions.MiuixDefault
+        val navTransition = if (isCrossActivityStyle) CrossActivityTransition else NavTransitions.RmuixDefault
 
         // Keep NavDisplay at one composition location while adaptive chrome changes around it.
         // Otherwise switching between the compact and wide branches recreates the current route.
@@ -470,7 +472,7 @@ private fun CompactScreenLayout(
     mainPagerState: MainPagerState,
     pagerContent: @Composable (PaddingValues, Modifier) -> Unit,
 ) {
-    val surfaceColor = MiuixTheme.colorScheme.surface
+    val surfaceColor = RmuixTheme.colorScheme.surface
     val appState = LocalAppState.current
     val backdrop = rememberLayerBackdrop {
         drawRect(surfaceColor)
@@ -525,7 +527,7 @@ private fun NavigationBar(
 ) {
     val appState = LocalAppState.current
     val blurActive = appState.enableBlur && backdrop != null
-    val barColor = if (blurActive) Color.Transparent else MiuixTheme.colorScheme.surface
+    val barColor = if (blurActive) Color.Transparent else RmuixTheme.colorScheme.surface
     val page = mainPagerState.selectedPage
 
     AnimatedVisibility(
@@ -548,7 +550,7 @@ private fun NavigationBar(
                                 blurRadius = 25f,
                                 colors = BlurDefaults.blurColors(
                                     blendColors = listOf(
-                                        BlendColorEntry(color = MiuixTheme.colorScheme.surface.copy(0.8f)),
+                                        BlendColorEntry(color = RmuixTheme.colorScheme.surface.copy(0.8f)),
                                     ),
                                 ),
                             )
@@ -582,14 +584,14 @@ private fun NavigationBar(
             }
         }
         if (appState.useFloatingNavigationBar) {
-            val floatingBarColor = if (blurActive) Color.Transparent else MiuixTheme.colorScheme.surfaceContainer
+            val floatingBarColor = if (blurActive) Color.Transparent else RmuixTheme.colorScheme.surfaceContainer
             val floatingBarShape = RoundedCornerShape(FloatingToolbarDefaults.CornerRadius)
             val isDark = isInDarkTheme()
             val floatingHighlight = remember(isDark) {
                 if (isDark) Highlight.GlassStrokeMiddleDark else Highlight.GlassStrokeMiddleLight
             }
             Box(modifier = modifier) {
-                if (appState.floatingNavigationBarStyle == 1) {
+                if (appState.floatingNavigationBarStyle == 2) {
                     IosLiquidGlassNavigationBar(
                         items = navigationItems,
                         selectedIndex = page,
@@ -599,7 +601,38 @@ private fun NavigationBar(
                         badge = { navigationItemBadge(it, appState.showNavigationBarBadge) },
                     )
                 } else {
+                    val style = if (appState.floatingNavigationBarStyle == 1) {
+                        FloatingNavigationBarStyle.Default
+                    } else {
+                        FloatingNavigationBarStyle.ColorOS
+                    }
+                    val showStart = appState.floatingNavigationBarIslandMode == 1 || appState.floatingNavigationBarIslandMode == 3
+                    val showEnd = appState.floatingNavigationBarIslandMode == 2 || appState.floatingNavigationBarIslandMode == 3
+
                     FloatingNavigationBar(
+                        style = style,
+                        startAccessory = if (showStart) {
+                            {
+                                FloatingAccessoryButton(
+                                    onClick = {},
+                                    label = "Featured",
+                                )
+                            }
+                        } else {
+                            null
+                        },
+                        endAccessory = if (showEnd) {
+                            {
+                                FloatingAccessoryButton(
+                                    onClick = {},
+                                    icon = RmuixIcons.More,
+                                )
+                            }
+                        } else {
+                            null
+                        },
+                        startAccessoryVisible = appState.showSatelliteAccessories,
+                        endAccessoryVisible = appState.showSatelliteAccessories,
                         modifier = if (blurActive) {
                             Modifier.textureBlur(
                                 backdrop = backdrop,
@@ -607,7 +640,7 @@ private fun NavigationBar(
                                 blurRadius = 25f,
                                 colors = BlurDefaults.blurColors(
                                     blendColors = listOf(
-                                        BlendColorEntry(color = MiuixTheme.colorScheme.surfaceContainer.copy(0.6f)),
+                                        BlendColorEntry(color = RmuixTheme.colorScheme.surfaceContainer.copy(0.6f)),
                                     ),
                                 ),
                                 highlight = floatingHighlight,
@@ -647,8 +680,8 @@ private fun FloatingActionButton(
             },
         ) {
             Icon(
-                imageVector = MiuixIcons.Link,
-                tint = MiuixTheme.colorScheme.onPrimary,
+                imageVector = RmuixIcons.Link,
+                tint = RmuixTheme.colorScheme.onPrimary,
                 contentDescription = "GitHub",
             )
         }
@@ -666,31 +699,31 @@ private fun FloatingToolbar(
         exit = fadeOut(),
     ) {
         FloatingToolbar(
-            color = MiuixTheme.colorScheme.primary,
+            color = RmuixTheme.colorScheme.primary,
             cornerRadius = 20.dp,
         ) {
             AnimatedContent(
                 targetState = floatingToolbarOrientation,
             ) { orientation ->
-                val iconTint = MiuixTheme.colorScheme.onPrimary
+                val iconTint = RmuixTheme.colorScheme.onPrimary
                 val content = @Composable {
                     IconButton(onClick = { /* Action 1 */ }) {
                         Icon(
-                            MiuixIcons.Edit,
+                            RmuixIcons.Edit,
                             contentDescription = "Edit",
                             tint = iconTint,
                         )
                     }
                     IconButton(onClick = { /* Action 2 */ }) {
                         Icon(
-                            MiuixIcons.Delete,
+                            RmuixIcons.Delete,
                             contentDescription = "Delete",
                             tint = iconTint,
                         )
                     }
                     IconButton(onClick = { /* Action 3 */ }) {
                         Icon(
-                            MiuixIcons.More,
+                            RmuixIcons.More,
                             contentDescription = "More",
                             tint = iconTint,
                         )

@@ -1,13 +1,13 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package navigation
 
+import io.github.ra1nify.rmuix.kmp.nav.core.NavKey
 import kotlinx.serialization.Serializable
-import top.yukonga.miuix.kmp.nav.core.NavKey
 
 /**
- * Type-safe navigation keys for the app, backed by miuix-nav.
+ * Type-safe navigation keys for the app, backed by rmuix-nav.
  * Each destination is a NavKey (data object/data class) and can be saved/restored in the back stack.
  */
 @Serializable

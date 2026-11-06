@@ -1,6 +1,6 @@
 # Surface
 
-`Surface` 是 Miuix 中的基础容器组件，用于为应用内容提供一致的背景和边框效果，为界面元素提供统一的视觉基础。支持一些简单的自定义样式。
+`Surface` 是 Rmuix 中的基础容器组件，用于为应用内容提供一致的背景和边框效果，为界面元素提供统一的视觉基础。支持一些简单的自定义样式。
 
 <div style="position: relative; height: 300px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=surface" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Surface
+import io.github.ra1nify.rmuix.kmp.basic.Surface
 ```
 
 ## 基本用法
@@ -21,7 +21,7 @@ Surface(
     modifier = Modifier
         .size(200.dp)
         .padding(16.dp),
-    color = MiuixTheme.colorScheme.background,
+    color = RmuixTheme.colorScheme.background,
     shape = RoundedCornerShape(16.dp),
     shadowElevation = 4.dp
 ) {
@@ -40,8 +40,8 @@ Surface(
 | --------------- | ---------------------- | ---------------------------- | --------------------------------- | -------- |
 | modifier        | Modifier               | 应用于 Surface 的修饰符      | Modifier                          | 否       |
 | shape           | Shape                  | Surface 的形状               | SurfaceDefaults.Shape             | 否       |
-| color           | Color                  | Surface 的背景颜色           | MiuixTheme.colorScheme.surface    | 否       |
-| contentColor    | Color                  | Surface 的内容颜色           | MiuixTheme.colorScheme.onSurface  | 否       |
+| color           | Color                  | Surface 的背景颜色           | RmuixTheme.colorScheme.surface    | 否       |
+| contentColor    | Color                  | Surface 的内容颜色           | RmuixTheme.colorScheme.onSurface  | 否       |
 | border          | BorderStroke?          | Surface 的边框样式           | null                              | 否       |
 | shadowElevation | Dp                     | Surface 的阴影高度           | SurfaceDefaults.ShadowElevation   | 否       |
 | content         | @Composable () -> Unit | Surface 内容区域的可组合函数 | -                                 | 是       |
@@ -77,7 +77,7 @@ Surface(
     onClick = { /* 处理点击事件 */ },
     modifier = Modifier.size(200.dp).padding(16.dp),
     shape = RoundedCornerShape(16.dp),
-    color = MiuixTheme.colorScheme.primaryContainer,
+    color = RmuixTheme.colorScheme.primaryContainer,
     shadowElevation = 4.dp
 ) {
     Box(
@@ -101,8 +101,8 @@ Surface(
 Surface(
     modifier = Modifier.size(200.dp).padding(16.dp),
     shape = CircleShape,
-    color = MiuixTheme.colorScheme.secondaryContainer,
-    border = BorderStroke(2.dp, MiuixTheme.colorScheme.secondary),
+    color = RmuixTheme.colorScheme.secondaryContainer,
+    border = BorderStroke(2.dp, RmuixTheme.colorScheme.secondary),
     shadowElevation = 8.dp
 ) {
     Box(
@@ -126,8 +126,8 @@ Surface(
 Surface(
     modifier = Modifier.fillMaxWidth().padding(16.dp),
     shape = RoundedCornerShape(16.dp),
-    color = MiuixTheme.colorScheme.surface,
-    border = BorderStroke(1.dp, MiuixTheme.colorScheme.outline.copy(alpha = 0.2f)),
+    color = RmuixTheme.colorScheme.surface,
+    border = BorderStroke(1.dp, RmuixTheme.colorScheme.outline.copy(alpha = 0.2f)),
     shadowElevation = 4.dp
 ) {
     Column(
@@ -135,12 +135,12 @@ Surface(
     ) {
         Text(
             text = "卡片标题",
-            style = MiuixTheme.textStyles.headline1
+            style = RmuixTheme.textStyles.headline1
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = "这是卡片内容区域，可以放置各种组件和信息。Surface 组件提供了统一的视觉容器。",
-            style = MiuixTheme.textStyles.body1
+            style = RmuixTheme.textStyles.body1
         )
         Spacer(modifier = Modifier.height(16.dp))
         Button(
@@ -164,7 +164,7 @@ Surface(
     enabled = isEnabled,
     modifier = Modifier.size(200.dp).padding(16.dp),
     shape = RoundedCornerShape(16.dp),
-    color = MiuixTheme.colorScheme.surface.copy(alpha = 0.6f),
+    color = RmuixTheme.colorScheme.surface.copy(alpha = 0.6f),
     shadowElevation = 1.dp
 ) {
     Box(

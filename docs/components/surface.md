@@ -1,6 +1,6 @@
 # Surface
 
-`Surface` is a foundational container component in Miuix, used to provide consistent background and border effects for application content, offering a unified visual foundation for interface elements. It supports simple custom styles.
+`Surface` is a foundational container component in Rmuix, used to provide consistent background and border effects for application content, offering a unified visual foundation for interface elements. It supports simple custom styles.
 
 <div style="position: relative; height: 300px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=surface" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Surface
+import io.github.ra1nify.rmuix.kmp.basic.Surface
 ```
 
 ## Basic Usage
@@ -21,7 +21,7 @@ Surface(
     modifier = Modifier
         .size(200.dp)
         .padding(16.dp),
-    color = MiuixTheme.colorScheme.background,
+    color = RmuixTheme.colorScheme.background,
     shape = RoundedCornerShape(16.dp),
     shadowElevation = 4.dp
 ) {
@@ -40,8 +40,8 @@ Surface(
 | --------------- | ---------------------- | ------------------------------------------------ | --------------------------------- | -------- |
 | modifier        | Modifier               | Modifiers applied to Surface                     | Modifier                          | No       |
 | shape           | Shape                  | Shape of the Surface                             | SurfaceDefaults.Shape             | No       |
-| color           | Color                  | Background color of Surface                      | MiuixTheme.colorScheme.surface    | No       |
-| contentColor    | Color                  | Content color of Surface                         | MiuixTheme.colorScheme.onSurface  | No       |
+| color           | Color                  | Background color of Surface                      | RmuixTheme.colorScheme.surface    | No       |
+| contentColor    | Color                  | Content color of Surface                         | RmuixTheme.colorScheme.onSurface  | No       |
 | border          | BorderStroke?          | Border style of Surface                          | null                              | No       |
 | shadowElevation | Dp                     | Shadow elevation of Surface                      | SurfaceDefaults.ShadowElevation   | No       |
 | content         | @Composable () -> Unit | Composable function for the Surface content area | -                                 | Yes      |
@@ -77,7 +77,7 @@ Surface(
     onClick = { /* Handle click event */ },
     modifier = Modifier.size(200.dp).padding(16.dp),
     shape = RoundedCornerShape(16.dp),
-    color = MiuixTheme.colorScheme.primaryContainer,
+    color = RmuixTheme.colorScheme.primaryContainer,
     shadowElevation = 4.dp
 ) {
     Box(
@@ -101,8 +101,8 @@ Create custom styles with different shapes, colors, and borders:
 Surface(
     modifier = Modifier.size(200.dp).padding(16.dp),
     shape = CircleShape,
-    color = MiuixTheme.colorScheme.secondaryContainer,
-    border = BorderStroke(2.dp, MiuixTheme.colorScheme.secondary),
+    color = RmuixTheme.colorScheme.secondaryContainer,
+    border = BorderStroke(2.dp, RmuixTheme.colorScheme.secondary),
     shadowElevation = 8.dp
 ) {
     Box(
@@ -126,8 +126,8 @@ Combine Surface with other components to create card-like layouts:
 Surface(
     modifier = Modifier.fillMaxWidth().padding(16.dp),
     shape = RoundedCornerShape(16.dp),
-    color = MiuixTheme.colorScheme.surface,
-    border = BorderStroke(1.dp, MiuixTheme.colorScheme.outline.copy(alpha = 0.2f)),
+    color = RmuixTheme.colorScheme.surface,
+    border = BorderStroke(1.dp, RmuixTheme.colorScheme.outline.copy(alpha = 0.2f)),
     shadowElevation = 4.dp
 ) {
     Column(
@@ -135,12 +135,12 @@ Surface(
     ) {
         Text(
             text = "Card Title",
-            style = MiuixTheme.textStyles.headline1
+            style = RmuixTheme.textStyles.headline1
         )
         Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = "This is the card content area, where various components and information can be placed. The Surface component provides a unified visual container.",
-            style = MiuixTheme.textStyles.body1
+            style = RmuixTheme.textStyles.body1
         )
         Spacer(modifier = Modifier.height(16.dp))
         Button(
@@ -164,7 +164,7 @@ Surface(
     enabled = isEnabled,
     modifier = Modifier.size(200.dp).padding(16.dp),
     shape = RoundedCornerShape(16.dp),
-    color = MiuixTheme.colorScheme.surface.copy(alpha = 0.6f),
+    color = RmuixTheme.colorScheme.surface.copy(alpha = 0.6f),
     shadowElevation = 1.dp
 ) {
     Box(

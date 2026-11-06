@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -15,9 +15,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 @Composable
 fun TextDemo() {
@@ -45,32 +45,32 @@ fun TextDemo() {
                 ) {
                     Text(
                         text = "Title Text",
-                        style = MiuixTheme.textStyles.headline1,
+                        style = RmuixTheme.textStyles.headline1,
                         modifier = Modifier.padding(bottom = 16.dp),
                     )
                     Text(
                         text = "Subtitle Text",
-                        style = MiuixTheme.textStyles.subtitle,
+                        style = RmuixTheme.textStyles.subtitle,
                         modifier = Modifier.padding(bottom = 16.dp),
                     )
                     Text(
                         text = "Summary Text",
-                        style = MiuixTheme.textStyles.body2,
+                        style = RmuixTheme.textStyles.body2,
                         modifier = Modifier.padding(bottom = 16.dp),
                     )
                     Text(
                         text = "Main Text",
-                        style = MiuixTheme.textStyles.main,
+                        style = RmuixTheme.textStyles.main,
                         modifier = Modifier.padding(bottom = 16.dp),
                     )
                     Text(
                         text = "Primary Color Text",
-                        color = MiuixTheme.colorScheme.primary,
+                        color = RmuixTheme.colorScheme.primary,
                         modifier = Modifier.padding(bottom = 16.dp),
                     )
                     Text(
                         text = "Secondary Text",
-                        color = MiuixTheme.colorScheme.onSurfaceContainerVariant,
+                        color = RmuixTheme.colorScheme.onSurfaceContainerVariant,
                     )
                 }
                 Card(

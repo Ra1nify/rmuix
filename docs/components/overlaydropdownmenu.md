@@ -2,11 +2,11 @@
 title: OverlayDropdownMenu
 requiresScaffoldHost: true
 prerequisites:
-  - Must be used within `Scaffold` to provide `MiuixPopupHost`
+  - Must be used within `Scaffold` to provide `RmuixPopupHost`
   - Using outside `Scaffold` will cause popup content not to render
   - Multiple nested or side-by-side `Scaffold`s are supported without extra configuration
 hostComponent: Scaffold
-popupHost: MiuixPopupHost
+popupHost: RmuixPopupHost
 ---
 
 # OverlayDropdownMenu
@@ -18,15 +18,15 @@ popupHost: MiuixPopupHost
 </div>
 
 ::: danger Prerequisite
-This component depends on `Scaffold` providing `MiuixPopupHost` to render popup content. It must be used within `Scaffold`, otherwise popup content will not render correctly.
+This component depends on `Scaffold` providing `RmuixPopupHost` to render popup content. It must be used within `Scaffold`, otherwise popup content will not render correctly.
 :::
 
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.menu.OverlayDropdownMenu
-import top.yukonga.miuix.kmp.basic.DropdownEntry
-import top.yukonga.miuix.kmp.basic.DropdownItem
+import io.github.ra1nify.rmuix.kmp.menu.OverlayDropdownMenu
+import io.github.ra1nify.rmuix.kmp.basic.DropdownEntry
+import io.github.ra1nify.rmuix.kmp.basic.DropdownItem
 ```
 
 ## Basic Usage

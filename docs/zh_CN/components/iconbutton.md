@@ -1,6 +1,6 @@
 # IconButton
 
-`IconButton` 是 Miuix 中的图标按钮组件，用于提供辅助操作的交互点。它们通常用于需要紧凑按钮的场景，如工具栏或图片列表中。
+`IconButton` 是 Rmuix 中的图标按钮组件，用于提供辅助操作的交互点。它们通常用于需要紧凑按钮的场景，如工具栏或图片列表中。
 
 <div style="position: relative; height: 160px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=iconButton" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.IconButton
+import io.github.ra1nify.rmuix.kmp.basic.IconButton
 ```
 
 ## 基本用法
@@ -21,7 +21,7 @@ IconButton(
     onClick = { /* 处理点击事件 */ }
 ) {
     Icon(
-        imageVector = MiuixIcons.Favorites,
+        imageVector = RmuixIcons.Favorites,
         contentDescription = "Favorites"
     )
 }
@@ -37,7 +37,7 @@ IconButton(
     enabled = false
 ) {
     Icon(
-        imageVector = MiuixIcons.Favorites,
+        imageVector = RmuixIcons.Favorites,
         contentDescription = "Favorites"
     )
 }
@@ -56,7 +56,7 @@ Scaffold {
         holdDownState = showDialog
     ) {
         Icon(
-            imageVector = MiuixIcons.Favorites,
+            imageVector = RmuixIcons.Favorites,
             contentDescription = "Favorites"
         )
     }
@@ -109,7 +109,7 @@ IconButton(
     backgroundColor = Color.LightGray.copy(alpha = 0.3f)
 ) {
     Icon(
-        imageVector = MiuixIcons.Favorites,
+        imageVector = RmuixIcons.Favorites,
         contentDescription = "Favorites"
     )
 }
@@ -125,7 +125,7 @@ IconButton(
     cornerRadius = 12.dp
 ) {
     Icon(
-        imageVector = MiuixIcons.Favorites,
+        imageVector = RmuixIcons.Favorites,
         contentDescription = "Favorites"
     )
 }
@@ -142,8 +142,8 @@ Surface {
             onClick = { /* 处理点击事件 */ }
         ) {
             Icon(
-                imageVector = MiuixIcons.Add,
-                tint = MiuixTheme.colorScheme.onBackground,
+                imageVector = RmuixIcons.Add,
+                tint = RmuixTheme.colorScheme.onBackground,
                 contentDescription = "添加"
             )
         }
@@ -161,9 +161,9 @@ IconButton(
     onClick = { isLiked = !isLiked }
 ) {
     Icon(
-        imageVector = if (isLiked) MiuixIcons.FavoritesFill else MiuixIcons.Favorites,
+        imageVector = if (isLiked) RmuixIcons.FavoritesFill else RmuixIcons.Favorites,
         contentDescription = if (isLiked) "喜欢" else "不喜欢",
-        tint = if (isLiked) Color.Red else MiuixTheme.colorScheme.onBackground
+        tint = if (isLiked) Color.Red else RmuixTheme.colorScheme.onBackground
     )
 }
 ```

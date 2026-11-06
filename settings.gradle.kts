@@ -1,9 +1,9 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 @file:Suppress("UnstableApiUsage")
 
-rootProject.name = "compose-miuix-ui"
+rootProject.name = "compose-rmuix-ui"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 enableFeaturePreview("NO_IMPLICIT_LOOKUP_IN_PARENT_PROJECTS")
@@ -42,15 +42,15 @@ plugins {
 
 includeBuild("build-logic")
 
-include(":miuix-core")
-include(":miuix-ui")
-include(":miuix-preference")
-include(":miuix-shader")
-include(":miuix-blur")
-include(":miuix-squircle")
-include(":miuix-icons")
-include(":miuix-nav")
-include(":miuix-window")
+include(":rmuix-core")
+include(":rmuix-ui")
+include(":rmuix-preference")
+include(":rmuix-shader")
+include(":rmuix-blur")
+include(":rmuix-squircle")
+include(":rmuix-icons")
+include(":rmuix-nav")
+include(":rmuix-window")
 
 include(":example:shared")
 include(":example:android")

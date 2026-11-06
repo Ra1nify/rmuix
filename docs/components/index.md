@@ -1,6 +1,6 @@
 # Components
 
-Miuix provides a rich set of UI components that strictly follow Xiaomi HyperOS Design Guidelines. Each component is carefully designed to ensure visual and interactive consistency with the native Xiaomi experience.
+Rmuix provides a rich set of UI components that strictly follow Xiaomi HyperOS Design Guidelines. Each component is carefully designed to ensure visual and interactive consistency with the native Xiaomi experience.
 
 ## Scaffold Components
 
@@ -57,15 +57,15 @@ The Scaffold component provides a suitable container for cross-platform popup wi
 | [RadioButtonPreference](../components/radiobuttonpreference)   | Radio button component based on BasicComponent                                           | Exclusive choices, option selection    |
 | [SliderPreference](../components/sliderpreference)             | Slider component based on BasicComponent                                                 | Value adjustment, volume/brightness    |
 | [RangeSliderPreference](../components/rangesliderpreference)   | Range slider component based on BasicComponent                                           | Range selection, price filter          |
-| [OverlayListPopup](../components/overlaylistpopup)             | List popup component based on BasicComponent (uses MiuixPopupUtils; requires `Scaffold`) | Option selection, feature list         |
-| [OverlayCascadingListPopup](../components/overlaycascadinglistpopup) | Two-level cascading list popup (uses MiuixPopupUtils; requires `Scaffold`)               | Submenus, grouped action panels        |
-| [OverlayDropdownPreference](../components/overlaydropdownpreference) | Dropdown selector based on BasicComponent (uses MiuixPopupUtils; requires `Scaffold`)    | Option selection, feature list         |
-| [OverlaySpinnerPreference](../components/overlayspinnerpreference) | Advanced selector based on BasicComponent (uses MiuixPopupUtils; requires `Scaffold`)    | Advanced options, feature list         |
-| [OverlayDropdownMenu](../components/overlaydropdownmenu)       | Action menu based on BasicComponent (uses MiuixPopupUtils; requires `Scaffold`)          | Action menus, multi-select choices     |
-| [OverlayIconDropdownMenu](../components/overlayicondropdownmenu) | Icon-button action menu (uses MiuixPopupUtils; requires `Scaffold`)                      | Toolbar actions, overflow menu         |
-| [OverlayIconCascadingDropdownMenu](../components/overlayiconcascadingdropdownmenu) | Icon-button cascading two-level menu (uses MiuixPopupUtils; requires `Scaffold`)         | Toolbar actions with submenus          |
-| [OverlayBottomSheet](../components/overlaybottomsheet)         | Bottom sheet based on BasicComponent (uses MiuixPopupUtils; requires `Scaffold`)         | Bottom drawer, additional options      |
-| [OverlayDialog](../components/overlaydialog)                   | Dialog window based on BasicComponent (uses MiuixPopupUtils; requires `Scaffold`)        | Prompts, action confirmation           |
+| [OverlayListPopup](../components/overlaylistpopup)             | List popup component based on BasicComponent (uses RmuixPopupUtils; requires `Scaffold`) | Option selection, feature list         |
+| [OverlayCascadingListPopup](../components/overlaycascadinglistpopup) | Two-level cascading list popup (uses RmuixPopupUtils; requires `Scaffold`)               | Submenus, grouped action panels        |
+| [OverlayDropdownPreference](../components/overlaydropdownpreference) | Dropdown selector based on BasicComponent (uses RmuixPopupUtils; requires `Scaffold`)    | Option selection, feature list         |
+| [OverlaySpinnerPreference](../components/overlayspinnerpreference) | Advanced selector based on BasicComponent (uses RmuixPopupUtils; requires `Scaffold`)    | Advanced options, feature list         |
+| [OverlayDropdownMenu](../components/overlaydropdownmenu)       | Action menu based on BasicComponent (uses RmuixPopupUtils; requires `Scaffold`)          | Action menus, multi-select choices     |
+| [OverlayIconDropdownMenu](../components/overlayicondropdownmenu) | Icon-button action menu (uses RmuixPopupUtils; requires `Scaffold`)                      | Toolbar actions, overflow menu         |
+| [OverlayIconCascadingDropdownMenu](../components/overlayiconcascadingdropdownmenu) | Icon-button cascading two-level menu (uses RmuixPopupUtils; requires `Scaffold`)         | Toolbar actions with submenus          |
+| [OverlayBottomSheet](../components/overlaybottomsheet)         | Bottom sheet based on BasicComponent (uses RmuixPopupUtils; requires `Scaffold`)         | Bottom drawer, additional options      |
+| [OverlayDialog](../components/overlaydialog)                   | Dialog window based on BasicComponent (uses RmuixPopupUtils; requires `Scaffold`)        | Prompts, action confirmation           |
 | [WindowListPopup](../components/windowlistpopup)     | Window-level list popup component                                                        | Option selection, feature list         |
 | [WindowCascadingListPopup](../components/windowcascadinglistpopup) | Window-level two-level cascading list popup                                              | Submenus, grouped action panels        |
 | [WindowDropdownPreference](../components/windowdropdownpreference) | Window-level dropdown selector component                                                 | Option selection, feature list         |

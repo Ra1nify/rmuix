@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import kotlin.js.ExperimentalWasmJsInterop
@@ -7,8 +7,8 @@ import kotlin.js.ExperimentalWasmJsInterop
 @JsFun(
     """
         function hideLoading() {
-            if (window.__miuixLoading) {
-                window.__miuixLoading.finish();
+            if (window.__rmuixLoading) {
+                window.__rmuixLoading.finish();
             } else {
                 const el = document.getElementById('loading');
                 if (el) el.style.display = 'none';

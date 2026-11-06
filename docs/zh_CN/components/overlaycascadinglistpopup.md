@@ -2,11 +2,11 @@
 title: OverlayCascadingListPopup
 requiresScaffoldHost: true
 prerequisites:
-  - 必须在 `Scaffold` 内使用以提供 `MiuixPopupHost`
+  - 必须在 `Scaffold` 内使用以提供 `RmuixPopupHost`
   - 在 `Scaffold` 外使用会导致弹窗内容不渲染
   - 支持多个嵌套或并列的 `Scaffold`，无需额外配置
 hostComponent: Scaffold
-popupHost: MiuixPopupHost
+popupHost: RmuixPopupHost
 ---
 
 # OverlayCascadingListPopup
@@ -18,15 +18,15 @@ popupHost: MiuixPopupHost
 </div>
 
 ::: danger 前置条件
-此组件依赖于 `Scaffold` 提供的 `MiuixPopupHost` 来渲染弹窗内容。必须在 `Scaffold` 内部使用，否则弹窗内容将无法正常渲染。
+此组件依赖于 `Scaffold` 提供的 `RmuixPopupHost` 来渲染弹窗内容。必须在 `Scaffold` 内部使用，否则弹窗内容将无法正常渲染。
 :::
 
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.overlay.OverlayCascadingListPopup
-import top.yukonga.miuix.kmp.basic.DropdownEntry
-import top.yukonga.miuix.kmp.basic.DropdownItem
+import io.github.ra1nify.rmuix.kmp.overlay.OverlayCascadingListPopup
+import io.github.ra1nify.rmuix.kmp.basic.DropdownEntry
+import io.github.ra1nify.rmuix.kmp.basic.DropdownItem
 ```
 
 ## 基本用法

@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -16,14 +16,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Contacts
-import top.yukonga.miuix.kmp.icon.extended.Edit
-import top.yukonga.miuix.kmp.icon.extended.Rename
-import top.yukonga.miuix.kmp.icon.extended.Settings
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Contacts
+import io.github.ra1nify.rmuix.kmp.icon.extended.Edit
+import io.github.ra1nify.rmuix.kmp.icon.extended.Rename
+import io.github.ra1nify.rmuix.kmp.icon.extended.Settings
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 @Composable
 fun IconDemo() {
@@ -48,22 +48,22 @@ fun IconDemo() {
                     horizontalArrangement = Arrangement.spacedBy(32.dp),
                 ) {
                     Icon(
-                        imageVector = MiuixIcons.Contacts,
+                        imageVector = RmuixIcons.Contacts,
                         contentDescription = "Personal",
-                        tint = MiuixTheme.colorScheme.onBackground,
+                        tint = RmuixTheme.colorScheme.onBackground,
                     )
                     Icon(
-                        imageVector = MiuixIcons.Settings,
+                        imageVector = RmuixIcons.Settings,
                         contentDescription = "Settings",
-                        tint = MiuixTheme.colorScheme.onBackground,
+                        tint = RmuixTheme.colorScheme.onBackground,
                     )
                     Icon(
-                        imageVector = MiuixIcons.Edit,
+                        imageVector = RmuixIcons.Edit,
                         contentDescription = "Blue Edit",
                         tint = Color.Blue,
                     )
                     Icon(
-                        imageVector = MiuixIcons.Rename,
+                        imageVector = RmuixIcons.Rename,
                         contentDescription = "Green Rename",
                         tint = Color.Green,
                     )

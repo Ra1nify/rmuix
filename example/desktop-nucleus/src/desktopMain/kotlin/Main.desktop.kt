@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.Image
@@ -33,11 +33,11 @@ import dev.nucleusframework.window.TitleBar
 import dev.nucleusframework.window.styling.TitleBarColors
 import dev.nucleusframework.window.styling.TitleBarMetrics
 import dev.nucleusframework.window.styling.TitleBarStyle
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.shared.generated.resources.Res
+import io.github.ra1nify.rmuix.kmp.shared.generated.resources.icon
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 import org.jetbrains.compose.resources.painterResource
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.shared.generated.resources.Res
-import top.yukonga.miuix.kmp.shared.generated.resources.icon
-import top.yukonga.miuix.kmp.theme.MiuixTheme
 import ui.AppTheme
 import ui.keyColorFor
 
@@ -60,12 +60,12 @@ fun main(args: Array<String>) = nucleusApplication(args, backend = NucleusBacken
         colorSpec = appState.colorSpec,
         isDark = systemIsDark,
     ) {
-        val isDark = MiuixTheme.colorScheme.surface.luminance() < 0.5f
+        val isDark = RmuixTheme.colorScheme.surface.luminance() < 0.5f
         val titleBarStyle = TitleBarStyle(
             colors = TitleBarColors(
-                background = MiuixTheme.colorScheme.surface,
-                inactiveBackground = MiuixTheme.colorScheme.surface,
-                content = MiuixTheme.colorScheme.onSurface,
+                background = RmuixTheme.colorScheme.surface,
+                inactiveBackground = RmuixTheme.colorScheme.surface,
+                content = RmuixTheme.colorScheme.onSurface,
                 border = Color.Transparent,
             ),
             metrics = TitleBarMetrics(height = 40.dp),
@@ -76,14 +76,14 @@ fun main(args: Array<String>) = nucleusApplication(args, backend = NucleusBacken
                 onCloseRequest = ::exitApplication,
                 state = state,
                 alwaysOnTop = isHotReloadMode,
-                title = "Miuix",
+                title = "Rmuix",
                 icon = painterResource(Res.drawable.icon),
                 minimumSize = DpSize(380.dp, 600.dp),
             ) {
                 Column(
                     modifier = Modifier
                         .fillMaxSize()
-                        .background(MiuixTheme.colorScheme.surface),
+                        .background(RmuixTheme.colorScheme.surface),
                 ) {
                     if (state.placement != WindowPlacement.Fullscreen) {
                         TitleBar {
@@ -94,13 +94,13 @@ fun main(args: Array<String>) = nucleusApplication(args, backend = NucleusBacken
                                 Spacer(Modifier.width(10.dp))
                                 Image(
                                     painter = painterResource(Res.drawable.icon),
-                                    contentDescription = "Miuix",
+                                    contentDescription = "Rmuix",
                                     modifier = Modifier.size(18.dp),
                                 )
                                 Spacer(Modifier.width(8.dp))
                                 Text(
-                                    text = "Miuix",
-                                    style = MiuixTheme.textStyles.body2,
+                                    text = "Rmuix",
+                                    style = RmuixTheme.textStyles.body2,
                                 )
                             }
                         }

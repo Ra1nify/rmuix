@@ -2,7 +2,7 @@
 title: WindowDialog
 requiresScaffoldHost: false
 prerequisites:
-  - 可以在任何地方使用，不需要 `Scaffold` 或 `MiuixPopupHost`
+  - 可以在任何地方使用，不需要 `Scaffold` 或 `RmuixPopupHost`
   - 在窗口层级渲染
 hostComponent: None
 popupHost: None
@@ -10,7 +10,7 @@ popupHost: None
 
 # WindowDialog
 
-`WindowDialog` 是一个窗口级对话框组件。它基于平台 `Dialog` 渲染，无需依赖 `Scaffold` 或 `MiuixPopupHost`。支持大屏优化动效、系统返回手势关闭，以及在内容内部通过组合局部触发关闭。
+`WindowDialog` 是一个窗口级对话框组件。它基于平台 `Dialog` 渲染，无需依赖 `Scaffold` 或 `RmuixPopupHost`。支持大屏优化动效、系统返回手势关闭，以及在内容内部通过组合局部触发关闭。
 
 <div style="position: relative; height: 240px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=windowDialog" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -23,8 +23,8 @@ popupHost: None
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.window.WindowDialog
-import top.yukonga.miuix.kmp.theme.LocalDismissState
+import io.github.ra1nify.rmuix.kmp.window.WindowDialog
+import io.github.ra1nify.rmuix.kmp.theme.LocalDismissState
 ```
 
 ## 基本用法

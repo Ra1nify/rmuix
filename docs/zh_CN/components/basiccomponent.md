@@ -1,6 +1,6 @@
 # BasicComponent
 
-`BasicComponent` 是 Miuix 中的基础标准组件。提供了标题、摘要以及左右两侧的可自定义内容区域，常用于构建列表项、设置项等界面元素。
+`BasicComponent` 是 Rmuix 中的基础标准组件。提供了标题、摘要以及左右两侧的可自定义内容区域，常用于构建列表项、设置项等界面元素。
 
 本项目以此为基础提供了一些扩展组件，方便开发者快速构建符合设计规范的 UI 组件，详见[扩展组件](../components/#扩展组件)的使用。
 
@@ -11,7 +11,7 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.BasicComponent
+import io.github.ra1nify.rmuix.kmp.basic.BasicComponent
 ```
 
 ## 基本用法
@@ -46,9 +46,9 @@ BasicComponent(
     startAction = {
         Icon(
             modifier = Modifier.padding(end = 16.dp),
-            imageVector = MiuixIcons.Contacts,
+            imageVector = RmuixIcons.Contacts,
             contentDescription = "头像图标",
-            tint = MiuixTheme.colorScheme.onBackground
+            tint = RmuixTheme.colorScheme.onBackground
         )
     },
     onClick = { /* 处理点击事件 */ }
@@ -80,9 +80,9 @@ BasicComponent(
     startAction = {
         Icon(
             modifier = Modifier.padding(end = 16.dp),
-            imageVector = MiuixIcons.Contacts,
+            imageVector = RmuixIcons.Contacts,
             contentDescription = "头像图标",
-            tint = MiuixTheme.colorScheme.onBackground
+            tint = RmuixTheme.colorScheme.onBackground
         )
     },
     endActions = {
@@ -91,11 +91,11 @@ BasicComponent(
 ) {
     Text(
         text = "自定义标题",
-        style = MiuixTheme.textStyles.headline1
+        style = RmuixTheme.textStyles.headline1
     )
     Text(
         text = "自定义内容说明",
-        style = MiuixTheme.textStyles.body2
+        style = RmuixTheme.textStyles.body2
     )
 }
 ```
@@ -123,6 +123,8 @@ BasicComponent(
 | titleColor        | BasicComponentColors               | 标题颜色配置         | BasicComponentDefaults.titleColor()   | 否       |
 | summary           | String?                            | 组件摘要             | null                                  | 否       |
 | summaryColor      | BasicComponentColors               | 摘要颜色配置         | BasicComponentDefaults.summaryColor() | 否       |
+| assignment        | String?                            | 可选第三行文字，显示在 summary 下方                   | null                                  | 否       |
+| assignmentColor   | BasicComponentColors               | 第三行文字的颜色配置                                  | BasicComponentDefaults.assignmentColor() | 否    |
 | startAction       | @Composable (() -> Unit)?          | 组件左侧的可组合内容 | null                                  | 否       |
 | endActions        | @Composable (RowScope.() -> Unit)? | 组件右侧的可组合内容 | null                                  | 否       |
 | bottomAction      | @Composable (() -> Unit)?          | 组件底部的可组合内容 | null                                  | 否       |
@@ -132,6 +134,10 @@ BasicComponent(
 | role              | Role?                              | 无障碍语义角色       | null                                  | 否       |
 | holdDownState     | Boolean                            | 组件是否处于按下状态 | false                                 | 否       |
 | enabled           | Boolean                            | 组件是否可用         | true                                  | 否       |
+| iconBadge         | Boolean                            | 在 startAction 右上角显示提示红点                     | false                                 | 否       |
+| iconBadgeCount    | Int                                | 红点内的数字；0 显示纯圆点                            | 0                                     | 否       |
+| endBadge          | Boolean                            | 在 endActions 前显示提示红点                          | false                                 | 否       |
+| iconMarginTiered  | Boolean                            | 按 ColorOS 分档选择图标的垂直边距                     | true                                  | 否       |
 | interactionSource | MutableInteractionSource?          | 组件的交互源         | null                                  | 否       |
 
 ### BasicComponent 属性（自定义内容变体）
@@ -157,9 +163,23 @@ BasicComponentDefaults 对象提供了 BasicComponent 组件的默认值和颜�
 
 #### BasicComponentDefaults 常量
 
-| 常量名       | 类型          | 说明           | 默认值               |
-| ------------ | ------------- | -------------- | -------------------- |
-| InsideMargin | PaddingValues | 组件的内部边距 | PaddingValues(16.dp) |
+| 常量名              | 类型          | 描述                                     | 默认值                                |
+| ------------------ | ------------- | ---------------------------------------- | ------------------------------------- |
+| MinHeight          | Dp            | 行最小高度                                | 48.dp                                 |
+| InsideMargin       | PaddingValues | 组件内部边距                              | PaddingValues(horizontal = 32.dp, vertical = 10.dp) |
+| IconTextGap        | Dp            | 前置图标与文字列的间距                     | 16.dp                                 |
+| IconMarginDefault  | Dp            | 未命中分档时的图标垂直边距                 | 14.dp                                 |
+| IconMargin24       | Dp            | 24dp 图标，单行                          | 12.dp                                 |
+| IconMargin24Multiline | Dp         | 24dp 图标，多行                          | 20.dp                                 |
+| IconMargin32       | Dp            | 32dp 图标，单行                          | 10.dp                                 |
+| IconMargin32Multiline | Dp         | 32dp 图标，多行                          | 16.dp                                 |
+| IconMargin36       | Dp            | 36dp 图标，单行                          | 12.dp                                 |
+| IconMargin36Multiline | Dp         | 36dp 图标，多行                          | 14.dp                                 |
+| IconMargin50       | Dp            | 50dp 图标，单/多行                       | 8.dp                                  |
+| BadgeSize          | Dp            | 纯圆点红点直径                            | 6.dp                                  |
+| BadgeCornerRadius  | Dp            | 数字红点圆角                              | 2.67.dp                               |
+| BadgeTextPadding   | Dp            | 数字红点内水平留白                        | 2.dp                                  |
+| BadgeGap           | Dp            | 尾部红点与内容的间距                      | 4.dp                                  |
 
 #### BasicComponentDefaults 方法
 
@@ -188,25 +208,25 @@ BasicComponent(
         startAction = {
         Icon(
         modifier = Modifier.padding(end = 16.dp),
-            imageVector = MiuixIcons.Play,
+            imageVector = RmuixIcons.Play,
             contentDescription = "音量图标",
-            tint = MiuixTheme.colorScheme.onBackground
+            tint = RmuixTheme.colorScheme.onBackground
         )
     },
     endActions = {
         IconButton(onClick = { /* 减小音量 */ }) {
             Icon(
-                imageVector = MiuixIcons.Remove,
+                imageVector = RmuixIcons.Remove,
                 contentDescription = "减小音量",
-                tint = MiuixTheme.colorScheme.onBackground
+                tint = RmuixTheme.colorScheme.onBackground
             )
         }
         Text("70%")
         IconButton(onClick = { /* 增大音量 */ }) {
             Icon(
-                imageVector = MiuixIcons.Add,
+                imageVector = RmuixIcons.Add,
                 contentDescription = "增大音量",
-                tint = MiuixTheme.colorScheme.onBackground
+                tint = RmuixTheme.colorScheme.onBackground
             )
         }
     }

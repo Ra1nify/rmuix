@@ -2,30 +2,30 @@
 title: OverlayListPopup
 requiresScaffoldHost: true
 prerequisites:
-  - Must be used within `Scaffold` to provide `MiuixPopupHost`
+  - Must be used within `Scaffold` to provide `RmuixPopupHost`
   - Using outside `Scaffold` will cause popup content not to render
   - Multiple nested or side-by-side `Scaffold`s are supported without extra configuration
 hostComponent: Scaffold
-popupHost: MiuixPopupHost
+popupHost: RmuixPopupHost
 ---
 
 # OverlayListPopup
 
-`OverlayListPopup` is a popup list component in Miuix used to display a popup menu with multiple options. It provides a lightweight, floating temporary list suitable for various dropdown menus, context menus, and similar scenarios.
+`OverlayListPopup` is a popup list component in Rmuix used to display a popup menu with multiple options. It provides a lightweight, floating temporary list suitable for various dropdown menus, context menus, and similar scenarios.
 
 <div style="position: relative; height: 250px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=overlayListPopup" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 </div>
 
 ::: danger Prerequisite
-This component depends on `Scaffold` providing `MiuixPopupHost` to render popup content. It must be used within `Scaffold`, otherwise popup content will not render correctly.
+This component depends on `Scaffold` providing `RmuixPopupHost` to render popup content. It must be used within `Scaffold`, otherwise popup content will not render correctly.
 :::
 
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.overlay.OverlayListPopup
-import top.yukonga.miuix.kmp.basic.ListPopupColumn
+import io.github.ra1nify.rmuix.kmp.overlay.OverlayListPopup
+import io.github.ra1nify.rmuix.kmp.basic.ListPopupColumn
 ```
 
 ## Basic Usage

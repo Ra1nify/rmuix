@@ -1,6 +1,6 @@
 # CheckboxPreference
 
-`CheckboxPreference` 是 Miuix 中的复选框组件，提供了标题、摘要和复选框控件，支持点击交互，常用于多选项设置和选择列表中。
+`CheckboxPreference` 是 Rmuix 中的复选框组件，提供了标题、摘要和复选框控件，支持点击交互，常用于多选项设置和选择列表中。
 
 <div style="position: relative; height: 293px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=checkboxPreference" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,8 +9,8 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.CheckboxPreference
-import top.yukonga.miuix.kmp.preference.CheckboxLocation
+import io.github.ra1nify.rmuix.kmp.preference.CheckboxPreference
+import io.github.ra1nify.rmuix.kmp.preference.CheckboxLocation
 ```
 
 ## 基本用法
@@ -123,7 +123,7 @@ CheckboxPreference(
     endActions = {
         Text(
             text = if (backupEnabled) "已启用" else "未启用",
-            color = MiuixTheme.colorScheme.onSurfaceVariantActions,
+            color = RmuixTheme.colorScheme.onSurfaceVariantActions,
             modifier = Modifier.padding(end = 6.dp)
         )
     }
@@ -187,17 +187,17 @@ var customChecked by remember { mutableStateOf(false) }
 CheckboxPreference(
     title = "自定义颜色",
     titleColor = BasicComponentDefaults.titleColor(
-        color = MiuixTheme.colorScheme.primary
+        color = RmuixTheme.colorScheme.primary
     ),
     summary = "使用自定义颜色的复选框",
     summaryColor = BasicComponentDefaults.summaryColor(
-        color = MiuixTheme.colorScheme.secondary
+        color = RmuixTheme.colorScheme.secondary
     ),
     checked = customChecked,
     onCheckedChange = { customChecked = it },
     checkboxColors = CheckboxDefaults.checkboxColors(
         checkedForegroundColor = Color.Red,
-        checkedBackgroundColor = MiuixTheme.colorScheme.secondary
+        checkedBackgroundColor = RmuixTheme.colorScheme.secondary
     )
 )
 ```

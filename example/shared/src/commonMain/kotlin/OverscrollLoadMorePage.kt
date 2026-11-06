@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -30,17 +30,17 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import component.BackNavigationIcon
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.CardDefaults
+import io.github.ra1nify.rmuix.kmp.basic.InfiniteProgressIndicator
+import io.github.ra1nify.rmuix.kmp.basic.RmuixScrollBehavior
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.blur.layerBackdrop
+import io.github.ra1nify.rmuix.kmp.squircle.squircleClip
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.distinctUntilChanged
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.CardDefaults
-import top.yukonga.miuix.kmp.basic.InfiniteProgressIndicator
-import top.yukonga.miuix.kmp.basic.MiuixScrollBehavior
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.blur.layerBackdrop
-import top.yukonga.miuix.kmp.squircle.squircleClip
-import top.yukonga.miuix.kmp.theme.MiuixTheme
 import utils.AdaptiveTopAppBar
 import utils.BlurredBar
 import utils.pageContentPadding
@@ -54,11 +54,11 @@ fun OverscrollLoadMorePage(
     val navigator = LocalNavigator.current
     val appState = LocalAppState.current
     val isWideScreen = LocalIsWideScreen.current
-    val topAppBarScrollBehavior = MiuixScrollBehavior()
+    val topAppBarScrollBehavior = RmuixScrollBehavior()
 
     val backdrop = rememberBlurBackdrop()
     val blurActive = backdrop != null
-    val barColor = if (blurActive) Color.Transparent else MiuixTheme.colorScheme.surface
+    val barColor = if (blurActive) Color.Transparent else RmuixTheme.colorScheme.surface
 
     var itemCount by rememberSaveable { mutableIntStateOf(30) }
     var loadedPages by rememberSaveable { mutableIntStateOf(0) }
@@ -112,7 +112,7 @@ fun OverscrollLoadMorePage(
             extraBottom = 12.dp,
         )
         Box(modifier = if (backdrop != null) Modifier.layerBackdrop(backdrop) else Modifier) {
-            // No overScrollVertical: overscroll comes from LocalOverscrollFactory (MiuixOverscrollEffect).
+            // No overScrollVertical: overscroll comes from LocalOverscrollFactory (RmuixOverscrollEffect).
             LazyColumn(
                 state = lazyListState,
                 modifier = Modifier
@@ -134,20 +134,20 @@ fun OverscrollLoadMorePage(
                         cornerRadius = 16.dp,
                         insideMargin = PaddingValues(16.dp),
                         colors = CardDefaults.defaultColors(
-                            color = MiuixTheme.colorScheme.surfaceContainer,
+                            color = RmuixTheme.colorScheme.surfaceContainer,
                         ),
                     ) {
                         Text(
                             text = "Fling to the bottom fast: new items load while the bounce-back plays. " +
                                 "Fling again — inertial scrolling must keep working.",
-                            style = MiuixTheme.textStyles.body2,
-                            color = MiuixTheme.colorScheme.onSurface,
+                            style = RmuixTheme.textStyles.body2,
+                            color = RmuixTheme.colorScheme.onSurface,
                         )
                         Text(
                             text = "Items: $itemCount · Pages loaded: $loadedPages",
                             modifier = Modifier.padding(top = 8.dp),
-                            style = MiuixTheme.textStyles.body2,
-                            color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
+                            style = RmuixTheme.textStyles.body2,
+                            color = RmuixTheme.colorScheme.onSurfaceVariantSummary,
                         )
                     }
                 }
@@ -167,13 +167,13 @@ fun OverscrollLoadMorePage(
                                 bottomEnd = if (isLast) 16.dp else 0.dp,
                                 bottomStart = if (isLast) 16.dp else 0.dp,
                             )
-                            .background(MiuixTheme.colorScheme.surfaceContainer),
+                            .background(RmuixTheme.colorScheme.surfaceContainer),
                     ) {
                         Text(
                             text = "Item ${i + 1}",
                             modifier = Modifier.padding(horizontal = 16.dp, vertical = 14.dp),
-                            style = MiuixTheme.textStyles.body1,
-                            color = MiuixTheme.colorScheme.onSurface,
+                            style = RmuixTheme.textStyles.body1,
+                            color = RmuixTheme.colorScheme.onSurface,
                         )
                     }
                 }
@@ -189,7 +189,7 @@ fun OverscrollLoadMorePage(
                                     bottomEnd = 16.dp,
                                     bottomStart = 16.dp,
                                 )
-                                .background(MiuixTheme.colorScheme.surfaceContainer)
+                                .background(RmuixTheme.colorScheme.surfaceContainer)
                                 .padding(vertical = 14.dp),
                             horizontalArrangement = Arrangement.Center,
                             verticalAlignment = Alignment.CenterVertically,
@@ -198,8 +198,8 @@ fun OverscrollLoadMorePage(
                             Text(
                                 text = "Loading more…",
                                 modifier = Modifier.padding(start = 8.dp),
-                                style = MiuixTheme.textStyles.body2,
-                                color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
+                                style = RmuixTheme.textStyles.body2,
+                                color = RmuixTheme.colorScheme.onSurfaceVariantSummary,
                             )
                         }
                     }

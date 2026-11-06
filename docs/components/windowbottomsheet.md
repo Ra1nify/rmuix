@@ -2,7 +2,7 @@
 title: WindowBottomSheet
 requiresScaffoldHost: false
 prerequisites:
-  - Can be used anywhere, does not require `Scaffold` or `MiuixPopupHost`
+  - Can be used anywhere, does not require `Scaffold` or `RmuixPopupHost`
   - Renders at window level
 hostComponent: None
 popupHost: None
@@ -10,7 +10,7 @@ popupHost: None
 
 # WindowBottomSheet
 
-`WindowBottomSheet` is a window-level bottom sheet component. It renders using platform `Dialog` and does not require `Scaffold` or `MiuixPopupHost`. It supports large-screen optimized animations, system back gesture dismissal, and a composition local to request dismiss from inside content.
+`WindowBottomSheet` is a window-level bottom sheet component. It renders using platform `Dialog` and does not require `Scaffold` or `RmuixPopupHost`. It supports large-screen optimized animations, system back gesture dismissal, and a composition local to request dismiss from inside content.
 
 <div style="position: relative; height: 240px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=windowBottomSheet" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -23,8 +23,8 @@ This component is independent of `Scaffold` and can be used in any composable sc
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.window.WindowBottomSheet
-import top.yukonga.miuix.kmp.theme.LocalDismissState
+import io.github.ra1nify.rmuix.kmp.window.WindowBottomSheet
+import io.github.ra1nify.rmuix.kmp.theme.LocalDismissState
 ```
 
 ## Basic Usage
@@ -87,10 +87,10 @@ The BottomSheetDefaults object provides default settings for the bottom sheet co
 
 | Property Name | Type   | Description                          |
 | ------------- | ------ | ------------------------------------ |
-| cornerRadius  | Dp     | Default corner radius (28.dp)        |
-| maxWidth      | Dp     | Default maximum width (640.dp)       |
-| outsideMargin | DpSize | Default bottom sheet external margin |
-| insideMargin  | DpSize | Default bottom sheet internal margin |
+| cornerRadius  | Dp     | Default corner radius (28.dp)                        |
+| maxWidth      | Dp     | Default maximum width (540.dp)                       |
+| outsideMargin | DpSize | Default bottom sheet external margin (DpSize(0.dp, 0.dp))  |
+| insideMargin  | DpSize | Default bottom sheet internal margin (DpSize(16.dp, 0.dp)) |
 
 #### BottomSheetDefaults Functions
 

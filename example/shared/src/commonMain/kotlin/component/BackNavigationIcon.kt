@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -8,11 +8,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.unit.LayoutDirection
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.IconButton
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Back
-import top.yukonga.miuix.kmp.theme.MiuixTheme.colorScheme
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.IconButton
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Back
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme.colorScheme
 
 @Composable
 fun BackNavigationIcon(
@@ -28,7 +28,7 @@ fun BackNavigationIcon(
             modifier = Modifier.graphicsLayer {
                 if (layoutDirection == LayoutDirection.Rtl) scaleX = -1f
             },
-            imageVector = MiuixIcons.Back,
+            imageVector = RmuixIcons.Back,
             contentDescription = null,
             tint = colorScheme.onBackground,
         )

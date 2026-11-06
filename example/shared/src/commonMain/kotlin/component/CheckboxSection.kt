@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -16,13 +16,13 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.state.ToggleableState
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.Checkbox
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.preference.CheckboxLocation
-import top.yukonga.miuix.kmp.preference.CheckboxPreference
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.Checkbox
+import io.github.ra1nify.rmuix.kmp.basic.SmallTitle
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.preference.CheckboxLocation
+import io.github.ra1nify.rmuix.kmp.preference.CheckboxPreference
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 fun LazyListScope.checkboxSection() {
     item(key = "checkbox") {
@@ -109,8 +109,8 @@ private fun CheckboxPreferenceEndDemo() {
         endActions = {
             Text(
                 text = "$checked",
-                fontSize = MiuixTheme.textStyles.body2.fontSize,
-                color = MiuixTheme.colorScheme.onSurfaceVariantActions,
+                fontSize = RmuixTheme.textStyles.body2.fontSize,
+                color = RmuixTheme.colorScheme.onSurfaceVariantActions,
             )
         },
         onCheckedChange = { checked = it },

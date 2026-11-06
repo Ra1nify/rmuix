@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -22,25 +22,25 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.CardDefaults
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.IconButton
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.TextField
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Close
-import top.yukonga.miuix.kmp.icon.extended.Ok
-import top.yukonga.miuix.kmp.overlay.OverlayBottomSheet
-import top.yukonga.miuix.kmp.preference.ArrowPreference
-import top.yukonga.miuix.kmp.preference.OverlayDropdownPreference
-import top.yukonga.miuix.kmp.preference.SwitchPreference
-import top.yukonga.miuix.kmp.preference.WindowDropdownPreference
-import top.yukonga.miuix.kmp.theme.LocalDismissState
-import top.yukonga.miuix.kmp.theme.MiuixTheme
-import top.yukonga.miuix.kmp.utils.overScrollVertical
-import top.yukonga.miuix.kmp.utils.scrollEndHaptic
-import top.yukonga.miuix.kmp.window.WindowBottomSheet
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.CardDefaults
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.IconButton
+import io.github.ra1nify.rmuix.kmp.basic.SmallTitle
+import io.github.ra1nify.rmuix.kmp.basic.TextField
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Close
+import io.github.ra1nify.rmuix.kmp.icon.extended.Ok
+import io.github.ra1nify.rmuix.kmp.overlay.OverlayBottomSheet
+import io.github.ra1nify.rmuix.kmp.preference.ArrowPreference
+import io.github.ra1nify.rmuix.kmp.preference.OverlayDropdownPreference
+import io.github.ra1nify.rmuix.kmp.preference.SwitchPreference
+import io.github.ra1nify.rmuix.kmp.preference.WindowDropdownPreference
+import io.github.ra1nify.rmuix.kmp.theme.LocalDismissState
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
+import io.github.ra1nify.rmuix.kmp.utils.overScrollVertical
+import io.github.ra1nify.rmuix.kmp.utils.scrollEndHaptic
+import io.github.ra1nify.rmuix.kmp.window.WindowBottomSheet
 
 private val BottomSheetDropdownOptions = listOf("Option 1", "Option 2")
 
@@ -121,10 +121,10 @@ private fun SuperBottomSheetDemo(
         onDismissRequest = onDismissRequest,
         onDismissFinished = onDismissFinished,
         startAction = {
-            BottomSheetActionButton(MiuixIcons.Close, "Cancel", onClick = onDismissRequest)
+            BottomSheetActionButton(RmuixIcons.Close, "Cancel", onClick = onDismissRequest)
         },
         endAction = {
-            BottomSheetActionButton(MiuixIcons.Ok, "Confirm", onClick = onDismissRequest)
+            BottomSheetActionButton(RmuixIcons.Ok, "Confirm", onClick = onDismissRequest)
         },
     ) {
         BottomSheetContent(
@@ -167,11 +167,11 @@ private fun WindowBottomSheetDemo(
         onDismissFinished = onDismissFinished,
         startAction = {
             val dismissState = LocalDismissState.current
-            BottomSheetActionButton(MiuixIcons.Close, "Cancel", onClick = { dismissState?.invoke() })
+            BottomSheetActionButton(RmuixIcons.Close, "Cancel", onClick = { dismissState?.invoke() })
         },
         endAction = {
             val dismissState = LocalDismissState.current
-            BottomSheetActionButton(MiuixIcons.Ok, "Confirm", onClick = { dismissState?.invoke() })
+            BottomSheetActionButton(RmuixIcons.Ok, "Confirm", onClick = { dismissState?.invoke() })
         },
     ) {
         BottomSheetContent(
@@ -219,7 +219,7 @@ private fun BottomSheetContent(
             Card(
                 modifier = Modifier.padding(bottom = 12.dp),
                 colors = CardDefaults.defaultColors(
-                    color = MiuixTheme.colorScheme.secondaryContainer,
+                    color = RmuixTheme.colorScheme.secondaryContainer,
                 ),
             ) {
                 SwitchPreference(
@@ -247,7 +247,7 @@ private fun BottomSheetContent(
             Card(
                 modifier = Modifier.padding(bottom = 12.dp),
                 colors = CardDefaults.defaultColors(
-                    color = MiuixTheme.colorScheme.secondaryContainer,
+                    color = RmuixTheme.colorScheme.secondaryContainer,
                 ),
             ) {
                 dropdown()
@@ -279,7 +279,7 @@ private fun BottomSheetActionButton(
         Icon(
             imageVector = imageVector,
             contentDescription = contentDescription,
-            tint = MiuixTheme.colorScheme.onBackground,
+            tint = RmuixTheme.colorScheme.onBackground,
         )
     }
 }

@@ -1,6 +1,6 @@
 # ProgressIndicator
 
-`ProgressIndicator` 是 Miuix 中的进度指示组件，用于展示操作的进度状态。提供了线性进度条、环形进度条和无限旋转指示器三种样式，适用于不同场景下的加载和进度展示需求。
+`ProgressIndicator` 是 Rmuix 中的进度指示组件，用于展示操作的进度状态。提供了线性进度条、环形进度条和无限旋转指示器三种样式，适用于不同场景下的加载和进度展示需求。
 
 <div style="position: relative; height: 250px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=progressIndicator" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,9 +9,9 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.LinearProgressIndicator // 线性进度条
-import top.yukonga.miuix.kmp.basic.CircularProgressIndicator // 环形进度条
-import top.yukonga.miuix.kmp.basic.InfiniteProgressIndicator // 无限旋转指示器
+import io.github.ra1nify.rmuix.kmp.basic.LinearProgressIndicator // 线性进度条
+import io.github.ra1nify.rmuix.kmp.basic.CircularProgressIndicator // 环形进度条
+import io.github.ra1nify.rmuix.kmp.basic.InfiniteProgressIndicator // 无限旋转指示器
 ```
 
 ## 基本用法
@@ -206,7 +206,7 @@ Button(
 
 ```kotlin
 InfiniteProgressIndicator(
-    color = MiuixTheme.colorScheme.primary,
+    color = RmuixTheme.colorScheme.primary,
     size = 40.dp,
     strokeWidth = 3.dp,
     orbitingDotSize = 4.dp

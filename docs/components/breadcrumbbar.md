@@ -1,6 +1,6 @@
 # BreadcrumbBar
 
-`BreadcrumbBar` is a horizontal navigation component in Miuix that displays a trail of path segments as capsule-shaped items separated by arrow icons. When the content overflows the available width, it scrolls horizontally instead of collapsing (given that miuix is typically used on mobile devices).
+`BreadcrumbBar` is a horizontal navigation component in Rmuix that displays a trail of path segments as capsule-shaped items separated by arrow icons. When the content overflows the available width, it scrolls horizontally instead of collapsing (given that rmuix is typically used on mobile devices).
 
 The `highlightIndex` is decoupled from the `items` list: the caller may show the full path while highlighting any segment (e.g. the current directory or a parent the user navigated back to). The bar automatically scrolls to keep the highlighted item visible.
 
@@ -11,9 +11,9 @@ The `highlightIndex` is decoupled from the `items` list: the caller may show the
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.BreadcrumbBar
-import top.yukonga.miuix.kmp.basic.BreadcrumbItem
-import top.yukonga.miuix.kmp.basic.joinToPath
+import io.github.ra1nify.rmuix.kmp.basic.BreadcrumbBar
+import io.github.ra1nify.rmuix.kmp.basic.BreadcrumbItem
+import io.github.ra1nify.rmuix.kmp.basic.joinToPath
 ```
 
 ## Basic Usage
@@ -136,10 +136,10 @@ BreadcrumbBar(
     items = items,
     onItemClick = { index -> /* Handle click */ },
     colors = BreadcrumbBarDefaults.breadcrumbBarColors(
-        color = MiuixTheme.colorScheme.onBackground.copy(alpha = 0.55f),
-        highlightColor = MiuixTheme.colorScheme.primary,
-        backgroundColor = MiuixTheme.colorScheme.onBackground.copy(alpha = 0.1f),
-        highlightBackgroundColor = MiuixTheme.colorScheme.primary.copy(alpha = 0.2f),
+        color = RmuixTheme.colorScheme.onSurfaceVariantSummary,
+        highlightColor = RmuixTheme.colorScheme.primary,
+        backgroundColor = RmuixTheme.colorScheme.secondaryVariant,
+        highlightBackgroundColor = RmuixTheme.colorScheme.primary.copy(alpha = 0.15f),
     ),
 )
 ```

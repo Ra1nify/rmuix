@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -16,19 +16,19 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.ButtonDefaults
-import top.yukonga.miuix.kmp.basic.TextButton
-import top.yukonga.miuix.kmp.nav.core.NavDisplay
-import top.yukonga.miuix.kmp.nav.core.NavKey
-import top.yukonga.miuix.kmp.nav.core.navBackStackOf
-import top.yukonga.miuix.kmp.theme.ColorSchemeMode
-import top.yukonga.miuix.kmp.theme.MiuixTheme
-import top.yukonga.miuix.kmp.theme.ThemeController
+import io.github.ra1nify.rmuix.kmp.basic.ButtonDefaults
+import io.github.ra1nify.rmuix.kmp.basic.TextButton
+import io.github.ra1nify.rmuix.kmp.nav.core.NavDisplay
+import io.github.ra1nify.rmuix.kmp.nav.core.NavKey
+import io.github.ra1nify.rmuix.kmp.nav.core.navBackStackOf
+import io.github.ra1nify.rmuix.kmp.theme.ColorSchemeMode
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
+import io.github.ra1nify.rmuix.kmp.theme.ThemeController
 
 @Composable
 fun Demo(demoId: String? = null) {
     val controller = remember { ThemeController(ColorSchemeMode.System) }
-    MiuixTheme(controller = controller) {
+    RmuixTheme(controller = controller) {
         if (demoId == null) {
             DemoSelection()
         } else {

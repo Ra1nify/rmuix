@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.layout.PaddingValues
@@ -17,7 +17,7 @@ import androidx.compose.ui.platform.LocalFontFamilyResolver
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.window.ComposeViewport
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 import ui.withFontFamily
 import webfont.installOnDemandWebFonts
 import webfont.queryParam
@@ -66,7 +66,7 @@ fun main() {
             }
         }
 
-        val baseTextStyles = MiuixTheme.textStyles
+        val baseTextStyles = RmuixTheme.textStyles
         val textStyles = remember(miSansFamily, baseTextStyles) {
             miSansFamily?.let { baseTextStyles.withFontFamily(it) } ?: baseTextStyles
         }

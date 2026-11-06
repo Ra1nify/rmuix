@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -18,20 +18,20 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.FloatingActionButton
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.NavigationBar
-import top.yukonga.miuix.kmp.basic.NavigationBarItem
-import top.yukonga.miuix.kmp.basic.NavigationItem
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.SmallTopAppBar
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Contacts
-import top.yukonga.miuix.kmp.icon.extended.Settings
-import top.yukonga.miuix.kmp.icon.extended.VerticalSplit
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.FloatingActionButton
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.NavigationBar
+import io.github.ra1nify.rmuix.kmp.basic.NavigationBarItem
+import io.github.ra1nify.rmuix.kmp.basic.NavigationItem
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.SmallTopAppBar
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Contacts
+import io.github.ra1nify.rmuix.kmp.icon.extended.Settings
+import io.github.ra1nify.rmuix.kmp.icon.extended.VerticalSplit
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 @Composable
 fun ScaffoldDemo() {
@@ -51,9 +51,9 @@ fun ScaffoldDemo() {
         ) {
             val pages = listOf("Home", "Profile", "Settings")
             val items = listOf(
-                NavigationItem("Home", MiuixIcons.VerticalSplit),
-                NavigationItem("Profile", MiuixIcons.Contacts),
-                NavigationItem("Settings", MiuixIcons.Settings),
+                NavigationItem("Home", RmuixIcons.VerticalSplit),
+                NavigationItem("Profile", RmuixIcons.Contacts),
+                NavigationItem("Settings", RmuixIcons.Settings),
             )
             var selectedIndex by remember { mutableIntStateOf(0) }
             Card {
@@ -82,7 +82,7 @@ fun ScaffoldDemo() {
                             },
                         ) {
                             Icon(
-                                imageVector = MiuixIcons.Contacts,
+                                imageVector = RmuixIcons.Contacts,
                                 contentDescription = "Personal",
                                 tint = Color.White,
                             )
@@ -97,7 +97,7 @@ fun ScaffoldDemo() {
                     ) {
                         Text(
                             text = "Current: ${pages[selectedIndex]}",
-                            style = MiuixTheme.textStyles.title1,
+                            style = RmuixTheme.textStyles.title1,
                         )
                     }
                 }

@@ -1,6 +1,6 @@
 # Checkbox
 
-`Checkbox` 是 Miuix 中的基础选择组件，支持三种状态：选中、未选中和半选中。它提供了具有动画效果的交互式选择控件，适用于多选场景和配置项的启用与禁用。
+`Checkbox` 是 Rmuix 中的基础选择组件，支持三种状态：选中、未选中和半选中。它提供了具有动画效果的交互式选择控件，适用于多选场景和配置项的启用与禁用。
 
 <div style="position: relative; height: 100px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=checkbox" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Checkbox
+import io.github.ra1nify.rmuix.kmp.basic.Checkbox
 import androidx.compose.ui.state.ToggleableState
 ```
 
@@ -72,7 +72,17 @@ Checkbox(
 
 ### CheckboxDefaults 对象
 
-CheckboxDefaults 对象提供了 Checkbox 组件的默认颜色配置。
+CheckboxDefaults 对象提供了 Checkbox 组件的几何常量与默认颜色配置。
+
+#### 属性
+
+| 属性名        | 类型 | 描述                             | 值     |
+| ------------- | ---- | -------------------------------- | ------ |
+| Size          | Dp   | 含透明留白的整体尺寸             | 24.dp  |
+| BoxSize       | Dp   | 去除留白后的绘制尺寸             | 18.dp  |
+| CornerRadius  | Dp   | 绘制方块的圆角                   | 4.dp   |
+| StrokeWidth   | Dp   | 未选中状态的描边宽度             | 1.3.dp |
+| IconTextGap   | Dp   | 复选框与相邻文字的间距           | 8.dp   |
 
 #### 方法
 
@@ -84,6 +94,8 @@ CheckboxDefaults 对象提供了 Checkbox 组件的默认颜色配置。
 
 | 属性名                           | 类型  | 说明                         |
 | -------------------------------- | ----- | ---------------------------- |
+| uncheckedStrokeColor             | Color | 未选中状态的描边色            |
+| disabledUncheckedStrokeColor     | Color | 未选中且禁用时的描边色        |
 | checkedForegroundColor           | Color | 选中状态时前景色（对勾颜色） |
 | uncheckedForegroundColor         | Color | 未选中状态时前景色           |
 | disabledCheckedForegroundColor   | Color | 禁用且选中状态时前景色       |

@@ -1,6 +1,6 @@
 # ArrowPreference
 
-`ArrowPreference` 是 Miuix 中的箭头指示组件，通常用于导航或展示更多内容。提供了标题、摘要和右侧箭头图标，支持点击交互，常用于设置项、菜单项或列表项中。
+`ArrowPreference` 是 Rmuix 中的箭头指示组件，通常用于导航或展示更多内容。提供了标题、摘要和右侧箭头图标，支持点击交互，常用于设置项、菜单项或列表项中。
 
 <div style="position: relative; height: 260px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=arrowPreference" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.ArrowPreference
+import io.github.ra1nify.rmuix.kmp.preference.ArrowPreference
 ```
 
 ## 基本用法
@@ -102,9 +102,12 @@ ArrowPreferenceDefaults 对象提供右侧箭头图标的默认颜色配置。
 
 ### 箭头着色说明
 
-- 右侧箭头图标始终显示，并根据 `enabled` 自动着色。
-- 当 `enabled = true` 时使用 `MiuixTheme.colorScheme.onSurfaceVariantActions`。
-- 当 `enabled = false` 时使用 `MiuixTheme.colorScheme.disabledOnSecondaryVariant`。
+- 尾部箭头始终显示，颜色自动适配。
+- 启用态：亮色 `#42000000` / 暗色 `#4DFFFFFF`，对应 ColorOS `couiColorLabelTertiary`（26% 透明度），
+  与复选框、单选框的描边同色。
+- 禁用态：亮色 `#14000000` / 暗色 `#26FFFFFF`，对应 `couiColorLabelQuaternary`（8% 透明度）。
+- 箭头右侧预留 16dp 内边距，对齐 ColorOS 的跳转图标间距。
+
 
 ## 进阶用法
 
@@ -116,9 +119,9 @@ ArrowPreference(
     summary = "查看和修改您的个人资料",
     startAction = {
         Icon(
-            imageVector = MiuixIcons.Contacts,
+            imageVector = RmuixIcons.Contacts,
             contentDescription = "个人图标",
-            tint = MiuixTheme.colorScheme.onBackground,
+            tint = RmuixTheme.colorScheme.onBackground,
             modifier = Modifier.padding(end = 16.dp)
         )
     },

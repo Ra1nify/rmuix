@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
@@ -25,19 +25,19 @@ import androidx.compose.ui.platform.LocalUriHandler
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import component.BackNavigationIcon
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.RmuixScrollBehavior
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.VerticalScrollBar
+import io.github.ra1nify.rmuix.kmp.basic.rememberScrollBarAdapter
+import io.github.ra1nify.rmuix.kmp.blur.isRuntimeShaderSupported
+import io.github.ra1nify.rmuix.kmp.blur.layerBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.rememberLayerBackdrop
+import io.github.ra1nify.rmuix.kmp.interfaces.ExperimentalScrollBarApi
+import io.github.ra1nify.rmuix.kmp.preference.ArrowPreference
+import io.github.ra1nify.rmuix.kmp.shared.generated.resources.Res
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 import kotlinx.coroutines.CancellationException
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.MiuixScrollBehavior
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.VerticalScrollBar
-import top.yukonga.miuix.kmp.basic.rememberScrollBarAdapter
-import top.yukonga.miuix.kmp.blur.isRuntimeShaderSupported
-import top.yukonga.miuix.kmp.blur.layerBackdrop
-import top.yukonga.miuix.kmp.blur.rememberLayerBackdrop
-import top.yukonga.miuix.kmp.interfaces.ExperimentalScrollBarApi
-import top.yukonga.miuix.kmp.preference.ArrowPreference
-import top.yukonga.miuix.kmp.shared.generated.resources.Res
-import top.yukonga.miuix.kmp.theme.MiuixTheme
 import utils.AdaptiveTopAppBar
 import utils.BlurredBar
 import utils.Library
@@ -52,7 +52,7 @@ fun LicensePage(
     val appState = LocalAppState.current
     val isWideScreen = LocalIsWideScreen.current
     val blurSupported = isRuntimeShaderSupported()
-    val surfaceColor = MiuixTheme.colorScheme.surface
+    val surfaceColor = RmuixTheme.colorScheme.surface
     val backdrop = if (blurSupported) {
         rememberLayerBackdrop {
             drawRect(surfaceColor)
@@ -62,8 +62,8 @@ fun LicensePage(
         null
     }
     val blurActive = appState.enableBlur && blurSupported
-    val barColor = if (blurActive) Color.Transparent else MiuixTheme.colorScheme.surface
-    val topAppBarScrollBehavior = MiuixScrollBehavior()
+    val barColor = if (blurActive) Color.Transparent else RmuixTheme.colorScheme.surface
+    val topAppBarScrollBehavior = RmuixScrollBehavior()
     val navigator = LocalNavigator.current
 
     val libraries by produceState<List<Library>?>(initialValue = null) {

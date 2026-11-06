@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
@@ -22,18 +22,18 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.CardDefaults
-import top.yukonga.miuix.kmp.basic.HorizontalDivider
-import top.yukonga.miuix.kmp.basic.MiuixScrollBehavior
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.basic.VerticalScrollBar
-import top.yukonga.miuix.kmp.basic.rememberScrollBarAdapter
-import top.yukonga.miuix.kmp.blur.layerBackdrop
-import top.yukonga.miuix.kmp.interfaces.ExperimentalScrollBarApi
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.CardDefaults
+import io.github.ra1nify.rmuix.kmp.basic.HorizontalDivider
+import io.github.ra1nify.rmuix.kmp.basic.RmuixScrollBehavior
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.SmallTitle
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.VerticalScrollBar
+import io.github.ra1nify.rmuix.kmp.basic.rememberScrollBarAdapter
+import io.github.ra1nify.rmuix.kmp.blur.layerBackdrop
+import io.github.ra1nify.rmuix.kmp.interfaces.ExperimentalScrollBarApi
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 import utils.AdaptiveTopAppBar
 import utils.BlurredBar
 import utils.pageContentPadding
@@ -47,8 +47,8 @@ private data class TextStyleEntry(
     val description: String,
 )
 
-private const val SAMPLE_TEXT_CN = "天地玄黄 宇宙洪荒"
-private const val SAMPLE_TEXT_EN = "The Quick Brown Fox Jumps"
+private const val SAMPLE_TEXT_CN = "天生万物 人无一物"
+private const val SAMPLE_TEXT_EN = "Catch Me If You Kan"
 private const val SAMPLE_TEXT_NUM = "0123456789 !@#$%&"
 
 @Composable
@@ -57,16 +57,18 @@ fun TextStylePage(
 ) {
     val appState = LocalAppState.current
     val isWideScreen = LocalIsWideScreen.current
-    val topAppBarScrollBehavior = MiuixScrollBehavior()
+    val topAppBarScrollBehavior = RmuixScrollBehavior()
 
-    val textStyles = MiuixTheme.textStyles
+    val textStyles = RmuixTheme.textStyles
 
     val styleEntries = remember(textStyles) {
         listOf(
             TextStyleEntry("title1", textStyles.title1, "32sp"),
+            TextStyleEntry("headlineLarge", textStyles.headlineLarge, "28sp / Medium"),
             TextStyleEntry("title2", textStyles.title2, "24sp"),
             TextStyleEntry("title3", textStyles.title3, "20sp"),
             TextStyleEntry("title4", textStyles.title4, "18sp"),
+            TextStyleEntry("headlineSmall", textStyles.headlineSmall, "18sp / Medium"),
             TextStyleEntry("headline1", textStyles.headline1, "17sp"),
             TextStyleEntry("headline2", textStyles.headline2, "16sp"),
             TextStyleEntry("subtitle", textStyles.subtitle, "14sp / Bold"),
@@ -74,15 +76,15 @@ fun TextStylePage(
             TextStyleEntry("paragraph", textStyles.paragraph, "17sp / lineHeight 1.2em"),
             TextStyleEntry("body1", textStyles.body1, "16sp"),
             TextStyleEntry("body2", textStyles.body2, "14sp"),
-            TextStyleEntry("button", textStyles.button, "17sp"),
+            TextStyleEntry("button", textStyles.button, "16sp / Medium"),
             TextStyleEntry("footnote1", textStyles.footnote1, "13sp"),
-            TextStyleEntry("footnote2", textStyles.footnote2, "11sp"),
+            TextStyleEntry("footnote2", textStyles.footnote2, "12sp"),
         )
     }
 
     val backdrop = rememberBlurBackdrop()
     val blurActive = backdrop != null
-    val barColor = if (blurActive) Color.Transparent else MiuixTheme.colorScheme.surface
+    val barColor = if (blurActive) Color.Transparent else RmuixTheme.colorScheme.surface
 
     Scaffold(
         topBar = {
@@ -115,7 +117,7 @@ fun TextStylePage(
                 item(key = "title_card") {
                     Card(
                         modifier = Modifier.padding(horizontal = 12.dp).padding(bottom = 12.dp),
-                        colors = CardDefaults.defaultColors(color = MiuixTheme.colorScheme.surfaceContainer),
+                        colors = CardDefaults.defaultColors(color = RmuixTheme.colorScheme.surfaceContainer),
                         cornerRadius = 16.dp,
                         insideMargin = PaddingValues(horizontal = 16.dp),
                     ) {
@@ -133,7 +135,7 @@ fun TextStylePage(
                 item(key = "headline_card") {
                     Card(
                         modifier = Modifier.padding(horizontal = 12.dp).padding(bottom = 12.dp),
-                        colors = CardDefaults.defaultColors(color = MiuixTheme.colorScheme.surfaceContainer),
+                        colors = CardDefaults.defaultColors(color = RmuixTheme.colorScheme.surfaceContainer),
                         cornerRadius = 16.dp,
                         insideMargin = PaddingValues(horizontal = 16.dp),
                     ) {
@@ -151,7 +153,7 @@ fun TextStylePage(
                 item(key = "body_card") {
                     Card(
                         modifier = Modifier.padding(horizontal = 12.dp).padding(bottom = 12.dp),
-                        colors = CardDefaults.defaultColors(color = MiuixTheme.colorScheme.surfaceContainer),
+                        colors = CardDefaults.defaultColors(color = RmuixTheme.colorScheme.surfaceContainer),
                         cornerRadius = 16.dp,
                         insideMargin = PaddingValues(horizontal = 16.dp),
                     ) {
@@ -169,7 +171,7 @@ fun TextStylePage(
                 item(key = "footnote_card") {
                     Card(
                         modifier = Modifier.padding(horizontal = 12.dp).padding(bottom = 12.dp),
-                        colors = CardDefaults.defaultColors(color = MiuixTheme.colorScheme.surfaceContainer),
+                        colors = CardDefaults.defaultColors(color = RmuixTheme.colorScheme.surfaceContainer),
                         cornerRadius = 16.dp,
                         insideMargin = PaddingValues(horizontal = 16.dp),
                     ) {
@@ -187,7 +189,7 @@ fun TextStylePage(
                 item(key = "all_card") {
                     Card(
                         modifier = Modifier.padding(horizontal = 12.dp).padding(bottom = 12.dp),
-                        colors = CardDefaults.defaultColors(color = MiuixTheme.colorScheme.surfaceContainer),
+                        colors = CardDefaults.defaultColors(color = RmuixTheme.colorScheme.surfaceContainer),
                         cornerRadius = 16.dp,
                         insideMargin = PaddingValues(horizontal = 16.dp),
                     ) {
@@ -222,33 +224,33 @@ private fun TextStyleItem(entry: TextStyleEntry) {
         ) {
             Text(
                 text = entry.name,
-                style = MiuixTheme.textStyles.footnote1,
-                color = MiuixTheme.colorScheme.onSurface,
+                style = RmuixTheme.textStyles.footnote1,
+                color = RmuixTheme.colorScheme.onSurface,
                 modifier = Modifier.weight(1f),
             )
             Text(
                 text = entry.description,
-                style = MiuixTheme.textStyles.footnote2,
-                color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
+                style = RmuixTheme.textStyles.footnote2,
+                color = RmuixTheme.colorScheme.onSurfaceVariantSummary,
             )
         }
         Spacer(modifier = Modifier.height(8.dp))
         Text(
             text = SAMPLE_TEXT_CN,
             style = entry.style,
-            color = MiuixTheme.colorScheme.onSurface,
+            color = RmuixTheme.colorScheme.onSurface,
         )
         Spacer(modifier = Modifier.height(2.dp))
         Text(
             text = SAMPLE_TEXT_EN,
             style = entry.style,
-            color = MiuixTheme.colorScheme.onSurface,
+            color = RmuixTheme.colorScheme.onSurface,
         )
         Spacer(modifier = Modifier.height(2.dp))
         Text(
             text = SAMPLE_TEXT_NUM,
             style = entry.style,
-            color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
+            color = RmuixTheme.colorScheme.onSurfaceVariantSummary,
         )
     }
 }

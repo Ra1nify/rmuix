@@ -1,6 +1,6 @@
 # SwitchPreference
 
-`SwitchPreference` is a switch component in Miuix that provides a title, summary, and a switch control on the right. It supports click interaction and is commonly used in settings items and preference toggles.
+`SwitchPreference` is a switch component in Rmuix that provides a title, summary, and a switch control on the right. It supports click interaction and is commonly used in settings items and preference toggles.
 
 <div style="position: relative; height: 231px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=switchPreference" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.SwitchPreference
+import io.github.ra1nify.rmuix.kmp.preference.SwitchPreference
 ```
 
 ## Basic Usage
@@ -88,9 +88,9 @@ SwitchPreference(
     onCheckedChange = { enabled = it },
     startAction = {
         Icon(
-            imageVector = MiuixIcons.Sort,
+            imageVector = RmuixIcons.Sort,
             contentDescription = "Command Icon",
-            tint = MiuixTheme.colorScheme.onBackground,
+            tint = RmuixTheme.colorScheme.onBackground,
             modifier = Modifier.padding(end = 12.dp)
         )
     }
@@ -110,7 +110,7 @@ SwitchPreference(
     endActions = {
         Text(
             text = if (locationEnabled) "Enabled" else "Disabled",
-            color = MiuixTheme.colorScheme.onSurfaceVariantActions,
+            color = RmuixTheme.colorScheme.onSurfaceVariantActions,
             modifier = Modifier.padding(end = 6.dp)
         )
     }
@@ -151,17 +151,17 @@ var customEnabled by remember { mutableStateOf(false) }
 SwitchPreference(
     title = "Custom Colors",
     titleColor = BasicComponentDefaults.titleColor(
-        color = MiuixTheme.colorScheme.primary
+        color = RmuixTheme.colorScheme.primary
     ),
     summary = "Switch with custom colors",
     summaryColor = BasicComponentDefaults.summaryColor(
-        color = MiuixTheme.colorScheme.secondary
+        color = RmuixTheme.colorScheme.secondary
     ),
     checked = customEnabled,
     onCheckedChange = { customEnabled = it },
     switchColors = SwitchDefaults.switchColors(
-        checkedThumbColor = MiuixTheme.colorScheme.primary,
-        checkedTrackColor = MiuixTheme.colorScheme.primary.copy(alpha = 0.2f)
+        checkedThumbColor = RmuixTheme.colorScheme.primary,
+        checkedTrackColor = RmuixTheme.colorScheme.primary.copy(alpha = 0.2f)
     )
 )
 ```

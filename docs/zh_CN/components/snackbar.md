@@ -2,7 +2,7 @@
 
 # Snackbar
 
-`Snackbar` 是 Miuix 中用于在屏幕底部展示简短提示信息的轻量反馈组件。它可以附带操作按钮（例如“撤销”），并支持多种显示时长。
+`Snackbar` 是 Rmuix 中用于在屏幕底部展示简短提示信息的轻量反馈组件。它可以附带操作按钮（例如“撤销”），并支持多种显示时长。
 
 <div style="position: relative; height: 360px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=snackbar" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -11,11 +11,11 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Snackbar
-import top.yukonga.miuix.kmp.basic.SnackbarHost
-import top.yukonga.miuix.kmp.basic.SnackbarHostState
-import top.yukonga.miuix.kmp.basic.SnackbarDuration
-import top.yukonga.miuix.kmp.basic.SnackbarResult
+import io.github.ra1nify.rmuix.kmp.basic.Snackbar
+import io.github.ra1nify.rmuix.kmp.basic.SnackbarHost
+import io.github.ra1nify.rmuix.kmp.basic.SnackbarHostState
+import io.github.ra1nify.rmuix.kmp.basic.SnackbarDuration
+import io.github.ra1nify.rmuix.kmp.basic.SnackbarResult
 ```
 
 ## 基本用法
@@ -124,7 +124,7 @@ fun Snackbar(
 | modifier     | Modifier       | 应用于 Snackbar 容器的修饰符 | Modifier                      | 否       |
 | cornerRadius | Dp             | Snackbar 的圆角半径      | SnackbarDefaults.CornerRadius     | 否       |
 | colors       | SnackbarColors | Snackbar 的颜色配置      | SnackbarDefaults.snackbarColors() | 否       |
-| insideMargin | PaddingValues  | Snackbar 内容区域的内边距 | SnackbarDefaults.InsideMargin    | 否       |
+| insideMargin | PaddingValues  | 仅为兼容保留，已不生效    | SnackbarDefaults.InsideMargin    | 否       |
 
 ### SnackbarColors 与 SnackbarDefaults
 
@@ -143,12 +143,13 @@ data class SnackbarColors(
 可以通过 `SnackbarDefaults.snackbarColors` 创建颜色配置：
 
 ```kotlin
+// ColorOS 把条渲染成浅色浮起卡片，配深色文字
 val colors = SnackbarDefaults.snackbarColors(
-    containerColor = MiuixTheme.colorScheme.onSecondaryVariant,
-    contentColor = MiuixTheme.colorScheme.secondaryVariant,
-    actionContentColor = MiuixTheme.colorScheme.onPrimary,
-    dismissActionContentColor = MiuixTheme.colorScheme.onSurfaceContainerVariant,
-    actionContainerColor = MiuixTheme.colorScheme.primary,
+    containerColor = Color(0xFFFFFFFF),        // 暗色主题用 Color(0xFF333333)
+    contentColor = Color(0xE6000000),          // 暗色主题用 Color(0xE6FFFFFF)
+    actionContentColor = Color(0xE6000000),    // 暗色主题用 Color(0xE6FFFFFF)
+    dismissActionContentColor = Color(0x8A000000),
+    actionContainerColor = Color.Transparent,  // 操作是纯文字，没有胶囊
 )
 ```
 
@@ -160,13 +161,24 @@ val colors = SnackbarDefaults.snackbarColors(
 
 `SnackbarDefaults` 同时提供 `Snackbar` 使用的默认尺寸与内外边距：
 
-| 常量名             | 类型          | 说明                       | 默认值                                                |
-| ------------------ | ------------- | -------------------------- | ----------------------------------------------------- |
-| CornerRadius       | Dp            | Snackbar 的默认圆角半径    | 16.dp                                                 |
-| InsideMargin       | PaddingValues | Snackbar 内容的默认内边距  | PaddingValues(all = 12.dp)                            |
-| OuterPadding       | PaddingValues | Snackbar 的默认外边距      | PaddingValues(start = 12.dp, end = 12.dp, top = 8.dp) |
-| ActionCornerRadius | Dp            | 操作胶囊按钮的默认圆角半径 | 50.dp                                                 |
-| ActionInsideMargin | PaddingValues | 操作胶囊按钮的默认内边距   | PaddingValues(horizontal = 12.dp, vertical = 0.dp)    |
+| 常量名                                | 类型          | 说明                       | 默认值                                                |
+| ------------------------------------- | ------------- | -------------------------- | ----------------------------------------------------- |
+| CornerRadius                          | Dp            | 条的圆角半径               | 13.dp                                                 |
+| CornerRadiusSingleLine                | Dp            | 收起为单行时的圆角半径     | 24.dp                                                 |
+| MaxWidth                              | Dp            | 条的最大宽度               | 328.dp                                                |
+| MarginBottom                          | Dp            | 与屏幕底部的间距           | 32.dp                                                 |
+| ContentHorizontalPadding              | Dp            | 条内部水平内边距           | 16.dp                                                 |
+| ContentVerticalPadding                | Dp            | 条内部垂直内边距           | 10.dp                                                 |
+| ContentVerticalPaddingMultiline       | Dp            | 多行时上方内边距           | 12.dp                                                 |
+| ContentVerticalPaddingMultilineBottom | Dp            | 多行时下方内边距           | 8.dp                                                  |
+| IconSize                              | Dp            | 前置状态图标尺寸           | 30.dp                                                 |
+| IconVerticalMargin                    | Dp            | 前置图标的垂直内缩         | 16.dp                                                 |
+| ActionMaxWidth                        | Dp            | 操作文字的最大宽度         | 110.dp                                                |
+| ActionMarginEnd                       | Dp            | 操作文字之后的间距         | 4.dp                                                  |
+| ActionVerticalMargin                  | Dp            | 操作文字的垂直内边距       | 10.dp                                                 |
+| ShadowRadius                          | Dp            | 条的投影半径               | 26.dp                                                 |
+| InsideMargin                          | PaddingValues | 仅为兼容保留，已不生效     | PaddingValues(all = 12.dp)                            |
+| OuterPadding                          | PaddingValues | Snackbar 的默认外边距      | PaddingValues(start = 12.dp, end = 12.dp, top = 8.dp) |
 
 ## SnackbarDuration 与 SnackbarResult
 

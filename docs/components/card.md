@@ -1,6 +1,6 @@
 # Card
 
-`Card` is a basic container component in Miuix, used to hold related content and actions. It provides a card container with Miuix style, suitable for scenarios such as information display and content grouping. Supports both static display and interactive modes.
+`Card` is a basic container component in Rmuix, used to hold related content and actions. It provides a card container with Rmuix style, suitable for scenarios such as information display and content grouping. Supports both static display and interactive modes.
 
 <div style="position: relative; height: 300px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=card" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,8 +9,8 @@
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.utils.PressFeedbackType // If using interactive card
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.utils.PressFeedbackType // If using interactive card
 ```
 
 ## Basic Usage
@@ -78,7 +78,7 @@ Card(
     cornerRadius = 8.dp,
     insideMargin = PaddingValues(16.dp),
     colors = CardDefaults.defaultColors(
-        color = MiuixTheme.colorScheme.primaryVariant
+        color = RmuixTheme.colorScheme.primaryVariant
     ),
 ) {
     Text("Custom Style Card")
@@ -94,7 +94,7 @@ Card(
 ) {
     Text(
         text = "Card Title",
-        style = MiuixTheme.textStyles.title2
+        style = RmuixTheme.textStyles.title2
     )
     Spacer(modifier = Modifier.height(8.dp))
     Text(

@@ -2,29 +2,29 @@
 title: OverlayBottomSheet
 requiresScaffoldHost: true
 prerequisites:
-  - 必须在 `Scaffold` 中使用以提供 `MiuixPopupHost`
+  - 必须在 `Scaffold` 中使用以提供 `RmuixPopupHost`
   - 未在 `Scaffold` 中使用将导致弹出内容无法渲染
   - 支持多个嵌套或并列的 `Scaffold`，无需额外配置
 hostComponent: Scaffold
-popupHost: MiuixPopupHost
+popupHost: RmuixPopupHost
 ---
 
 # OverlayBottomSheet
 
-`OverlayBottomSheet` 是 Miuix 中的底部抽屉组件，从屏幕底部滑入显示。持拖拽手势关闭和自定义样式。
+`OverlayBottomSheet` 是 Rmuix 中的底部抽屉组件，从屏幕底部滑入显示。持拖拽手势关闭和自定义样式。
 
 <div style="position: relative; height: 240px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=overlayBottomSheet" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 </div>
 
 ::: danger 使用前提
-此组件依赖 `Scaffold` 提供的 `MiuixPopupHost` 以显示弹出内容。必须在 `Scaffold` 中使用，否则弹出内容无法正常渲染。
+此组件依赖 `Scaffold` 提供的 `RmuixPopupHost` 以显示弹出内容。必须在 `Scaffold` 中使用，否则弹出内容无法正常渲染。
 :::
 
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.overlay.OverlayBottomSheet
+import io.github.ra1nify.rmuix.kmp.overlay.OverlayBottomSheet
 ```
 
 ## 基本用法
@@ -82,10 +82,10 @@ Scaffold {
 
 | 属性名        | 类型   | 说明                  |
 | ------------- | ------ | --------------------- |
-| cornerRadius  | Dp     | 默认圆角半径 (28.dp)  |
-| maxWidth      | Dp     | 默认最大宽度 (640.dp) |
-| outsideMargin | DpSize | 底部抽屉外部默认边距  |
-| insideMargin  | DpSize | 底部抽屉内部默认边距  |
+| cornerRadius  | Dp     | 默认圆角半径 (28.dp)                           |
+| maxWidth      | Dp     | 默认最大宽度 (540.dp)                           |
+| outsideMargin | DpSize | 底部抽屉外部默认边距 (DpSize(0.dp, 0.dp))       |
+| insideMargin  | DpSize | 底部抽屉内部默认边距 (DpSize(16.dp, 0.dp))      |
 
 #### BottomSheetDefaults 函数
 
@@ -110,8 +110,8 @@ Scaffold {
     OverlayBottomSheet(
         show = showBottomSheet,
         title = "自定义样式",
-        backgroundColor = MiuixTheme.colorScheme.surfaceVariant,
-        dragHandleColor = MiuixTheme.colorScheme.primary,
+        backgroundColor = RmuixTheme.colorScheme.surfaceVariant,
+        dragHandleColor = RmuixTheme.colorScheme.primary,
         outsideMargin = DpSize(16.dp, 0.dp),
         insideMargin = DpSize(32.dp, 16.dp),
         onDismissRequest = { showBottomSheet = false }
@@ -254,7 +254,7 @@ Scaffold {
         onDismissRequest = { showBottomSheet = false }
     ) {
         Card(
-            color = MiuixTheme.colorScheme.secondaryContainer,
+            color = RmuixTheme.colorScheme.secondaryContainer,
         ) {
             TextField(
                 modifier = Modifier.padding(vertical = 12.dp),

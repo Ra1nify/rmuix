@@ -2,11 +2,11 @@
 title: OverlayIconDropdownMenu
 requiresScaffoldHost: true
 prerequisites:
-  - Must be used within `Scaffold` to provide `MiuixPopupHost`
+  - Must be used within `Scaffold` to provide `RmuixPopupHost`
   - Using outside `Scaffold` will cause popup content not to render
   - Multiple nested or side-by-side `Scaffold`s are supported without extra configuration
 hostComponent: Scaffold
-popupHost: MiuixPopupHost
+popupHost: RmuixPopupHost
 ---
 
 # OverlayIconDropdownMenu
@@ -18,15 +18,15 @@ popupHost: MiuixPopupHost
 </div>
 
 ::: danger Prerequisite
-This component depends on `Scaffold` providing `MiuixPopupHost` to render popup content. It must be used within `Scaffold`, otherwise popup content will not render correctly.
+This component depends on `Scaffold` providing `RmuixPopupHost` to render popup content. It must be used within `Scaffold`, otherwise popup content will not render correctly.
 :::
 
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.menu.OverlayIconDropdownMenu
-import top.yukonga.miuix.kmp.basic.DropdownEntry
-import top.yukonga.miuix.kmp.basic.DropdownItem
+import io.github.ra1nify.rmuix.kmp.menu.OverlayIconDropdownMenu
+import io.github.ra1nify.rmuix.kmp.basic.DropdownEntry
+import io.github.ra1nify.rmuix.kmp.basic.DropdownItem
 ```
 
 ## Basic Usage
@@ -46,7 +46,7 @@ Scaffold(
             title = "Inbox",
             actions = {
                 OverlayIconDropdownMenu(entry = entry) {
-                    Icon(imageVector = MiuixIcons.Edit, contentDescription = "Action menu")
+                    Icon(imageVector = RmuixIcons.Edit, contentDescription = "Action menu")
                 }
             }
         )
@@ -72,7 +72,7 @@ val entry = DropdownEntry(
 
 Scaffold {
     OverlayIconDropdownMenu(entry = entry) {
-        Icon(imageVector = MiuixIcons.Sort, contentDescription = "Sort")
+        Icon(imageVector = RmuixIcons.Sort, contentDescription = "Sort")
     }
 }
 ```
@@ -97,7 +97,7 @@ val entry = DropdownEntry(
 
 Scaffold {
     OverlayIconDropdownMenu(entry = entry, collapseOnSelection = false) {
-        Icon(imageVector = MiuixIcons.SelectAll, contentDescription = "Multiple selection")
+        Icon(imageVector = RmuixIcons.SelectAll, contentDescription = "Multiple selection")
     }
 }
 ```
@@ -114,7 +114,7 @@ val entries = listOf(
 
 Scaffold {
     OverlayIconDropdownMenu(entries = entries) {
-        Icon(imageVector = MiuixIcons.MoreCircle, contentDescription = "More")
+        Icon(imageVector = RmuixIcons.MoreCircle, contentDescription = "More")
     }
 }
 ```
@@ -128,7 +128,7 @@ OverlayIconDropdownMenu(
     entry = DropdownEntry(items = listOf(DropdownItem(text = "Option 1"))),
     enabled = false
 ) {
-    Icon(imageVector = MiuixIcons.MoreCircle, contentDescription = "More")
+    Icon(imageVector = RmuixIcons.MoreCircle, contentDescription = "More")
 }
 ```
 

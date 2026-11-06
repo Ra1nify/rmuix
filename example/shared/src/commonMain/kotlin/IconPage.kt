@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
@@ -41,24 +41,24 @@ import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import component.SearchBarFake
 import component.SearchPager
+import io.github.ra1nify.rmuix.kmp.basic.BasicComponent
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.RmuixScrollBehavior
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.VerticalScrollBar
+import io.github.ra1nify.rmuix.kmp.basic.rememberScrollBarAdapter
+import io.github.ra1nify.rmuix.kmp.blur.layerBackdrop
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.ExpandLess
+import io.github.ra1nify.rmuix.kmp.icon.extended.ExpandMore
+import io.github.ra1nify.rmuix.kmp.interfaces.ExperimentalScrollBarApi
+import io.github.ra1nify.rmuix.kmp.squircle.squircleClip
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme.colorScheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import top.yukonga.miuix.kmp.basic.BasicComponent
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.MiuixScrollBehavior
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.basic.VerticalScrollBar
-import top.yukonga.miuix.kmp.basic.rememberScrollBarAdapter
-import top.yukonga.miuix.kmp.blur.layerBackdrop
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.ExpandLess
-import top.yukonga.miuix.kmp.icon.extended.ExpandMore
-import top.yukonga.miuix.kmp.interfaces.ExperimentalScrollBarApi
-import top.yukonga.miuix.kmp.squircle.squircleClip
-import top.yukonga.miuix.kmp.theme.MiuixTheme
-import top.yukonga.miuix.kmp.theme.MiuixTheme.colorScheme
 import utils.AdaptiveTopAppBar
 import utils.All
 import utils.BlurredBar
@@ -74,7 +74,7 @@ fun IconsPage(
 ) {
     val appState = LocalAppState.current
     val isWideScreen = LocalIsWideScreen.current
-    val topAppBarScrollBehavior = MiuixScrollBehavior()
+    val topAppBarScrollBehavior = RmuixScrollBehavior()
     val density = LocalDensity.current
 
     // A lambda keeps the collapse fraction out of composition; always 0 on wide screens (pinned bar).
@@ -90,7 +90,7 @@ fun IconsPage(
     var searchOffsetY by remember { mutableStateOf(0.dp) }
 
     // Icon data
-    val allIcons = remember { MiuixIcons.All }
+    val allIcons = remember { RmuixIcons.All }
     val regularIcons = remember(allIcons) { allIcons["Regular"] ?: emptyList() }
     val weightVariants: List<Pair<String, List<ImageVector>>> = remember(allIcons) {
         listOf("Light", "Normal", "Regular", "Medium", "Demibold").map { name ->
@@ -257,12 +257,12 @@ fun IconsPage(
                         Text(
                             text = "Name",
                             modifier = Modifier.weight(1f),
-                            style = MiuixTheme.textStyles.footnote1,
+                            style = RmuixTheme.textStyles.footnote1,
                             color = colorScheme.onSurfaceVariantActions,
                         )
                         Text(
                             text = "Tap to compare weights",
-                            style = MiuixTheme.textStyles.footnote2,
+                            style = RmuixTheme.textStyles.footnote2,
                             color = colorScheme.onSurfaceVariantActions,
                         )
                     }
@@ -294,7 +294,7 @@ fun IconsPage(
                             Text(
                                 text = iconNames[index],
                                 modifier = Modifier.weight(1f),
-                                style = MiuixTheme.textStyles.body2,
+                                style = RmuixTheme.textStyles.body2,
                                 color = colorScheme.onSurface,
                             )
                             Icon(
@@ -305,7 +305,7 @@ fun IconsPage(
                             )
                             Spacer(modifier = Modifier.size(8.dp))
                             Icon(
-                                imageVector = if (expanded) MiuixIcons.ExpandLess else MiuixIcons.ExpandMore,
+                                imageVector = if (expanded) RmuixIcons.ExpandLess else RmuixIcons.ExpandMore,
                                 contentDescription = if (expanded) "Collapse" else "Expand",
                                 tint = colorScheme.onSurfaceVariantActions,
                                 modifier = Modifier.size(18.dp),
@@ -332,7 +332,7 @@ fun IconsPage(
                                         Spacer(modifier = Modifier.height(4.dp))
                                         Text(
                                             text = label,
-                                            style = MiuixTheme.textStyles.footnote2,
+                                            style = RmuixTheme.textStyles.footnote2,
                                             color = colorScheme.onSurfaceVariantActions,
                                             textAlign = TextAlign.Center,
                                             maxLines = 1,

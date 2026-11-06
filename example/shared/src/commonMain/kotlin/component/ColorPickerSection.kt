@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -19,14 +19,14 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.toArgb
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.ColorPalette
-import top.yukonga.miuix.kmp.basic.ColorPicker
-import top.yukonga.miuix.kmp.basic.ColorSpace
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.basic.TextField
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.ColorPalette
+import io.github.ra1nify.rmuix.kmp.basic.ColorPicker
+import io.github.ra1nify.rmuix.kmp.basic.ColorSpace
+import io.github.ra1nify.rmuix.kmp.basic.SmallTitle
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.TextField
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 import kotlin.math.round
 
 fun LazyListScope.colorPickerSection() {
@@ -52,8 +52,8 @@ fun LazyListScope.colorPickerSection() {
 
     item(key = "colorPalette") {
         SmallTitle(text = "ColorPalette")
-        val miuixColor = MiuixTheme.colorScheme.primary
-        var selectedColor by remember { mutableStateOf(miuixColor) }
+        val rmuixColor = RmuixTheme.colorScheme.primary
+        var selectedColor by remember { mutableStateOf(rmuixColor) }
         var colorHex by remember(selectedColor) {
             mutableStateOf(
                 selectedColor.toArgb().toHexString(HexFormat.UpperCase),
@@ -94,8 +94,8 @@ fun LazyListScope.colorPickerSection() {
 
 @Composable
 private fun ColorPickerCard(colorSpace: ColorSpace) {
-    val miuixColor = MiuixTheme.colorScheme.primary
-    var selectedColor by remember { mutableStateOf(miuixColor) }
+    val rmuixColor = RmuixTheme.colorScheme.primary
+    var selectedColor by remember { mutableStateOf(rmuixColor) }
     var colorHex by remember(selectedColor) {
         mutableStateOf(
             selectedColor.toArgb().toHexString(HexFormat.UpperCase),

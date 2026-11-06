@@ -1,6 +1,6 @@
 # Button
 
-`Button` 是 Miuix 中的基础交互组件，用于触发操作或事件。提供了多种风格选择，包括主要按钮、次要按钮和文本按钮。
+`Button` 是 Rmuix 中的基础交互组件，用于触发操作或事件。提供了多种风格选择，包括主要按钮、次要按钮和文本按钮。
 
 <div style="position: relative; height: 200px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=button" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Button
+import io.github.ra1nify.rmuix.kmp.basic.Button
 ```
 
 ## 基本用法
@@ -26,7 +26,7 @@ Button(
 
 ## 按钮类型
 
-Miuix 提供了多种类型的按钮，适用于不同的场景和重要程度：
+Rmuix 提供了多种类型的按钮，适用于不同的场景和重要程度：
 
 ### 主要按钮（Primary Button）
 
@@ -103,7 +103,7 @@ Button(
 | minHeight         | Dp                        | 按钮最小高度         | ButtonDefaults.MinHeight          | 否       |
 | colors            | TextButtonColors          | 文本按钮颜色配置     | ButtonDefaults.textButtonColors() | 否       |
 | insideMargin      | PaddingValues             | 按钮内部边距         | ButtonDefaults.InsideMargin       | 否       |
-| textStyle         | TextStyle?                | 按钮文本的文本样式   | null（MiuixTheme.textStyles.button）| 否     |
+| textStyle         | TextStyle?                | 按钮文本的文本样式   | null（RmuixTheme.textStyles.button）| 否     |
 | interactionSource | MutableInteractionSource? | 按钮的交互源         | null                              | 否       |
 | indication        | Indication?               | 点击交互的反馈效果   | LocalIndication.current           | 否       |
 
@@ -116,15 +116,15 @@ ButtonDefaults 对象提供了按钮组件的默认值和颜色配置。
 | 常量名       | 类型          | 说明           | 默认值               |
 | ------------ | ------------- | -------------- | -------------------- |
 | MinWidth     | Dp            | 按钮的最小宽度 | 58.dp                |
-| MinHeight    | Dp            | 按钮的最小高度 | 40.dp                |
-| CornerRadius | Dp            | 按钮的圆角半径 | 16.dp                |
-| InsideMargin | PaddingValues | 按钮的内部边距 | PaddingValues(horizontal = 16.dp, vertical = 13.dp) |
+| MinHeight    | Dp            | 按钮的最小高度 | 44.dp                |
+| CornerRadius | Dp            | 按钮的圆角半径 | 21.5.dp                |
+| InsideMargin | PaddingValues | 按钮的内部边距 | PaddingValues(horizontal = 12.dp, vertical = 8.dp) |
 
 #### 方法
 
 | 方法名                    | 类型             | 说明                       |
 | ------------------------- | ---------------- | -------------------------- |
-| buttonColors()            | ButtonColors     | 创建次要按钮的颜色配置     |
+| buttonColors()            | ButtonColors     | 创建次要按钮的颜色配置（半透明中性容器：亮 8% 黑 / 暗 10% 白）|
 | buttonColorsPrimary()     | ButtonColors     | 创建主要按钮的颜色配置     |
 | textButtonColors()        | TextButtonColors | 创建次要文本按钮的颜色配置 |
 | textButtonColorsPrimary() | TextButtonColors | 创建主要文本按钮的颜色配置 |
@@ -138,7 +138,7 @@ Button(
     onClick = { /* 处理点击事件 */ }
 ) {
     Icon(
-        imageVector = MiuixIcons.Favorites,
+        imageVector = RmuixIcons.Favorites,
         contentDescription = "Favorites"
     )
     Spacer(modifier = Modifier.width(8.dp))

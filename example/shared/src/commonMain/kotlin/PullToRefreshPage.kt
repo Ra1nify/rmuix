@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
@@ -32,29 +32,29 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import component.BackNavigationIcon
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.CardDefaults
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.IconButton
+import io.github.ra1nify.rmuix.kmp.basic.PullToRefresh
+import io.github.ra1nify.rmuix.kmp.basic.RmuixScrollBehavior
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.VerticalScrollBar
+import io.github.ra1nify.rmuix.kmp.basic.rememberPullToRefreshState
+import io.github.ra1nify.rmuix.kmp.basic.rememberScrollBarAdapter
+import io.github.ra1nify.rmuix.kmp.blur.layerBackdrop
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Refresh
+import io.github.ra1nify.rmuix.kmp.interfaces.ExperimentalScrollBarApi
+import io.github.ra1nify.rmuix.kmp.preference.OverlayDropdownPreference
+import io.github.ra1nify.rmuix.kmp.preference.SliderPreference
+import io.github.ra1nify.rmuix.kmp.preference.WindowDropdownPreference
+import io.github.ra1nify.rmuix.kmp.squircle.squircleClip
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
+import io.github.ra1nify.rmuix.kmp.utils.PressFeedbackType
+import io.github.ra1nify.rmuix.kmp.window.WindowBottomSheet
 import kotlinx.coroutines.delay
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.CardDefaults
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.IconButton
-import top.yukonga.miuix.kmp.basic.MiuixScrollBehavior
-import top.yukonga.miuix.kmp.basic.PullToRefresh
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.basic.VerticalScrollBar
-import top.yukonga.miuix.kmp.basic.rememberPullToRefreshState
-import top.yukonga.miuix.kmp.basic.rememberScrollBarAdapter
-import top.yukonga.miuix.kmp.blur.layerBackdrop
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Refresh
-import top.yukonga.miuix.kmp.interfaces.ExperimentalScrollBarApi
-import top.yukonga.miuix.kmp.preference.OverlayDropdownPreference
-import top.yukonga.miuix.kmp.preference.SliderPreference
-import top.yukonga.miuix.kmp.preference.WindowDropdownPreference
-import top.yukonga.miuix.kmp.squircle.squircleClip
-import top.yukonga.miuix.kmp.theme.MiuixTheme
-import top.yukonga.miuix.kmp.utils.PressFeedbackType
-import top.yukonga.miuix.kmp.window.WindowBottomSheet
 import utils.AdaptiveTopAppBar
 import utils.BlurredBar
 import utils.pageContentPadding
@@ -76,11 +76,11 @@ fun PullToRefreshPage(
     val pullToRefreshState = rememberPullToRefreshState(
         refreshThreshold = thresholdValue,
     )
-    val topAppBarScrollBehavior = MiuixScrollBehavior()
+    val topAppBarScrollBehavior = RmuixScrollBehavior()
 
     val backdrop = rememberBlurBackdrop()
     val blurActive = backdrop != null
-    val barColor = if (blurActive) Color.Transparent else MiuixTheme.colorScheme.surface
+    val barColor = if (blurActive) Color.Transparent else RmuixTheme.colorScheme.surface
 
     val dropdownOptions = remember { listOf("Option 1", "Option 2", "Option 3", "Option 4") }
     var dropdownSelectedOption by remember { mutableIntStateOf(0) }
@@ -113,9 +113,9 @@ fun PullToRefreshPage(
                             onClick = { isRefreshing = true },
                         ) {
                             Icon(
-                                imageVector = MiuixIcons.Refresh,
+                                imageVector = RmuixIcons.Refresh,
                                 contentDescription = "Refresh",
-                                tint = MiuixTheme.colorScheme.onBackground,
+                                tint = RmuixTheme.colorScheme.onBackground,
                             )
                         }
                     },
@@ -160,7 +160,7 @@ fun PullToRefreshPage(
                                 cornerRadius = 12.dp,
                                 insideMargin = PaddingValues(16.dp),
                                 colors = CardDefaults.defaultColors(
-                                    color = MiuixTheme.colorScheme.surfaceContainer,
+                                    color = RmuixTheme.colorScheme.surfaceContainer,
                                 ),
                                 pressFeedbackType = PressFeedbackType.Sink,
                                 showIndication = true,
@@ -168,13 +168,13 @@ fun PullToRefreshPage(
                             ) {
                                 Text(
                                     text = "Pull Progress: ${(currentPullProgress * 100).toInt()}%",
-                                    style = MiuixTheme.textStyles.body1,
-                                    color = MiuixTheme.colorScheme.onSurface,
+                                    style = RmuixTheme.textStyles.body1,
+                                    color = RmuixTheme.colorScheme.onSurface,
                                 )
                                 Text(
                                     text = "Threshold: ${(thresholdValue * 100).toInt()}%",
-                                    style = MiuixTheme.textStyles.body2,
-                                    color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
+                                    style = RmuixTheme.textStyles.body2,
+                                    color = RmuixTheme.colorScheme.onSurfaceVariantSummary,
                                 )
                             }
                         }
@@ -194,7 +194,7 @@ fun PullToRefreshPage(
                                         bottomEnd = if (isLast) 16.dp else 0.dp,
                                         bottomStart = if (isLast) 16.dp else 0.dp,
                                     )
-                                    .background(MiuixTheme.colorScheme.surfaceContainer),
+                                    .background(RmuixTheme.colorScheme.surfaceContainer),
                             ) {
                                 if (i % 2 == 0) {
                                     OverlayDropdownPreference(
@@ -236,7 +236,7 @@ fun PullToRefreshPage(
         Card(
             insideMargin = PaddingValues(),
             colors = CardDefaults.defaultColors(
-                color = MiuixTheme.colorScheme.secondaryContainer,
+                color = RmuixTheme.colorScheme.secondaryContainer,
             ),
         ) {
             SliderPreference(

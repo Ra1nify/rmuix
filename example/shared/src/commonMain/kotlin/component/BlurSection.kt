@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -34,26 +34,26 @@ import component.blend.ColorBlendToken
 import component.effect.BgEffectBackground
 import component.highlight.HighlightConfig
 import component.highlight.rememberContainerHighlight
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.HorizontalDivider
+import io.github.ra1nify.rmuix.kmp.basic.SmallTitle
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.blur.BlendColorEntry
+import io.github.ra1nify.rmuix.kmp.blur.BlurBlendMode
+import io.github.ra1nify.rmuix.kmp.blur.BlurDefaults
+import io.github.ra1nify.rmuix.kmp.blur.ProgressiveBlur
+import io.github.ra1nify.rmuix.kmp.blur.isRuntimeShaderSupported
+import io.github.ra1nify.rmuix.kmp.blur.layerBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.progressiveTextureBlur
+import io.github.ra1nify.rmuix.kmp.blur.rememberLayerBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.textureBlur
+import io.github.ra1nify.rmuix.kmp.preference.OverlayDropdownPreference
+import io.github.ra1nify.rmuix.kmp.preference.SliderPreference
+import io.github.ra1nify.rmuix.kmp.preference.SwitchPreference
+import io.github.ra1nify.rmuix.kmp.shared.generated.resources.Res
+import io.github.ra1nify.rmuix.kmp.shared.generated.resources.blur_test
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 import org.jetbrains.compose.resources.painterResource
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.HorizontalDivider
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.blur.BlendColorEntry
-import top.yukonga.miuix.kmp.blur.BlurBlendMode
-import top.yukonga.miuix.kmp.blur.BlurDefaults
-import top.yukonga.miuix.kmp.blur.ProgressiveBlur
-import top.yukonga.miuix.kmp.blur.isRuntimeShaderSupported
-import top.yukonga.miuix.kmp.blur.layerBackdrop
-import top.yukonga.miuix.kmp.blur.progressiveTextureBlur
-import top.yukonga.miuix.kmp.blur.rememberLayerBackdrop
-import top.yukonga.miuix.kmp.blur.textureBlur
-import top.yukonga.miuix.kmp.preference.OverlayDropdownPreference
-import top.yukonga.miuix.kmp.preference.SliderPreference
-import top.yukonga.miuix.kmp.preference.SwitchPreference
-import top.yukonga.miuix.kmp.shared.generated.resources.Res
-import top.yukonga.miuix.kmp.shared.generated.resources.blur_test
-import top.yukonga.miuix.kmp.theme.MiuixTheme
 import ui.isInDarkTheme
 import androidx.compose.ui.graphics.BlendMode as ComposeBlendMode
 
@@ -153,7 +153,7 @@ private fun ProgressiveBlurDemo() {
                 ) {
                     Text(
                         text = "Progressive Blur\n${directionItems[directionIndex]} | R=${blurRadius.toInt()} | ${currentBlend.first}",
-                        style = MiuixTheme.textStyles.headline2,
+                        style = RmuixTheme.textStyles.headline2,
                         textAlign = TextAlign.Center,
                         color = Color.White,
                     )
@@ -230,7 +230,7 @@ private fun BlurDemo() {
     val isInDark = isInDarkTheme()
 
     val backdrop = rememberLayerBackdrop()
-    val surface = MiuixTheme.colorScheme.surface.copy(alpha = 0.6f)
+    val surface = RmuixTheme.colorScheme.surface.copy(alpha = 0.6f)
 
     var tiltDriven by remember { mutableStateOf(true) }
     val containers = HighlightConfig.Container.entries
@@ -308,13 +308,13 @@ private fun BlurDemo() {
                     Column(horizontalAlignment = Alignment.CenterHorizontally) {
                         Text(
                             text = "Texture Blur | R=${blurRadiusX.toInt()}",
-                            style = MiuixTheme.textStyles.headline2,
+                            style = RmuixTheme.textStyles.headline2,
                         )
                         Spacer(Modifier.height(4.dp))
                         Text(
                             text = "${currentBlend.first} | ${containerItems[containerIndex]}",
-                            style = MiuixTheme.textStyles.body2,
-                            color = MiuixTheme.colorScheme.onSurfaceVariantActions,
+                            style = RmuixTheme.textStyles.body2,
+                            color = RmuixTheme.colorScheme.onSurfaceVariantActions,
                         )
                     }
                 }
@@ -394,7 +394,7 @@ private fun ForegroundBlurDemo() {
     val dynamicBackground = remember { mutableStateOf(true) }
 
     val backdrop = rememberLayerBackdrop()
-    val onBackground = MiuixTheme.colorScheme.onBackground
+    val onBackground = RmuixTheme.colorScheme.onBackground
     val logoBlend = remember(isInDark) {
         if (isInDark) {
             listOf(
@@ -444,7 +444,7 @@ private fun ForegroundBlurDemo() {
             ) {
                 // Foreground blur text
                 Text(
-                    text = "Foreground Blur\nMiuix Demo",
+                    text = "Foreground Blur\nRmuix Demo",
                     fontSize = 32.sp,
                     fontWeight = FontWeight.Black,
                     textAlign = TextAlign.Center,

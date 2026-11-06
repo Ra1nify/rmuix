@@ -1,17 +1,17 @@
 # 主题系统
 
-Miuix 提供了一套完整的主题系统，使您能够轻松地在整个应用中保持一致的设计风格。整个主题系统由颜色方案和文本样式组成。
+Rmuix 提供了一套完整的主题系统，使您能够轻松地在整个应用中保持一致的设计风格。整个主题系统由颜色方案和文本样式组成。
 
-## 使用 MiuixTheme
+## 使用 RmuixTheme
 
-使用 `ThemeController` 控制配色模式，然后用 `MiuixTheme` 包裹内容：
+使用 `ThemeController` 控制配色模式，然后用 `RmuixTheme` 包裹内容：
 
 ```kotlin
 @Composable
 fun App() {
     // 可用模式：System、Light、Dark、MonetSystem、MonetLight、MonetDark
     val controller = remember { ThemeController(ColorSchemeMode.System) }
-    MiuixTheme(controller = controller) { /* 内容 */ }
+    RmuixTheme(controller = controller) { /* 内容 */ }
 }
 ```
 
@@ -34,7 +34,7 @@ fun App() {
               // keyColor = Color(0xFF3482FF) // 可选：自定义种子颜色
           )
       }
-      MiuixTheme(controller = controller) { /* 内容 */ }
+      RmuixTheme(controller = controller) { /* 内容 */ }
   }
   ```
 
@@ -51,7 +51,7 @@ fun App() {
           colorSpec = ThemeColorSpec.Spec2025
       )
   }
-  MiuixTheme(controller = controller) { /* 内容 */ }
+  RmuixTheme(controller = controller) { /* 内容 */ }
   ```
 
   ::: tip 提示
@@ -87,19 +87,19 @@ fun App() {
 
 - **直接使用**
 
-  直接传入颜色方案到 `MiuixTheme(colors = ...)`，用于在不使用 Controller 的情况下完全自定义：
+  直接传入颜色方案到 `RmuixTheme(colors = ...)`，用于在不使用 Controller 的情况下完全自定义：
 
   ```kotlin
   @Composable
   fun AppWithColors() {
       val colors = lightColorScheme() // 或 darkColorScheme()
-      MiuixTheme(colors = colors) { /* 内容 */ }
+      RmuixTheme(colors = colors) { /* 内容 */ }
   }
   ```
 
 ## ThemeController
 
-`ThemeController` 管理当前 Miuix 主题的配色方案。
+`ThemeController` 管理当前 Rmuix 主题的配色方案。
 
 ### ThemeController 属性
 
@@ -146,15 +146,15 @@ fun App() {
 | Spec2021 | 原始 Material Design 3 颜色规范                               |
 | Spec2025 | 2025 颜色规范（TonalSpot、Neutral、Vibrant、Expressive 支持） |
 
-## MiuixTheme 对象
+## RmuixTheme 对象
 
-通过 `MiuixTheme` 对象访问当前主题值：
+通过 `RmuixTheme` 对象访问当前主题值：
 
 ```kotlin
-val colors = MiuixTheme.colorScheme
-val textStyles = MiuixTheme.textStyles
-val mode = MiuixTheme.colorSchemeMode
-val isDynamic = MiuixTheme.isDynamicColor
+val colors = RmuixTheme.colorScheme
+val textStyles = RmuixTheme.textStyles
+val mode = RmuixTheme.colorSchemeMode
+val isDynamic = RmuixTheme.isDynamicColor
 ```
 
 | 属性            | 类型             | 说明                                            |
@@ -183,7 +183,7 @@ val customTextStyles = defaultTextStyles(
 )
 
 val controller = remember { ThemeController(ColorSchemeMode.Light) }
-MiuixTheme(
+RmuixTheme(
     controller = controller,
     textStyles = customTextStyles
 ) {
@@ -199,7 +199,7 @@ MiuixTheme(
 @Composable
 fun MyApp() {
     val controller = remember { ThemeController(ColorSchemeMode.System) }
-    MiuixTheme(controller = controller) {
+    RmuixTheme(controller = controller) {
         // 应用内容
     }
 }
@@ -207,7 +207,7 @@ fun MyApp() {
 
 ## 屏幕缺口适配 (`ProvideDisplayCutoutFix`)
 
-Miuix 在 `MiuixTheme` 根组合项中默认集成了 `ProvideDisplayCutoutFix`。
+Rmuix 在 `RmuixTheme` 根组合项中默认集成了 `ProvideDisplayCutoutFix`。
 
 在部分 Android OEM 设备上（尤其是横屏平板设备和折叠屏设备），系统在向 View 树派发窗口边距时，可能会缺失屏幕缺口信息（导致 `WindowInsets.displayCutout` 为 0），从而引起侧边导航栏或顶部应用栏被摄像头挖孔遮挡。
 
@@ -215,7 +215,7 @@ Miuix 在 `MiuixTheme` 根组合项中默认集成了 `ProvideDisplayCutoutFix`�
 
 ### 手动调用
 
-通常情况下由 `MiuixTheme` 自动挂载，无需手动调用。如果存在未被 `MiuixTheme` 包裹的自定义窗口或独立层级，也可按需手动引入：
+通常情况下由 `RmuixTheme` 自动挂载，无需手动调用。如果存在未被 `RmuixTheme` 包裹的自定义窗口或独立层级，也可按需手动引入：
 
 ```kotlin
 ProvideDisplayCutoutFix()
@@ -227,7 +227,7 @@ ProvideDisplayCutoutFix()
 
 ```kotlin
 CompositionLocalProvider(LocalDisplayCutoutFixEnabled provides false) {
-    MiuixTheme {
+    RmuixTheme {
         // 禁用自动缺口修复的内容
     }
 }

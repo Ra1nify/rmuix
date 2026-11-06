@@ -32,6 +32,6 @@
 -dontwarn dev.nucleusframework.**
 -dontnote dev.nucleusframework.**
 
-# miuix-window
--keep class top.yukonga.miuix.kmp.window.** { *; }
--dontnote top.yukonga.miuix.**
+# rmuix-window
+-keep class io.github.ra1nify.rmuix.kmp.window.** { *; }
+-dontnote io.github.ra1nify.rmuix.**

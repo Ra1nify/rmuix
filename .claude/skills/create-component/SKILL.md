@@ -1,11 +1,11 @@
 ---
 name: create-component
-description: Create a new Compose Multiplatform UI component for the miuix library, including every required wiring point (library source, example app section + registration, docs interactive demo + registration, EN/zh_CN docs pages, component overview index, VitePress sidebar). Use whenever the user wants to add a new component, create a new composable, scaffold a component, or add a UI element to miuix — even if they only name the component ("add a Chip"). Triggers on "create component", "new component", "add a component", "scaffold component", "new composable", "新建组件", "添加组件", "新组件", "加个组件".
+description: Create a new Compose Multiplatform UI component for the rmuix library, including every required wiring point (library source, example app section + registration, docs interactive demo + registration, EN/zh_CN docs pages, component overview index, VitePress sidebar). Use whenever the user wants to add a new component, create a new composable, scaffold a component, or add a UI element to rmuix — even if they only name the component ("add a Chip"). Triggers on "create component", "new component", "add a component", "scaffold component", "new composable", "新建组件", "添加组件", "新组件", "加个组件".
 ---
 
-# Create a Miuix Component
+# Create a Rmuix Component
 
-Add a new component to the miuix library and complete every companion change beyond the component file itself — example registration, docs, sidebar, and so on: 8 touch points in total (see the checklist at the end).
+Add a new component to the rmuix library and complete every companion change beyond the component file itself — example registration, docs, sidebar, and so on: 8 touch points in total (see the checklist at the end).
 
 The authoritative sources for conventions are `AGENTS.md` at the repo root (API Conventions, Key Patterns, Critical Constraints) and the reference source files listed below. This skill only describes the workflow and where the changes go; wherever it conflicts with AGENTS.md or existing source, they win — source code does not go stale, details copied into a skill do.
 
@@ -15,9 +15,9 @@ Ask the user for whatever is not yet provided:
 
 1. **Component name** — PascalCase (e.g. `Chip`, `Badge`, `Tooltip`)
 2. **Category** —
-   - **basic** (`basic/` in `miuix-ui`): standalone UI components, e.g. Button, Slider, Switch, TabRow
-   - **preference** (`preference/` in `miuix-preference`): settings-item components built on `BasicComponent` with title/summary/action slots, named `XxxPreference` (SwitchPreference, CheckboxPreference, …)
-   - Overlays (`overlay/`, `window/`) and menus/popups (`menu/`, `popup/` in `miuix-preference`) are rarely added; confirm the design with the user before starting
+   - **basic** (`basic/` in `rmuix-ui`): standalone UI components, e.g. Button, Slider, Switch, TabRow
+   - **preference** (`preference/` in `rmuix-preference`): settings-item components built on `BasicComponent` with title/summary/action slots, named `XxxPreference` (SwitchPreference, CheckboxPreference, …)
+   - Overlays (`overlay/`, `window/`) and menus/popups (`menu/`, `popup/` in `rmuix-preference`) are rarely added; confirm the design with the user before starting
 3. **Brief description** — what it does and where it is used
 4. **Key parameters** — state, callbacks, content slots, configuration
 5. **Whether a Colors class is needed** — most components need one; minimal components can take plain `Color` parameters (see how Divider does it)
@@ -26,31 +26,31 @@ Ask the user for whatever is not yet provided:
 
 Before generating code, read the API Conventions section of `AGENTS.md`, pick the closest type from the table below, and read its reference source in full. Match coding style, indentation, and idioms exactly:
 
-| Component type | Reference (under `miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/` unless noted) | Key points |
+| Component type | Reference (under `rmuix-ui/src/commonMain/kotlin/top/yukonga/rmuix/kmp/` unless noted) | Key points |
 | :--- | :--- | :--- |
 | Clickable filled | `basic/Button.kt` | `Box` + `Modifier.squircleSurface(color, cornerRadius)` + `clickable(interactionSource, LocalIndication.current, …)`; do not invent a Surface wrapper |
 | Container | `basic/Card.kt` | two overloads: non-interactive `@NonRestartableComposable` one + interactive one (`combinedClickable` / `pressable` / `HoldDownObserver`) |
 | Minimal drawn | `basic/Divider.kt` | `Canvas` drawing; plain `Color` parameters, no Colors class; theme colors in Defaults via `@Composable get()` |
 | Animated / custom-drawn | `basic/ProgressIndicator.kt`, `basic/Switch.kt` | looping animation, drag gestures, haptics, semantics such as `progressBarRangeInfo` |
-| Settings item | `miuix-preference/.../preference/SwitchPreference.kt` | delegates to `BasicComponent`, control placed in `endActions`, whole-row click callback + correct `Role` |
+| Settings item | `rmuix-preference/.../preference/SwitchPreference.kt` | delegates to `BasicComponent`, control placed in `endActions`, whole-row click callback + correct `Role` |
 | BasicComponent API | `basic/Component.kt` | see AGENTS.md Critical Constraints: its custom `Layout` must not be replaced with `Row + weight(1f)` |
-| Grouped Colors (selected-state aware) | `miuix-preference/.../preference/RadioButtonPreference.kt` | `@Immutable` data class holding several `BasicComponentColors` + `@Stable internal fun xxx(selected)` accessors |
+| Grouped Colors (selected-state aware) | `rmuix-preference/.../preference/RadioButtonPreference.kt` | `@Immutable` data class holding several `BasicComponentColors` + `@Stable internal fun xxx(selected)` accessors |
 
 ## Step 3: Write the component source file
 
 Locations:
 
-- basic: `miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/{Name}.kt`
-- preference: `miuix-preference/src/commonMain/kotlin/top/yukonga/miuix/kmp/preference/{Name}Preference.kt`
+- basic: `rmuix-ui/src/commonMain/kotlin/top/yukonga/rmuix/kmp/basic/{Name}.kt`
+- preference: `rmuix-preference/src/commonMain/kotlin/top/yukonga/rmuix/kmp/preference/{Name}Preference.kt`
 
 Structure and conventions follow AGENTS.md (license header, parameter order, Defaults object, `@Immutable` Colors class, when `@NonRestartableComposable` applies, where `rememberUpdatedState` applies, `@Immutable`/`@Stable` and collection-stability rules). Below are only the pitfalls AGENTS.md does not spell out:
 
-- **Backgrounds and shapes**: filled backgrounds (including those of clickable components) use `Modifier.squircleSurface(color = …, cornerRadius = …)`; borders use `Modifier.squircleBorder(…)`; squircle-radius clipping uses `Modifier.squircleClip(…)` (all from `miuix-squircle`; they fall back to rounded rectangles when `LocalSquircleEnabled` is off, and their outlines align at equal radii). Where an actual `Shape` value is required (e.g. `dropShadow`, the `shape` parameter of `Surface`), use `RoundedCornerShape(cornerRadius)` / `CircleShape`
-- **Theming**: colors always come from `MiuixTheme.colorScheme.*` (full list in `theme/Colors.kt`) and text styles from `MiuixTheme.textStyles.*` (`theme/TextStyles.kt`); never hardcode
+- **Backgrounds and shapes**: filled backgrounds (including those of clickable components) use `Modifier.squircleSurface(color = …, cornerRadius = …)`; borders use `Modifier.squircleBorder(…)`; squircle-radius clipping uses `Modifier.squircleClip(…)` (all from `rmuix-squircle`; they fall back to rounded rectangles when `LocalSquircleEnabled` is off, and their outlines align at equal radii). Where an actual `Shape` value is required (e.g. `dropShadow`, the `shape` parameter of `Surface`), use `RoundedCornerShape(cornerRadius)` / `CircleShape`
+- **Theming**: colors always come from `RmuixTheme.colorScheme.*` (full list in `theme/Colors.kt`) and text styles from `RmuixTheme.textStyles.*` (`theme/TextStyles.kt`); never hardcode
 - **Resolving state to color**: prefer a `@Stable internal fun` on the Colors class (e.g. `color(enabled: Boolean)`; most of the library does this); a simple two-state case may also resolve inline like `Button.kt` does — follow the chosen reference file
 - **Haptics**: toggle-like components fire haptics inside the click callback (`HapticFeedbackType.ToggleOn`/`ToggleOff`, following the `rememberUpdatedState(hapticFeedback)` pattern in `Switch.kt`/`Checkbox.kt`/`RadioButton.kt`); never fire on state change — programmatic state writes would trigger it
 - **Semantics**: set the correct `Role` (Button/Switch/Checkbox/RadioButton…); the non-interactive form (`onClick = null`) still needs a `semantics` block declaring role and state
-- **RTL**: for directional icons, capture `val layoutDirection = LocalLayoutDirection.current` first, then `graphicsLayer { scaleX = if (layoutDirection == LayoutDirection.Rtl) -1f else 1f }` (`GraphicsLayerScope` does not expose layoutDirection; see `miuix-preference/.../preference/ArrowPreference.kt`)
+- **RTL**: for directional icons, capture `val layoutDirection = LocalLayoutDirection.current` first, then `graphicsLayer { scaleX = if (layoutDirection == LayoutDirection.Rtl) -1f else 1f }` (`GraphicsLayerScope` does not expose layoutDirection; see `rmuix-preference/.../preference/ArrowPreference.kt`)
 - **Platforms**: implement in `commonMain` first; use expect/actual only for genuine platform differences (see Platform Source Sets in AGENTS.md)
 - **Naming and wording**: no Material components or dependencies; code, comments, and KDoc must not reference external design systems or vendor names
 - **Single-file layout**: the main composable, private helper composables, the Defaults object, and the Colors class live in one file; extract complex `startAction`/`endActions` content into private helper composables
@@ -122,7 +122,7 @@ Commits follow the AGENTS.md Git Commit Style (the component and its example/doc
 
 A new component lands only when all 8 are done:
 
-1. Component source file (miuix-ui or miuix-preference)
+1. Component source file (rmuix-ui or rmuix-preference)
 2. `example/shared/.../component/{Name}Section.kt`
 3. `example/shared/.../MainPage.kt` registration (import + call)
 4. `docs/demo/.../{Name}Demo.kt`

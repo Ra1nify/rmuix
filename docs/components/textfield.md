@@ -1,6 +1,6 @@
 # TextField
 
-`TextField` is a basic input component in Miuix for receiving text input from users. The component provides rich customization options, supporting label animations, leading and trailing icons, and other features.
+`TextField` is a basic input component in Rmuix for receiving text input from users. The component provides rich customization options, supporting label animations, leading and trailing icons, and other features.
 
 <div style="position: relative; height: 340px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=textField" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.TextField
+import io.github.ra1nify.rmuix.kmp.basic.TextField
 ```
 
 ## Basic Usage
@@ -102,7 +102,7 @@ TextField(
 | useLabelAsPlaceholder | Boolean                                      | Use label as placeholder            | false                                            | No       |
 | enabled               | Boolean                                      | Whether input field is enabled      | true                                             | No       |
 | readOnly              | Boolean                                      | Whether input field is read-only    | false                                            | No       |
-| textStyle             | TextStyle                                    | Text style                          | MiuixTheme.textStyles.main                       | No       |
+| textStyle             | TextStyle                                    | Text style                          | RmuixTheme.textStyles.main                       | No       |
 | keyboardOptions       | KeyboardOptions                              | Keyboard options                    | KeyboardOptions.Default                          | No       |
 | keyboardActions       | KeyboardActions                              | Keyboard actions                    | KeyboardActions.Default                          | No       |
 | leadingIcon           | @Composable (() -> Unit)?                    | Leading icon                        | null                                             | No       |
@@ -129,7 +129,7 @@ TextField(
 | enabled               | Boolean                                        | Whether input field is enabled                     | true                                       | No       |
 | readOnly              | Boolean                                        | Whether input field is read-only                   | false                                      | No       |
 | inputTransformation   | InputTransformation?                           | Input transformation                               | null                                       | No       |
-| textStyle             | TextStyle                                      | Text style                                         | MiuixTheme.textStyles.main                 | No       |
+| textStyle             | TextStyle                                      | Text style                                         | RmuixTheme.textStyles.main                 | No       |
 | keyboardOptions       | KeyboardOptions                                | Keyboard options                                   | KeyboardOptions.Default                    | No       |
 | onKeyboardAction      | KeyboardActionHandler?                         | Keyboard action handler                            | null                                       | No       |
 | lineLimits            | TextFieldLineLimits                            | Line limits                                        | TextFieldLineLimits.Default                | No       |
@@ -154,13 +154,13 @@ The TextFieldDefaults object provides default values for TextField components.
 
 #### `textFieldColors()` factory
 
-Builds a [TextFieldColors] instance. Override any subset; unspecified params fall back to the Miuix theme defaults.
+Builds a [TextFieldColors] instance. Override any subset; unspecified params fall back to the Rmuix theme defaults.
 
 | Parameter        | Type  | Default                                          |
 | ---------------- | ----- | ------------------------------------------------ |
-| backgroundColor  | Color | MiuixTheme.colorScheme.secondaryContainer        |
-| labelColor       | Color | MiuixTheme.colorScheme.onSecondaryContainer      |
-| borderColor      | Color | MiuixTheme.colorScheme.primary                   |
+| backgroundColor  | Color | RmuixTheme.colorScheme.secondaryContainer        |
+| labelColor       | Color | RmuixTheme.colorScheme.onSurfaceVariantSummary   |
+| borderColor      | Color | RmuixTheme.colorScheme.primary                   |
 
 ## Advanced Usage
 
@@ -175,7 +175,7 @@ TextField(
     label = "Search",
     leadingIcon = {
         Icon(
-            imageVector = MiuixIcons.Search,
+            imageVector = RmuixIcons.Search,
             contentDescription = "Search Icon",
             modifier = Modifier.padding(horizontal = 12.dp)
         )
@@ -201,8 +201,8 @@ TextField(
             modifier = Modifier.padding(end = 12.dp)
         ) {
             Icon(
-                imageVector = MiuixIcons.Rename,
-                tint = if (passwordVisible) MiuixTheme.colorScheme.primary else MiuixTheme.colorScheme.onSecondaryContainer,
+                imageVector = RmuixIcons.Rename,
+                tint = if (passwordVisible) RmuixTheme.colorScheme.primary else RmuixTheme.colorScheme.onSecondaryContainer,
                 contentDescription = if (passwordVisible) "Hide Password" else "Show Password"
             )
         }
@@ -227,7 +227,7 @@ Column {
         },
         label = "Email",
         colors = TextFieldDefaults.textFieldColors(
-            labelColor = if (isError) errorColor else MiuixTheme.colorScheme.onSecondaryContainer,
+            labelColor = if (isError) errorColor else RmuixTheme.colorScheme.onSurfaceVariantSummary,
         ),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
     )
@@ -235,7 +235,7 @@ Column {
         Text(
             text = "Please enter a valid email address",
             color = errorColor,
-            style = MiuixTheme.textStyles.body2,
+            style = RmuixTheme.textStyles.body2,
             modifier = Modifier.padding(start = 16.dp, top = 4.dp)
         )
     }
@@ -253,12 +253,12 @@ TextField(
     label = "Custom Input Field",
     cornerRadius = 8.dp,
     colors = TextFieldDefaults.textFieldColors(
-        backgroundColor = MiuixTheme.colorScheme.primary.copy(alpha = 0.1f),
+        backgroundColor = RmuixTheme.colorScheme.primary.copy(alpha = 0.1f),
     ),
     textStyle = TextStyle(
         fontWeight = FontWeight.Medium,
         fontSize = 16.sp,
-        color = MiuixTheme.colorScheme.primary
+        color = RmuixTheme.colorScheme.primary
     )
 )
 ```

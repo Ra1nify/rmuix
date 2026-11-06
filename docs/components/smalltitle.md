@@ -1,6 +1,6 @@
 # SmallTitle
 
-`SmallTitle` is a basic title component in Miuix used to create small-sized title text. It follows Miuix's design style with preset font size, weight, and padding.
+`SmallTitle` is a basic title component in Rmuix used to create small-sized title text. It follows Rmuix's design style with preset font size, weight, and padding.
 
 <div style="position: relative; height: 160px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=smallTitle" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.SmallTitle
+import io.github.ra1nify.rmuix.kmp.basic.SmallTitle
 ```
 
 ## Basic Usage
@@ -50,7 +50,7 @@ SmallTitle(
 | ------------- | ------------- | ----------------------------- | ------------------------------------------ | -------- |
 | text          | String        | Text content to display       | -                                          | Yes      |
 | modifier      | Modifier      | Modifier applied to component | Modifier                                   | No       |
-| textColor     | Color         | Title text color              | MiuixTheme.colorScheme.onBackgroundVariant | No       |
+| textColor     | Color         | Title text color              | RmuixTheme.colorScheme.onBackgroundVariant | No       |
 | insideMargin  | PaddingValues | Component internal padding    | SmallTitleDefaults.InsideMargin             | No       |
 
 ### SmallTitleDefaults Object

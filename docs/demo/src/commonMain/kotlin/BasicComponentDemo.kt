@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -13,12 +13,12 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.BasicComponent
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Contacts
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.BasicComponent
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Contacts
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 @Composable
 fun BasicComponentDemo() {
@@ -52,9 +52,9 @@ fun BasicComponentDemo() {
                     startAction = {
                         Icon(
                             modifier = Modifier.padding(end = 16.dp),
-                            imageVector = MiuixIcons.Contacts,
+                            imageVector = RmuixIcons.Contacts,
                             contentDescription = "Avatar Icon",
-                            tint = MiuixTheme.colorScheme.onBackground,
+                            tint = RmuixTheme.colorScheme.onBackground,
                         )
                     },
                     onClick = { /* Handle click event */ },

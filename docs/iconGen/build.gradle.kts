@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 plugins {
@@ -8,16 +8,16 @@ plugins {
 }
 
 dependencies {
-    implementation(projects.miuixUi)
+    implementation(projects.rmuixUi)
 }
 
 val iconsSourceDir =
     rootProject.layout.projectDirectory
-        .dir("miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/icon")
+        .dir("rmuix-ui/src/commonMain/kotlin/top/yukonga/rmuix/kmp/icon")
         .asFile
 val extendedIconsSourceDir =
     rootProject.layout.projectDirectory
-        .dir("miuix-icons/src/commonMain/kotlin/top/yukonga/miuix/kmp/icon")
+        .dir("rmuix-icons/src/commonMain/kotlin/top/yukonga/rmuix/kmp/icon")
         .asFile
 val outputDir = project.file("../public/icons")
 val docFile = project.file("../guide/icons.md")
@@ -32,7 +32,7 @@ tasks.register<JavaExec>("generateIcons") {
     description = "Generate SVGs from Compose ImageVector definitions"
     dependsOn(tasks.named("classes"))
     classpath = mainClasspath
-    mainClass.set("top.yukonga.miuix.docs.icongen.MainKt")
+    mainClass.set("io.github.ra1nify.rmuix.docs.icongen.MainKt")
     outputs.dir(outputDir)
     args =
         listOf(

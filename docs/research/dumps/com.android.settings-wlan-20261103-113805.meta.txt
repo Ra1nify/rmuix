@@ -1,0 +1,5 @@
+package: com.oplus.wirelesssettings (com.android.settings)
+Physical size: 1272x2772
+Physical density: 560
+Override density: 500
+Night mode: auto

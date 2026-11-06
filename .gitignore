@@ -42,7 +42,7 @@ docs/.vitepress/cache
 docs/public/dokka
 docs/public/compose
 docs/public/icons
-miuix-ui/**/generated/baselineProfiles/**
+rmuix-ui/**/generated/baselineProfiles/**
 example/ios/iosApp/Generated.xcconfig
 /build-logic/bin
 /docs/iconGen/bin

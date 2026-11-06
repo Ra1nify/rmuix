@@ -1,6 +1,6 @@
 # RadioButtonPreference
 
-`RadioButtonPreference` 是 Miuix 中的单选按钮组件，提供标题、摘要和单选按钮控件。它支持点击交互，常用于单选设置和选择列表。选项被选中时，其标题和摘要会以主题色着色。
+`RadioButtonPreference` 是 Rmuix 中的单选按钮组件，提供标题、摘要和单选按钮控件。它支持点击交互，常用于单选设置和选择列表。选项被选中时，其标题和摘要会以主题色着色。
 
 <div style="position: relative; height: 360px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=radioButtonPreference" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.RadioButtonPreference
+import io.github.ra1nify.rmuix.kmp.preference.RadioButtonPreference
 ```
 
 ## 基本用法
@@ -112,10 +112,10 @@ RadioButtonPreference(
     summary = "带自定义颜色的单选按钮",
     colors = RadioButtonPreferenceDefaults.radioButtonPreferenceColors(
         titleColor = BasicComponentDefaults.titleColor(
-            color = MiuixTheme.colorScheme.primary
+            color = RmuixTheme.colorScheme.primary
         ),
         summaryColor = BasicComponentDefaults.summaryColor(
-            color = MiuixTheme.colorScheme.secondary
+            color = RmuixTheme.colorScheme.secondary
         )
     ),
     selected = selected,

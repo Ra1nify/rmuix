@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -15,13 +15,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.BreadcrumbBar
-import top.yukonga.miuix.kmp.basic.BreadcrumbItem
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.basic.joinToPath
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.BreadcrumbBar
+import io.github.ra1nify.rmuix.kmp.basic.BreadcrumbItem
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.SmallTitle
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.joinToPath
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 fun LazyListScope.breadcrumbBarSection() {
     item(key = "breadcrumbBar") {
@@ -65,11 +65,11 @@ fun LazyListScope.breadcrumbBarSection() {
                 )
                 Text(
                     text = "Full path: ${items.joinToPath()}",
-                    color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
+                    color = RmuixTheme.colorScheme.onSurfaceVariantSummary,
                 )
                 Text(
                     text = "Current: ${items.subList(0, highlightIndex + 1).joinToPath()}",
-                    color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
+                    color = RmuixTheme.colorScheme.onSurfaceVariantSummary,
                 )
                 BreadcrumbBar(
                     items = items,

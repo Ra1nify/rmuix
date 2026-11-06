@@ -1,10 +1,10 @@
 # Utility Functions
 
-Miuix provides a series of utility functions to help you develop applications more efficiently. Below is a detailed introduction and usage examples of the main utility functions.
+Rmuix provides a series of utility functions to help you develop applications more efficiently. Below is a detailed introduction and usage examples of the main utility functions.
 
-## Popup Utilities (MiuixPopupUtils)
+## Popup Utilities (RmuixPopupUtils)
 
-`MiuixPopupUtils` is a utility class for displaying dialog layout and popup layout. This class is already integrated into the `Scaffold` component and can be used directly.
+`RmuixPopupUtils` is a utility class for displaying dialog layout and popup layout. This class is already integrated into the `Scaffold` component and can be used directly.
 
 Each `Scaffold` automatically manages its own isolated popup state, so multiple nested or side-by-side `Scaffold`s work correctly without any extra configuration.
 
@@ -55,7 +55,7 @@ Normally, you don't need to use it actively. See the [OverlayListPopup](../compo
 
 ## Overscroll Effects
 
-Miuix provides easy-to-use overscroll effect modifiers for smoother and more natural scrolling experiences.
+Rmuix provides easy-to-use overscroll effect modifiers for smoother and more natural scrolling experiences.
 
 The overscroll effect engages only during press or pan gestures (touch drag; trackpad pan on Android). Mouse wheel and keyboard scrolling pass through unchanged, as does desktop/macOS trackpad scrolling (delivered as wheel events) — none of them provide a release signal to settle the bounce. With a snap- or pager-style fling behavior, leftover wheel velocity can still produce a small edge bounce.
 
@@ -122,10 +122,10 @@ LazyColumn(
 
 ### Via OverscrollFactory (Theme-Level Integration)
 
-`MiuixOverscrollFactory` implements the Compose `OverscrollFactory` interface and provides the same spring-based overscroll physics as `overScrollVertical()`, but integrated at the theme level. It is already set as the default factory in both overloads of `MiuixTheme`, so all standard Compose scrollable components (`LazyColumn`, `LazyRow`, `verticalScroll`, `horizontalScroll`, etc.) use the Miuix overscroll effect automatically — no extra modifier required.
+`RmuixOverscrollFactory` implements the Compose `OverscrollFactory` interface and provides the same spring-based overscroll physics as `overScrollVertical()`, but integrated at the theme level. It is already set as the default factory in both overloads of `RmuixTheme`, so all standard Compose scrollable components (`LazyColumn`, `LazyRow`, `verticalScroll`, `horizontalScroll`, etc.) use the Rmuix overscroll effect automatically — no extra modifier required.
 
 ```kotlin
-// No modifier needed — MiuixTheme provides the overscroll effect automatically
+// No modifier needed — RmuixTheme provides the overscroll effect automatically
 LazyColumn {
     items(list) { item -> ItemRow(item) }
 }
@@ -143,11 +143,11 @@ Disable for an entire subtree:
 
 ```kotlin
 CompositionLocalProvider(LocalOverscrollFactory provides null) {
-    // Components here will not have the Miuix overscroll effect
+    // Components here will not have the Rmuix overscroll effect
 }
 ```
 
-Use `MiuixOverscrollEffect` explicitly (e.g., to share with a custom `Modifier.overscroll()`):
+Use `RmuixOverscrollEffect` explicitly (e.g., to share with a custom `Modifier.overscroll()`):
 
 ```kotlin
 val overscrollEffect = rememberOverscrollEffect()
@@ -162,7 +162,7 @@ LazyColumn(
 
 **Comparison with `overScrollVertical()`:**
 
-| Feature                                           |  `overScrollVertical()`  | `MiuixOverscrollFactory`  |
+| Feature                                           |  `overScrollVertical()`  | `RmuixOverscrollFactory`  |
 | :------------------------------------------------ | :----------------------: | :-----------------------: |
 | How it's applied                                  | `Modifier` per component |  Theme-level, automatic   |
 | Spring physics                                    |        Identical         |         Identical         |
@@ -170,11 +170,11 @@ LazyColumn(
 | Triggers when content does not overflow container |            ✅            |            ❌             |
 | Requires a modifier on each component             |            ✅            |            ❌             |
 
-> **Limitation:** `MiuixOverscrollFactory` works by receiving the delta that the scrollable component could not consume after reaching its scroll boundary. If the content does not overflow the container (e.g., a `LazyColumn` whose items all fit on screen), the scrollable component never reaches a boundary, so `applyToScroll` is never called with a non-zero remainder and the overscroll effect will **not** trigger. For such cases, use `overScrollVertical()` instead.
+> **Limitation:** `RmuixOverscrollFactory` works by receiving the delta that the scrollable component could not consume after reaching its scroll boundary. If the content does not overflow the container (e.g., a `LazyColumn` whose items all fit on screen), the scrollable component never reaches a boundary, so `applyToScroll` is never called with a non-zero remainder and the overscroll effect will **not** trigger. For such cases, use `overScrollVertical()` instead.
 
 ## Scroll End Haptic Feedback (Modifier.scrollEndHaptic())
 
-Miuix provides a `scrollEndHaptic` modifier to trigger haptic feedback when a scrollable container is flung to its start or end boundaries. This enhances the user experience by providing a tactile confirmation that the end of the list has been reached.
+Rmuix provides a `scrollEndHaptic` modifier to trigger haptic feedback when a scrollable container is flung to its start or end boundaries. This enhances the user experience by providing a tactile confirmation that the end of the list has been reached.
 
 ```kotlin
 LazyColumn(
@@ -195,7 +195,7 @@ LazyColumn(
 
 ## Press Feedback Effects (Modifier.pressable())
 
-Miuix provides visual feedback effects to enhance user interaction experience, improving operability through tactile-like responses.
+Rmuix provides visual feedback effects to enhance user interaction experience, improving operability through tactile-like responses.
 
 Supports use with responsive modifiers such as `Modifier.clickable()`, and `SinkFeedback` is the default effect.
 
@@ -308,4 +308,4 @@ coroutineScope.launch {
 
 `ProvideDisplayCutoutFix` resolves display cutout dispatching bugs on certain OEM Android devices (e.g. tablets in landscape orientation and foldable devices) by supplementing missing cutout data from `WindowManager.currentWindowMetrics`.
 
-It is integrated automatically in `MiuixTheme`. For details, see the [Theme System](theme.md#display-cutout-adaptation-providedisplaycutoutfix) guide.
+It is integrated automatically in `RmuixTheme`. For details, see the [Theme System](theme.md#display-cutout-adaptation-providedisplaycutoutfix) guide.

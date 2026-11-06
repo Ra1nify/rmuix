@@ -2,7 +2,7 @@
 
 # Badge
 
-`Badge` 是 Miuix 中的小型状态元素，用于将动态信息（例如未读消息数或待处理请求数）叠加到图标等锚点元素上。参照 Material 3，`BadgedBox` 将 `Badge` 相对其 `content` 定位；徽章可以是一个小圆点（仅图标），也可以包含简短文字。
+`Badge` 是 Rmuix 中的小型状态元素，用于将动态信息（例如未读消息数或待处理请求数）叠加到图标等锚点元素上。参照 Material 3，`BadgedBox` 将 `Badge` 相对其 `content` 定位；徽章可以是一个小圆点（仅图标），也可以包含简短文字。
 
 <div style="position: relative; height: 360px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=badge" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -11,9 +11,9 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Badge
-import top.yukonga.miuix.kmp.basic.BadgedBox
-import top.yukonga.miuix.kmp.basic.BadgeDefaults
+import io.github.ra1nify.rmuix.kmp.basic.Badge
+import io.github.ra1nify.rmuix.kmp.basic.BadgedBox
+import io.github.ra1nify.rmuix.kmp.basic.BadgeDefaults
 ```
 
 ## 基本用法
@@ -22,7 +22,7 @@ import top.yukonga.miuix.kmp.basic.BadgeDefaults
 
 ```kotlin
 BadgedBox(badge = { Badge() }) {
-    Icon(imageVector = MiuixIcons.Settings, contentDescription = "设置")
+    Icon(imageVector = RmuixIcons.Settings, contentDescription = "设置")
 }
 ```
 
@@ -30,7 +30,7 @@ BadgedBox(badge = { Badge() }) {
 
 ```kotlin
 BadgedBox(badge = { Badge { Text("99+") } }) {
-    Icon(imageVector = MiuixIcons.Settings, contentDescription = "设置")
+    Icon(imageVector = RmuixIcons.Settings, contentDescription = "设置")
 }
 ```
 
@@ -84,10 +84,10 @@ object BadgeDefaults {
     val LargeSize = 16.dp
 
     val containerColor: Color
-        @Composable get() = MiuixTheme.colorScheme.error
+        @Composable get() = RmuixTheme.colorScheme.error
 
     val contentColor: Color
-        @Composable get() = MiuixTheme.colorScheme.onError
+        @Composable get() = RmuixTheme.colorScheme.onError
 }
 ```
 
@@ -95,5 +95,5 @@ object BadgeDefaults {
 | -------------- | ----- | -------------------------- | ------------------------------ |
 | Size           | Dp    | 仅图标徽章（无内容）的尺寸 | 6.dp                           |
 | LargeSize      | Dp    | 带内容徽章的尺寸           | 16.dp                          |
-| containerColor | Color | 徽章的默认背景颜色         | MiuixTheme.colorScheme.error   |
-| contentColor   | Color | 徽章的默认内容颜色         | MiuixTheme.colorScheme.onError |
+| containerColor | Color | 徽章的默认背景颜色         | RmuixTheme.colorScheme.error   |
+| contentColor   | Color | 徽章的默认内容颜色         | RmuixTheme.colorScheme.onError |

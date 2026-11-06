@@ -1,6 +1,6 @@
 # CheckboxPreference
 
-`CheckboxPreference` is a checkbox component in Miuix that provides a title, summary, and checkbox
+`CheckboxPreference` is a checkbox component in Rmuix that provides a title, summary, and checkbox
 control. It supports click interactions and is commonly used in multi-select settings and selection
 lists.
 
@@ -11,8 +11,8 @@ lists.
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.CheckboxPreference
-import top.yukonga.miuix.kmp.preference.CheckboxLocation
+import io.github.ra1nify.rmuix.kmp.preference.CheckboxPreference
+import io.github.ra1nify.rmuix.kmp.preference.CheckboxLocation
 ```
 
 ## Basic Usage
@@ -125,7 +125,7 @@ CheckboxPreference(
     endActions = {
         Text(
             text = if (backupEnabled) "Enabled" else "Disabled",
-            color = MiuixTheme.colorScheme.onSurfaceVariantActions,
+            color = RmuixTheme.colorScheme.onSurfaceVariantActions,
             modifier = Modifier.padding(end = 6.dp)
         )
     }
@@ -189,17 +189,17 @@ var customChecked by remember { mutableStateOf(false) }
 CheckboxPreference(
     title = "Custom Colors",
     titleColor = BasicComponentDefaults.titleColor(
-        color = MiuixTheme.colorScheme.primary
+        color = RmuixTheme.colorScheme.primary
     ),
     summary = "Checkbox with custom colors",
     summaryColor = BasicComponentDefaults.summaryColor(
-        color = MiuixTheme.colorScheme.secondary
+        color = RmuixTheme.colorScheme.secondary
     ),
     checked = customChecked,
     onCheckedChange = { customChecked = it },
     checkboxColors = CheckboxDefaults.checkboxColors(
         checkedForegroundColor = Color.Red,
-        checkedBackgroundColor = MiuixTheme.colorScheme.secondary
+        checkedBackgroundColor = RmuixTheme.colorScheme.secondary
     )
 )
 ```

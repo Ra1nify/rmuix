@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component.liquid
@@ -8,9 +8,9 @@ package component.liquid
 import androidx.compose.foundation.shape.CornerBasedShape
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.util.fastCoerceAtMost
-import top.yukonga.miuix.kmp.blur.BackdropEffectScope
-import top.yukonga.miuix.kmp.blur.isRuntimeShaderSupported
-import top.yukonga.miuix.kmp.blur.runtimeShaderEffect
+import io.github.ra1nify.rmuix.kmp.blur.BackdropEffectScope
+import io.github.ra1nify.rmuix.kmp.blur.isRuntimeShaderSupported
+import io.github.ra1nify.rmuix.kmp.blur.runtimeShaderEffect
 
 /**
  * Rounded-rect refraction lens with optional chromatic dispersion.

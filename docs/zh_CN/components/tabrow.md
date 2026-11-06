@@ -1,6 +1,6 @@
 # TabRow
 
-`TabRow` 是 Miuix 中的导航组件，用于创建可横向滚动的标签页。提供了标准样式和带轮廓（Contour）样式两种变体，适用于内容分类和导航场景。
+`TabRow` 是 Rmuix 中的导航组件，用于创建可横向滚动的标签页。提供了标准样式和带轮廓（Contour）样式两种变体，适用于内容分类和导航场景。
 
 <div style="position: relative; height: 180px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=tabRow" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,8 +9,8 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.TabRow // 标准样式
-import top.yukonga.miuix.kmp.basic.TabRowWithContour // 带轮廓样式
+import io.github.ra1nify.rmuix.kmp.basic.TabRow // 标准样式
+import io.github.ra1nify.rmuix.kmp.basic.TabRowWithContour // 带轮廓样式
 ```
 
 ## 基本用法
@@ -104,14 +104,18 @@ TabRowDefaults 对象提供了 TabRow 组件的默认配置。
 
 | 常量名                        | 类型 | 值    | 说明                         |
 | ----------------------------- | ---- | ----- | ---------------------------- |
-| TabRowHeight                  | Dp   | 42.dp | 标准样式的默认高度           |
+| TabRowHeight                  | Dp   | 40.dp | 标准样式的默认高度           |
 | TabRowWithContourHeight       | Dp   | 45.dp | 带轮廓样式的默认高度         |
-| TabRowCornerRadius            | Dp   | 12.dp | 标准样式的默认圆角半径       |
+| TabRowCornerRadius            | Dp   | 0.dp | 标准样式的默认圆角半径       |
 | TabRowWithContourCornerRadius | Dp   | 8.dp  | 带轮廓样式的默认圆角半径     |
-| TabRowMinWidth                | Dp   | 76.dp | 标准样式的每个标签最小宽度   |
+| TabRowMinWidth                | Dp   | 72.dp | 标准样式的每个标签最小宽度   |
 | TabRowWithContourMinWidth     | Dp   | 62.dp | 带轮廓样式的每个标签最小宽度 |
-| TabRowMaxWidth                | Dp   | 98.dp | 标准样式的每个标签最大宽度   |
+| TabRowMaxWidth                | Dp   | 128.dp | 标准样式的每个标签最大宽度   |
 | TabRowWithContourMaxWidth     | Dp   | 84.dp | 带轮廓样式的每个标签最大宽度 |
+| IndicatorHeight               | Dp   | 2.dp   | 下划线指示器厚度                             |
+| IndicatorInset                | Dp   | 24.dp  | 指示器距 tab 边缘的内缩                       |
+| ItemSpacing                   | Dp   | 16.dp  | tab 之间的间距                                |
+| FadeEdgeLength                | Dp   | 58.dp  | 横向淡出边缘宽度                              |
 
 #### 方法
 
@@ -143,7 +147,7 @@ TabRow(
     colors = TabRowDefaults.tabRowColors(
         backgroundColor = Color.LightGray.copy(alpha = 0.5f),
         contentColor = Color.Gray,
-        selectedBackgroundColor = MiuixTheme.colorScheme.primary,
+        selectedBackgroundColor = RmuixTheme.colorScheme.primary,
         selectedContentColor = Color.White
     )
 )

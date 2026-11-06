@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package ui
@@ -10,12 +10,12 @@ import androidx.compose.runtime.compositionLocalOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
-import top.yukonga.miuix.kmp.theme.ColorSchemeMode
-import top.yukonga.miuix.kmp.theme.MiuixTheme
-import top.yukonga.miuix.kmp.theme.TextStyles
-import top.yukonga.miuix.kmp.theme.ThemeColorSpec
-import top.yukonga.miuix.kmp.theme.ThemeController
-import top.yukonga.miuix.kmp.theme.ThemePaletteStyle
+import io.github.ra1nify.rmuix.kmp.theme.ColorSchemeMode
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
+import io.github.ra1nify.rmuix.kmp.theme.TextStyles
+import io.github.ra1nify.rmuix.kmp.theme.ThemeColorSpec
+import io.github.ra1nify.rmuix.kmp.theme.ThemeController
+import io.github.ra1nify.rmuix.kmp.theme.ThemePaletteStyle
 
 val LocalColorMode = compositionLocalOf { 0 }
 val LocalIsDarkTheme = compositionLocalOf<Boolean?> { null }
@@ -27,7 +27,7 @@ fun AppTheme(
     paletteStyle: Int = 0,
     colorSpec: Int = 0,
     isDark: Boolean? = null,
-    textStyles: TextStyles = MiuixTheme.textStyles,
+    textStyles: TextStyles = RmuixTheme.textStyles,
     content: @Composable () -> Unit,
 ) {
     val spec = ThemeColorSpec.entries.getOrNull(colorSpec) ?: ThemeColorSpec.Spec2021
@@ -48,7 +48,7 @@ fun AppTheme(
         LocalColorMode provides colorMode,
         LocalIsDarkTheme provides resolvedIsDark,
     ) {
-        MiuixTheme(
+        RmuixTheme(
             controller = controller,
             textStyles = textStyles,
             content = content,

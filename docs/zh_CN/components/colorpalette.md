@@ -9,7 +9,7 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.ColorPalette
+import io.github.ra1nify.rmuix.kmp.basic.ColorPalette
 ```
 
 ## 基本用法
@@ -112,7 +112,7 @@ Surface {
     ) {
         Text(
             text = "选择颜色",
-            style = MiuixTheme.textStyles.title2
+            style = RmuixTheme.textStyles.title2
         )
         Spacer(modifier = Modifier.height(16.dp))
         ColorPalette(

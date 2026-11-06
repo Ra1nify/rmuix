@@ -2,31 +2,31 @@
 title: OverlayDropdownPreference
 requiresScaffoldHost: true
 prerequisites:
-  - Must be used within `Scaffold` to provide `MiuixPopupHost`
+  - Must be used within `Scaffold` to provide `RmuixPopupHost`
   - Using outside `Scaffold` will cause popup content not to render
   - Multiple nested or side-by-side `Scaffold`s are supported without extra configuration
 hostComponent: Scaffold
-popupHost: MiuixPopupHost
+popupHost: RmuixPopupHost
 ---
 
 # OverlayDropdownPreference
 
-`OverlayDropdownPreference` is a dropdown menu component in Miuix that provides a title, summary, and a list of dropdown options. It supports click interaction and is commonly used in option settings and list selections.
+`OverlayDropdownPreference` is a dropdown menu component in Rmuix that provides a title, summary, and a list of dropdown options. It supports click interaction and is commonly used in option settings and list selections.
 
 <div style="position: relative; height: 360px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=overlayDropdownPreference" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 </div>
 
 ::: danger Prerequisite
-This component depends on `Scaffold` providing `MiuixPopupHost` to render popup content. It must be used within `Scaffold`, otherwise popup content will not render correctly.
+This component depends on `Scaffold` providing `RmuixPopupHost` to render popup content. It must be used within `Scaffold`, otherwise popup content will not render correctly.
 :::
 
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.OverlayDropdownPreference
-import top.yukonga.miuix.kmp.basic.DropdownEntry
-import top.yukonga.miuix.kmp.basic.DropdownItem
+import io.github.ra1nify.rmuix.kmp.preference.OverlayDropdownPreference
+import io.github.ra1nify.rmuix.kmp.basic.DropdownEntry
+import io.github.ra1nify.rmuix.kmp.basic.DropdownItem
 ```
 
 ## Basic Usage

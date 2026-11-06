@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -14,15 +14,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.IconButton
-import top.yukonga.miuix.kmp.basic.RichTooltipBox
-import top.yukonga.miuix.kmp.basic.TooltipBox
-import top.yukonga.miuix.kmp.basic.rememberTooltipState
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Edit
-import top.yukonga.miuix.kmp.icon.extended.Info
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.IconButton
+import io.github.ra1nify.rmuix.kmp.basic.RichTooltipBox
+import io.github.ra1nify.rmuix.kmp.basic.TooltipBox
+import io.github.ra1nify.rmuix.kmp.basic.rememberTooltipState
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Edit
+import io.github.ra1nify.rmuix.kmp.icon.extended.Info
 
 @Composable
 fun TooltipDemo() {
@@ -52,7 +52,7 @@ fun TooltipDemo() {
                     ) {
                         TooltipBox(text = "Edit") {
                             IconButton(onClick = {}) {
-                                Icon(imageVector = MiuixIcons.Edit, contentDescription = "Edit")
+                                Icon(imageVector = RmuixIcons.Edit, contentDescription = "Edit")
                             }
                         }
                         RichTooltipBox(
@@ -64,7 +64,7 @@ fun TooltipDemo() {
                             state = richState,
                         ) {
                             IconButton(onClick = {}) {
-                                Icon(imageVector = MiuixIcons.Info, contentDescription = "Rich tooltip")
+                                Icon(imageVector = RmuixIcons.Info, contentDescription = "Rich tooltip")
                             }
                         }
                     }

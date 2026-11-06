@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -12,17 +12,17 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Badge
-import top.yukonga.miuix.kmp.basic.BadgedBox
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Email
-import top.yukonga.miuix.kmp.icon.extended.Favorites
-import top.yukonga.miuix.kmp.icon.extended.Messages
-import top.yukonga.miuix.kmp.icon.extended.Settings
+import io.github.ra1nify.rmuix.kmp.basic.Badge
+import io.github.ra1nify.rmuix.kmp.basic.BadgedBox
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.SmallTitle
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Email
+import io.github.ra1nify.rmuix.kmp.icon.extended.Favorites
+import io.github.ra1nify.rmuix.kmp.icon.extended.Messages
+import io.github.ra1nify.rmuix.kmp.icon.extended.Settings
 
 fun LazyListScope.badgeSection() {
     item(key = "badge") {
@@ -43,28 +43,28 @@ fun LazyListScope.badgeSection() {
                 ) {
                     BadgedBox(badge = { Badge() }) {
                         Icon(
-                            imageVector = MiuixIcons.Messages,
+                            imageVector = RmuixIcons.Messages,
                             contentDescription = "Messages",
                             modifier = Modifier.size(28.dp),
                         )
                     }
                     BadgedBox(badge = { Badge { Text("8") } }) {
                         Icon(
-                            imageVector = MiuixIcons.Email,
+                            imageVector = RmuixIcons.Email,
                             contentDescription = "Email",
                             modifier = Modifier.size(28.dp),
                         )
                     }
                     BadgedBox(badge = { Badge { Text("99+") } }) {
                         Icon(
-                            imageVector = MiuixIcons.Settings,
+                            imageVector = RmuixIcons.Settings,
                             contentDescription = "Settings",
                             modifier = Modifier.size(28.dp),
                         )
                     }
                     BadgedBox(badge = { Badge { Text("5") } }) {
                         Icon(
-                            imageVector = MiuixIcons.Favorites,
+                            imageVector = RmuixIcons.Favorites,
                             contentDescription = "Favorites",
                             modifier = Modifier.size(28.dp),
                         )

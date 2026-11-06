@@ -1,10 +1,10 @@
 # 工具函数
 
-Miuix 提供了一系列工具函数，帮助您更高效地开发应用程序。以下是主要工具函数的详细介绍和使用示例。
+Rmuix 提供了一系列工具函数，帮助您更高效地开发应用程序。以下是主要工具函数的详细介绍和使用示例。
 
-## 弹出窗口工具 (MiuixPopupUtils)
+## 弹出窗口工具 (RmuixPopupUtils)
 
-`MiuixPopupUtils` 是一个用于显示对话框布局和弹出窗口布局的工具类。该类已经集成到 `Scaffold` 组件中，可以直接使用。
+`RmuixPopupUtils` 是一个用于显示对话框布局和弹出窗口布局的工具类。该类已经集成到 `Scaffold` 组件中，可以直接使用。
 
 每个 `Scaffold` 会自动管理独立的弹出层状态，多个嵌套或并列的 `Scaffold` 无需额外配置即可正常工作。
 
@@ -55,7 +55,7 @@ PopupLayout(
 
 ## 越界回弹效果 (Overscroll)
 
-Miuix 提供了易于使用的越界回弹效果修饰符，让滚动体验更加流畅自然。
+Rmuix 提供了易于使用的越界回弹效果修饰符，让滚动体验更加流畅自然。
 
 越界回弹仅在按压或平移手势（触摸拖拽；Android 上的触控板平移）期间生效。鼠标滚轮与键盘滚动原样透传，桌面/macOS 的触控板滚动以滚轮事件送达，同样透传——它们没有“松手”信号，无法正确收束回弹。若使用 snap/pager 类自定义 fling 行为，滚轮的剩余速度仍可能在边缘产生一次轻微回弹。
 
@@ -122,10 +122,10 @@ LazyColumn(
 
 ### 通过 OverscrollFactory（主题级集成）
 
-`MiuixOverscrollFactory` 实现了 Compose 的 `OverscrollFactory` 接口，与 `overScrollVertical()` 提供完全相同的弹簧物理效果，但以主题级别集成。两个 `MiuixTheme` 重载均已将其设置为默认工厂，因此所有标准 Compose 可滚动组件（`LazyColumn`、`LazyRow`、`verticalScroll`、`horizontalScroll` 等）无需任何额外修饰符即可自动使用 Miuix 越界回弹效果。
+`RmuixOverscrollFactory` 实现了 Compose 的 `OverscrollFactory` 接口，与 `overScrollVertical()` 提供完全相同的弹簧物理效果，但以主题级别集成。两个 `RmuixTheme` 重载均已将其设置为默认工厂，因此所有标准 Compose 可滚动组件（`LazyColumn`、`LazyRow`、`verticalScroll`、`horizontalScroll` 等）无需任何额外修饰符即可自动使用 Rmuix 越界回弹效果。
 
 ```kotlin
-// 无需额外修饰符 —— MiuixTheme 已自动提供越界回弹效果
+// 无需额外修饰符 —— RmuixTheme 已自动提供越界回弹效果
 LazyColumn {
     items(list) { item -> ItemRow(item) }
 }
@@ -143,11 +143,11 @@ LazyColumn(overscrollEffect = null) {
 
 ```kotlin
 CompositionLocalProvider(LocalOverscrollFactory provides null) {
-    // 此处的组件不会有 Miuix 越界回弹效果
+    // 此处的组件不会有 Rmuix 越界回弹效果
 }
 ```
 
-显式使用 `MiuixOverscrollEffect`（例如与自定义 `Modifier.overscroll()` 配合）：
+显式使用 `RmuixOverscrollEffect`（例如与自定义 `Modifier.overscroll()` 配合）：
 
 ```kotlin
 val overscrollEffect = rememberOverscrollEffect()
@@ -162,7 +162,7 @@ LazyColumn(
 
 **与 `overScrollVertical()` 的对比：**
 
-| 特性                       |   `overScrollVertical()`    | `MiuixOverscrollFactory` |
+| 特性                       |   `overScrollVertical()`    | `RmuixOverscrollFactory` |
 | :------------------------- | :-------------------------: | :----------------------: |
 | 使用方式                   | 每个组件手动添加 `Modifier` |    主题级别，自动生效    |
 | 物理效果                   |        相同弹簧物理         |       相同弹簧物理       |
@@ -170,11 +170,11 @@ LazyColumn(
 | 内容未超出容器时仍可触发   |             ✅              |            ❌            |
 | 需要逐个组件手动添加修饰符 |             ✅              |            ❌            |
 
-> **限制说明：** `MiuixOverscrollFactory` 通过接收可滚动组件到达滚动边界后无法消耗的剩余 delta 来工作。如果内容未超出容器高度（例如 `LazyColumn` 的所有条目均能在屏幕内完整显示），可滚动组件不会到达真正的边界，`applyToScroll` 不会收到非零剩余量，越界回弹效果将**无法触发**。此类场景请改用 `overScrollVertical()`。
+> **限制说明：** `RmuixOverscrollFactory` 通过接收可滚动组件到达滚动边界后无法消耗的剩余 delta 来工作。如果内容未超出容器高度（例如 `LazyColumn` 的所有条目均能在屏幕内完整显示），可滚动组件不会到达真正的边界，`applyToScroll` 不会收到非零剩余量，越界回弹效果将**无法触发**。此类场景请改用 `overScrollVertical()`。
 
 ## 滚动到边界触觉反馈 (Modifier.scrollEndHaptic())
 
-Miuix 提供了用于在可滚动容器快速滑动到其开始或结束边界时触发触觉反馈的修饰符，通过触觉反馈确认已到达边界增强用户的交互体验。
+Rmuix 提供了用于在可滚动容器快速滑动到其开始或结束边界时触发触觉反馈的修饰符，通过触觉反馈确认已到达边界增强用户的交互体验。
 
 ```kotlin
 LazyColumn(
@@ -195,7 +195,7 @@ LazyColumn(
 
 ## 按压反馈效果 (Modifier.pressable())
 
-Miuix 提供了视觉反馈效果来增强用户交互体验，通过类似触觉的响应提升操作感。
+Rmuix 提供了视觉反馈效果来增强用户交互体验，通过类似触觉的响应提升操作感。
 
 支持与 `Modifier.clickable()` 等响应式修饰符一起使用，`SinkFeedback` 为默认效果。
 
@@ -308,4 +308,4 @@ coroutineScope.launch {
 
 `ProvideDisplayCutoutFix` 解决了部分 Android OEM 设备（如横屏平板设备和折叠屏设备）在系统分发时丢失屏幕缺口（Cutout）的缺陷，通过底层 `WindowManager.currentWindowMetrics` 动态补齐缺口安全边距。
 
-该功能已默认内置在 `MiuixTheme` 中。详情请参见[主题系统](theme.md#屏幕缺口适配-providedisplaycutoutfix)指南。
+该功能已默认内置在 `RmuixTheme` 中。详情请参见[主题系统](theme.md#屏幕缺口适配-providedisplaycutoutfix)指南。

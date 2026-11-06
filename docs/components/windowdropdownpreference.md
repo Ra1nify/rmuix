@@ -2,7 +2,7 @@
 title: WindowDropdownPreference
 requiresScaffoldHost: false
 prerequisites:
-  - Can be used anywhere, does not require `Scaffold` or `MiuixPopupHost`
+  - Can be used anywhere, does not require `Scaffold` or `RmuixPopupHost`
   - Renders at window level
 hostComponent: None
 popupHost: None
@@ -10,7 +10,7 @@ popupHost: None
 
 # WindowDropdownPreference
 
-`WindowDropdownPreference` is a dropdown menu component in Miuix that provides a title, summary, and a list of dropdown options. It renders at the window level without needing a `Scaffold` host, making it suitable for use cases where `Scaffold` is not available or desired.
+`WindowDropdownPreference` is a dropdown menu component in Rmuix that provides a title, summary, and a list of dropdown options. It renders at the window level without needing a `Scaffold` host, making it suitable for use cases where `Scaffold` is not available or desired.
 
 <div style="position: relative; height: 360px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=windowDropdownPreference" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -19,9 +19,9 @@ popupHost: None
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.WindowDropdownPreference
-import top.yukonga.miuix.kmp.basic.DropdownEntry
-import top.yukonga.miuix.kmp.basic.DropdownItem
+import io.github.ra1nify.rmuix.kmp.preference.WindowDropdownPreference
+import io.github.ra1nify.rmuix.kmp.basic.DropdownEntry
+import io.github.ra1nify.rmuix.kmp.basic.DropdownItem
 ```
 
 ## Basic Usage

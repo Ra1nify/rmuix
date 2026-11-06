@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component.liquid
@@ -75,25 +75,25 @@ import androidx.compose.ui.unit.sp
 import androidx.compose.ui.util.lerp
 import component.animation.DampedDragAnimation
 import component.animation.InteractiveHighlight
+import io.github.ra1nify.rmuix.kmp.basic.BadgedBox
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.NavigationItem
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.blur.LayerBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.blur
+import io.github.ra1nify.rmuix.kmp.blur.drawBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.highlight.BloomStroke
+import io.github.ra1nify.rmuix.kmp.blur.highlight.Highlight
+import io.github.ra1nify.rmuix.kmp.blur.highlight.LightPosition
+import io.github.ra1nify.rmuix.kmp.blur.highlight.LightSource
+import io.github.ra1nify.rmuix.kmp.blur.layerBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.rememberLayerBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.sensor.rememberDeviceTilt
+import io.github.ra1nify.rmuix.kmp.theme.LocalContentColor
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
+import io.github.ra1nify.rmuix.kmp.utils.Platform
+import io.github.ra1nify.rmuix.kmp.utils.platform
 import kotlinx.coroutines.launch
-import top.yukonga.miuix.kmp.basic.BadgedBox
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.NavigationItem
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.blur.LayerBackdrop
-import top.yukonga.miuix.kmp.blur.blur
-import top.yukonga.miuix.kmp.blur.drawBackdrop
-import top.yukonga.miuix.kmp.blur.highlight.BloomStroke
-import top.yukonga.miuix.kmp.blur.highlight.Highlight
-import top.yukonga.miuix.kmp.blur.highlight.LightPosition
-import top.yukonga.miuix.kmp.blur.highlight.LightSource
-import top.yukonga.miuix.kmp.blur.layerBackdrop
-import top.yukonga.miuix.kmp.blur.rememberLayerBackdrop
-import top.yukonga.miuix.kmp.blur.sensor.rememberDeviceTilt
-import top.yukonga.miuix.kmp.theme.LocalContentColor
-import top.yukonga.miuix.kmp.theme.MiuixTheme
-import top.yukonga.miuix.kmp.utils.Platform
-import top.yukonga.miuix.kmp.utils.platform
 import ui.isInDarkTheme
 import kotlin.math.PI
 import kotlin.math.abs
@@ -203,9 +203,9 @@ internal fun IosLiquidGlassNavigationBar(
 ) {
     val isDark = isInDarkTheme()
     val pillShape = remember { CircleShape }
-    val accentColor = MiuixTheme.colorScheme.primary
-    val tabContentColor = MiuixTheme.colorScheme.onSurface
-    val surfaceContainer = MiuixTheme.colorScheme.surfaceContainer
+    val accentColor = RmuixTheme.colorScheme.primary
+    val tabContentColor = RmuixTheme.colorScheme.onSurface
+    val surfaceContainer = RmuixTheme.colorScheme.surfaceContainer
     val containerColor = if (isBlurActive) surfaceContainer.copy(alpha = 0.4f) else surfaceContainer
 
     val tabsBackdrop = rememberLayerBackdrop()

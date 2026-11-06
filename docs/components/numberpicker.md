@@ -1,6 +1,6 @@
 # NumberPicker
 
-`NumberPicker` is a basic interactive component in Miuix used for selecting a value from a range of numbers by vertical scrolling. The selected item is centered and highlighted, while surrounding items fade out and scale down. Supports infinite scrolling with the `wrapAround` parameter.
+`NumberPicker` is a basic interactive component in Rmuix used for selecting a value from a range of numbers by vertical scrolling. The selected item is centered and highlighted, while surrounding items fade out and scale down. Supports infinite scrolling with the `wrapAround` parameter.
 
 <div style="position: relative; height: 300px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=numberPicker" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.NumberPicker
+import io.github.ra1nify.rmuix.kmp.basic.NumberPicker
 ```
 
 ## Basic Usage
@@ -69,7 +69,7 @@ NumberPicker(
 | visibleItemCount | Int                | Number of visible items. Must be odd and at least 3                      | 5                          | No       |
 | wrapAround       | Boolean            | Whether the picker wraps around (infinite scrolling)                     | false                      | No       |
 | colors           | NumberPickerColors | Color configuration of the picker                                        | NumberPickerDefaults.colors() | No       |
-| textStyle        | TextStyle          | Text style for picker items                                              | MiuixTheme.textStyles.title1 | No       |
+| textStyle        | TextStyle          | Text style for picker items                                              | RmuixTheme.textStyles.title1 | No       |
 | itemHeight       | Dp                 | The height of each item in the picker                                    | NumberPickerDefaults.ItemHeight | No       |
 
 ### NumberPickerDefaults Object

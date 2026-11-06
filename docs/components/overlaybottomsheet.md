@@ -2,30 +2,30 @@
 title: OverlayBottomSheet
 requiresScaffoldHost: true
 prerequisites:
-  - Must be used within `Scaffold` to provide `MiuixPopupHost`
+  - Must be used within `Scaffold` to provide `RmuixPopupHost`
   - Using outside `Scaffold` will cause popup content not to render
   - Multiple nested or side-by-side `Scaffold`s are supported without extra configuration
 hostComponent: Scaffold
-popupHost: MiuixPopupHost
+popupHost: RmuixPopupHost
 ---
 
 # OverlayBottomSheet
 
-`OverlayBottomSheet` is a bottom sheet component in Miuix that slides up from the bottom of the screen. Supports swipe-to-dismiss gestures and custom styling.
+`OverlayBottomSheet` is a bottom sheet component in Rmuix that slides up from the bottom of the screen. Supports swipe-to-dismiss gestures and custom styling.
 
 <div style="position: relative; height: 240px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=overlayBottomSheet" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 </div>
 
 ::: danger Prerequisite
-This component depends on `Scaffold` providing `MiuixPopupHost` to render popup content. It must be used within `Scaffold`, otherwise popup content will not render correctly.
+This component depends on `Scaffold` providing `RmuixPopupHost` to render popup content. It must be used within `Scaffold`, otherwise popup content will not render correctly.
 :::
 
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.overlay.OverlayBottomSheet
-import top.yukonga.miuix.kmp.theme.LocalDismissState
+import io.github.ra1nify.rmuix.kmp.overlay.OverlayBottomSheet
+import io.github.ra1nify.rmuix.kmp.theme.LocalDismissState
 ```
 
 ## Basic Usage
@@ -85,10 +85,10 @@ The BottomSheetDefaults object provides default settings for the OverlayBottomSh
 
 | Property Name | Type   | Description                          |
 | ------------- | ------ | ------------------------------------ |
-| cornerRadius  | Dp     | Default corner radius (28.dp)        |
-| maxWidth      | Dp     | Default maximum width (640.dp)       |
-| outsideMargin | DpSize | Default bottom sheet external margin |
-| insideMargin  | DpSize | Default bottom sheet internal margin |
+| cornerRadius  | Dp     | Default corner radius (28.dp)                        |
+| maxWidth      | Dp     | Default maximum width (540.dp)                       |
+| outsideMargin | DpSize | Default bottom sheet external margin (DpSize(0.dp, 0.dp))  |
+| insideMargin  | DpSize | Default bottom sheet internal margin (DpSize(16.dp, 0.dp)) |
 
 #### BottomSheetDefaults Functions
 
@@ -113,8 +113,8 @@ Scaffold {
     OverlayBottomSheet(
         show = showBottomSheet,
         title = "Custom Style",
-        backgroundColor = MiuixTheme.colorScheme.surfaceVariant,
-        dragHandleColor = MiuixTheme.colorScheme.primary,
+        backgroundColor = RmuixTheme.colorScheme.surfaceVariant,
+        dragHandleColor = RmuixTheme.colorScheme.primary,
         outsideMargin = DpSize(16.dp, 0.dp),
         insideMargin = DpSize(32.dp, 16.dp),
         onDismissRequest = { showBottomSheet = false }
@@ -257,7 +257,7 @@ Scaffold {
     ) {
         Card(
             colors = CardDefaults.defaultColors(
-                color = MiuixTheme.colorScheme.secondaryContainer,
+                color = RmuixTheme.colorScheme.secondaryContainer,
             ),
         ) {
             TextField(

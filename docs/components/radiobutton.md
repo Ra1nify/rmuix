@@ -1,6 +1,6 @@
 # RadioButton
 
-`RadioButton` is a basic selection component in Miuix, supporting two states: selected and unselected. When selected, it displays an animated checkmark indicator. When unselected, no indicator is shown. It is suitable for single selection scenarios where only one option can be chosen from a group.
+`RadioButton` is a basic selection component in Rmuix, supporting two states: selected and unselected. When selected, it displays an animated checkmark indicator. When unselected, no indicator is shown. It is suitable for single selection scenarios where only one option can be chosen from a group.
 
 <div style="position: relative; height: 264px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=radioButton" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.RadioButton
+import io.github.ra1nify.rmuix.kmp.basic.RadioButton
 ```
 
 ## Basic Usage
@@ -59,12 +59,24 @@ RadioButton(
 
 ### RadioButtonDefaults Object
 
-The RadioButtonDefaults object provides default color configurations for the RadioButton component.
+The RadioButtonDefaults object provides geometry tokens and default color configurations for the
+RadioButton component.
+
+#### Properties
+
+| Property Name       | Type | Description                                  | Value  |
+| ------------------- | ---- | -------------------------------------------- | ------ |
+| Size                | Dp   | Total control size                           | 24.dp  |
+| SelectedOuterRadius | Dp   | Outer circle radius when selected            | 10.dp  |
+| SelectedInnerRadius | Dp   | Inner white dot radius when selected         | 6.dp   |
+| UncheckedRingRadius | Dp   | Ring radius when unselected                  | 9.2.dp |
+| StrokeWidth         | Dp   | Ring stroke width, shared with the checkbox  | 1.3.dp |
+| MarkMarginStart     | Dp   | Start margin inside a preference row         | 16.dp  |
 
 #### Methods
 
-| Method Name         | Type              | Description                                  |
-| ------------------- | ----------------- | -------------------------------------------- |
+| Method Name         | Type              | Description                                   |
+| ------------------- | ----------------- | --------------------------------------------- |
 | radioButtonColors() | RadioButtonColors | Creates default color config for radio button |
 
 ### RadioButtonColors Class
@@ -73,6 +85,10 @@ The RadioButtonDefaults object provides default color configurations for the Rad
 | --------------------- | ----- | ----------------------------------------------- |
 | selectedColor         | Color | Checkmark color when selected                   |
 | disabledSelectedColor | Color | Checkmark color when disabled and selected      |
+| uncheckedStrokeColor         | Color | Ring color when unselected                        |
+| disabledUncheckedStrokeColor | Color | Ring color when unselected and disabled           |
+| selectedInnerColor           | Color | Inner dot color when selected                     |
+| disabledSelectedInnerColor   | Color | Inner dot color when selected and disabled        |
 
 ## Advanced Usage
 

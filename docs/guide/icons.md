@@ -1,33 +1,33 @@
 # Icon System
 
-Miuix provides a rich built-in icon system that meets the primary design needs of most applications. These icons are available in five weights: Light, Normal, Regular, Medium, and Demibold.
+Rmuix provides a rich built-in icon system that meets the primary design needs of most applications. These icons are available in five weights: Light, Normal, Regular, Medium, and Demibold.
 
 ## Installation
 
-The basic `miuix-ui` library includes only a small set of essential icons. To access the full collection of Miuix icons, you need to add the `miuix-icons` dependency to your project.
+The basic `rmuix-ui` library includes only a small set of essential icons. To access the full collection of Rmuix icons, you need to add the `rmuix-icons` dependency to your project.
 
 ```kotlin
 // build.gradle.kts
 commonMain.dependencies {
-    implementation("top.yukonga.miuix.kmp:miuix-ui:<version>")
+    implementation("io.github.ra1nify.rmuix.kmp:rmuix-ui:<version>")
     // Add the extended icon library
-    implementation("top.yukonga.miuix.kmp:miuix-icons:<version>")
+    implementation("io.github.ra1nify.rmuix.kmp:rmuix-icons:<version>")
 }
 ```
 
 ## Usage
 
-To use Miuix icons in your project, first import them correctly:
+To use Rmuix icons in your project, first import them correctly:
 
 ```kotlin
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Ok
-import top.yukonga.miuix.kmp.icon.extended.Settings
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Ok
+import io.github.ra1nify.rmuix.kmp.icon.extended.Settings
 ```
 
 Then, you can use the icons as follows:
@@ -35,41 +35,49 @@ Then, you can use the icons as follows:
 ```kotlin
 // Use the Ok icon (defaults to Regular weight)
 Icon(
-    imageVector = MiuixIcons.Ok,
+    imageVector = RmuixIcons.Ok,
     contentDescription = "Ok",
     modifier = Modifier.size(24.dp)
 )
 
 // Use the Settings icon
 Icon(
-    imageVector = MiuixIcons.Settings,
+    imageVector = RmuixIcons.Settings,
     contentDescription = "Settings",
     modifier = Modifier.size(24.dp)
 )
 
 // Use a specific weight (e.g., Light)
 Icon(
-    imageVector = MiuixIcons.Light.Settings,
+    imageVector = RmuixIcons.Light.Settings,
     contentDescription = "Settings (Light)",
     modifier = Modifier.size(24.dp)
 )
+
+// Use Outline style
+Icon(
+    imageVector = RmuixIcons.Outline.Settings,
+    contentDescription = "Settings (Outline)",
+    modifier = Modifier.size(24.dp)
+)
+```
 ```
 
 ## Icon Weights
 
-Miuix icons support five weights, matching the named instances of the source font `misymbol_vf.ttf`:
+Rmuix icons support five weights, matching the named instances of the source font `misymbol_vf.ttf`:
 
-- `MiuixIcons.Light`: Light weight icons (wght=250)
-- `MiuixIcons.Normal`: Lighter-than-regular icons (wght=305)
-- `MiuixIcons.Regular`: Regular weight icons (wght=330) - Default when accessing `MiuixIcons.IconName` directly
-- `MiuixIcons.Medium`: Heavier-than-regular icons (wght=430)
-- `MiuixIcons.Demibold`: Demibold weight icons (wght=500)
+- `RmuixIcons.Light`: Light weight icons (wght=250)
+- `RmuixIcons.Normal`: Lighter-than-regular icons (wght=305)
+- `RmuixIcons.Regular`: Regular weight icons (wght=330) - Default when accessing `RmuixIcons.IconName` directly
+- `RmuixIcons.Medium`: Heavier-than-regular icons (wght=430)
+- `RmuixIcons.Demibold`: Demibold weight icons (wght=500)
 
 ## Available Icons
 
 ### Basic Icons
 
-Basic icons include commonly used basic UI elements such as arrows and checkmarks. These icons are also used in Miuix's own components. Below is the complete list:
+Basic icons include commonly used basic UI elements such as arrows and checkmarks. These icons are also used in Rmuix's own components. Below is the complete list:
 
 | Icon Name | Light | Normal | Regular | Medium | Demibold |
 |---|---|---|---|---|---|

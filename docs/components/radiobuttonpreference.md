@@ -1,6 +1,6 @@
 # RadioButtonPreference
 
-`RadioButtonPreference` is a radio button component in Miuix that provides a title, summary, and radio button control. It supports click interactions and is commonly used in single-select settings and selection lists. When an item is selected, its title and summary are tinted with the theme color.
+`RadioButtonPreference` is a radio button component in Rmuix that provides a title, summary, and radio button control. It supports click interactions and is commonly used in single-select settings and selection lists. When an item is selected, its title and summary are tinted with the theme color.
 
 <div style="position: relative; height: 360px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=radioButtonPreference" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.RadioButtonPreference
+import io.github.ra1nify.rmuix.kmp.preference.RadioButtonPreference
 ```
 
 ## Basic Usage
@@ -112,10 +112,10 @@ RadioButtonPreference(
     summary = "RadioButton with custom colors",
     colors = RadioButtonPreferenceDefaults.radioButtonPreferenceColors(
         titleColor = BasicComponentDefaults.titleColor(
-            color = MiuixTheme.colorScheme.primary
+            color = RmuixTheme.colorScheme.primary
         ),
         summaryColor = BasicComponentDefaults.summaryColor(
-            color = MiuixTheme.colorScheme.secondary
+            color = RmuixTheme.colorScheme.secondary
         )
     ),
     selected = selected,

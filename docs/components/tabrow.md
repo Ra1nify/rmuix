@@ -1,6 +1,6 @@
 # TabRow
 
-`TabRow` is a navigation component in Miuix used to create horizontally scrollable tabs. It provides two variants: standard style and contour style, suitable for content categorization and navigation scenarios.
+`TabRow` is a navigation component in Rmuix used to create horizontally scrollable tabs. It provides two variants: standard style and contour style, suitable for content categorization and navigation scenarios.
 
 <div style="position: relative; height: 180px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=tabRow" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,8 +9,8 @@
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.TabRow // Standard style
-import top.yukonga.miuix.kmp.basic.TabRowWithContour // Contour style
+import io.github.ra1nify.rmuix.kmp.basic.TabRow // Standard style
+import io.github.ra1nify.rmuix.kmp.basic.TabRowWithContour // Contour style
 ```
 
 ## Basic Usage
@@ -104,20 +104,24 @@ The TabRowDefaults object provides default configurations for the TabRow compone
 
 | Constant Name                 | Type | Value | Description                                  |
 | ----------------------------- | ---- | ----- | -------------------------------------------- |
-| TabRowHeight                  | Dp   | 42.dp | Default height of tab row for standard style |
-| TabRowWithContourHeight       | Dp   | 45.dp | Default height of tab row for contour style  |
-| TabRowCornerRadius            | Dp   | 12.dp | Default corner radius for standard style     |
-| TabRowWithContourCornerRadius | Dp   | 8.dp  | Default corner radius for contour style      |
-| TabRowMinWidth                | Dp   | 76.dp | Min width of tabs for standard style         |
-| TabRowWithContourMinWidth     | Dp   | 62.dp | Min width of tabs for contour style          |
-| TabRowMaxWidth                | Dp   | 98.dp | Max width of tabs for standard style         |
-| TabRowWithContourMaxWidth     | Dp   | 84.dp | Max width of tabs for contour style          |
+| TabRowHeight                  | Dp   | 40.dp  | Default height of tab row for standard style |
+| TabRowWithContourHeight       | Dp   | 45.dp  | Default height of tab row for contour style  |
+| TabRowCornerRadius            | Dp   | 0.dp   | Corner radius for standard style (ColorOS tabs are rectangles) |
+| TabRowWithContourCornerRadius | Dp   | 8.dp   | Default corner radius for contour style      |
+| TabRowMinWidth                | Dp   | 72.dp  | Min width of tabs for standard style         |
+| TabRowWithContourMinWidth     | Dp   | 62.dp  | Min width of tabs for contour style          |
+| TabRowMaxWidth                | Dp   | 128.dp | Max width of tabs for standard style         |
+| TabRowWithContourMaxWidth     | Dp   | 84.dp  | Max width of tabs for contour style          |
+| IndicatorHeight               | Dp   | 2.dp   | Underline thickness                          |
+| IndicatorInset                | Dp   | 24.dp  | Inset of the underline from each tab edge    |
+| ItemSpacing                   | Dp   | 16.dp  | Gap between tabs                             |
+| FadeEdgeLength                | Dp   | 58.dp  | Width of the horizontal fading edge          |
 
 #### Methods
 
 | Method Name    | Type         | Description                        |
 | -------------- | ------------ | ---------------------------------- |
-| tabRowColors() | TabRowColors | Create default color configuration |
+| tabRowColors() | TabRowColors | Create default color configuration (indicator + four-state text colours) |
 
 ### TabRowColors Class
 
@@ -143,7 +147,7 @@ TabRow(
     colors = TabRowDefaults.tabRowColors(
         backgroundColor = Color.LightGray.copy(alpha = 0.5f),
         contentColor = Color.Gray,
-        selectedBackgroundColor = MiuixTheme.colorScheme.primary,
+        selectedBackgroundColor = RmuixTheme.colorScheme.primary,
         selectedContentColor = Color.White
     )
 )

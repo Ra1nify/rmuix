@@ -1,6 +1,6 @@
 # RadioButton
 
-`RadioButton` 是 Miuix 中的基础选择组件，支持两种状态：选中和未选中。选中时显示对勾动画指示器，未选中时不显示任何指示器。适用于单选场景，即从一组选项中只能选择一个。
+`RadioButton` 是 Rmuix 中的基础选择组件，支持两种状态：选中和未选中。选中时显示对勾动画指示器，未选中时不显示任何指示器。适用于单选场景，即从一组选项中只能选择一个。
 
 <div style="position: relative; height: 264px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=radioButton" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.RadioButton
+import io.github.ra1nify.rmuix.kmp.basic.RadioButton
 ```
 
 ## 基本用法
@@ -59,7 +59,18 @@ RadioButton(
 
 ### RadioButtonDefaults 对象
 
-RadioButtonDefaults 对象提供了 RadioButton 组件的默认颜色配置。
+RadioButtonDefaults 对象提供了 RadioButton 组件的几何常量与默认颜色配置。
+
+#### 属性
+
+| 属性名              | 类型 | 描述                                   | 值     |
+| ------------------- | ---- | -------------------------------------- | ------ |
+| Size                | Dp   | 控件整体尺寸                           | 24.dp  |
+| SelectedOuterRadius | Dp   | 选中时外圆半径                         | 10.dp  |
+| SelectedInnerRadius | Dp   | 选中时内部白点半径                     | 6.dp   |
+| UncheckedRingRadius | Dp   | 未选中时圆环半径                       | 9.2.dp |
+| StrokeWidth         | Dp   | 圆环描边宽度（与复选框一致）           | 1.3.dp |
+| MarkMarginStart     | Dp   | 设置行内的起始边距                     | 16.dp  |
 
 #### 方法
 
@@ -73,6 +84,10 @@ RadioButtonDefaults 对象提供了 RadioButton 组件的默认颜色配置。
 | --------------------- | ----- | ------------------------ |
 | selectedColor         | Color | 选中状态时对勾颜色       |
 | disabledSelectedColor | Color | 禁用且选中状态时对勾颜色 |
+| uncheckedStrokeColor          | Color | 未选中时的圆环颜色                           |
+| disabledUncheckedStrokeColor | Color | 未选中且禁用时的圆环颜色                     |
+| selectedInnerColor           | Color | 选中时的内部白点颜色                         |
+| disabledSelectedInnerColor   | Color | 选中且禁用时的内部白点颜色                   |
 
 ## 进阶用法
 

@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package utils
@@ -20,21 +20,20 @@ import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.ScrollBehavior
-import top.yukonga.miuix.kmp.basic.SmallTopAppBar
-import top.yukonga.miuix.kmp.basic.TopAppBar
-import top.yukonga.miuix.kmp.blur.BlendColorEntry
-import top.yukonga.miuix.kmp.blur.BlurColors
-import top.yukonga.miuix.kmp.blur.BlurDefaults
-import top.yukonga.miuix.kmp.blur.LayerBackdrop
-import top.yukonga.miuix.kmp.blur.ProgressiveBlur
-import top.yukonga.miuix.kmp.blur.isRuntimeShaderSupported
-import top.yukonga.miuix.kmp.blur.progressiveTextureBlur
-import top.yukonga.miuix.kmp.blur.rememberLayerBackdrop
-import top.yukonga.miuix.kmp.blur.textureBlur
-import top.yukonga.miuix.kmp.theme.MiuixTheme
-import top.yukonga.miuix.kmp.utils.overScrollVertical
-import top.yukonga.miuix.kmp.utils.scrollEndHaptic
+import io.github.ra1nify.rmuix.kmp.basic.ScrollBehavior
+import io.github.ra1nify.rmuix.kmp.basic.SmallTopAppBar
+import io.github.ra1nify.rmuix.kmp.basic.TopAppBar
+import io.github.ra1nify.rmuix.kmp.blur.BlendColorEntry
+import io.github.ra1nify.rmuix.kmp.blur.BlurColors
+import io.github.ra1nify.rmuix.kmp.blur.BlurDefaults
+import io.github.ra1nify.rmuix.kmp.blur.LayerBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.ProgressiveBlur
+import io.github.ra1nify.rmuix.kmp.blur.isRuntimeShaderSupported
+import io.github.ra1nify.rmuix.kmp.blur.progressiveTextureBlur
+import io.github.ra1nify.rmuix.kmp.blur.rememberLayerBackdrop
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
+import io.github.ra1nify.rmuix.kmp.utils.overScrollVertical
+import io.github.ra1nify.rmuix.kmp.utils.scrollEndHaptic
 
 fun Modifier.pageScrollModifiers(
     enableScrollEndHaptic: Boolean,
@@ -81,7 +80,7 @@ fun AdaptiveTopAppBar(
     isWideScreen: Boolean,
     scrollBehavior: ScrollBehavior,
     subtitle: String = "",
-    color: Color = MiuixTheme.colorScheme.surface,
+    color: Color = RmuixTheme.colorScheme.surface,
     navigationIcon: @Composable () -> Unit = {},
     actions: @Composable RowScope.() -> Unit = {},
     bottomContent: @Composable () -> Unit = {},
@@ -116,7 +115,7 @@ fun AdaptiveTopAppBar(
 fun rememberBlurBackdrop(): LayerBackdrop? {
     val appState = LocalAppState.current
     if (!appState.enableBlur || !isRuntimeShaderSupported()) return null
-    val surfaceColor = MiuixTheme.colorScheme.surface
+    val surfaceColor = RmuixTheme.colorScheme.surface
     return rememberLayerBackdrop {
         drawRect(surfaceColor)
         drawContent()
@@ -129,21 +128,12 @@ fun BlurredBar(
     blurEnabled: Boolean,
     content: @Composable () -> Unit,
 ) {
-    val progressive = LocalAppState.current.blurStyle == 1
-    val blurActive = blurEnabled && backdrop != null
+    val isProgressive = LocalAppState.current.blurStyle == 0
+    val blurActive = blurEnabled && backdrop != null && isProgressive
     Box(
-        modifier = if (blurActive && !progressive) {
-            Modifier.textureBlur(
-                backdrop = backdrop,
-                shape = RectangleShape,
-                blurRadius = 25f,
-                colors = barBlurColors(),
-            )
-        } else {
-            Modifier
-        },
+        modifier = Modifier,
     ) {
-        if (blurActive && progressive) {
+        if (blurActive) {
             Box(
                 modifier = Modifier
                     .matchParentSize()
@@ -152,7 +142,7 @@ fun BlurredBar(
                         shape = RectangleShape,
                         gradient = ProgressiveBlur.Top.copy(curve = 2.2f),
                         blurRadius = 10f,
-                        colors = barBlurColors(progressive = true),
+                        colors = barBlurColors(),
                     ),
             )
         }
@@ -161,8 +151,8 @@ fun BlurredBar(
 }
 
 @Composable
-private fun barBlurColors(progressive: Boolean = false): BlurColors = BlurDefaults.blurColors(
+private fun barBlurColors(): BlurColors = BlurDefaults.blurColors(
     blendColors = listOf(
-        BlendColorEntry(color = MiuixTheme.colorScheme.surface.copy(if (progressive) 0.3f else 0.8f)),
+        BlendColorEntry(color = RmuixTheme.colorScheme.surface.copy(alpha = 0.3f)),
     ),
 )

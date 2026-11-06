@@ -1,6 +1,6 @@
 # Scaffold
 
-`Scaffold` 是 Miuix 中的脚手架组件，用于实现基本设计视觉布局结构。它提供了应用程序界面的基本框架，包括顶部栏、底部栏、悬浮按钮等元素的容器。
+`Scaffold` 是 Rmuix 中的脚手架组件，用于实现基本设计视觉布局结构。它提供了应用程序界面的基本框架，包括顶部栏、底部栏、悬浮按钮等元素的容器。
 
 <div style="position: relative; height: 350px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=scaffold" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -21,7 +21,7 @@ Scaffold 组件为跨平台提供了一个合适的弹出窗口的容器。`Over
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
 ```
 
 ## 基本用法
@@ -59,9 +59,9 @@ Scaffold(
 | floatingActionButtonPosition | FabPosition                         | 显示悬浮按钮的位置                           | FabPosition.End                   | 否       |
 | floatingToolbar              | @Composable () -> Unit              | 悬浮工具栏                                   | {}                                | 否       |
 | floatingToolbarPosition      | ToolbarPosition                     | 显示悬浮工具栏的位置                         | ToolbarPosition.BottomCenter      | 否       |
-| snackbarHost                 | @Composable () -> Unit              | 用于显示 Snackbar 的容器，Miuix 不提供此组件 | {}                                | 否       |
-| popupHost                    | @Composable () -> Unit              | 用于显示弹出窗口的容器                       | \{ MiuixPopupHost() }             | 否       |
-| containerColor               | Color                               | 脚手架的背景颜色                             | MiuixTheme.colorScheme.surface | 否       |
+| snackbarHost                 | @Composable () -> Unit              | 用于显示 Snackbar 的容器，Rmuix 不提供此组件 | {}                                | 否       |
+| popupHost                    | @Composable () -> Unit              | 用于显示弹出窗口的容器                       | \{ RmuixPopupHost() }             | 否       |
+| containerColor               | Color                               | 脚手架的背景颜色                             | RmuixTheme.colorScheme.surface | 否       |
 | contentWindowInsets          | WindowInsets                        | 传递给内容的窗口插入边距                     | WindowInsets.systemBars.union(WindowInsets.displayCutout) | 否       |
 | content                      | @Composable (PaddingValues) -> Unit | 脚手架的主要内容区域                         | -                                 | 是       |
 
@@ -92,7 +92,7 @@ Scaffold(
 ### 带有顶部栏和底部栏的页面布局
 
 ```kotlin
-val topAppBarScrollBehavior = MiuixScrollBehavior(rememberTopAppBarState())
+val topAppBarScrollBehavior = RmuixScrollBehavior(rememberTopAppBarState())
 
 Scaffold(
     topBar = {
@@ -100,7 +100,7 @@ Scaffold(
             title = "标题",
             navigationIcon = {
                 IconButton(onClick = { /* 处理导航点击 */ }) {
-                    Icon(MiuixIcons.Back, contentDescription = "返回")
+                    Icon(RmuixIcons.Back, contentDescription = "返回")
                 }
             },
             scrollBehavior = topAppBarScrollBehavior
@@ -108,8 +108,8 @@ Scaffold(
     },
     bottomBar = {
         val items = listOf(
-            NavigationItem("首页", MiuixIcons.VerticalSplit),
-            NavigationItem("设置", MiuixIcons.Settings)
+            NavigationItem("首页", RmuixIcons.VerticalSplit),
+            NavigationItem("设置", RmuixIcons.Settings)
         )
         var selectedItem by remember { mutableStateOf(0) }
         NavigationBar(
@@ -152,7 +152,7 @@ Scaffold(
         FloatingActionButton(
             onClick = { /* 处理点击事件 */ }
         ) {
-            Icon(MiuixIcons.Add, contentDescription = "添加")
+            Icon(RmuixIcons.Add, contentDescription = "添加")
         }
     },
     floatingActionButtonPosition = FabPosition.End,
@@ -188,7 +188,7 @@ Scaffold(
                 }
             }
         ) {
-            Icon(MiuixIcons.Info, contentDescription = "显示消息")
+            Icon(RmuixIcons.Info, contentDescription = "显示消息")
         }
     },
     content = { paddingValues ->

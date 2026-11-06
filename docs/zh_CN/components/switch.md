@@ -1,6 +1,6 @@
 # Switch
 
-`Switch` 是 Miuix 中的基础切换组件，用于在两种状态之间进行切换。它提供了具有动画效果的交互式开关控件，适用于设置项的启用与禁用场景。
+`Switch` 是 Rmuix 中的基础切换组件，用于在两种状态之间进行切换。它提供了具有动画效果的交互式开关控件，适用于设置项的启用与禁用场景。
 
 <div style="position: relative; height: 100px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=switch" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Switch
+import io.github.ra1nify.rmuix.kmp.basic.Switch
 ```
 
 ## 基本用法
@@ -54,13 +54,26 @@ Switch(
 
 ### SwitchDefaults 对象
 
-SwitchDefaults 对象提供了 Switch 组件的默认颜色配置。
+SwitchDefaults 提供 Switch 的几何常量与默认颜色配置。
+
+#### 属性
+
+| 属性名                | 类型   | 描述                                     | 值     |
+| --------------------- | ------ | ---------------------------------------- | ------ |
+| Width                 | Dp     | 轨道宽度                                 | 44.dp  |
+| Height                | Dp     | 轨道高度                                 | 24.dp  |
+| ThumbSize             | Dp     | 滑块直径                                 | 18.dp  |
+| ThumbPadding          | Dp     | 滑块与轨道边缘的间距                     | 3.dp   |
+| Travel                | Dp     | 滑块行程，`Width - ThumbPadding * 2 - ThumbSize` | 20.dp |
+| ThumbOffsetUnchecked  | Dp     | 关闭态滑块 x 偏移                        | 3.dp   |
+| ThumbOffsetChecked    | Dp     | 开启态滑块 x 偏移                        | 23.dp  |
+| thumbShadow           | Shadow | 滑块阴影，仅在可用状态下绘制             | -      |
 
 #### 方法
 
-| 方法名         | 类型         | 说明                   |
-| -------------- | ------------ | ---------------------- |
-| switchColors() | SwitchColors | 创建开关的默认颜色配置 |
+| 方法名         | 类型         | 描述                        |
+| -------------- | ------------ | --------------------------- |
+| switchColors() | SwitchColors | 创建 Switch 的默认颜色配置  |
 
 ### SwitchColors 类
 

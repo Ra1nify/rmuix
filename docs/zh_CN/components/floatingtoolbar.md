@@ -1,6 +1,6 @@
 # FloatingToolbar
 
-`FloatingToolbar` 是 Miuix 中的悬浮工具栏组件，它将其内容渲染在一个具有圆角背景的容器中，可以水平或垂直排列。实际的屏幕放置由父组件（通常是 `Scaffold`）处理。
+`FloatingToolbar` 是 Rmuix 中的悬浮工具栏组件，它将其内容渲染在一个具有圆角背景的容器中，可以水平或垂直排列。实际的屏幕放置由父组件（通常是 `Scaffold`）处理。
 
 此组件通常与 `Scaffold` 结合使用，放置在页面的特定位置，提供快捷操作或信息展示。
 
@@ -11,9 +11,9 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.FloatingToolbar
-import top.yukonga.miuix.kmp.basic.FloatingToolbarDefaults
-import top.yukonga.miuix.kmp.basic.ToolbarPosition // 用于 Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.FloatingToolbar
+import io.github.ra1nify.rmuix.kmp.basic.FloatingToolbarDefaults
+import io.github.ra1nify.rmuix.kmp.basic.ToolbarPosition // 用于 Scaffold
 ```
 
 ## 基本用法
@@ -27,10 +27,10 @@ Scaffold(
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) { // 或 Column
                 IconButton(onClick = { /* 操作 1 */ }) {
-                    Icon(MiuixIcons.Edit, contentDescription = "编辑")
+                    Icon(RmuixIcons.Edit, contentDescription = "编辑")
                 }
                 IconButton(onClick = { /* 操作 2 */ }) {
-                    Icon(MiuixIcons.Delete, contentDescription = "删除")
+                    Icon(RmuixIcons.Delete, contentDescription = "删除")
                 }
             }
         }
@@ -58,7 +58,7 @@ Scaffold(
 | 属性名         | 类型                    | 说明           | 值                                      |
 | -------------- | ----------------------- | -------------- | --------------------------------------- |
 | CornerRadius   | Dp                      | 默认圆角半径   | 50.dp                                   |
-| defaultColor() | @Composable () -> Color | 默认背景颜色   | MiuixTheme.colorScheme.surfaceContainer |
+| defaultColor() | @Composable () -> Color | 默认背景颜色   | RmuixTheme.colorScheme.surfaceContainer |
 | OutSidePadding | PaddingValues           | 默认外部内边距 | PaddingValues(12.dp, 8.dp)              |
 
 ### ToolbarPosition (用于 Scaffold)
@@ -71,7 +71,7 @@ Scaffold(
 
 ```kotlin
 FloatingToolbar(
-    color = MiuixTheme.colorScheme.primaryContainer,
+    color = RmuixTheme.colorScheme.primaryContainer,
     cornerRadius = 16.dp,
     outSidePadding = PaddingValues(24.dp),
     showDivider = false
@@ -81,10 +81,10 @@ FloatingToolbar(
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) { // 或 Column
         IconButton(onClick = { /* 操作 1 */ }) {
-            Icon(MiuixIcons.Edit, contentDescription = "编辑", tint = MiuixTheme.colorScheme.onPrimaryContainer)
+            Icon(RmuixIcons.Edit, contentDescription = "编辑", tint = RmuixTheme.colorScheme.onPrimaryContainer)
         }
         IconButton(onClick = { /* 操作 2 */ }) {
-            Icon(MiuixIcons.Delete, contentDescription = "删除", tint = MiuixTheme.colorScheme.onPrimaryContainer)
+            Icon(RmuixIcons.Delete, contentDescription = "删除", tint = RmuixTheme.colorScheme.onPrimaryContainer)
         }
     }
 }
@@ -99,10 +99,10 @@ FloatingToolbar {
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         IconButton(onClick = { /* 操作 1 */ }) {
-            Icon(MiuixIcons.Edit, contentDescription = "编辑")
+            Icon(RmuixIcons.Edit, contentDescription = "编辑")
         }
         IconButton(onClick = { /* 操作 2 */ }) {
-            Icon(MiuixIcons.Delete, contentDescription = "删除")
+            Icon(RmuixIcons.Delete, contentDescription = "删除")
         }
     }
 }

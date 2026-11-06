@@ -1,3 +1,3 @@
 # Best Practices
 
-For Miuix project examples and community resources, visit [awesome-miuix](https://github.com/YuKongA/awesome-miuix).
+For Rmuix project examples and community resources, visit [awesome-rmuix](https://github.com/YuKongA/awesome-rmuix).

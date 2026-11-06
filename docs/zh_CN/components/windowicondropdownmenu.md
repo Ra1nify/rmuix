@@ -2,7 +2,7 @@
 title: WindowIconDropdownMenu
 requiresScaffoldHost: false
 prerequisites:
-  - 可在任何位置使用，不需要 `Scaffold` 或 `MiuixPopupHost`
+  - 可在任何位置使用，不需要 `Scaffold` 或 `RmuixPopupHost`
   - 在窗口级别渲染
 hostComponent: None
 popupHost: None
@@ -19,9 +19,9 @@ popupHost: None
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.menu.WindowIconDropdownMenu
-import top.yukonga.miuix.kmp.basic.DropdownEntry
-import top.yukonga.miuix.kmp.basic.DropdownItem
+import io.github.ra1nify.rmuix.kmp.menu.WindowIconDropdownMenu
+import io.github.ra1nify.rmuix.kmp.basic.DropdownEntry
+import io.github.ra1nify.rmuix.kmp.basic.DropdownItem
 ```
 
 ## 基本用法
@@ -41,7 +41,7 @@ Scaffold(
             title = "收件箱",
             actions = {
                 WindowIconDropdownMenu(entry = entry) {
-                    Icon(imageVector = MiuixIcons.Edit, contentDescription = "动作菜单")
+                    Icon(imageVector = RmuixIcons.Edit, contentDescription = "动作菜单")
                 }
             }
         )
@@ -64,7 +64,7 @@ val entry = DropdownEntry(
 )
 
 WindowIconDropdownMenu(entry = entry) {
-    Icon(imageVector = MiuixIcons.Sort, contentDescription = "排序")
+    Icon(imageVector = RmuixIcons.Sort, contentDescription = "排序")
 }
 ```
 
@@ -87,7 +87,7 @@ val entry = DropdownEntry(
 )
 
 WindowIconDropdownMenu(entry = entry, collapseOnSelection = false) {
-    Icon(imageVector = MiuixIcons.SelectAll, contentDescription = "多选")
+    Icon(imageVector = RmuixIcons.SelectAll, contentDescription = "多选")
 }
 ```
 
@@ -102,7 +102,7 @@ val entries = listOf(
 )
 
 WindowIconDropdownMenu(entries = entries) {
-    Icon(imageVector = MiuixIcons.MoreCircle, contentDescription = "更多")
+    Icon(imageVector = RmuixIcons.MoreCircle, contentDescription = "更多")
 }
 ```
 
@@ -115,7 +115,7 @@ WindowIconDropdownMenu(
     entry = DropdownEntry(items = listOf(DropdownItem(text = "选项 1"))),
     enabled = false
 ) {
-    Icon(imageVector = MiuixIcons.MoreCircle, contentDescription = "更多")
+    Icon(imageVector = RmuixIcons.MoreCircle, contentDescription = "更多")
 }
 ```
 

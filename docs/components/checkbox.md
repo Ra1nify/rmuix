@@ -1,6 +1,6 @@
 # Checkbox
 
-`Checkbox` is a basic selection component in Miuix, supporting three states: checked, unchecked, and indeterminate. It provides an interactive selection control with animation effects, suitable for multiple selection scenarios and enabling/disabling configuration items.
+`Checkbox` is a basic selection component in Rmuix, supporting three states: checked, unchecked, and indeterminate. It provides an interactive selection control with animation effects, suitable for multiple selection scenarios and enabling/disabling configuration items.
 
 <div style="position: relative; height: 100px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=checkbox" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Checkbox
+import io.github.ra1nify.rmuix.kmp.basic.Checkbox
 import androidx.compose.ui.state.ToggleableState
 ```
 
@@ -73,7 +73,18 @@ Checkbox(
 
 ### CheckboxDefaults Object
 
-The CheckboxDefaults object provides default color configurations for the Checkbox component.
+The CheckboxDefaults object provides the geometry tokens and default color configurations for the
+Checkbox component.
+
+#### Properties
+
+| Property Name | Type | Description                                              | Value  |
+| ------------- | ---- | -------------------------------------------------------- | ------ |
+| Size          | Dp   | Total box size including its transparent margin          | 24.dp  |
+| BoxSize       | Dp   | Painted artwork size, excluding the margin               | 18.dp  |
+| CornerRadius  | Dp   | Corner radius of the painted square                      | 4.dp   |
+| StrokeWidth   | Dp   | Outline width of the unchecked state                     | 1.3.dp |
+| IconTextGap   | Dp   | Gap between the box and adjacent text                    | 8.dp   |
 
 #### Methods
 
@@ -85,6 +96,8 @@ The CheckboxDefaults object provides default color configurations for the Checkb
 
 | Property Name                    | Type  | Description                                  |
 | -------------------------------- | ----- | -------------------------------------------- |
+| uncheckedStrokeColor             | Color | Outline color when unchecked                 |
+| disabledUncheckedStrokeColor     | Color | Outline color when unchecked and disabled    |
 | checkedForegroundColor           | Color | Foreground color when checked (checkmark)    |
 | uncheckedForegroundColor         | Color | Foreground color when unchecked              |
 | disabledCheckedForegroundColor   | Color | Foreground color when disabled and checked   |

@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -21,15 +21,15 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Button
-import top.yukonga.miuix.kmp.basic.ButtonDefaults
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.basic.TextButton
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Contacts
-import top.yukonga.miuix.kmp.icon.extended.Favorites
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.Button
+import io.github.ra1nify.rmuix.kmp.basic.ButtonDefaults
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.TextButton
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Contacts
+import io.github.ra1nify.rmuix.kmp.icon.extended.Favorites
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 @Composable
 fun ButtonDemo() {
@@ -62,14 +62,14 @@ fun ButtonDemo() {
                     },
                 ) {
                     Icon(
-                        imageVector = MiuixIcons.Favorites,
+                        imageVector = RmuixIcons.Favorites,
                         contentDescription = "Favorites",
                         tint = Color.Unspecified,
                         modifier = Modifier.size(24.dp),
                     )
                     Text(
                         text = buttonText1,
-                        style = MiuixTheme.textStyles.button,
+                        style = RmuixTheme.textStyles.button,
                         modifier = Modifier.padding(start = 8.dp),
                     )
                 }
@@ -92,15 +92,15 @@ fun ButtonDemo() {
                     colors = ButtonDefaults.buttonColorsPrimary(),
                 ) {
                     Icon(
-                        imageVector = MiuixIcons.Contacts,
+                        imageVector = RmuixIcons.Contacts,
                         contentDescription = null,
-                        tint = MiuixTheme.colorScheme.disabledOnSecondaryVariant,
+                        tint = RmuixTheme.colorScheme.disabledOnSecondaryVariant,
                         modifier = Modifier.size(24.dp),
                     )
                     Text(
                         text = "Disabled Button",
-                        style = MiuixTheme.textStyles.button,
-                        color = MiuixTheme.colorScheme.disabledOnSecondaryVariant,
+                        style = RmuixTheme.textStyles.button,
+                        color = RmuixTheme.colorScheme.disabledOnSecondaryVariant,
                         modifier = Modifier.padding(start = 8.dp),
                     )
                 }

@@ -1,18 +1,18 @@
 # PullToRefresh
 
-`PullToRefresh` is a pull-to-refresh component in Miuix that provides refresh functionality for lists and other scrollable content. It features an animated interactive refresh indicator suitable for various scenarios where data refresh is needed.
+`PullToRefresh` is a pull-to-refresh component in Rmuix that provides refresh functionality for lists and other scrollable content. It features an animated interactive refresh indicator suitable for various scenarios where data refresh is needed.
 
 ::: warning
 This component is only available in touch-enabled environments.
 :::
 
-For a demo, see the DropDowns page of the <a href="https://compose-miuix-ui.github.io/miuix-wasmJs/" target="_blank" rel="noopener noreferrer">Miuix Example</a>.
+For a demo, see the DropDowns page of the <a href="https://compose-rmuix-ui.github.io/rmuix-wasmJs/" target="_blank" rel="noopener noreferrer">Rmuix Example</a>.
 
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.PullToRefresh
-import top.yukonga.miuix.kmp.basic.rememberPullToRefreshState
+import io.github.ra1nify.rmuix.kmp.basic.PullToRefresh
+import io.github.ra1nify.rmuix.kmp.basic.rememberPullToRefreshState
 ```
 
 ## Basic Usage

@@ -1,6 +1,6 @@
 # TopAppBar
 
-`TopAppBar` is a top application bar component in Miuix, used to provide navigation, title, and action buttons at the top of the interface. It supports both large title and regular modes, as well as dynamic effects during scrolling.
+`TopAppBar` is a top application bar component in Rmuix, used to provide navigation, title, and action buttons at the top of the interface. It supports both large title and regular modes, as well as dynamic effects during scrolling.
 
 This component is typically used in conjunction with the `Scaffold` component to maintain consistent layout and behavior across different pages in the application.
 
@@ -11,10 +11,10 @@ This component is typically used in conjunction with the `Scaffold` component to
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.TopAppBar
-import top.yukonga.miuix.kmp.basic.SmallTopAppBar
-import top.yukonga.miuix.kmp.basic.MiuixScrollBehavior
-import top.yukonga.miuix.kmp.basic.rememberTopAppBarState
+import io.github.ra1nify.rmuix.kmp.basic.TopAppBar
+import io.github.ra1nify.rmuix.kmp.basic.SmallTopAppBar
+import io.github.ra1nify.rmuix.kmp.basic.RmuixScrollBehavior
+import io.github.ra1nify.rmuix.kmp.basic.rememberTopAppBarState
 ```
 
 ## Basic Usage
@@ -28,12 +28,12 @@ Scaffold(
             title = "Title",
             navigationIcon = {
                 IconButton(onClick = { /* Handle click event */ }) {
-                    Icon(MiuixIcons.Back, contentDescription = "Back")
+                    Icon(RmuixIcons.Back, contentDescription = "Back")
                 }
             },
             actions = {
                 IconButton(onClick = { /* Handle click event */ }) {
-                    Icon(MiuixIcons.More, contentDescription = "More")
+                    Icon(RmuixIcons.More, contentDescription = "More")
                 }
             }
         )
@@ -51,12 +51,12 @@ Scaffold(
             largeTitle = "Large Title", // If not specified, title value will be used
             navigationIcon = {
                 IconButton(onClick = { /* Handle click event */ }) {
-                    Icon(MiuixIcons.Back, contentDescription = "Back")
+                    Icon(RmuixIcons.Back, contentDescription = "Back")
                 }
             },
             actions = {
                 IconButton(onClick = { /* Handle click event */ }) {
-                    Icon(MiuixIcons.More, contentDescription = "More")
+                    Icon(RmuixIcons.More, contentDescription = "More")
                 }
             }
         )
@@ -69,7 +69,7 @@ Scaffold(
 TopAppBar supports changing its display state when content scrolls:
 
 ```kotlin
-val scrollBehavior = MiuixScrollBehavior()
+val scrollBehavior = RmuixScrollBehavior()
 
 Scaffold(
     topBar = {
@@ -102,9 +102,9 @@ Scaffold(
 ```kotlin
 TopAppBar(
     title = "Title",
-    color = MiuixTheme.colorScheme.primary,
-    titleColor = MiuixTheme.colorScheme.onPrimary,
-    largeTitleColor = MiuixTheme.colorScheme.onPrimary
+    color = RmuixTheme.colorScheme.primary,
+    titleColor = RmuixTheme.colorScheme.onPrimary,
+    largeTitleColor = RmuixTheme.colorScheme.onPrimary
 )
 ```
 
@@ -135,12 +135,12 @@ TopAppBar(
 | -------------------------- | ------------------------------- | ---------------------------------------------- | ------------------------------- | -------- |
 | title                      | String                          | Top bar title                                  | -                               | Yes      |
 | modifier                   | Modifier                        | Modifier applied to the top bar                | Modifier                        | No       |
-| color                      | Color                           | Top bar background color                       | MiuixTheme.colorScheme.surface  | No       |
-| titleColor                 | Color                           | Color of the collapsed small title text        | MiuixTheme.colorScheme.onSurface | No       |
+| color                      | Color                           | Top bar background color                       | RmuixTheme.colorScheme.surface  | No       |
+| titleColor                 | Color                           | Color of the collapsed small title text        | RmuixTheme.colorScheme.onSurface | No       |
 | largeTitle                 | String                          | Large title text                               | title                           | No       |
-| largeTitleColor            | Color                           | Color of the expanded large title text         | MiuixTheme.colorScheme.onSurface | No       |
+| largeTitleColor            | Color                           | Color of the expanded large title text         | RmuixTheme.colorScheme.onSurface | No       |
 | subtitle                   | String                          | Subtitle text displayed below the title bar    | ""                              | No       |
-| subtitleColor              | Color                           | Color of the subtitle text                     | MiuixTheme.colorScheme.onSurfaceVariantSummary | No       |
+| subtitleColor              | Color                           | Color of the subtitle text                     | RmuixTheme.colorScheme.onSurfaceVariantSummary | No       |
 | navigationIcon             | @Composable () -> Unit          | Composable function for navigation icon area   | {}                              | No       |
 | actions                    | @Composable RowScope.() -> Unit | Composable function for action buttons area    | {}                              | No       |
 | scrollBehavior             | ScrollBehavior?                 | Controls top bar scroll behavior               | null                            | No       |
@@ -156,10 +156,10 @@ TopAppBar(
 | -------------------------- | ------------------------------- | ---------------------------------------------- | ------------------------------- | -------- |
 | title                      | String                          | Top bar title                                  | -                               | Yes      |
 | modifier                   | Modifier                        | Modifier applied to the top bar                | Modifier                        | No       |
-| color                      | Color                           | Top bar background color                       | MiuixTheme.colorScheme.surface  | No       |
-| titleColor                 | Color                           | Color of the title text                        | MiuixTheme.colorScheme.onSurface | No       |
+| color                      | Color                           | Top bar background color                       | RmuixTheme.colorScheme.surface  | No       |
+| titleColor                 | Color                           | Color of the title text                        | RmuixTheme.colorScheme.onSurface | No       |
 | subtitle                   | String                          | Subtitle text displayed below the title bar    | ""                              | No       |
-| subtitleColor              | Color                           | Color of the subtitle text                     | MiuixTheme.colorScheme.onSurfaceVariantSummary | No       |
+| subtitleColor              | Color                           | Color of the subtitle text                     | RmuixTheme.colorScheme.onSurfaceVariantSummary | No       |
 | navigationIcon             | @Composable () -> Unit          | Composable function for navigation icon area   | {}                              | No       |
 | actions                    | @Composable RowScope.() -> Unit | Composable function for action buttons area    | {}                              | No       |
 | scrollBehavior             | ScrollBehavior?                 | Controls top bar scroll behavior               | null                            | No       |
@@ -187,14 +187,14 @@ The TopAppBarDefaults object provides default values for TopAppBar and SmallTopA
 
 ### ScrollBehavior
 
-MiuixScrollBehavior is a configuration object used to control the scroll behavior of the top bar.
+RmuixScrollBehavior is a configuration object used to control the scroll behavior of the top bar.
 
 #### rememberTopAppBarState
 
 Used to create and remember TopAppBarState:
 
 ```kotlin
-val scrollBehavior = MiuixScrollBehavior(
+val scrollBehavior = RmuixScrollBehavior(
     state = rememberTopAppBarState(),
     snapAnimationSpec = spring(stiffness = 2500f),
     canScroll = { true }
@@ -224,7 +224,7 @@ TopAppBar(
 
 ```kotlin
 var isScrollingEnabled by remember { mutableStateOf(true) }
-val scrollBehavior = MiuixScrollBehavior(
+val scrollBehavior = RmuixScrollBehavior(
     snapAnimationSpec = tween(durationMillis = 100),
     flingAnimationSpec = rememberSplineBasedDecay(),
     canScroll = { isScrollingEnabled } // Can dynamically control whether scrolling is allowed
@@ -249,9 +249,9 @@ Box(modifier = Modifier.fillMaxSize()) {
             navigationIcon = {
                 IconButton(onClick = { useSmallTopBar = false }) {
                     Icon(
-                        imageVector = MiuixIcons.Back,
+                        imageVector = RmuixIcons.Back,
                         contentDescription = "Switch to Large Title",
-                        tint = MiuixTheme.colorScheme.onBackground
+                        tint = RmuixTheme.colorScheme.onBackground
                     )
                 }
             }
@@ -263,9 +263,9 @@ Box(modifier = Modifier.fillMaxSize()) {
             navigationIcon = {
                 IconButton(onClick = { useSmallTopBar = true }) {
                     Icon(
-                        imageVector = MiuixIcons.Back,
+                        imageVector = RmuixIcons.Back,
                         contentDescription = "Switch to Small Title",
-                        tint = MiuixTheme.colorScheme.onBackground
+                        tint = RmuixTheme.colorScheme.onBackground
                     )
                 }
             }

@@ -1,33 +1,33 @@
 # 图标系统
 
-Miuix 提供了一套丰富的内置图标系统，满足大多数应用的主要设计需求。这些图标提供五种粗细：Light、Normal、Regular、Medium 和 Demibold。
+Rmuix 提供了一套丰富的内置图标系统，满足大多数应用的主要设计需求。这些图标提供五种粗细：Light、Normal、Regular、Medium 和 Demibold。
 
 ## 安装
 
-基础的 `miuix-ui` 库仅包含少量核心图标。如需使用完整的 Miuix 图标库，您需要将 `miuix-icons` 依赖添加到您的项目中。
+基础的 `rmuix-ui` 库仅包含少量核心图标。如需使用完整的 Rmuix 图标库，您需要将 `rmuix-icons` 依赖添加到您的项目中。
 
 ```kotlin
 // build.gradle.kts
 commonMain.dependencies {
-    implementation("top.yukonga.miuix.kmp:miuix-ui:<version>")
+    implementation("io.github.ra1nify.rmuix.kmp:rmuix-ui:<version>")
     // 添加扩展图标库
-    implementation("top.yukonga.miuix.kmp:miuix-icons:<version>")
+    implementation("io.github.ra1nify.rmuix.kmp:rmuix-icons:<version>")
 }
 ```
 
 ## 使用方法
 
-要在项目中使用 Miuix 图标，首先需要正确导入：
+要在项目中使用 Rmuix 图标，首先需要正确导入：
 
 ```kotlin
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Ok
-import top.yukonga.miuix.kmp.icon.extended.Settings
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Ok
+import io.github.ra1nify.rmuix.kmp.icon.extended.Settings
 ```
 
 然后，你可以像下面这样使用图标：
@@ -35,41 +35,48 @@ import top.yukonga.miuix.kmp.icon.extended.Settings
 ```kotlin
 // 使用 Ok 图标 (默认为 Regular 粗细)
 Icon(
-    imageVector = MiuixIcons.Ok,
+    imageVector = RmuixIcons.Ok,
     contentDescription = "Ok",
     modifier = Modifier.size(24.dp)
 )
 
 // 使用 Settings 图标
 Icon(
-    imageVector = MiuixIcons.Settings,
+    imageVector = RmuixIcons.Settings,
     contentDescription = "Settings",
     modifier = Modifier.size(24.dp)
 )
 
 // 使用特定粗细 (例如 Light)
 Icon(
-    imageVector = MiuixIcons.Light.Settings,
+    imageVector = RmuixIcons.Light.Settings,
     contentDescription = "Settings (Light)",
+    modifier = Modifier.size(24.dp)
+)
+
+// 使用 Outline 分组 (空心/线性)
+Icon(
+    imageVector = RmuixIcons.Outline.Settings,
+    contentDescription = "Settings (Outline)",
     modifier = Modifier.size(24.dp)
 )
 ```
 
 ## 图标粗细
 
-Miuix 图标支持五种粗细，对应字体源 `misymbol_vf.ttf` 的 5 个命名实例：
+Rmuix 图标支持五种粗细，对应字体源 `misymbol_vf.ttf` 的 5 个命名实例：
 
-- `MiuixIcons.Light`: 细图标 (wght=250)
-- `MiuixIcons.Normal`: 偏细图标 (wght=305)
-- `MiuixIcons.Regular`: 常规图标 (wght=330) - 直接访问 `MiuixIcons.IconName` 时的默认值
-- `MiuixIcons.Medium`: 偏粗图标 (wght=430)
-- `MiuixIcons.Demibold`: 粗图标 (wght=500)
+- `RmuixIcons.Light`: 细图标 (wght=250)
+- `RmuixIcons.Normal`: 偏细图标 (wght=305)
+- `RmuixIcons.Regular`: 常规图标 (wght=330) - 直接访问 `RmuixIcons.IconName` 时的默认值
+- `RmuixIcons.Medium`: 偏粗图标 (wght=430)
+- `RmuixIcons.Demibold`: 粗图标 (wght=500)
 
 ## 可用图标
 
 ### Basic（基础图标）
 
-基础图标包含一些常用的基本界面元素，如箭头、勾选等，这些图标在 Miuix 本身的组件中也会使用到。以下是完整的列表：
+基础图标包含一些常用的基本界面元素，如箭头、勾选等，这些图标在 Rmuix 本身的组件中也会使用到。以下是完整的列表：
 
 | 图标名称 | Light | Normal | Regular | Medium | Demibold |
 |---|---|---|---|---|---|

@@ -1,4 +1,4 @@
-# Miuix
+# Rmuix
 
 Compose Multiplatform UI component library. Targets Android, iOS, Desktop (JVM), macOS, Web (Wasm/JS).
 
@@ -27,14 +27,14 @@ Compose Multiplatform UI component library. Targets Android, iOS, Desktop (JVM),
 
 | Directory           | Purpose                                                                    |
 | :------------------ | :------------------------------------------------------------------------- |
-| `miuix-core/`       | Utilities + MiuixIcons base (depended on by `ui` and `icons`)              |
-| `miuix-ui/`         | Main UI library                                                            |
-| `miuix-preference/` | Preference / menu / popup components                                       |
-| `miuix-shader/`     | Runtime shader / render effect abstraction (used by `blur` and `squircle`) |
-| `miuix-blur/`       | Blur effects (Android minSdk=33; depends on `miuix-shader`)                |
-| `miuix-squircle/`   | Squircle corner shapes (depends on `miuix-shader`)                         |
-| `miuix-icons/`      | Extended icon resources                                                    |
-| `miuix-nav/`        | Navigation runtime (depends on `miuix-squircle`)                           |
+| `rmuix-core/`       | Utilities + RmuixIcons base (depended on by `ui` and `icons`)              |
+| `rmuix-ui/`         | Main UI library                                                            |
+| `rmuix-preference/` | Preference / menu / popup components                                       |
+| `rmuix-shader/`     | Runtime shader / render effect abstraction (used by `blur` and `squircle`) |
+| `rmuix-blur/`       | Blur effects (Android minSdk=33; depends on `rmuix-shader`)                |
+| `rmuix-squircle/`   | Squircle corner shapes (depends on `rmuix-shader`)                         |
+| `rmuix-icons/`      | Extended icon resources                                                    |
+| `rmuix-nav/`        | Navigation runtime (depends on `rmuix-squircle`)                           |
 | `example/`          | Demo app                                                                   |
 | `baselineprofile/`  | Android baseline profile generation                                        |
 | `docs/`             | VitePress documentation site                                               |
@@ -43,7 +43,7 @@ Compose Multiplatform UI component library. Targets Android, iOS, Desktop (JVM),
 
 ### Component Source Layout
 
-`miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/`:
+`rmuix-ui/src/commonMain/kotlin/io/github/ra1nify/rmuix/kmp/`:
 
 | Subdir        | Contents                                                        |
 | :------------ | :-------------------------------------------------------------- |
@@ -51,14 +51,14 @@ Compose Multiplatform UI component library. Targets Android, iOS, Desktop (JVM),
 | `overlay/`    | Scaffold-hosted overlays (OverlayDialog, OverlayBottomSheet, …) |
 | `window/`     | Platform window components (WindowDialog, WindowBottomSheet, …) |
 | `layout/`     | Shared layout primitives                                        |
-| `theme/`      | MiuixTheme, Colors, TextStyles, ThemeController, DynamicColors  |
+| `theme/`      | RmuixTheme, Colors, TextStyles, ThemeController, DynamicColors  |
 | `color/`      | Color utilities, Material Color                                 |
 | `anim/`       | Animation utilities                                             |
 | `utils/`      | General utilities                                               |
 | `icon/`       | Built-in basic icons (ArrowRight, Check, Search, …)             |
 | `interfaces/` | Shared interfaces                                               |
 
-`miuix-preference/src/commonMain/kotlin/top/yukonga/miuix/kmp/`:
+`rmuix-preference/src/commonMain/kotlin/io/github/ra1nify/rmuix/kmp/`:
 
 | Subdir        | Contents                                                        |
 | :------------ | :-------------------------------------------------------------- |
@@ -89,7 +89,7 @@ commonMain
 - **License header** (required on all `.kt` and `.kts` files; Spotless auto-fills `$YEAR` with the current year — do not manually change years in existing headers):
 
   ```
-  // Copyright $YEAR, compose-miuix-ui contributors
+  // Copyright $YEAR, compose-rmuix-ui contributors
   // SPDX-License-Identifier: Apache-2.0
   ```
 
@@ -140,10 +140,10 @@ object ButtonDefaults {
 
     @Composable
     fun buttonColors(                       // Color factories must be @Composable
-        color: Color = MiuixTheme.colorScheme.secondaryVariant,
-        disabledColor: Color = MiuixTheme.colorScheme.disabledSecondaryVariant,
-        contentColor: Color = MiuixTheme.colorScheme.onSecondaryVariant,
-        disabledContentColor: Color = MiuixTheme.colorScheme.disabledOnSecondaryVariant,
+        color: Color = RmuixTheme.colorScheme.secondaryVariant,
+        disabledColor: Color = RmuixTheme.colorScheme.disabledSecondaryVariant,
+        contentColor: Color = RmuixTheme.colorScheme.onSecondaryVariant,
+        disabledContentColor: Color = RmuixTheme.colorScheme.disabledOnSecondaryVariant,
     ): ButtonColors = remember(color, disabledColor, contentColor, disabledContentColor) {
         ButtonColors(
             color = color,
@@ -174,8 +174,90 @@ data class ButtonColors(
 - **`@NonRestartableComposable`** on thin wrapper composables that fully delegate to other composables and read no state themselves; avoid on composables with multiple internal state reads (they benefit from smart recomposition)
 - **`@Immutable`** on color/style data classes
 - **Shapes**: `RoundedCornerShape(cornerRadius)` for rounded corners, `CircleShape` for capsules — both from `androidx.compose.foundation.shape`
-- **Theme colors**: always `MiuixTheme.colorScheme.*`, never hardcoded colors
-- **Text styles**: always `MiuixTheme.textStyles.*` (e.g., `MiuixTheme.textStyles.button`)
+- **Theme colors**: always `RmuixTheme.colorScheme.*`, never hardcoded colors
+- **Text styles**: always `RmuixTheme.textStyles.*` (e.g., `RmuixTheme.textStyles.button`)
+
+## Staging: ColorOS Migration Compatibility Rules
+
+This repo is a fork of compose-miuix-ui being migrated component-by-component to ColorOS 17 visuals.
+Full detail in [`docs/STAGING.md`](docs/STAGING.md).
+
+### Priority order (highest rule)
+
+A pixel-accurate ColorOS reproduction is the goal; miuix compatibility is a constraint on the way there.
+When they conflict, decide in this order:
+
+1. **Match ColorOS visually and behaviourally** — the goal, not negotiable.
+2. **Reuse miuix's interface wherever possible** — yields to 1.
+3. **Minimise breaking changes** — yields to 1 and 2.
+
+So: reproduces ColorOS first, then stays as miuix-compatible as that allows. Not "keep miuix's look to
+avoid a breaking change".
+
+| Situation | Action |
+| :--- | :--- |
+| A miuix parameter can express the ColorOS result | Reuse it, add nothing |
+| A miuix parameter's semantics conflict with ColorOS | **Change its default to match ColorOS**, keep the name, declare breaking |
+| ColorOS has something miuix lacks | Add an optional parameter defaulting to the ColorOS behaviour |
+| miuix has something ColorOS lacks | Keep the parameter, but default it to the ColorOS behaviour |
+
+The only case where miuix's current behaviour may survive is a difference that does not affect the ColorOS
+reproduction (a pure API convenience, say).
+
+### Interface compatibility
+
+- Existing public signatures must stay callable. Do not reorder, rename or remove existing parameters.
+- Adding a parameter is fine; removing one is not. If a signature genuinely must change, keep the old
+  shape as a `@Deprecated` overload that delegates to the new one.
+- Default values must keep their existing meaning unless the change is explicitly declared as breaking.
+
+### New parameters are always optional, and default to existing behaviour
+
+Every capability added for ColorOS fidelity must be an optional parameter whose default reproduces the
+current miuix behaviour:
+
+```kotlin
+// ✅ new capability, off by default
+fun BasicComponent(
+    assignment: String? = null,      // null = not shown, as today
+    iconBadge: Boolean = false,      // false = not shown, as today
+)
+
+// ❌ never
+fun BasicComponent(assignment: String, iconBadge: Boolean)
+```
+
+Rule of thumb: **a new functional parameter must default to "off"**. Its default rendering has to match
+the pre-migration structure — same content, same line count, nothing reserving space.
+
+The one allowed default change is the *visual* metric the migration exists to fix (e.g. row height
+56dp → 48dp, padding 16dp → 32dp). Those are the point of the work, not compatibility breaks.
+
+### Declare what cannot be reconciled
+
+Anything that cannot stay compatible goes in the commit body and the component doc:
+
+```
+BREAKING: <parameter> default changed from <A> to <B> because <reason>.
+```
+
+Already declared: `Switch`'s `switchColors().uncheckedTrackColor` default moved from
+`colorScheme.secondary` to the measured `#1F000000` / `#33FFFFFF` pair.
+
+### Migration workflow
+
+1. **Research from source first, dump second.** Read `com.coui.appcompat.*` for the real implementation;
+   use dumps only to confirm or disambiguate. Record findings in `docs/research/coloros-<component>.md`.
+   Never put a number in code without a source or dump behind it.
+2. **Design the API delta** — list new parameters, confirm each defaults to current behaviour, confirm
+   nothing existing is removed or renamed.
+3. **Implement in one pass.** No "old visual / new visual" switch, no half-migrated state. Keep the hard
+   constraints in Critical Constraints (e.g. BasicComponent's custom `Layout`).
+4. **Sync everything** — `docs/components/` + `docs/zh_CN/components/`, `docs/demo/`, and
+   `example/shared/.../component/`.
+5. **Verify** with `./gradlew compileKotlinDesktop spotlessCheck`.
+
+Do not migrate several components in one go. One component, verify, then the next.
 
 ## Critical Constraints
 
@@ -194,7 +276,7 @@ data class ButtonColors(
 
 ### Adding a New Component
 
-1. Create the `@Composable` function in `miuix-ui/src/commonMain/kotlin/top/yukonga/miuix/kmp/basic/` (or `preference/` in `miuix-preference` for preference components)
+1. Create the `@Composable` function in `rmuix-ui/src/commonMain/kotlin/io/github/ra1nify/rmuix/kmp/basic/` (or `preference/` in `rmuix-preference` for preference components)
 2. Follow the API conventions above (parameter ordering, Defaults object, Colors data class)
 3. Add a demo section in `example/shared/src/commonMain/kotlin/component/` and register it in the example app
 4. Verify on at least Android and Desktop
@@ -210,7 +292,7 @@ When changing a component's API, defaults, or behavior, update all related artif
 ### Fixing Bugs
 
 1. Reproduce in the `example` app
-2. Fix in `miuix-ui/` or `miuix-preference/`
+2. Fix in `rmuix-ui/` or `rmuix-preference/`
 3. If platform-specific, verify the fix across affected platforms
 
 ## Git Commit Style

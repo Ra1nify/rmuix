@@ -1,13 +1,13 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package navigation
 
-import top.yukonga.miuix.kmp.nav.core.NavBackStack
-import top.yukonga.miuix.kmp.nav.core.NavKey
+import io.github.ra1nify.rmuix.kmp.nav.core.NavBackStack
+import io.github.ra1nify.rmuix.kmp.nav.core.NavKey
 
 /**
- * Simple navigation helper that owns a miuix-nav back stack.
+ * Simple navigation helper that owns a rmuix-nav back stack.
  * Supports push/replace/pop/popUntil over the shared [NavBackStack].
  */
 class Navigator(

@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -20,15 +20,15 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import top.yukonga.miuix.kmp.basic.ButtonDefaults
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.CardDefaults
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.basic.TextButton
-import top.yukonga.miuix.kmp.overlay.OverlayDialog
-import top.yukonga.miuix.kmp.theme.MiuixTheme
-import top.yukonga.miuix.kmp.utils.PressFeedbackType
+import io.github.ra1nify.rmuix.kmp.basic.ButtonDefaults
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.CardDefaults
+import io.github.ra1nify.rmuix.kmp.basic.SmallTitle
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.TextButton
+import io.github.ra1nify.rmuix.kmp.overlay.OverlayDialog
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
+import io.github.ra1nify.rmuix.kmp.utils.PressFeedbackType
 
 fun LazyListScope.cardSection() {
     item(key = "card") {
@@ -39,20 +39,20 @@ fun LazyListScope.cardSection() {
                 .padding(horizontal = 12.dp)
                 .padding(bottom = 12.dp),
             colors = CardDefaults.defaultColors(
-                color = MiuixTheme.colorScheme.primaryVariant,
+                color = RmuixTheme.colorScheme.primaryVariant,
             ),
             insideMargin = PaddingValues(16.dp),
             pressFeedbackType = PressFeedbackType.None,
             showIndication = true,
         ) {
             Text(
-                color = MiuixTheme.colorScheme.onPrimaryVariant,
+                color = RmuixTheme.colorScheme.onPrimaryVariant,
                 text = "Card",
                 fontSize = 19.sp,
                 fontWeight = FontWeight.SemiBold,
             )
             Text(
-                color = MiuixTheme.colorScheme.onPrimaryVariant,
+                color = RmuixTheme.colorScheme.onPrimaryVariant,
                 text = "ShowIndication: true",
                 fontSize = 17.sp,
                 fontWeight = FontWeight.Normal,
@@ -72,15 +72,15 @@ fun LazyListScope.cardSection() {
                 onClick = { println("Card click") },
                 content = {
                     Text(
-                        color = MiuixTheme.colorScheme.onSurface,
+                        color = RmuixTheme.colorScheme.onSurface,
                         text = "Card",
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Medium,
                     )
                     Text(
-                        color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
+                        color = RmuixTheme.colorScheme.onSurfaceVariantSummary,
                         text = "PressFeedback\nType: Sink",
-                        style = MiuixTheme.textStyles.paragraph,
+                        style = RmuixTheme.textStyles.paragraph,
                     )
                 },
             )
@@ -91,15 +91,15 @@ fun LazyListScope.cardSection() {
                 onLongPress = { println("Card long press") },
                 content = {
                     Text(
-                        color = MiuixTheme.colorScheme.onSurface,
+                        color = RmuixTheme.colorScheme.onSurface,
                         text = "Card",
                         fontSize = 18.sp,
                         fontWeight = FontWeight.Medium,
                     )
                     Text(
-                        color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
+                        color = RmuixTheme.colorScheme.onSurfaceVariantSummary,
                         text = "PressFeedback\nType: Tilt",
-                        style = MiuixTheme.textStyles.paragraph,
+                        style = RmuixTheme.textStyles.paragraph,
                     )
                 },
             )
@@ -128,15 +128,15 @@ private fun LongPressHoldDownCardDemo() {
         },
         content = {
             Text(
-                color = MiuixTheme.colorScheme.onSurface,
+                color = RmuixTheme.colorScheme.onSurface,
                 text = "Card",
                 fontSize = 18.sp,
                 fontWeight = FontWeight.Medium,
             )
             Text(
-                color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
+                color = RmuixTheme.colorScheme.onSurfaceVariantSummary,
                 text = "Long press to show dialog",
-                style = MiuixTheme.textStyles.paragraph,
+                style = RmuixTheme.textStyles.paragraph,
             )
         },
     )

@@ -2,7 +2,7 @@
 
 # Snackbar
 
-`Snackbar` is a lightweight feedback component in Miuix used to display brief messages at the bottom of the screen. It can optionally provide actions such as “Undo” and supports different display durations.
+`Snackbar` is a lightweight feedback component in Rmuix used to display brief messages at the bottom of the screen. It can optionally provide actions such as “Undo” and supports different display durations.
 
 <div style="position: relative; height: 360px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=snackbar" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -11,11 +11,11 @@
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Snackbar
-import top.yukonga.miuix.kmp.basic.SnackbarHost
-import top.yukonga.miuix.kmp.basic.SnackbarHostState
-import top.yukonga.miuix.kmp.basic.SnackbarDuration
-import top.yukonga.miuix.kmp.basic.SnackbarResult
+import io.github.ra1nify.rmuix.kmp.basic.Snackbar
+import io.github.ra1nify.rmuix.kmp.basic.SnackbarHost
+import io.github.ra1nify.rmuix.kmp.basic.SnackbarHostState
+import io.github.ra1nify.rmuix.kmp.basic.SnackbarDuration
+import io.github.ra1nify.rmuix.kmp.basic.SnackbarResult
 ```
 
 ## Basic Usage
@@ -124,7 +124,7 @@ fun Snackbar(
 | modifier       | Modifier       | Modifier applied to the Snackbar container | Modifier                          | No       |
 | cornerRadius   | Dp             | Corner radius of the Snackbar              | SnackbarDefaults.CornerRadius     | No       |
 | colors         | SnackbarColors | Color configuration for the Snackbar       | SnackbarDefaults.snackbarColors() | No       |
-| insideMargin   | PaddingValues  | Inner padding of the Snackbar content      | SnackbarDefaults.InsideMargin     | No       |
+| insideMargin   | PaddingValues  | Retained for compatibility; no longer applied | SnackbarDefaults.InsideMargin  | No       |
 
 ### SnackbarColors and SnackbarDefaults
 
@@ -143,12 +143,13 @@ data class SnackbarColors(
 You can create a color configuration via `SnackbarDefaults.snackbarColors`:
 
 ```kotlin
+// ColorOS renders the bar as a pale raised card carrying dark text.
 val colors = SnackbarDefaults.snackbarColors(
-    containerColor = MiuixTheme.colorScheme.onSecondaryVariant,
-    contentColor = MiuixTheme.colorScheme.secondaryVariant,
-    actionContentColor = MiuixTheme.colorScheme.onPrimary,
-    dismissActionContentColor = MiuixTheme.colorScheme.onSurfaceContainerVariant,
-    actionContainerColor = MiuixTheme.colorScheme.primary,
+    containerColor = Color(0xFFFFFFFF),        // dark theme: Color(0xFF333333)
+    contentColor = Color(0xE6000000),          // dark theme: Color(0xE6FFFFFF)
+    actionContentColor = Color(0xE6000000),    // dark theme: Color(0xE6FFFFFF)
+    dismissActionContentColor = Color(0x8A000000),
+    actionContainerColor = Color.Transparent,  // the action is a plain label, no pill
 )
 ```
 
@@ -160,13 +161,24 @@ The action label is rendered as a filled pill; `actionContainerColor` is its bac
 
 `SnackbarDefaults` also exposes the default dimensions and paddings used by `Snackbar`:
 
-| Constant Name      | Type          | Description                                   | Default Value                                         |
-| ------------------ | ------------- | --------------------------------------------- | ----------------------------------------------------- |
-| CornerRadius       | Dp            | Default corner radius of the Snackbar         | 16.dp                                                 |
-| InsideMargin       | PaddingValues | Default inner padding of the Snackbar content | PaddingValues(all = 12.dp)                            |
-| OuterPadding       | PaddingValues | Default outer padding around the Snackbar     | PaddingValues(start = 12.dp, end = 12.dp, top = 8.dp) |
-| ActionCornerRadius | Dp            | Default corner radius of the action pill      | 50.dp                                                 |
-| ActionInsideMargin | PaddingValues | Default inner padding of the action pill      | PaddingValues(horizontal = 12.dp, vertical = 0.dp)    |
+| Constant Name                          | Type          | Description                                        | Default Value                                         |
+| -------------------------------------- | ------------- | -------------------------------------------------- | ----------------------------------------------------- |
+| CornerRadius                           | Dp            | Corner radius of the bar                           | 13.dp                                                 |
+| CornerRadiusSingleLine                 | Dp            | Corner radius while collapsed to a single line     | 24.dp                                                 |
+| MaxWidth                               | Dp            | Maximum width of the bar                           | 328.dp                                                |
+| MarginBottom                           | Dp            | Gap between the bar and the screen bottom          | 32.dp                                                 |
+| ContentHorizontalPadding               | Dp            | Horizontal padding inside the bar                  | 16.dp                                                 |
+| ContentVerticalPadding                 | Dp            | Vertical padding inside the bar                    | 10.dp                                                 |
+| ContentVerticalPaddingMultiline        | Dp            | Vertical padding above a wrapped message           | 12.dp                                                 |
+| ContentVerticalPaddingMultilineBottom  | Dp            | Vertical padding below a wrapped message           | 8.dp                                                  |
+| IconSize                               | Dp            | Size of the leading status icon                    | 30.dp                                                 |
+| IconVerticalMargin                     | Dp            | Vertical inset of the leading icon                 | 16.dp                                                 |
+| ActionMaxWidth                         | Dp            | Upper bound on the action label's width            | 110.dp                                                |
+| ActionMarginEnd                        | Dp            | Trailing gap after the action                      | 4.dp                                                  |
+| ActionVerticalMargin                   | Dp            | Vertical padding around the action                 | 10.dp                                                 |
+| ShadowRadius                           | Dp            | Drop shadow beneath the bar                        | 26.dp                                                 |
+| InsideMargin                           | PaddingValues | Retained for compatibility; no longer applied      | PaddingValues(all = 12.dp)                            |
+| OuterPadding                           | PaddingValues | Default outer padding around the Snackbar          | PaddingValues(start = 12.dp, end = 12.dp, top = 8.dp) |
 
 ## SnackbarDuration and SnackbarResult
 

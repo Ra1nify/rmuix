@@ -8,7 +8,7 @@ This library is experimental, and APIs may change in future versions without not
 
 ## Adding Dependencies
 
-To use Miuix in your project, follow these steps to add dependencies:
+To use Rmuix in your project, follow these steps to add dependencies:
 
 ### Gradle (Kotlin DSL)
 
@@ -21,22 +21,22 @@ repositories {
 ```
 
 2. Check the latest version on Maven Central:
-   [![Maven Central](https://img.shields.io/maven-central/v/top.yukonga.miuix.kmp/miuix-ui)](https://search.maven.org/search?q=g:top.yukonga.miuix.kmp)
+   [![Maven Central](https://img.shields.io/maven-central/v/io.github.ra1nify.rmuix.kmp/rmuix-ui)](https://search.maven.org/search?q=g:io.github.ra1nify.rmuix.kmp)
 
 3. Add dependencies to your project's `build.gradle.kts`:
 
-Miuix is composed of several modules that can be used independently:
+Rmuix is composed of several modules that can be used independently:
 
 | Module             | Description                                          |
 | ------------------ | ---------------------------------------------------- |
-| `miuix-ui`         | Core UI component library                            |
-| `miuix-preference` | Preference components library, depends on `miuix-ui` |
-| `miuix-icons`      | Extended icon library, can be used independently     |
-| `miuix-blur`       | Blur effect library, can be used independently       |
-| `miuix-squircle`   | Squircle shapes library, can be used independently   |
-| `miuix-nav`        | Navigation library, can be used independently        |
-| `miuix-shader`     | Low-level runtime shader / render effect abstraction |
-| `miuix-window`     | Desktop window & caption bar styling library (Desktop JVM) |
+| `rmuix-ui`         | Core UI component library                            |
+| `rmuix-preference` | Preference components library, depends on `rmuix-ui` |
+| `rmuix-icons`      | Extended icon library, can be used independently     |
+| `rmuix-blur`       | Blur effect library, can be used independently       |
+| `rmuix-squircle`   | Squircle shapes library, can be used independently   |
+| `rmuix-nav`        | Navigation library, can be used independently        |
+| `rmuix-shader`     | Low-level runtime shader / render effect abstraction |
+| `rmuix-window`     | Desktop window & caption bar styling library (Desktop JVM) |
 
 - For Compose Multiplatform projects:
 
@@ -44,21 +44,21 @@ Miuix is composed of several modules that can be used independently:
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            implementation("top.yukonga.miuix.kmp:miuix-ui:<version>")
-            // Optional: Add miuix-preference for preference components
-            implementation("top.yukonga.miuix.kmp:miuix-preference:<version>")
-            // Optional: Add miuix-icons for more icons
-            implementation("top.yukonga.miuix.kmp:miuix-icons:<version>")
-            // Optional: Add miuix-blur for blur effects
-            implementation("top.yukonga.miuix.kmp:miuix-blur:<version>")
-            // Optional: Add miuix-squircle for squircle (smooth rounded corner) shapes
-            implementation("top.yukonga.miuix.kmp:miuix-squircle:<version>")
-            // Optional: Add miuix-nav for navigation
-            implementation("top.yukonga.miuix.kmp:miuix-nav:<version>")
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-ui:<version>")
+            // Optional: Add rmuix-preference for preference components
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-preference:<version>")
+            // Optional: Add rmuix-icons for more icons
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-icons:<version>")
+            // Optional: Add rmuix-blur for blur effects
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-blur:<version>")
+            // Optional: Add rmuix-squircle for squircle (smooth rounded corner) shapes
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-squircle:<version>")
+            // Optional: Add rmuix-nav for navigation
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-nav:<version>")
         }
-        // Optional: Add miuix-window for desktop window and caption bar styling (Desktop JVM)
+        // Optional: Add rmuix-window for desktop window and caption bar styling (Desktop JVM)
         desktopMain.dependencies {
-            implementation("top.yukonga.miuix.kmp:miuix-window:<version>")
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-window:<version>")
         }
     }
 }
@@ -68,69 +68,69 @@ kotlin {
 
 ```kotlin
 dependencies {
-    implementation("top.yukonga.miuix.kmp:miuix-ui-android:<version>")
-    // Optional: Add miuix-preference for preference components
-    implementation("top.yukonga.miuix.kmp:miuix-preference-android:<version>")
-    // Optional: Add miuix-icons for more icons
-    implementation("top.yukonga.miuix.kmp:miuix-icons-android:<version>")
-    // Optional: Add miuix-blur for blur effects (requires minSdk 33)
-    implementation("top.yukonga.miuix.kmp:miuix-blur-android:<version>")
-    // Optional: Add miuix-squircle for squircle (smooth rounded corner) shapes
-    implementation("top.yukonga.miuix.kmp:miuix-squircle-android:<version>")
-    // Optional: Add miuix-nav for navigation
-    implementation("top.yukonga.miuix.kmp:miuix-nav-android:<version>")
+    implementation("io.github.ra1nify.rmuix.kmp:rmuix-ui-android:<version>")
+    // Optional: Add rmuix-preference for preference components
+    implementation("io.github.ra1nify.rmuix.kmp:rmuix-preference-android:<version>")
+    // Optional: Add rmuix-icons for more icons
+    implementation("io.github.ra1nify.rmuix.kmp:rmuix-icons-android:<version>")
+    // Optional: Add rmuix-blur for blur effects (requires minSdk 33)
+    implementation("io.github.ra1nify.rmuix.kmp:rmuix-blur-android:<version>")
+    // Optional: Add rmuix-squircle for squircle (smooth rounded corner) shapes
+    implementation("io.github.ra1nify.rmuix.kmp:rmuix-squircle-android:<version>")
+    // Optional: Add rmuix-nav for navigation
+    implementation("io.github.ra1nify.rmuix.kmp:rmuix-nav-android:<version>")
 }
 ```
 
 - For other projects, add platform-specific dependencies as needed:
 
 ```kotlin
-implementation("top.yukonga.miuix.kmp:miuix-ui-iosarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-ui-iossimulatorarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-ui-macosarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-ui-desktop:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-ui-wasmjs:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-ui-js:<version>")
-// Optional: Add miuix-preference
-implementation("top.yukonga.miuix.kmp:miuix-preference-iosarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-preference-iossimulatorarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-preference-macosarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-preference-desktop:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-preference-wasmjs:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-preference-js:<version>")
-// Optional: Add miuix-blur
-implementation("top.yukonga.miuix.kmp:miuix-blur-iosarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-blur-iossimulatorarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-blur-macosarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-blur-desktop:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-blur-wasmjs:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-blur-js:<version>")
-// Optional: Add miuix-nav
-implementation("top.yukonga.miuix.kmp:miuix-nav-iosarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-nav-iossimulatorarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-nav-macosarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-nav-desktop:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-nav-wasmjs:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-nav-js:<version>")
-// Optional: Add miuix-icons
-implementation("top.yukonga.miuix.kmp:miuix-icons-iosarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-icons-iossimulatorarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-icons-macosarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-icons-desktop:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-icons-wasmjs:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-icons-js:<version>")
-// Optional: Add miuix-squircle
-implementation("top.yukonga.miuix.kmp:miuix-squircle-iosarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-squircle-iossimulatorarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-squircle-macosarm64:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-squircle-desktop:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-squircle-wasmjs:<version>")
-implementation("top.yukonga.miuix.kmp:miuix-squircle-js:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-ui-iosarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-ui-iossimulatorarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-ui-macosarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-ui-desktop:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-ui-wasmjs:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-ui-js:<version>")
+// Optional: Add rmuix-preference
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-preference-iosarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-preference-iossimulatorarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-preference-macosarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-preference-desktop:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-preference-wasmjs:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-preference-js:<version>")
+// Optional: Add rmuix-blur
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-blur-iosarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-blur-iossimulatorarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-blur-macosarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-blur-desktop:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-blur-wasmjs:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-blur-js:<version>")
+// Optional: Add rmuix-nav
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-nav-iosarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-nav-iossimulatorarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-nav-macosarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-nav-desktop:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-nav-wasmjs:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-nav-js:<version>")
+// Optional: Add rmuix-icons
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-icons-iosarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-icons-iossimulatorarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-icons-macosarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-icons-desktop:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-icons-wasmjs:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-icons-js:<version>")
+// Optional: Add rmuix-squircle
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-squircle-iosarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-squircle-iossimulatorarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-squircle-macosarm64:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-squircle-desktop:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-squircle-wasmjs:<version>")
+implementation("io.github.ra1nify.rmuix.kmp:rmuix-squircle-js:<version>")
 ```
 
 ## Basic Usage
 
-### Applying the Miuix Theme
+### Applying the Rmuix Theme
 
 ```kotlin
 @Composable
@@ -139,14 +139,14 @@ fun AppTheme(
 ) {
     // Available modes: System, Light, Dark, MonetSystem, MonetLight, MonetDark
     val controller = remember { ThemeController(ColorSchemeMode.System) }
-    return MiuixTheme(
+    return RmuixTheme(
         controller = controller,
         content = content
     )
 }
 ```
 
-### Using the Miuix Scaffold
+### Using the Rmuix Scaffold
 
 ```kotlin
 Scaffold(
@@ -175,5 +175,5 @@ all implemented based on this and therefore need to be wrapped by this component
 
 ## API Documentation
 
-- View the [API Documentation](/miuix/dokka/index.html){target="_blank"},
+- View the [API Documentation](/rmuix/dokka/index.html){target="_blank"},
   generated using Dokka, which contains detailed information about all APIs.

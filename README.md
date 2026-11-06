@@ -1,4 +1,4 @@
-## Miuix
+## Rmuix
 
 A UI library for Compose Multiplatform.
 
@@ -6,8 +6,8 @@ A UI library for Compose Multiplatform.
 
 [![Kotlin](https://img.shields.io/badge/kotlin-2.4.21-7F52FF)](https://kotlinlang.org/)
 [![Compose Multiplatform](https://img.shields.io/badge/compose-1.12.2-4285F4)](https://kotlinlang.org/compose-multiplatform/)
-[![Maven Central](https://img.shields.io/maven-central/v/top.yukonga.miuix.kmp/miuix-ui)](https://search.maven.org/search?q=g:top.yukonga.miuix.kmp)
-[![License](https://img.shields.io/github/license/compose-miuix-ui/miuix)](LICENSE)
+[![Maven Central](https://img.shields.io/maven-central/v/io.github.ra1nify.rmuix.kmp/rmuix-ui)](https://search.maven.org/search?q=g:io.github.ra1nify.rmuix.kmp)
+[![License](https://img.shields.io/github/license/compose-rmuix-ui/rmuix)](LICENSE)
 
 ### Supported Platforms
 
@@ -19,21 +19,21 @@ A UI library for Compose Multiplatform.
 
 ### Demos
 
-[![Web](https://img.shields.io/badge/Demo-Web-4285F4?logo=googlechrome&logoColor=white)](https://compose-miuix-ui.github.io/miuix-wasmJs/)
-[![Other](https://img.shields.io/badge/Demo-Other-2088FF?logo=githubactions&logoColor=white)](https://github.com/compose-miuix-ui/miuix/actions/workflows/example.yml)
+[![Web](https://img.shields.io/badge/Demo-Web-4285F4?logo=googlechrome&logoColor=white)](https://compose-rmuix-ui.github.io/rmuix-wasmJs/)
+[![Other](https://img.shields.io/badge/Demo-Other-2088FF?logo=githubactions&logoColor=white)](https://github.com/compose-rmuix-ui/rmuix/actions/workflows/example.yml)
 
 ### Modules
 
 | Module             | Description                                                |
 | ------------------ | ---------------------------------------------------------- |
-| `miuix-ui`         | Core UI component library                                  |
-| `miuix-preference` | Preference components library, depends on `miuix-ui`       |
-| `miuix-icons`      | Extended icon library, can be used independently           |
-| `miuix-blur`       | Blur effect library, can be used independently             |
-| `miuix-squircle`   | Squircle shapes library, can be used independently         |
-| `miuix-nav`        | Navigation library, can be used independently              |
-| `miuix-window`     | Desktop window & caption bar styling library (Desktop JVM) |
-| `miuix-shader`     | Low-level runtime shader / render effect abstraction       |
+| `rmuix-ui`         | Core UI component library                                  |
+| `rmuix-preference` | Preference components library, depends on `rmuix-ui`       |
+| `rmuix-icons`      | Extended icon library, can be used independently           |
+| `rmuix-blur`       | Blur effect library, can be used independently             |
+| `rmuix-squircle`   | Squircle shapes library, can be used independently         |
+| `rmuix-nav`        | Navigation library, can be used independently              |
+| `rmuix-window`     | Desktop window & caption bar styling library (Desktop JVM) |
+| `rmuix-shader`     | Low-level runtime shader / render effect abstraction       |
 
 ### Getting Started
 
@@ -41,22 +41,22 @@ A UI library for Compose Multiplatform.
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            implementation("top.yukonga.miuix.kmp:miuix-ui:<version>")
-            // Optional: Add miuix-preference for preference components
-            implementation("top.yukonga.miuix.kmp:miuix-preference:<version>")
-            // Optional: Add miuix-icons for more icons
-            implementation("top.yukonga.miuix.kmp:miuix-icons:<version>")
-            // Optional: Add miuix-blur for blur effects
-            implementation("top.yukonga.miuix.kmp:miuix-blur:<version>")
-            // Optional: Add miuix-squircle for squircle (smooth rounded corner) shapes
-            implementation("top.yukonga.miuix.kmp:miuix-squircle:<version>")
-            // Optional: Add miuix-nav for navigation
-            implementation("top.yukonga.miuix.kmp:miuix-nav:<version>")
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-ui:<version>")
+            // Optional: Add rmuix-preference for preference components
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-preference:<version>")
+            // Optional: Add rmuix-icons for more icons
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-icons:<version>")
+            // Optional: Add rmuix-blur for blur effects
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-blur:<version>")
+            // Optional: Add rmuix-squircle for squircle (smooth rounded corner) shapes
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-squircle:<version>")
+            // Optional: Add rmuix-nav for navigation
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-nav:<version>")
             // Other dependencies...
         }
-        // Optional: Add miuix-window for desktop window and caption bar styling (Desktop JVM)
+        // Optional: Add rmuix-window for desktop window and caption bar styling (Desktop JVM)
         desktopMain.dependencies {
-            implementation("top.yukonga.miuix.kmp:miuix-window:<version>")
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-window:<version>")
         }
         // Other sourceSets...
     }
@@ -66,7 +66,7 @@ kotlin {
 
 ### Usage
 
-- Provide a color scheme via `MiuixTheme(colors = ...)`, e.g., `lightColorScheme()` or `darkColorScheme()`.
+- Provide a color scheme via `RmuixTheme(colors = ...)`, e.g., `lightColorScheme()` or `darkColorScheme()`.
 
 ```kotlin
 @Composable
@@ -74,7 +74,7 @@ fun AppTheme(
     content: @Composable () -> Unit
 ) {
     val colors = if (isSystemInDarkTheme()) darkColorScheme() else lightColorScheme()
-    return MiuixTheme(
+    return RmuixTheme(
         colors = colors,
         content = content
     )
@@ -94,7 +94,7 @@ fun AppTheme(
             keyColor = Color(0xFF3482FF)
         )
     }
-    return MiuixTheme(
+    return RmuixTheme(
         controller = controller,
         content = content
     )
@@ -105,13 +105,13 @@ fun AppTheme(
 
 <table>
   <tr>
-    <td><a href="https://github.com/compose-miuix-ui/miuix/blob/main/assets/001.webp?raw=true"><img src="https://github.com/compose-miuix-ui/miuix/blob/main/assets/001.webp?raw=true" width="300" alt="Screenshot 001"/></a></td>
-    <td><a href="https://github.com/compose-miuix-ui/miuix/blob/main/assets/002.webp?raw=true"><img src="https://github.com/compose-miuix-ui/miuix/blob/main/assets/002.webp?raw=true" width="300" alt="Screenshot 002"/></a></td>
-    <td><a href="https://github.com/compose-miuix-ui/miuix/blob/main/assets/003.webp?raw=true"><img src="https://github.com/compose-miuix-ui/miuix/blob/main/assets/003.webp?raw=true" width="300" alt="Screenshot 003"/></a></td>
+    <td><a href="https://github.com/compose-rmuix-ui/rmuix/blob/main/assets/001.webp?raw=true"><img src="https://github.com/compose-rmuix-ui/rmuix/blob/main/assets/001.webp?raw=true" width="300" alt="Screenshot 001"/></a></td>
+    <td><a href="https://github.com/compose-rmuix-ui/rmuix/blob/main/assets/002.webp?raw=true"><img src="https://github.com/compose-rmuix-ui/rmuix/blob/main/assets/002.webp?raw=true" width="300" alt="Screenshot 002"/></a></td>
+    <td><a href="https://github.com/compose-rmuix-ui/rmuix/blob/main/assets/003.webp?raw=true"><img src="https://github.com/compose-rmuix-ui/rmuix/blob/main/assets/003.webp?raw=true" width="300" alt="Screenshot 003"/></a></td>
   </tr>
   <tr>
-    <td><a href="https://github.com/compose-miuix-ui/miuix/blob/main/assets/004.webp?raw=true"><img src="https://github.com/compose-miuix-ui/miuix/blob/main/assets/004.webp?raw=true" width="300" alt="Screenshot 004"/></a></td>
-    <td><a href="https://github.com/compose-miuix-ui/miuix/blob/main/assets/005.webp?raw=true"><img src="https://github.com/compose-miuix-ui/miuix/blob/main/assets/005.webp?raw=true" width="300" alt="Screenshot 005"/></a></td>
-    <td><a href="https://github.com/compose-miuix-ui/miuix/blob/main/assets/006.webp?raw=true"><img src="https://github.com/compose-miuix-ui/miuix/blob/main/assets/006.webp?raw=true" width="300" alt="Screenshot 006"/></a></td>
+    <td><a href="https://github.com/compose-rmuix-ui/rmuix/blob/main/assets/004.webp?raw=true"><img src="https://github.com/compose-rmuix-ui/rmuix/blob/main/assets/004.webp?raw=true" width="300" alt="Screenshot 004"/></a></td>
+    <td><a href="https://github.com/compose-rmuix-ui/rmuix/blob/main/assets/005.webp?raw=true"><img src="https://github.com/compose-rmuix-ui/rmuix/blob/main/assets/005.webp?raw=true" width="300" alt="Screenshot 005"/></a></td>
+    <td><a href="https://github.com/compose-rmuix-ui/rmuix/blob/main/assets/006.webp?raw=true"><img src="https://github.com/compose-rmuix-ui/rmuix/blob/main/assets/006.webp?raw=true" width="300" alt="Screenshot 006"/></a></td>
   </tr>
 </table>

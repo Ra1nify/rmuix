@@ -2,7 +2,7 @@
 title: WindowSpinnerPreference
 requiresScaffoldHost: false
 prerequisites:
-  - Can be used anywhere, does not require `Scaffold` or `MiuixPopupHost`
+  - Can be used anywhere, does not require `Scaffold` or `RmuixPopupHost`
   - Renders at the window layer
 hostComponent: None
 popupHost: None
@@ -10,7 +10,7 @@ popupHost: None
 
 # WindowSpinnerPreference
 
-`WindowSpinnerPreference` is a dropdown selector component in Miuix that provides titles, summaries, and a list of options with icons and text. It renders at the window level without needing a `Scaffold` host, making it suitable for use cases where `Scaffold` is not available or desired.
+`WindowSpinnerPreference` is a dropdown selector component in Rmuix that provides titles, summaries, and a list of options with icons and text. It renders at the window level without needing a `Scaffold` host, making it suitable for use cases where `Scaffold` is not available or desired.
 
 <div style="position: relative; height: 420px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=windowSpinnerPreference" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -23,9 +23,9 @@ This component does not rely on `Scaffold` and can be used in any Composable sco
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.WindowSpinnerPreference
-import top.yukonga.miuix.kmp.basic.DropdownEntry
-import top.yukonga.miuix.kmp.basic.DropdownItem
+import io.github.ra1nify.rmuix.kmp.preference.WindowSpinnerPreference
+import io.github.ra1nify.rmuix.kmp.basic.DropdownEntry
+import io.github.ra1nify.rmuix.kmp.basic.DropdownItem
 ```
 
 ## Basic Usage

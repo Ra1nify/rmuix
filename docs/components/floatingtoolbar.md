@@ -1,6 +1,6 @@
 # FloatingToolbar
 
-`FloatingToolbar` is a floating toolbar component in Miuix that renders its content within a container with a rounded background, arranged either horizontally or vertically. The actual placement on the screen is handled by the parent component, typically `Scaffold`.
+`FloatingToolbar` is a floating toolbar component in Rmuix that renders its content within a container with a rounded background, arranged either horizontally or vertically. The actual placement on the screen is handled by the parent component, typically `Scaffold`.
 
 This component is usually used in conjunction with `Scaffold`, placed in a specific position on the page to provide quick actions or display information.
 
@@ -11,9 +11,9 @@ This component is usually used in conjunction with `Scaffold`, placed in a speci
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.FloatingToolbar
-import top.yukonga.miuix.kmp.basic.FloatingToolbarDefaults
-import top.yukonga.miuix.kmp.basic.ToolbarPosition // Used for Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.FloatingToolbar
+import io.github.ra1nify.rmuix.kmp.basic.FloatingToolbarDefaults
+import io.github.ra1nify.rmuix.kmp.basic.ToolbarPosition // Used for Scaffold
 ```
 
 ## Basic Usage
@@ -27,10 +27,10 @@ Scaffold(
                 horizontalArrangement = Arrangement.spacedBy(8.dp)
             ) { // or Column
                 IconButton(onClick = { /* Action 1 */ }) {
-                    Icon(MiuixIcons.Edit, contentDescription = "Edit")
+                    Icon(RmuixIcons.Edit, contentDescription = "Edit")
                 }
                 IconButton(onClick = { /* Action 2 */ }) {
-                    Icon(MiuixIcons.Delete, contentDescription = "Delete")
+                    Icon(RmuixIcons.Delete, contentDescription = "Delete")
                 }
             }
         }
@@ -58,7 +58,7 @@ Scaffold(
 | Property Name  | Type                    | Description              | Value                                   |
 | -------------- | ----------------------- | ------------------------ | --------------------------------------- |
 | CornerRadius   | Dp                      | Default corner radius    | 50.dp                                   |
-| defaultColor() | @Composable () -> Color | Default background color | MiuixTheme.colorScheme.surfaceContainer |
+| defaultColor() | @Composable () -> Color | Default background color | RmuixTheme.colorScheme.surfaceContainer |
 | OutSidePadding | PaddingValues           | Default outside padding  | PaddingValues(12.dp, 8.dp)              |
 
 ### ToolbarPosition (for Scaffold)
@@ -71,7 +71,7 @@ Please refer to the `ToolbarPosition` options in the [Scaffold](../components/sc
 
 ```kotlin
 FloatingToolbar(
-    color = MiuixTheme.colorScheme.primaryContainer,
+    color = RmuixTheme.colorScheme.primaryContainer,
     cornerRadius = 16.dp,
     outSidePadding = PaddingValues(24.dp),
     showDivider = false
@@ -81,10 +81,10 @@ FloatingToolbar(
         horizontalArrangement = Arrangement.spacedBy(8.dp)
     ) { // or Column
         IconButton(onClick = { /* Action 1 */ }) {
-            Icon(MiuixIcons.Edit, contentDescription = "Edit", tint = MiuixTheme.colorScheme.onPrimaryContainer)
+            Icon(RmuixIcons.Edit, contentDescription = "Edit", tint = RmuixTheme.colorScheme.onPrimaryContainer)
         }
         IconButton(onClick = { /* Action 2 */ }) {
-            Icon(MiuixIcons.Delete, contentDescription = "Delete", tint = MiuixTheme.colorScheme.onPrimaryContainer)
+            Icon(RmuixIcons.Delete, contentDescription = "Delete", tint = RmuixTheme.colorScheme.onPrimaryContainer)
         }
     }
 }
@@ -99,10 +99,10 @@ FloatingToolbar {
         verticalArrangement = Arrangement.spacedBy(8.dp)
     ) {
         IconButton(onClick = { /* Action 1 */ }) {
-            Icon(MiuixIcons.Edit, contentDescription = "Edit")
+            Icon(RmuixIcons.Edit, contentDescription = "Edit")
         }
         IconButton(onClick = { /* Action 2 */ }) {
-            Icon(MiuixIcons.Delete, contentDescription = "Delete")
+            Icon(RmuixIcons.Delete, contentDescription = "Delete")
         }
     }
 }

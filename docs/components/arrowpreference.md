@@ -1,6 +1,6 @@
 # ArrowPreference
 
-`ArrowPreference` is a directional indicator component in Miuix, typically used for navigation or displaying additional content. It provides a title, summary, and right arrow icon with click interaction support, commonly used in settings, menu items, or list items.
+`ArrowPreference` is a directional indicator component in Rmuix, typically used for navigation or displaying additional content. It provides a title, summary, and right arrow icon with click interaction support, commonly used in settings, menu items, or list items.
 
 <div style="position: relative; height: 280px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=arrowPreference" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.ArrowPreference
+import io.github.ra1nify.rmuix.kmp.preference.ArrowPreference
 ```
 
 ## Basic Usage
@@ -103,8 +103,10 @@ The ArrowPreferenceDefaults object provides default color configuration for the 
 ### Arrow Tint
 
 - The trailing arrow icon is always shown and tinted automatically.
-- Tint uses `MiuixTheme.colorScheme.onSurfaceVariantActions` when `enabled = true`.
-- Tint uses `MiuixTheme.colorScheme.disabledOnSecondaryVariant` when `enabled = false`.
+- Enabled tint is `#42000000` in light mode and `#4DFFFFFF` in dark - ColorOS `couiColorLabelTertiary`
+  (26% alpha), the same neutral the checkbox and radio outlines use.
+- Disabled tint is `#14000000` / `#26FFFFFF` - ColorOS `couiColorLabelQuaternary` (8% alpha).
+- The arrow reserves 16dp of trailing padding, matching the ColorOS jump-icon spacing.
 
 ## Advanced Usage
 
@@ -116,9 +118,9 @@ ArrowPreference(
     summary = "View and edit your profile",
     startAction = {
         Icon(
-            imageVector = MiuixIcons.Contacts,
+            imageVector = RmuixIcons.Contacts,
             contentDescription = "Personal Icon",
-            tint = MiuixTheme.colorScheme.onBackground,
+            tint = RmuixTheme.colorScheme.onBackground,
             modifier = Modifier.padding(end = 16.dp)
         )
     },

@@ -1,6 +1,6 @@
 # SearchBar
 
-`SearchBar` is a component in Miuix used for user search input. It provides an intuitive and
+`SearchBar` is a component in Rmuix used for user search input. It provides an intuitive and
 easy-to-use search interface with support for expanded/collapsed state switching and search
 suggestions display.
 
@@ -11,8 +11,8 @@ suggestions display.
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.SearchBar
-import top.yukonga.miuix.kmp.basic.InputField
+import io.github.ra1nify.rmuix.kmp.basic.SearchBar
+import io.github.ra1nify.rmuix.kmp.basic.InputField
 ```
 
 ## Basic Usage
@@ -108,7 +108,7 @@ SearchBar(
             leadingIcon = {
                 Icon(
                     modifier = Modifier.padding(start = 12.dp, end = 8.dp),
-                    imageVector = MiuixIcons.Search,
+                    imageVector = RmuixIcons.Search,
                     contentDescription = "Search"
                 )
             }
@@ -187,7 +187,7 @@ SearchBar(
                     searchText = ""
                 },
             text = "Cancel",
-            color = MiuixTheme.colorScheme.primary
+            color = RmuixTheme.colorScheme.primary
         )
     }
 ) {

@@ -1,6 +1,6 @@
 # TextField
 
-`TextField` 是 Miuix 中的基础输入组件，用于接收用户的文本输入。组件提供了丰富的自定义选项，支持标签动画、前置和后置图标等功能。
+`TextField` 是 Rmuix 中的基础输入组件，用于接收用户的文本输入。组件提供了丰富的自定义选项，支持标签动画、前置和后置图标等功能。
 
 <div style="position: relative; height: 340px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=textField" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.TextField
+import io.github.ra1nify.rmuix.kmp.basic.TextField
 ```
 
 ## 基本用法
@@ -102,7 +102,7 @@ TextField(
 | useLabelAsPlaceholder | Boolean                                      | 是否使用标签作为占位符 | false                                                | 否       |
 | enabled               | Boolean                                      | 输入框是否可用         | true                                                 | 否       |
 | readOnly              | Boolean                                      | 输入框是否只读         | false                                                | 否       |
-| textStyle             | TextStyle                                    | 输入文本样式           | MiuixTheme.textStyles.main                           | 否       |
+| textStyle             | TextStyle                                    | 输入文本样式           | RmuixTheme.textStyles.main                           | 否       |
 | keyboardOptions       | KeyboardOptions                              | 键盘选项配置           | KeyboardOptions.Default                              | 否       |
 | keyboardActions       | KeyboardActions                              | 键盘操作配置           | KeyboardActions.Default                              | 否       |
 | leadingIcon           | @Composable (() -> Unit)?                    | 前置图标               | null                                                 | 否       |
@@ -129,7 +129,7 @@ TextField(
 | enabled               | Boolean                                             | 输入框是否可用                 | true                                          | 否       |
 | readOnly              | Boolean                                             | 输入框是否只读                 | false                                         | 否       |
 | inputTransformation   | InputTransformation?                                | 输入变换器                     | null                                          | 否       |
-| textStyle             | TextStyle                                           | 输入文本样式                   | MiuixTheme.textStyles.main                    | 否       |
+| textStyle             | TextStyle                                           | 输入文本样式                   | RmuixTheme.textStyles.main                    | 否       |
 | keyboardOptions       | KeyboardOptions                                     | 键盘选项配置                   | KeyboardOptions.Default                       | 否       |
 | onKeyboardAction      | KeyboardActionHandler?                              | 键盘动作处理器                 | null                                          | 否       |
 | lineLimits            | TextFieldLineLimits                                 | 行数限制                       | TextFieldLineLimits.Default                   | 否       |
@@ -154,13 +154,13 @@ TextFieldDefaults 对象提供了 TextField 组件的默认值。
 
 #### `textFieldColors()` 工厂
 
-构造 [TextFieldColors] 实例。按需覆盖任意子集，未指定的参数回退到 Miuix 主题默认值。
+构造 [TextFieldColors] 实例。按需覆盖任意子集，未指定的参数回退到 Rmuix 主题默认值。
 
 | 参数             | 类型  | 默认值                                            |
 | ---------------- | ----- | ------------------------------------------------- |
-| backgroundColor  | Color | MiuixTheme.colorScheme.secondaryContainer         |
-| labelColor       | Color | MiuixTheme.colorScheme.onSecondaryContainer       |
-| borderColor      | Color | MiuixTheme.colorScheme.primary                    |
+| backgroundColor  | Color | RmuixTheme.colorScheme.secondaryContainer         |
+| labelColor       | Color | RmuixTheme.colorScheme.onSurfaceVariantSummary    |
+| borderColor      | Color | RmuixTheme.colorScheme.primary                    |
 
 ## 进阶用法
 
@@ -175,7 +175,7 @@ TextField(
     label = "搜索",
     leadingIcon = {
         Icon(
-            imageVector = MiuixIcons.Search,
+            imageVector = RmuixIcons.Search,
             contentDescription = "搜索图标",
             modifier = Modifier.padding(horizontal = 12.dp)
         )
@@ -201,8 +201,8 @@ TextField(
             modifier = Modifier.padding(end = 12.dp)
         ) {
             Icon(
-                imageVector = MiuixIcons.Rename,
-                tint = if (passwordVisible) MiuixTheme.colorScheme.primary else MiuixTheme.colorScheme.onSecondaryContainer,
+                imageVector = RmuixIcons.Rename,
+                tint = if (passwordVisible) RmuixTheme.colorScheme.primary else RmuixTheme.colorScheme.onSecondaryContainer,
                 contentDescription = if (passwordVisible) "隐藏密码" else "显示密码"
             )
         }
@@ -227,7 +227,7 @@ Column {
         },
         label = "电子邮箱",
         colors = TextFieldDefaults.textFieldColors(
-            labelColor = if (isError) errorColor else MiuixTheme.colorScheme.onSecondaryContainer,
+            labelColor = if (isError) errorColor else RmuixTheme.colorScheme.onSurfaceVariantSummary,
         ),
         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Email)
     )
@@ -235,7 +235,7 @@ Column {
         Text(
             text = "请输入有效的邮箱地址",
             color = errorColor,
-            style = MiuixTheme.textStyles.body2,
+            style = RmuixTheme.textStyles.body2,
             modifier = Modifier.padding(start = 16.dp, top = 4.dp)
         )
     }
@@ -253,12 +253,12 @@ TextField(
     label = "自定义输入框",
     cornerRadius = 8.dp,
     colors = TextFieldDefaults.textFieldColors(
-        backgroundColor = MiuixTheme.colorScheme.primary.copy(alpha = 0.1f),
+        backgroundColor = RmuixTheme.colorScheme.primary.copy(alpha = 0.1f),
     ),
     textStyle = TextStyle(
         fontWeight = FontWeight.Medium,
         fontSize = 16.sp,
-        color = MiuixTheme.colorScheme.primary
+        color = RmuixTheme.colorScheme.primary
     )
 )
 ```

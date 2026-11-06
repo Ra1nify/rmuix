@@ -1,11 +1,11 @@
 # RangeSliderPreference
 
-`RangeSliderPreference` is a preference component in Miuix that combines a title/summary with a range slider control. The range slider is placed in the bottom action area of the `BasicComponent`, making it ideal for settings screens where users need to select a range of values such as price filters, frequency bands, or dual-threshold controls.
+`RangeSliderPreference` is a preference component in Rmuix that combines a title/summary with a range slider control. The range slider is placed in the bottom action area of the `BasicComponent`, making it ideal for settings screens where users need to select a range of values such as price filters, frequency bands, or dual-threshold controls.
 
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.RangeSliderPreference
+import io.github.ra1nify.rmuix.kmp.preference.RangeSliderPreference
 ```
 
 ## Basic Usage
@@ -110,9 +110,9 @@ RangeSliderPreference(
     summary = "${frequencyRange.start.roundToInt()}Hz - ${frequencyRange.endInclusive.roundToInt()}Hz",
     startAction = {
         Icon(
-            imageVector = MiuixIcons.Basic.Audio,
+            imageVector = RmuixIcons.Basic.Audio,
             contentDescription = "Frequency Icon",
-            tint = MiuixTheme.colorScheme.onBackground,
+            tint = RmuixTheme.colorScheme.onBackground,
             modifier = Modifier.padding(end = 16.dp)
         )
     },

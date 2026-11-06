@@ -1,18 +1,18 @@
 # PullToRefresh
 
-`PullToRefresh` 是 Miuix 中的下拉刷新组件，可为列表和其他可滚动内容提供刷新功能。它采用“状态提升”模式，提供了带动画的交互式刷新指示器，适用于需要刷新数据的各种场景。
+`PullToRefresh` 是 Rmuix 中的下拉刷新组件，可为列表和其他可滚动内容提供刷新功能。它采用“状态提升”模式，提供了带动画的交互式刷新指示器，适用于需要刷新数据的各种场景。
 
 ::: warning 注意
 此组件仅适用于支持触控的环境!
 :::
 
-如需示例，请查看 <a href="https://compose-miuix-ui.github.io/miuix-wasmJs/" target="_blank">Miuix Example</a> 的 DropDowns 页。
+如需示例，请查看 <a href="https://compose-rmuix-ui.github.io/rmuix-wasmJs/" target="_blank">Rmuix Example</a> 的 DropDowns 页。
 
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.PullToRefresh
-import top.yukonga.miuix.kmp.basic.rememberPullToRefreshState
+import io.github.ra1nify.rmuix.kmp.basic.PullToRefresh
+import io.github.ra1nify.rmuix.kmp.basic.rememberPullToRefreshState
 ```
 
 ## 基本用法

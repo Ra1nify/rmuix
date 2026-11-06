@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -17,11 +17,11 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.CardDefaults
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.theme.MiuixTheme
-import top.yukonga.miuix.kmp.utils.PressFeedbackType
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.CardDefaults
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
+import io.github.ra1nify.rmuix.kmp.utils.PressFeedbackType
 
 @Composable
 fun CardDemo() {
@@ -44,18 +44,18 @@ fun CardDemo() {
                     .fillMaxWidth()
                     .padding(horizontal = 12.dp),
                 colors = CardDefaults.defaultColors(
-                    color = MiuixTheme.colorScheme.primaryVariant,
+                    color = RmuixTheme.colorScheme.primaryVariant,
                 ),
                 insideMargin = PaddingValues(16.dp),
             ) {
                 Text(
-                    color = MiuixTheme.colorScheme.onPrimary,
+                    color = RmuixTheme.colorScheme.onPrimary,
                     text = "Card",
                     fontSize = 19.sp,
                     fontWeight = FontWeight.SemiBold,
                 )
                 Text(
-                    color = MiuixTheme.colorScheme.onPrimaryVariant,
+                    color = RmuixTheme.colorScheme.onPrimaryVariant,
                     text = "This is a Card",
                     fontSize = 17.sp,
                     fontWeight = FontWeight.Normal,
@@ -74,15 +74,15 @@ fun CardDemo() {
                     onClick = { },
                     content = {
                         Text(
-                            color = MiuixTheme.colorScheme.onSurface,
+                            color = RmuixTheme.colorScheme.onSurface,
                             text = "Card",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Medium,
                         )
                         Text(
-                            color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
+                            color = RmuixTheme.colorScheme.onSurfaceVariantSummary,
                             text = "PressFeedback: Sink\nShowIndication: true",
-                            style = MiuixTheme.textStyles.paragraph,
+                            style = RmuixTheme.textStyles.paragraph,
                         )
                     },
                 )
@@ -92,15 +92,15 @@ fun CardDemo() {
                     pressFeedbackType = PressFeedbackType.Tilt,
                     content = {
                         Text(
-                            color = MiuixTheme.colorScheme.onSurface,
+                            color = RmuixTheme.colorScheme.onSurface,
                             text = "Card",
                             fontSize = 18.sp,
                             fontWeight = FontWeight.Medium,
                         )
                         Text(
-                            color = MiuixTheme.colorScheme.onSurfaceVariantSummary,
+                            color = RmuixTheme.colorScheme.onSurfaceVariantSummary,
                             text = "PressFeedback: Tilt\nShowIndication: false",
-                            style = MiuixTheme.textStyles.paragraph,
+                            style = RmuixTheme.textStyles.paragraph,
                         )
                     },
                 )

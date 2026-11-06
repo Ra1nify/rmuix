@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import dev.nucleusframework.desktop.application.dsl.CompressionLevel
@@ -42,7 +42,7 @@ nucleus.application {
 
     graalvm {
         isEnabled = true
-        imageName = "miuix"
+        imageName = "rmuix"
         optimization = NativeImageOptimization.SIZE
         toolchain.version = "25i4"
         buildArgs.addAll("-H:-IncludeMethodData")
@@ -53,7 +53,7 @@ nucleus.application {
         targetFormats(TargetFormat.Dmg, TargetFormat.Exe, TargetFormat.Msi, TargetFormat.Deb)
         packageName = BuildConfig.APPLICATION_NAME
         packageVersion = BuildConfig.APPLICATION_VERSION_NAME
-        homepage = "https://github.com/compose-miuix-ui/miuix"
+        homepage = "https://github.com/compose-rmuix-ui/rmuix"
 
         cleanupNativeLibs = true
         compressionLevel = CompressionLevel.Maximum
@@ -64,7 +64,7 @@ nucleus.application {
         }
         linux {
             iconFile = project.file("../desktop/resources/linux/icon.png")
-            debMaintainer = "compose-miuix-ui contributors <https://github.com/compose-miuix-ui/miuix>"
+            debMaintainer = "compose-rmuix-ui contributors <https://github.com/compose-rmuix-ui/rmuix>"
         }
         windows {
             iconFile = project.file("../desktop/resources/windows/icon.ico")

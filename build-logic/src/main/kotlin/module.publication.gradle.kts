@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import java.io.FileInputStream
@@ -32,15 +32,15 @@ val versionSuffix = when {
 group = BuildConfig.LIBRARY_ID
 version = "${BuildConfig.LIBRARY_VERSION}$versionSuffix"
 
-val publicationExt = extensions.create<MiuixPublicationExtension>("miuixPublication")
+val publicationExt = extensions.create<RmuixPublicationExtension>("rmuixPublication")
 
 val javadocJar = tasks.register<Jar>("javadocJar") {
     description = "javadocJar"
     archiveClassifier.set("javadoc")
 }
 
-val projectUrl = "https://github.com/compose-miuix-ui/miuix"
-val githubPackagesUrl = "https://maven.pkg.github.com/compose-miuix-ui/miuix"
+val projectUrl = "https://github.com/compose-rmuix-ui/rmuix"
+val githubPackagesUrl = "https://maven.pkg.github.com/compose-rmuix-ui/rmuix"
 val sonatypePackageUrl = layout.buildDirectory.dir("publishing/mavenCentral")
 val localPackageUrl = layout.buildDirectory.dir("repository/local")
 
@@ -91,9 +91,9 @@ publishing {
             }
             developers {
                 developer {
-                    id.set("compose-miuix-ui")
-                    name.set("compose-miuix-ui")
-                    url.set("https://github.com/compose-miuix-ui")
+                    id.set("compose-rmuix-ui")
+                    name.set("compose-rmuix-ui")
+                    url.set("https://github.com/compose-rmuix-ui")
                 }
             }
         }

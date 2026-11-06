@@ -6,21 +6,21 @@ import {
 } from "@nolebase/vitepress-plugin-git-changelog/vite";
 
 export default defineConfig({
-  base: "/miuix/",
-  title: "Miuix",
+  base: "/rmuix/",
+  title: "Rmuix",
   locales: locales.locales,
   head: [
     // Auto-redirect first-time visitors
     ['script', {}, `(function(){
       try {
         if (typeof window === 'undefined' || typeof localStorage === 'undefined') return;
-        var KEY = 'miuix-locale-auto-redirected';
+        var KEY = 'rmuix-locale-auto-redirected';
         if (localStorage.getItem(KEY)) return;
         localStorage.setItem(KEY, '1');
         var lang = (navigator.language || '').toLowerCase();
         var isSimplifiedZh = lang === 'zh-cn' || lang === 'zh-sg' || lang.indexOf('zh-hans') === 0;
         if (!isSimplifiedZh) return;
-        var base = '/miuix/';
+        var base = '/rmuix/';
         var path = window.location.pathname;
         if (path.indexOf(base) !== 0) return;
         if (path.indexOf(base + 'zh_CN') === 0) return;
@@ -29,7 +29,7 @@ export default defineConfig({
       } catch (e) {}
     })();`],
     ['meta', { name: 'color-scheme', content: 'light dark' }],
-    ['link', { rel: 'icon', href: '/miuix/Icon.webp' }],
+    ['link', { rel: 'icon', href: '/rmuix/Icon.webp' }],
     ['link', { rel: 'preconnect', href: 'https://cdn-font.hyperos.mi.com/font/css?family=MiSans_VF:VF:Chinese_Simplify,Latin&display=swap' }],
   ],
   markdown: {
@@ -41,7 +41,7 @@ export default defineConfig({
   themeConfig: {
     logo: "/Icon.webp",
     socialLinks: [
-      { icon: 'github', link: 'https://github.com/compose-miuix-ui/miuix' }
+      { icon: 'github', link: 'https://github.com/compose-rmuix-ui/rmuix' }
     ],
     search: {
       provider: "local",
@@ -88,7 +88,7 @@ export default defineConfig({
     },
     plugins: [
       GitChangelog({
-        repoURL: () => "https://github.com/compose-miuix-ui/miuix",
+        repoURL: () => "https://github.com/compose-rmuix-ui/rmuix",
       }),
       GitChangelogMarkdownSection({
         sections: {

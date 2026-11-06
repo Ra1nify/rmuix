@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -20,19 +20,19 @@ import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.ButtonDefaults
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.basic.TextButton
-import top.yukonga.miuix.kmp.basic.TextField
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Contacts
-import top.yukonga.miuix.kmp.overlay.OverlayDialog
-import top.yukonga.miuix.kmp.preference.ArrowPreference
-import top.yukonga.miuix.kmp.preference.SliderPreference
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.ButtonDefaults
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.SmallTitle
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.TextButton
+import io.github.ra1nify.rmuix.kmp.basic.TextField
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Contacts
+import io.github.ra1nify.rmuix.kmp.overlay.OverlayDialog
+import io.github.ra1nify.rmuix.kmp.preference.ArrowPreference
+import io.github.ra1nify.rmuix.kmp.preference.SliderPreference
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 fun LazyListScope.arrowSection() {
     item(key = "arrow") {
@@ -53,17 +53,17 @@ fun LazyListScope.arrowSection() {
                         modifier = Modifier.padding(end = 8.dp),
                     ) {
                         Icon(
-                            imageVector = MiuixIcons.Contacts,
+                            imageVector = RmuixIcons.Contacts,
                             contentDescription = "Personal",
-                            tint = MiuixTheme.colorScheme.onBackground,
+                            tint = RmuixTheme.colorScheme.onBackground,
                         )
                     }
                 },
                 endActions = {
                     Text(
                         text = "End",
-                        fontSize = MiuixTheme.textStyles.body2.fontSize,
-                        color = MiuixTheme.colorScheme.onSurfaceVariantActions,
+                        fontSize = RmuixTheme.textStyles.body2.fontSize,
+                        color = RmuixTheme.colorScheme.onSurfaceVariantActions,
                     )
                 },
                 onClick = {},
@@ -84,8 +84,8 @@ fun LazyListScope.arrowSection() {
                 endActions = {
                     Text(
                         text = "End",
-                        fontSize = MiuixTheme.textStyles.body2.fontSize,
-                        color = MiuixTheme.colorScheme.disabledOnSecondaryVariant,
+                        fontSize = RmuixTheme.textStyles.body2.fontSize,
+                        color = RmuixTheme.colorScheme.disabledOnSecondaryVariant,
                     )
                 },
                 enabled = false,

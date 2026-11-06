@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.runtime.Stable
@@ -21,6 +21,8 @@ data class AppState(
     val useFloatingNavigationBar: Boolean = false,
     val floatingNavigationBarPosition: Int = 0,
     val floatingNavigationBarStyle: Int = 0,
+    val floatingNavigationBarIslandMode: Int = 0, // 0: Single, 1: Left, 2: Right, 3: Both
+    val showSatelliteAccessories: Boolean = true,
     val showFloatingToolbar: Boolean = false,
     val floatingToolbarPosition: Int = 1,
     val floatingToolbarOrientation: Int = 1,
@@ -34,11 +36,10 @@ data class AppState(
     val blockInputDuringTransition: Boolean = false,
     val enableSwipeBack: Boolean = false,
     val navTransitionStyle: Int = 0,
-    // Squircle
-    val enableSquircle: Boolean = true,
-    // Blur
+    // Blur & Spotlight Shader
     val enableBlur: Boolean = true,
-    val blurStyle: Int = 0,
+    val enableSpotlight: Boolean = true,
+    val blurStyle: Int = 0, // 0: Progressive, 1: Solid
 )
 
 val LocalAppState = compositionLocalOf<AppState> {

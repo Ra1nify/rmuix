@@ -2,7 +2,7 @@
 title: WindowDropdownMenu
 requiresScaffoldHost: false
 prerequisites:
-  - Can be used anywhere, does not require `Scaffold` or `MiuixPopupHost`
+  - Can be used anywhere, does not require `Scaffold` or `RmuixPopupHost`
   - Renders at window level
 hostComponent: None
 popupHost: None
@@ -19,9 +19,9 @@ popupHost: None
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.menu.WindowDropdownMenu
-import top.yukonga.miuix.kmp.basic.DropdownEntry
-import top.yukonga.miuix.kmp.basic.DropdownItem
+import io.github.ra1nify.rmuix.kmp.menu.WindowDropdownMenu
+import io.github.ra1nify.rmuix.kmp.basic.DropdownEntry
+import io.github.ra1nify.rmuix.kmp.basic.DropdownItem
 ```
 
 ## Basic Usage

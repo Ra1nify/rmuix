@@ -1,6 +1,6 @@
 # Card
 
-`Card` 是 Miuix 中的基础容器组件，用于承载相关内容和操作。它提供了具有 Miuix 风格的卡片容器，适用于信息展示、内容分组等场景。支持静态显示和交互式两种模式。
+`Card` 是 Rmuix 中的基础容器组件，用于承载相关内容和操作。它提供了具有 Rmuix 风格的卡片容器，适用于信息展示、内容分组等场景。支持静态显示和交互式两种模式。
 
 <div style="position: relative; height: 300px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=card" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,8 +9,8 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.utils.PressFeedbackType // 如果使用交互式卡片
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.utils.PressFeedbackType // 如果使用交互式卡片
 ```
 
 ## 基本用法
@@ -77,7 +77,7 @@ Card(
     cornerRadius = 8.dp,
     insideMargin = PaddingValues(16.dp),
     colors = CardDefaults.defaultColors(
-        color = MiuixTheme.colorScheme.primaryVariant
+        color = RmuixTheme.colorScheme.primaryVariant
     ),
 ) {
     Text("自定义样式卡片")
@@ -93,7 +93,7 @@ Card(
 ) {
     Text(
         text = "卡片标题",
-        style = MiuixTheme.textStyles.title2
+        style = RmuixTheme.textStyles.title2
     )
     Spacer(modifier = Modifier.height(8.dp))
     Text(

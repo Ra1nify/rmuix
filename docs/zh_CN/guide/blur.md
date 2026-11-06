@@ -1,9 +1,9 @@
 # 模糊效果
 
-`miuix-blur` 是一个独立的 Compose Multiplatform 模糊效果库。它通过 Modifier 扩展提供背景模糊、颜色混合和纹理效果。支持 Android、Desktop (JVM)、iOS、macOS 和 Web (WasmJs/Js) 平台。
+`rmuix-blur` 是一个独立的 Compose Multiplatform 模糊效果库。它通过 Modifier 扩展提供背景模糊、颜色混合和纹理效果。支持 Android、Desktop (JVM)、iOS、macOS 和 Web (WasmJs/Js) 平台。
 
 ::: warning 注意
-Android 上 `miuix-blur` 要求 `minSdk` 33（Android 13）或更高。模糊、混合、
+Android 上 `rmuix-blur` 要求 `minSdk` 33（Android 13）或更高。模糊、混合、
 噪点、高光等所有效果均依赖 `RuntimeShader`，该 API 自 33 起才提供。若你的
 应用 `minSdk` 低于 33 但仍想引入该库，请用 [下方介绍的能力检查](#运行时能力检查)
 门控所有 blur 相关代码路径。
@@ -11,13 +11,13 @@ Android 上 `miuix-blur` 要求 `minSdk` 33（Android 13）或更高。模糊、
 
 ## 配置
 
-在项目中添加 `miuix-blur` 依赖：
+在项目中添加 `rmuix-blur` 依赖：
 
 ```kotlin
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            implementation("top.yukonga.miuix.kmp:miuix-blur:<version>")
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-blur:<version>")
         }
     }
 }
@@ -27,7 +27,7 @@ Android 项目：
 
 ```kotlin
 dependencies {
-    implementation("top.yukonga.miuix.kmp:miuix-blur-android:<version>")
+    implementation("io.github.ra1nify.rmuix.kmp:rmuix-blur-android:<version>")
 }
 ```
 
@@ -45,13 +45,13 @@ dependencies {
 
 ### 运行时能力检查
 
-如果你的应用 `minSdk` 低于 `miuix-blur` 但仍想保持单 APK 发布，可以用下面的
+如果你的应用 `minSdk` 低于 `rmuix-blur` 但仍想保持单 APK 发布，可以用下面的
 能力检查门控 blur 调用。Android 上它们对应 `Build.VERSION.SDK_INT` 判断；
 Skiko 系（Desktop / iOS / macOS / Web）始终返回 `true`。
 
 ```kotlin
-import top.yukonga.miuix.kmp.shader.isRenderEffectSupported
-import top.yukonga.miuix.kmp.shader.isRuntimeShaderSupported
+import io.github.ra1nify.rmuix.kmp.shader.isRenderEffectSupported
+import io.github.ra1nify.rmuix.kmp.shader.isRuntimeShaderSupported
 
 // API 32+（以及所有非 Android 目标）为 true。仅需要背景记录支架时（例如
 // 通过 `colorFilter(...)` 链一个 ColorFilter）适用。
@@ -72,11 +72,11 @@ val blurAndBlendSupported = isRuntimeShaderSupported()
 3. 在模糊表面上应用 `Modifier.textureBlur()`
 
 ```kotlin
-import top.yukonga.miuix.kmp.blur.BlurColors
-import top.yukonga.miuix.kmp.blur.BlurDefaults
-import top.yukonga.miuix.kmp.blur.layerBackdrop
-import top.yukonga.miuix.kmp.blur.rememberLayerBackdrop
-import top.yukonga.miuix.kmp.blur.textureBlur
+import io.github.ra1nify.rmuix.kmp.blur.BlurColors
+import io.github.ra1nify.rmuix.kmp.blur.BlurDefaults
+import io.github.ra1nify.rmuix.kmp.blur.layerBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.rememberLayerBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.textureBlur
 
 // 第 1 步：创建 LayerBackdrop
 val backdrop = rememberLayerBackdrop()
@@ -135,9 +135,9 @@ Box(
 使用 `BlurColors` 在模糊效果之上应用颜色调整和混合图层：
 
 ```kotlin
-import top.yukonga.miuix.kmp.blur.BlendColorEntry
-import top.yukonga.miuix.kmp.blur.BlurBlendMode
-import top.yukonga.miuix.kmp.blur.BlurColors
+import io.github.ra1nify.rmuix.kmp.blur.BlendColorEntry
+import io.github.ra1nify.rmuix.kmp.blur.BlurBlendMode
+import io.github.ra1nify.rmuix.kmp.blur.BlurColors
 
 val colors = BlurColors(
     blendColors = listOf(
@@ -240,8 +240,8 @@ val colors = BlurColors(
 `Modifier.progressiveTextureBlur` 应用渐变背景模糊：模糊强度沿指定方向从满强度连续过渡到零，过渡带中段是真实的中等模糊，清晰端保持全分辨率像素级锐利。适合导航栏、边缘淡出等场景。
 
 ```kotlin
-import top.yukonga.miuix.kmp.blur.ProgressiveBlur
-import top.yukonga.miuix.kmp.blur.progressiveTextureBlur
+import io.github.ra1nify.rmuix.kmp.blur.ProgressiveBlur
+import io.github.ra1nify.rmuix.kmp.blur.progressiveTextureBlur
 
 Box(
     modifier = Modifier
@@ -315,7 +315,7 @@ import androidx.compose.ui.graphics.BlendMode as ComposeBlendMode
 
 Text(
     text = "磨砂文字",
-    style = MiuixTheme.textStyles.title1,
+    style = RmuixTheme.textStyles.title1,
     modifier = Modifier
         .textureBlur(
             backdrop = backdrop,
@@ -346,7 +346,7 @@ Box(
 如需完全控制效果管线，可使用 `Modifier.drawBackdrop()` 配合 `BackdropEffectScope`：
 
 ```kotlin
-import top.yukonga.miuix.kmp.blur.drawBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.drawBackdrop
 
 Box(
     modifier = Modifier
@@ -472,7 +472,7 @@ Box(
 
 ```kotlin
 import androidx.compose.foundation.shape.RoundedCornerShape
-import top.yukonga.miuix.kmp.blur.highlight.Highlight
+import io.github.ra1nify.rmuix.kmp.blur.highlight.Highlight
 
 Box(
     modifier = Modifier
@@ -490,9 +490,9 @@ Box(
 `highlight` lambda 与 `effects` 共用同一个 `BackdropEffectScope`，其返回值可随状态变化（如按压进度），并自动复用当前的 `size` / `shape`。
 
 ```kotlin
-import top.yukonga.miuix.kmp.blur.drawBackdrop
-import top.yukonga.miuix.kmp.blur.blur
-import top.yukonga.miuix.kmp.blur.highlight.Highlight
+import io.github.ra1nify.rmuix.kmp.blur.drawBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.blur
+import io.github.ra1nify.rmuix.kmp.blur.highlight.Highlight
 
 Box(
     modifier = Modifier
@@ -532,9 +532,9 @@ Box(
 可基于 token 覆盖单个字段，或从零构建 `BloomStroke`：
 
 ```kotlin
-import top.yukonga.miuix.kmp.blur.highlight.BloomStroke
-import top.yukonga.miuix.kmp.blur.highlight.LightPosition
-import top.yukonga.miuix.kmp.blur.highlight.LightSource
+import io.github.ra1nify.rmuix.kmp.blur.highlight.BloomStroke
+import io.github.ra1nify.rmuix.kmp.blur.highlight.LightPosition
+import io.github.ra1nify.rmuix.kmp.blur.highlight.LightSource
 
 val custom = Highlight(
     width = 1.dp,
@@ -563,7 +563,7 @@ val custom = Highlight(
 `rememberTiltLight` 通过设备旋转传感器实时偏移基准位置。Android 上会产生跟随设备倾斜的视差边缘；Desktop / iOS / macOS / Web 上 tilt 始终为零，光斑保持静止。
 
 ```kotlin
-import top.yukonga.miuix.kmp.blur.highlight.rememberTiltLight
+import io.github.ra1nify.rmuix.kmp.blur.highlight.rememberTiltLight
 
 val baseStyle = Highlight.GlassStrokeMiddleLight.style as BloomStroke
 

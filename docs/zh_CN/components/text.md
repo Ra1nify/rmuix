@@ -1,6 +1,6 @@
 # Text
 
-`Text` 组件是 Miuix 中的基础文本组件，用于显示文字内容。支持自定义各种文本样式、对齐方式和装饰效果。
+`Text` 组件是 Rmuix 中的基础文本组件，用于显示文字内容。支持自定义各种文本样式、对齐方式和装饰效果。
 
 <div style="position: relative; height: 300px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=text" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.Text
 ```
 
 ## 基本用法
@@ -22,26 +22,26 @@ Text("这是一段基本文本")
 
 ## 文本样式
 
-Miuix 提供了多种预定义的文本样式：
+Rmuix 提供了多种预定义的文本样式：
 
 ```kotlin
 Text(
     text = "标题文本",
-    style = MiuixTheme.textStyles.headline1
+    style = RmuixTheme.textStyles.headline1
 )
 
 Text(
     text = "小标题文本",
-    style = MiuixTheme.textStyles.subtitle
+    style = RmuixTheme.textStyles.subtitle
 )
 Text(
     text = "摘要文本",
-    style = MiuixTheme.textStyles.body2
+    style = RmuixTheme.textStyles.body2
 )
 
 Text(
     text = "正文文本",
-    style = MiuixTheme.textStyles.main
+    style = RmuixTheme.textStyles.main
 )
 
 ```
@@ -51,17 +51,17 @@ Text(
 ```kotlin
 Text(
     text = "默认颜色文本",
-    color = MiuixTheme.colorScheme.onBackground
+    color = RmuixTheme.colorScheme.onBackground
 )
 
 Text(
     text = "主题色文本",
-    color = MiuixTheme.colorScheme.primary
+    color = RmuixTheme.colorScheme.primary
 )
 
 Text(
     text = "次要文本",
-    color = MiuixTheme.colorScheme.onSurfaceContainerVariant
+    color = RmuixTheme.colorScheme.onSurfaceContainerVariant
 )
 ```
 
@@ -88,7 +88,7 @@ Text(
 | maxLines       | Int            | 最大行数                 | Int.MAX_VALUE              | 否       |
 | minLines       | Int            | 最小行数                 | 1                          | 否       |
 | onTextLayout   | ((TextLayoutResult) -> Unit)? | 文本布局完成后的回调 | null                       | 否       |
-| style          | TextStyle      | 文本样式                 | MiuixTheme.textStyles.main | 否       |
+| style          | TextStyle      | 文本样式                 | RmuixTheme.textStyles.main | 否       |
 
 ### Text（AnnotatedString）属性
 
@@ -112,7 +112,7 @@ Text(
 | minLines       | Int                            | 最小行数                       | 1                          | 否       |
 | inlineContent  | Map<String, InlineTextContent> | 内联可组合项的映射             | mapOf()                    | 否       |
 | onTextLayout   | (TextLayoutResult) -> Unit     | 文本布局完成后的回调           | {}                         | 否       |
-| style          | TextStyle                      | 文本样式                       | MiuixTheme.textStyles.main | 否       |
+| style          | TextStyle                      | 文本样式                       | RmuixTheme.textStyles.main | 否       |
 
 ## 进阶用法
 
@@ -145,8 +145,8 @@ Text(
 ```kotlin
 Text(
     buildAnnotatedString {
-        withStyle(style = SpanStyle(color = MiuixTheme.colorScheme.primary)) {
-            append("Miuix ")
+        withStyle(style = SpanStyle(color = RmuixTheme.colorScheme.primary)) {
+            append("Rmuix ")
         }
         withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
             append("UI 库")
@@ -188,8 +188,8 @@ Text(
     text = "随滚动渐变的文本",
     color = {
         lerp(
-            MiuixTheme.colorScheme.onSurface,
-            MiuixTheme.colorScheme.primary,
+            RmuixTheme.colorScheme.onSurface,
+            RmuixTheme.colorScheme.primary,
             (scrollState.value / 500f).coerceIn(0f, 1f),
         )
     },
@@ -204,12 +204,12 @@ Text(
 val annotated = buildAnnotatedString {
     append("访问 ")
     val start = length
-    append("Miuix 文档站")
+    append("Rmuix 文档站")
     addLink(
         LinkAnnotation.Url(
-            url = "https://compose-miuix-ui.github.io/miuix/",
+            url = "https://compose-rmuix-ui.github.io/rmuix/",
             styles = TextLinkStyles(
-                SpanStyle(color = MiuixTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
+                SpanStyle(color = RmuixTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
             )
         ),
         start = start,

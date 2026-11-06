@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -21,18 +21,18 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.DropdownEntry
-import top.yukonga.miuix.kmp.basic.DropdownItem
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.SmallTopAppBar
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.MoreCircle
-import top.yukonga.miuix.kmp.icon.extended.Tune
-import top.yukonga.miuix.kmp.menu.WindowIconCascadingDropdownMenu
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.DropdownEntry
+import io.github.ra1nify.rmuix.kmp.basic.DropdownItem
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.SmallTopAppBar
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.MoreCircle
+import io.github.ra1nify.rmuix.kmp.icon.extended.Tune
+import io.github.ra1nify.rmuix.kmp.menu.WindowIconCascadingDropdownMenu
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 @Composable
 fun WindowIconCascadingDropdownMenuDemo() {
@@ -96,8 +96,8 @@ fun WindowIconCascadingDropdownMenuDemo() {
                         actions = {
                             WindowIconCascadingDropdownMenu(entries = entries) {
                                 Icon(
-                                    imageVector = MiuixIcons.Tune,
-                                    tint = MiuixTheme.colorScheme.onBackground,
+                                    imageVector = RmuixIcons.Tune,
+                                    tint = RmuixTheme.colorScheme.onBackground,
                                     contentDescription = "Adjust",
                                 )
                             }
@@ -106,8 +106,8 @@ fun WindowIconCascadingDropdownMenuDemo() {
                                 enabled = false,
                             ) {
                                 Icon(
-                                    imageVector = MiuixIcons.MoreCircle,
-                                    tint = MiuixTheme.colorScheme.disabledOnSecondaryVariant,
+                                    imageVector = RmuixIcons.MoreCircle,
+                                    tint = RmuixTheme.colorScheme.disabledOnSecondaryVariant,
                                     contentDescription = "More",
                                 )
                             }

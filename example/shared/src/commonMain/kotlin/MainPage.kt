@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
@@ -49,29 +49,29 @@ import component.switchSection
 import component.tabRowSection
 import component.textFieldSection
 import component.tooltipSection
-import top.yukonga.miuix.kmp.basic.BasicComponent
-import top.yukonga.miuix.kmp.basic.DropdownEntry
-import top.yukonga.miuix.kmp.basic.DropdownItem
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.InputField
-import top.yukonga.miuix.kmp.basic.MiuixScrollBehavior
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.SearchBar
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.SnackbarHostState
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.basic.TooltipBox
-import top.yukonga.miuix.kmp.basic.VerticalScrollBar
-import top.yukonga.miuix.kmp.basic.rememberScrollBarAdapter
-import top.yukonga.miuix.kmp.blur.layerBackdrop
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.SelectAll
-import top.yukonga.miuix.kmp.icon.extended.Sort
-import top.yukonga.miuix.kmp.icon.extended.Tune
-import top.yukonga.miuix.kmp.interfaces.ExperimentalScrollBarApi
-import top.yukonga.miuix.kmp.menu.OverlayIconCascadingDropdownMenu
-import top.yukonga.miuix.kmp.menu.OverlayIconDropdownMenu
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.BasicComponent
+import io.github.ra1nify.rmuix.kmp.basic.DropdownEntry
+import io.github.ra1nify.rmuix.kmp.basic.DropdownItem
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.InputField
+import io.github.ra1nify.rmuix.kmp.basic.RmuixScrollBehavior
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.SearchBar
+import io.github.ra1nify.rmuix.kmp.basic.SmallTitle
+import io.github.ra1nify.rmuix.kmp.basic.SnackbarHostState
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.TooltipBox
+import io.github.ra1nify.rmuix.kmp.basic.VerticalScrollBar
+import io.github.ra1nify.rmuix.kmp.basic.rememberScrollBarAdapter
+import io.github.ra1nify.rmuix.kmp.blur.layerBackdrop
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.SelectAll
+import io.github.ra1nify.rmuix.kmp.icon.extended.Sort
+import io.github.ra1nify.rmuix.kmp.icon.extended.Tune
+import io.github.ra1nify.rmuix.kmp.interfaces.ExperimentalScrollBarApi
+import io.github.ra1nify.rmuix.kmp.menu.OverlayIconCascadingDropdownMenu
+import io.github.ra1nify.rmuix.kmp.menu.OverlayIconDropdownMenu
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 import utils.AdaptiveTopAppBar
 import utils.BlurredBar
 import utils.pageContentPadding
@@ -98,9 +98,9 @@ fun MainPage(
 
     val backdrop = rememberBlurBackdrop()
     val blurActive = backdrop != null
-    val barColor = if (blurActive) Color.Transparent else MiuixTheme.colorScheme.surface
+    val barColor = if (blurActive) Color.Transparent else RmuixTheme.colorScheme.surface
 
-    val topAppBarScrollBehavior = MiuixScrollBehavior()
+    val topAppBarScrollBehavior = RmuixScrollBehavior()
     val lazyListState = rememberLazyListState()
 
     var selectedIndex1 by remember { mutableIntStateOf(0) }
@@ -269,7 +269,7 @@ fun MainPage(
                                 collapseOnSelection = cascadingCollapseOnSelection,
                             ) {
                                 Icon(
-                                    imageVector = MiuixIcons.Tune,
+                                    imageVector = RmuixIcons.Tune,
                                     contentDescription = "Tune",
                                 )
                             }
@@ -280,7 +280,7 @@ fun MainPage(
                                 collapseOnSelection = false,
                             ) {
                                 Icon(
-                                    imageVector = MiuixIcons.Sort,
+                                    imageVector = RmuixIcons.Sort,
                                     contentDescription = "Sort",
                                 )
                             }
@@ -291,7 +291,7 @@ fun MainPage(
                                 collapseOnSelection = false,
                             ) {
                                 Icon(
-                                    imageVector = MiuixIcons.SelectAll,
+                                    imageVector = RmuixIcons.SelectAll,
                                     contentDescription = "SelectAll",
                                 )
                             }
@@ -338,7 +338,7 @@ fun MainPage(
                                 text = "Cancel",
                                 fontSize = 17.sp,
                                 fontWeight = FontWeight.Bold,
-                                color = MiuixTheme.colorScheme.primary,
+                                color = RmuixTheme.colorScheme.primary,
                             )
                         },
                         expanded = expanded,

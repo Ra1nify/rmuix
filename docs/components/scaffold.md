@@ -1,6 +1,6 @@
 # Scaffold
 
-`Scaffold` is a scaffolding component in Miuix used to implement basic design layout structures. It provides the fundamental framework for application interfaces, including containers for top bars, bottom bars, floating action buttons, and other elements.
+`Scaffold` is a scaffolding component in Rmuix used to implement basic design layout structures. It provides the fundamental framework for application interfaces, including containers for top bars, bottom bars, floating action buttons, and other elements.
 
 <div style="position: relative; height: 350px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=scaffold" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -21,7 +21,7 @@ Each `Scaffold` automatically manages its own isolated popup state. Multiple nes
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
 ```
 
 ## Basic Usage
@@ -59,9 +59,9 @@ Scaffold(
 | floatingActionButtonPosition | FabPosition                         | Position to display the floating action button                           | FabPosition.End                   | No       |
 | floatingToolbar              | @Composable () -> Unit              | Floating toolbar                                                         | {}                                | No       |
 | floatingToolbarPosition      | ToolbarPosition                     | Position to display the floating toolbar                                 | ToolbarPosition.BottomCenter      | No       |
-| snackbarHost                 | @Composable () -> Unit              | Container for displaying Snackbar, Miuix does not provide this component | {}                                | No       |
-| popupHost                    | @Composable () -> Unit              | Container for displaying popup windows                                   | \{ MiuixPopupHost() }             | No       |
-| containerColor               | Color                               | Background color of the scaffold                                         | MiuixTheme.colorScheme.surface | No       |
+| snackbarHost                 | @Composable () -> Unit              | Container for displaying Snackbar, Rmuix does not provide this component | {}                                | No       |
+| popupHost                    | @Composable () -> Unit              | Container for displaying popup windows                                   | \{ RmuixPopupHost() }             | No       |
+| containerColor               | Color                               | Background color of the scaffold                                         | RmuixTheme.colorScheme.surface | No       |
 | contentWindowInsets          | WindowInsets                        | Window insets passed to the content                                      | WindowInsets.systemBars.union(WindowInsets.displayCutout) | No       |
 | content                      | @Composable (PaddingValues) -> Unit | Main content area of the scaffold                                        | -                                 | Yes      |
 
@@ -92,7 +92,7 @@ Scaffold(
 ### Page Layout with Top Bar and Bottom Bar
 
 ```kotlin
-val topAppBarScrollBehavior = MiuixScrollBehavior(rememberTopAppBarState())
+val topAppBarScrollBehavior = RmuixScrollBehavior(rememberTopAppBarState())
 
 Scaffold(
     topBar = {
@@ -100,7 +100,7 @@ Scaffold(
             title = "Title",
             navigationIcon = {
                 IconButton(onClick = { /* Handle navigation click */ }) {
-                    Icon(MiuixIcons.Back, contentDescription = "Back")
+                    Icon(RmuixIcons.Back, contentDescription = "Back")
                 }
             },
             scrollBehavior = topAppBarScrollBehavior
@@ -108,8 +108,8 @@ Scaffold(
     },
     bottomBar = {
         val items = listOf(
-            NavigationItem("Home", MiuixIcons.VerticalSplit),
-            NavigationItem("Settings", MiuixIcons.Settings)
+            NavigationItem("Home", RmuixIcons.VerticalSplit),
+            NavigationItem("Settings", RmuixIcons.Settings)
         )
         var selectedItem by remember { mutableStateOf(0) }
         NavigationBar(
@@ -152,7 +152,7 @@ Scaffold(
         FloatingActionButton(
             onClick = { /* Handle click event */ }
         ) {
-            Icon(MiuixIcons.Add, contentDescription = "Add")
+            Icon(RmuixIcons.Add, contentDescription = "Add")
         }
     },
     floatingActionButtonPosition = FabPosition.End,
@@ -188,7 +188,7 @@ Scaffold(
                 }
             }
         ) {
-            Icon(MiuixIcons.Info, contentDescription = "Show message")
+            Icon(RmuixIcons.Info, contentDescription = "Show message")
         }
     },
     content = { paddingValues ->

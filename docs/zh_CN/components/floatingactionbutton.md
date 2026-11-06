@@ -1,6 +1,6 @@
 # FloatingActionButton
 
-`FloatingActionButton` 是 Miuix 中的悬浮按钮组件，通常用于展示页面中最重要或最常用的操作。它通常悬浮在界面上方，具有突出的视觉效果，便于用户快速访问。
+`FloatingActionButton` 是 Rmuix 中的悬浮按钮组件，通常用于展示页面中最重要或最常用的操作。它通常悬浮在界面上方，具有突出的视觉效果，便于用户快速访问。
 
 此组件通常与 `Scaffold` 组件结合使用，以便在应用程序的不同页面中保持一致的布局和行为。
 
@@ -11,7 +11,7 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.FloatingActionButton
+import io.github.ra1nify.rmuix.kmp.basic.FloatingActionButton
 ```
 
 ## 基本用法
@@ -23,7 +23,7 @@ FloatingActionButton(
     onClick = { /* 处理点击事件 */ }
 ) {
     Icon(
-        imageVector = MiuixIcons.Add,
+        imageVector = RmuixIcons.Add,
         contentDescription = "添加"
     )
 }
@@ -42,7 +42,7 @@ FloatingActionButton(
 | onClick                    | () -> Unit             | 点击按钮时触发的回调     | -                              | 是       |
 | modifier                   | Modifier               | 应用于按钮的修饰符       | Modifier                       | 否       |
 | shape                      | Shape                  | 按钮的形状               | CircleShape           | 否       |
-| containerColor             | Color                  | 按钮的背景颜色           | MiuixTheme.colorScheme.primary | 否       |
+| containerColor             | Color                  | 按钮的背景颜色           | RmuixTheme.colorScheme.primary | 否       |
 | shadowElevation            | Dp                     | 按钮的阴影高度           | FloatingActionButtonDefaults.ShadowElevation | 否       |
 | minWidth                   | Dp                     | 按钮的最小宽度           | FloatingActionButtonDefaults.MinWidth        | 否       |
 | minHeight                  | Dp                     | 按钮的最小高度           | FloatingActionButtonDefaults.MinHeight       | 否       |
@@ -70,7 +70,7 @@ FloatingActionButton(
     containerColor = Color.Red
 ) {
     Icon(
-        imageVector = MiuixIcons.Favorites,
+        imageVector = RmuixIcons.Favorites,
         contentDescription = "Favorites",
         tint = Color.White
     )
@@ -91,7 +91,7 @@ FloatingActionButton(
         modifier = Modifier.padding(horizontal = 16.dp)
     ) {
         Icon(
-            imageVector = MiuixIcons.Add,
+            imageVector = RmuixIcons.Add,
             contentDescription = "添加",
             tint = Color.White
         )
@@ -110,7 +110,7 @@ Scaffold(
             onClick = { /* 处理点击事件 */ }
         ) {
             Icon(
-                imageVector = MiuixIcons.Add,
+                imageVector = RmuixIcons.Add,
                 contentDescription = "添加"
             )
         }
@@ -143,7 +143,7 @@ FloatingActionButton(
     minHeight = animatedSize
 ) {
     Icon(
-        imageVector = if (expanded) MiuixIcons.Remove else MiuixIcons.Add,
+        imageVector = if (expanded) RmuixIcons.Remove else RmuixIcons.Add,
         contentDescription = if (expanded) "移除" else "添加",
         tint = Color.White
     )

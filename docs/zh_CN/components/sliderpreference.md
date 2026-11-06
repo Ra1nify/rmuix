@@ -1,11 +1,11 @@
 # SliderPreference
 
-`SliderPreference` 是 Miuix 中的滑块偏好设置组件，将标题/摘要与滑块控件结合在一起。滑块放置在 `BasicComponent` 的底部操作区域中，适用于设置界面中需要调整数值的场景，如音量、亮度或字体大小控制。
+`SliderPreference` 是 Rmuix 中的滑块偏好设置组件，将标题/摘要与滑块控件结合在一起。滑块放置在 `BasicComponent` 的底部操作区域中，适用于设置界面中需要调整数值的场景，如音量、亮度或字体大小控制。
 
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.SliderPreference
+import io.github.ra1nify.rmuix.kmp.preference.SliderPreference
 ```
 
 ## 基本用法
@@ -111,9 +111,9 @@ SliderPreference(
     summary = "${(volume * 100).roundToInt()}%",
     startAction = {
         Icon(
-            imageVector = MiuixIcons.Basic.Audio,
+            imageVector = RmuixIcons.Basic.Audio,
             contentDescription = "音量图标",
-            tint = MiuixTheme.colorScheme.onBackground,
+            tint = RmuixTheme.colorScheme.onBackground,
             modifier = Modifier.padding(end = 16.dp)
         )
     },

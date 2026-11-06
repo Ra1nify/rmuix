@@ -3,7 +3,7 @@
 layout: home
 
 hero:
-  name: Miuix
+  name: Rmuix
   text: A UI library for Compose MultiPlatform
   tagline: 提供 Xiaomi HyperOS 设计风格的组件库
   image:
@@ -18,7 +18,7 @@ hero:
       link: /zh_CN/components/index
     - theme: alt
       text: GitHub
-      link: https://github.com/compose-miuix-ui/miuix
+      link: https://github.com/compose-rmuix-ui/rmuix
 
 features:
   - icon: 🚀

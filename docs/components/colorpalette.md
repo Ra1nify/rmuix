@@ -10,7 +10,7 @@ and real-time color preview.
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.ColorPalette
+import io.github.ra1nify.rmuix.kmp.basic.ColorPalette
 ```
 
 ## Basic Usage
@@ -114,7 +114,7 @@ Surface {
     ) {
         Text(
             text = "Select Color",
-            style = MiuixTheme.textStyles.title2
+            style = RmuixTheme.textStyles.title2
         )
         Spacer(modifier = Modifier.height(16.dp))
         ColorPalette(

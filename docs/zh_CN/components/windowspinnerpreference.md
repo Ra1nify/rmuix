@@ -2,7 +2,7 @@
 title: WindowSpinnerPreference
 requiresScaffoldHost: false
 prerequisites:
-  - 可以在任何地方使用，不需要 `Scaffold` 或 `MiuixPopupHost`
+  - 可以在任何地方使用，不需要 `Scaffold` 或 `RmuixPopupHost`
   - 在窗口层级渲染
 hostComponent: None
 popupHost: None
@@ -10,7 +10,7 @@ popupHost: None
 
 # WindowSpinnerPreference
 
-`WindowSpinnerPreference` 是 Miuix 中的下拉选择器组件，提供了标题、摘要和带有图标、文本的选项列表。它在窗口级别渲染，不需要 `Scaffold` 宿主，适用于没有或不使用 `Scaffold` 的场景。
+`WindowSpinnerPreference` 是 Rmuix 中的下拉选择器组件，提供了标题、摘要和带有图标、文本的选项列表。它在窗口级别渲染，不需要 `Scaffold` 宿主，适用于没有或不使用 `Scaffold` 的场景。
 
 <div style="position: relative; height: 420px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=windowSpinnerPreference" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -23,9 +23,9 @@ popupHost: None
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.WindowSpinnerPreference
-import top.yukonga.miuix.kmp.basic.DropdownEntry
-import top.yukonga.miuix.kmp.basic.DropdownItem
+import io.github.ra1nify.rmuix.kmp.preference.WindowSpinnerPreference
+import io.github.ra1nify.rmuix.kmp.basic.DropdownEntry
+import io.github.ra1nify.rmuix.kmp.basic.DropdownItem
 ```
 
 ## 基本用法

@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
@@ -14,7 +14,7 @@ plugins {
     id("module.spotless")
 }
 
-val generatedSrcDir: Provider<Directory> = layout.buildDirectory.dir("generated/miuix-example")
+val generatedSrcDir: Provider<Directory> = layout.buildDirectory.dir("generated/rmuix-example")
 
 group = BuildConfig.LIBRARY_ID
 
@@ -57,19 +57,19 @@ kotlin {
         browser()
     }
 
-    applyMiuixSourceSetHierarchy()
+    applyRmuixSourceSetHierarchy()
 
     sourceSets {
         commonMain {
             kotlin.srcDir(generatedSrcDir.map { it.dir("kotlin") })
             dependencies {
-                api(projects.miuixUi)
-                api(projects.miuixPreference)
+                api(projects.rmuixUi)
+                api(projects.rmuixPreference)
                 api(libs.jetbrains.compose.components.resources)
-                implementation(projects.miuixBlur)
-                implementation(projects.miuixSquircle)
-                implementation(projects.miuixIcons)
-                implementation(projects.miuixNav)
+                implementation(projects.rmuixBlur)
+                implementation(projects.rmuixSquircle)
+                implementation(projects.rmuixIcons)
+                implementation(projects.rmuixNav)
                 implementation(libs.androidx.navigationevent)
                 implementation(libs.aboutlibraries.core)
                 implementation(libs.kotlinx.serialization.core)

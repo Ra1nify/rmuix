@@ -1,6 +1,6 @@
 # Text
 
-`Text` component is a basic text component in Miuix, used to display text content. It supports customizing various text styles, alignment, and decoration effects.
+`Text` component is a basic text component in Rmuix, used to display text content. It supports customizing various text styles, alignment, and decoration effects.
 
 <div style="position: relative; height: 300px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../compose/index.html?id=text" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## Import
 
 ```kotlin
-import top.yukonga.miuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.Text
 ```
 
 ## Basic Usage
@@ -22,26 +22,26 @@ Text("This is a basic text")
 
 ## Text Styles
 
-Miuix provides multiple predefined text styles:
+Rmuix provides multiple predefined text styles:
 
 ```kotlin
 Text(
     text = "Title Text",
-    style = MiuixTheme.textStyles.headline1
+    style = RmuixTheme.textStyles.headline1
 )
 
 Text(
     text = "Subtitle Text",
-    style = MiuixTheme.textStyles.subtitle
+    style = RmuixTheme.textStyles.subtitle
 )
 Text(
     text = "Summary Text",
-    style = MiuixTheme.textStyles.body2
+    style = RmuixTheme.textStyles.body2
 )
 
 Text(
     text = "Main Text",
-    style = MiuixTheme.textStyles.main
+    style = RmuixTheme.textStyles.main
 )
 
 ```
@@ -51,17 +51,17 @@ Text(
 ```kotlin
 Text(
     text = "Default Color Text",
-    color = MiuixTheme.colorScheme.onBackground
+    color = RmuixTheme.colorScheme.onBackground
 )
 
 Text(
     text = "Primary Color Text",
-    color = MiuixTheme.colorScheme.primary
+    color = RmuixTheme.colorScheme.primary
 )
 
 Text(
     text = "Secondary Text",
-    color = MiuixTheme.colorScheme.onSurfaceContainerVariant
+    color = RmuixTheme.colorScheme.onSurfaceContainerVariant
 )
 ```
 
@@ -88,7 +88,7 @@ Text(
 | maxLines       | Int            | Maximum number of lines                 | Int.MAX_VALUE              | No       |
 | minLines       | Int            | Minimum number of lines                 | 1                          | No       |
 | onTextLayout   | ((TextLayoutResult) -> Unit)? | Callback after layout | null                       | No       |
-| style          | TextStyle      | Text style                              | MiuixTheme.textStyles.main | No       |
+| style          | TextStyle      | Text style                              | RmuixTheme.textStyles.main | No       |
 
 ### Text (AnnotatedString) Properties
 
@@ -112,7 +112,7 @@ Text(
 | minLines       | Int                            | Minimum number of lines                       | 1                          | No       |
 | inlineContent  | Map<String, InlineTextContent> | Mapping for inserting inline composables      | mapOf()                    | No       |
 | onTextLayout   | (TextLayoutResult) -> Unit     | Callback after text layout is completed       | {}                         | No       |
-| style          | TextStyle                      | Text style                                    | MiuixTheme.textStyles.main | No       |
+| style          | TextStyle                      | Text style                                    | RmuixTheme.textStyles.main | No       |
 
 ## Advanced Usage
 
@@ -145,8 +145,8 @@ Text(
 ```kotlin
 Text(
     buildAnnotatedString {
-        withStyle(style = SpanStyle(color = MiuixTheme.colorScheme.primary)) {
-            append("Miuix ")
+        withStyle(style = SpanStyle(color = RmuixTheme.colorScheme.primary)) {
+            append("Rmuix ")
         }
         withStyle(style = SpanStyle(fontWeight = FontWeight.Bold)) {
             append("UI Library")
@@ -188,8 +188,8 @@ Text(
     text = "Scroll-tinted text",
     color = {
         lerp(
-            MiuixTheme.colorScheme.onSurface,
-            MiuixTheme.colorScheme.primary,
+            RmuixTheme.colorScheme.onSurface,
+            RmuixTheme.colorScheme.primary,
             (scrollState.value / 500f).coerceIn(0f, 1f),
         )
     },
@@ -204,12 +204,12 @@ Use `AnnotatedString` with `LinkAnnotation` to create clickable links:
 val annotated = buildAnnotatedString {
     append("Visit ")
     val start = length
-    append("Miuix Docs")
+    append("Rmuix Docs")
     addLink(
         LinkAnnotation.Url(
-            url = "https://compose-miuix-ui.github.io/miuix/",
+            url = "https://compose-rmuix-ui.github.io/rmuix/",
             styles = TextLinkStyles(
-                SpanStyle(color = MiuixTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
+                SpanStyle(color = RmuixTheme.colorScheme.primary, fontWeight = FontWeight.Bold)
             )
         ),
         start = start,

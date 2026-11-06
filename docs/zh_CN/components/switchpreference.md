@@ -1,6 +1,6 @@
 # SwitchPreference
 
-`SwitchPreference` 是 Miuix 中的开关组件，提供了标题、摘要和右侧开关控件，支持点击交互，常用于设置项和偏好切换中。
+`SwitchPreference` 是 Rmuix 中的开关组件，提供了标题、摘要和右侧开关控件，支持点击交互，常用于设置项和偏好切换中。
 
 <div style="position: relative; height: 231px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=switchPreference" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
@@ -9,7 +9,7 @@
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.SwitchPreference
+import io.github.ra1nify.rmuix.kmp.preference.SwitchPreference
 ```
 
 ## 基本用法
@@ -88,9 +88,9 @@ SwitchPreference(
     onCheckedChange = { enabled = it },
     startAction = {
         Icon(
-            imageVector = MiuixIcons.Sort,
+            imageVector = RmuixIcons.Sort,
             contentDescription = "命令图标",
-            tint = MiuixTheme.colorScheme.onBackground,
+            tint = RmuixTheme.colorScheme.onBackground,
             modifier = Modifier.padding(end = 12.dp)
         )
     }
@@ -110,7 +110,7 @@ SwitchPreference(
     endActions = {
         Text(
             text = if (locationEnabled) "已开启" else "已关闭",
-            color = MiuixTheme.colorScheme.onSurfaceVariantActions,
+            color = RmuixTheme.colorScheme.onSurfaceVariantActions,
             modifier = Modifier.padding(end = 6.dp)
         )
     }
@@ -150,17 +150,17 @@ var customEnabled by remember { mutableStateOf(false) }
 SwitchPreference(
     title = "自定义颜色",
     titleColor = BasicComponentDefaults.titleColor(
-        color = MiuixTheme.colorScheme.primary
+        color = RmuixTheme.colorScheme.primary
     ),
     summary = "使用自定义颜色的开关",
     summaryColor = BasicComponentDefaults.summaryColor(
-        color = MiuixTheme.colorScheme.secondary
+        color = RmuixTheme.colorScheme.secondary
     ),
     checked = customEnabled,
     onCheckedChange = { customEnabled = it },
     switchColors = SwitchDefaults.switchColors(
-        checkedThumbColor = MiuixTheme.colorScheme.primary,
-        checkedTrackColor = MiuixTheme.colorScheme.primary.copy(alpha = 0.2f)
+        checkedThumbColor = RmuixTheme.colorScheme.primary,
+        checkedTrackColor = RmuixTheme.colorScheme.primary.copy(alpha = 0.2f)
     )
 )
 ```

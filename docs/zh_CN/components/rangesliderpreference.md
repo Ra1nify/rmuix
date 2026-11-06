@@ -1,11 +1,11 @@
 # RangeSliderPreference
 
-`RangeSliderPreference` 是 Miuix 中的范围滑块偏好设置组件，将标题/摘要与范围滑块控件结合在一起。范围滑块放置在 `BasicComponent` 的底部操作区域中，适用于设置界面中需要选择数值范围的场景，如价格筛选、频段选择或双阈值控制。
+`RangeSliderPreference` 是 Rmuix 中的范围滑块偏好设置组件，将标题/摘要与范围滑块控件结合在一起。范围滑块放置在 `BasicComponent` 的底部操作区域中，适用于设置界面中需要选择数值范围的场景，如价格筛选、频段选择或双阈值控制。
 
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.RangeSliderPreference
+import io.github.ra1nify.rmuix.kmp.preference.RangeSliderPreference
 ```
 
 ## 基本用法
@@ -110,9 +110,9 @@ RangeSliderPreference(
     summary = "${frequencyRange.start.roundToInt()}Hz - ${frequencyRange.endInclusive.roundToInt()}Hz",
     startAction = {
         Icon(
-            imageVector = MiuixIcons.Basic.Audio,
+            imageVector = RmuixIcons.Basic.Audio,
             contentDescription = "频率图标",
-            tint = MiuixTheme.colorScheme.onBackground,
+            tint = RmuixTheme.colorScheme.onBackground,
             modifier = Modifier.padding(end = 16.dp)
         )
     },

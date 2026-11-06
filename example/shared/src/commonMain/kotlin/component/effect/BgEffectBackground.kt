@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component.effect
@@ -13,10 +13,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
+import io.github.ra1nify.rmuix.kmp.blur.isRuntimeShaderSupported
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.isActive
-import top.yukonga.miuix.kmp.blur.isRuntimeShaderSupported
-import top.yukonga.miuix.kmp.theme.MiuixTheme
 import ui.isInDarkTheme
 import utils.shouldShowSplitPane
 import kotlin.math.floor
@@ -40,7 +40,7 @@ fun BgEffectBackground(
     Box(
         modifier = modifier,
     ) {
-        val surface = MiuixTheme.colorScheme.surface
+        val surface = RmuixTheme.colorScheme.surface
         val deviceType = if (shouldShowSplitPane()) DeviceType.PAD else DeviceType.PHONE
         val isDarkTheme = isInDarkTheme()
         val painter = remember(isOs3Effect) { BgEffectPainter(isOs3Effect) }

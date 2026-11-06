@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -17,14 +17,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.FabPosition
-import top.yukonga.miuix.kmp.basic.FloatingActionButton
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.SelectAll
-import top.yukonga.miuix.kmp.preference.ArrowPreference
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.FabPosition
+import io.github.ra1nify.rmuix.kmp.basic.FloatingActionButton
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.SelectAll
+import io.github.ra1nify.rmuix.kmp.preference.ArrowPreference
 
 @Composable
 fun FloatingActionButtonDemo() {
@@ -56,7 +56,7 @@ fun FloatingActionButtonDemo() {
                                 },
                             ) {
                                 Icon(
-                                    imageVector = MiuixIcons.SelectAll,
+                                    imageVector = RmuixIcons.SelectAll,
                                     contentDescription = "SelectAll",
                                     tint = Color.White,
                                 )
@@ -85,7 +85,7 @@ fun FloatingActionButtonDemo() {
                                 },
                             ) {
                                 Icon(
-                                    imageVector = MiuixIcons.SelectAll,
+                                    imageVector = RmuixIcons.SelectAll,
                                     contentDescription = "SelectAll",
                                     tint = Color.White,
                                 )

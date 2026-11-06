@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 plugins {
@@ -22,7 +22,7 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
-    namespace = "top.yukonga.baselineprofile"
+    namespace = "io.github.ra1nify.rmuix.baselineprofile"
 
     targetProjectPath = ":example:android"
 }

@@ -2,31 +2,31 @@
 title: OverlaySpinnerPreference
 requiresScaffoldHost: true
 prerequisites:
-  - 必须在 `Scaffold` 中使用以提供 `MiuixPopupHost`
+  - 必须在 `Scaffold` 中使用以提供 `RmuixPopupHost`
   - 未在 `Scaffold` 中使用将导致弹出内容无法渲染
   - 支持多个嵌套或并列的 `Scaffold`，无需额外配置
 hostComponent: Scaffold
-popupHost: MiuixPopupHost
+popupHost: RmuixPopupHost
 ---
 
 # OverlaySpinnerPreference
 
-`OverlaySpinnerPreference` 是 Miuix 中的下拉选择器组件，提供了标题、摘要和带有图标、文本的选项列表，支持点击交互和多种显示模式，常用于具有视觉辅助的选项设置中。该组件与 `OverlayDropdownPreference` 组件类似，但提供更丰富的功能和交互体验。
+`OverlaySpinnerPreference` 是 Rmuix 中的下拉选择器组件，提供了标题、摘要和带有图标、文本的选项列表，支持点击交互和多种显示模式，常用于具有视觉辅助的选项设置中。该组件与 `OverlayDropdownPreference` 组件类似，但提供更丰富的功能和交互体验。
 
 <div style="position: relative; height: 420px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
     <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=overlaySpinnerPreference" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
 </div>
 
 ::: danger 使用前提
-此组件依赖 `Scaffold` 提供的 `MiuixPopupHost` 以显示弹出内容。必须在 `Scaffold` 中使用，否则弹出内容无法正常渲染。
+此组件依赖 `Scaffold` 提供的 `RmuixPopupHost` 以显示弹出内容。必须在 `Scaffold` 中使用，否则弹出内容无法正常渲染。
 :::
 
 ## 引入
 
 ```kotlin
-import top.yukonga.miuix.kmp.preference.OverlaySpinnerPreference
-import top.yukonga.miuix.kmp.basic.DropdownEntry
-import top.yukonga.miuix.kmp.basic.DropdownItem
+import io.github.ra1nify.rmuix.kmp.preference.OverlaySpinnerPreference
+import io.github.ra1nify.rmuix.kmp.basic.DropdownEntry
+import io.github.ra1nify.rmuix.kmp.basic.DropdownItem
 ```
 
 ## 基本用法
