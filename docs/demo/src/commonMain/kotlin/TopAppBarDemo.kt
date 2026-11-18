@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -19,17 +19,17 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.IconButton
-import top.yukonga.miuix.kmp.basic.MiuixScrollBehavior
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.SmallTopAppBar
-import top.yukonga.miuix.kmp.basic.TopAppBar
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Back
-import top.yukonga.miuix.kmp.icon.extended.More
-import top.yukonga.miuix.kmp.preference.ArrowPreference
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.IconButton
+import io.github.ra1nify.rmuix.kmp.basic.RmuixScrollBehavior
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.SmallTopAppBar
+import io.github.ra1nify.rmuix.kmp.basic.TopAppBar
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Back
+import io.github.ra1nify.rmuix.kmp.icon.extended.More
+import io.github.ra1nify.rmuix.kmp.preference.JumpPreference
 
 @Composable
 fun TopAppBarDemo() {
@@ -53,19 +53,19 @@ fun TopAppBarDemo() {
                 Card(
                     modifier = Modifier.weight(0.5f),
                 ) {
-                    val scrollBehavior = MiuixScrollBehavior()
+                    val scrollBehavior = RmuixScrollBehavior()
                     Scaffold(
                         topBar = {
                             TopAppBar(
                                 title = "Title",
-                                largeTitle = "Large Title", // If not specified, title value will be used
+                                largeTitle = "Large Title", // Opt into the collapsable form; omit it for the stock static bar
                                 scrollBehavior = scrollBehavior,
                                 navigationIcon = {
                                     IconButton(
                                         onClick = { /* Handle click event */ },
                                     ) {
                                         Icon(
-                                            MiuixIcons.Back,
+                                            RmuixIcons.Back,
                                             contentDescription = "Back",
                                         )
                                     }
@@ -75,7 +75,7 @@ fun TopAppBarDemo() {
                                         onClick = { /* Handle click event */ },
                                     ) {
                                         Icon(
-                                            MiuixIcons.More,
+                                            RmuixIcons.More,
                                             contentDescription = "More",
                                         )
                                     }
@@ -96,7 +96,7 @@ fun TopAppBarDemo() {
                                         .padding(horizontal = 16.dp)
                                         .padding(bottom = 8.dp),
                                 ) {
-                                    ArrowPreference(
+                                    JumpPreference(
                                         title = "Something",
                                     )
                                 }
@@ -116,7 +116,7 @@ fun TopAppBarDemo() {
                                         onClick = { /* Handle click event */ },
                                     ) {
                                         Icon(
-                                            MiuixIcons.Back,
+                                            RmuixIcons.Back,
                                             contentDescription = "Back",
                                         )
                                     }
@@ -126,7 +126,7 @@ fun TopAppBarDemo() {
                                         onClick = { /* Handle click event */ },
                                     ) {
                                         Icon(
-                                            MiuixIcons.More,
+                                            RmuixIcons.More,
                                             contentDescription = "More",
                                         )
                                     }
@@ -146,7 +146,7 @@ fun TopAppBarDemo() {
                                         .padding(horizontal = 16.dp)
                                         .padding(bottom = 8.dp),
                                 ) {
-                                    ArrowPreference(
+                                    JumpPreference(
                                         title = "Something",
                                     )
                                 }

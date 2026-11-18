@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -15,13 +15,13 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.IconButton
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Favorites
-import top.yukonga.miuix.kmp.icon.extended.More
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.IconButton
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Favorites
+import io.github.ra1nify.rmuix.kmp.icon.extended.More
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 @Composable
 fun IconButtonDemo() {
@@ -50,8 +50,8 @@ fun IconButtonDemo() {
                         onClick = {},
                     ) {
                         Icon(
-                            imageVector = MiuixIcons.More,
-                            tint = MiuixTheme.colorScheme.onBackground,
+                            imageVector = RmuixIcons.More,
+                            tint = RmuixTheme.colorScheme.onBackground,
                             contentDescription = "More",
                         )
                     }
@@ -60,7 +60,7 @@ fun IconButtonDemo() {
                         onClick = {},
                     ) {
                         Icon(
-                            imageVector = MiuixIcons.Favorites,
+                            imageVector = RmuixIcons.Favorites,
                             contentDescription = "Favorites",
                         )
                     }
@@ -70,8 +70,8 @@ fun IconButtonDemo() {
                         enabled = false,
                     ) {
                         Icon(
-                            imageVector = MiuixIcons.More,
-                            tint = MiuixTheme.colorScheme.disabledOnSecondaryVariant,
+                            imageVector = RmuixIcons.More,
+                            tint = RmuixTheme.colorScheme.disabledOnSecondaryVariant,
                             contentDescription = "More",
                         )
                     }
@@ -81,8 +81,8 @@ fun IconButtonDemo() {
                         enabled = false,
                     ) {
                         Icon(
-                            imageVector = MiuixIcons.Favorites,
-                            tint = MiuixTheme.colorScheme.disabledOnSecondaryVariant,
+                            imageVector = RmuixIcons.Favorites,
+                            tint = RmuixTheme.colorScheme.disabledOnSecondaryVariant,
                             contentDescription = "Favorites",
                         )
                     }

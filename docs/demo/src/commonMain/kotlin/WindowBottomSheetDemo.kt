@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -17,17 +17,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.IconButton
-import top.yukonga.miuix.kmp.basic.TextButton
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Close
-import top.yukonga.miuix.kmp.icon.extended.Ok
-import top.yukonga.miuix.kmp.preference.SwitchPreference
-import top.yukonga.miuix.kmp.theme.LocalDismissState
-import top.yukonga.miuix.kmp.theme.MiuixTheme
-import top.yukonga.miuix.kmp.window.WindowBottomSheet
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.IconButton
+import io.github.ra1nify.rmuix.kmp.basic.TextButton
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Close
+import io.github.ra1nify.rmuix.kmp.icon.extended.Ok
+import io.github.ra1nify.rmuix.kmp.preference.SwitchPreference
+import io.github.ra1nify.rmuix.kmp.theme.LocalDismissState
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
+import io.github.ra1nify.rmuix.kmp.window.WindowBottomSheet
 
 @Composable
 fun WindowBottomSheetDemo() {
@@ -61,9 +61,9 @@ fun WindowBottomSheetDemo() {
                         val dismiss = LocalDismissState.current
                         IconButton(onClick = { dismiss?.invoke() }) {
                             Icon(
-                                imageVector = MiuixIcons.Close,
+                                imageVector = RmuixIcons.Close,
                                 contentDescription = "Cancel",
-                                tint = MiuixTheme.colorScheme.onBackground,
+                                tint = RmuixTheme.colorScheme.onBackground,
                             )
                         }
                     },
@@ -71,9 +71,9 @@ fun WindowBottomSheetDemo() {
                         val dismiss = LocalDismissState.current
                         IconButton(onClick = { dismiss?.invoke() }) {
                             Icon(
-                                imageVector = MiuixIcons.Ok,
+                                imageVector = RmuixIcons.Ok,
                                 contentDescription = "Confirm",
-                                tint = MiuixTheme.colorScheme.onBackground,
+                                tint = RmuixTheme.colorScheme.onBackground,
                             )
                         }
                     },

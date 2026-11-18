@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -17,11 +17,10 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.TextButton
-import top.yukonga.miuix.kmp.overlay.OverlayDialog
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.TextButton
+import io.github.ra1nify.rmuix.kmp.overlay.OverlayDialog
 
 @Composable
 fun OverlayDialogDemo() {
@@ -50,15 +49,12 @@ fun OverlayDialogDemo() {
                         title = "OverlayDialog Title",
                         summary = "This is a basic dialog example that can contain various content.",
                         show = showDialog,
-                        dimColor = MiuixTheme.colorScheme.windowDimming.copy(alpha = 0.2f),
                         onDismissRequest = { showDialog = false },
-                    ) {
-                        TextButton(
-                            text = "Confirm",
-                            onClick = { showDialog = false },
-                            modifier = Modifier.fillMaxWidth(),
-                        )
-                    }
+                        confirmButtonText = "OK",
+                        onConfirm = { showDialog = false },
+                        dismissButtonText = "Cancel",
+                        onDismiss = { showDialog = false },
+                    ) {}
                 }
             }
         }

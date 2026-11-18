@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -20,18 +20,19 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Badge
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.NavigationItem
-import top.yukonga.miuix.kmp.basic.NavigationRail
-import top.yukonga.miuix.kmp.basic.NavigationRailItem
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.basic.rememberNavigationRailState
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Contacts
-import top.yukonga.miuix.kmp.icon.extended.Settings
-import top.yukonga.miuix.kmp.icon.extended.VerticalSplit
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.RedDot
+import io.github.ra1nify.rmuix.kmp.basic.RedDotMode
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.NavigationItem
+import io.github.ra1nify.rmuix.kmp.basic.NavigationRail
+import io.github.ra1nify.rmuix.kmp.basic.NavigationRailItem
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.rememberNavigationRailState
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Contacts
+import io.github.ra1nify.rmuix.kmp.icon.extended.Settings
+import io.github.ra1nify.rmuix.kmp.icon.extended.VerticalSplit
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 @Composable
 fun NavigationRailDemo() {
@@ -51,9 +52,9 @@ fun NavigationRailDemo() {
         ) {
             val pages = listOf("Home", "Profile", "Settings")
             val items = listOf(
-                NavigationItem("Home", MiuixIcons.VerticalSplit),
-                NavigationItem("Profile", MiuixIcons.Contacts),
-                NavigationItem("Settings", MiuixIcons.Settings),
+                NavigationItem("Home", RmuixIcons.VerticalSplit),
+                NavigationItem("Profile", RmuixIcons.Contacts),
+                NavigationItem("Settings", RmuixIcons.Settings),
             )
             var selectedIndex by remember { mutableIntStateOf(0) }
             val railState = rememberNavigationRailState()
@@ -76,8 +77,8 @@ fun NavigationRailDemo() {
                                     icon = item.icon,
                                     label = item.label,
                                     badge = when (index) {
-                                        1 -> ({ Badge { Text("8") } })
-                                        2 -> ({ Badge() })
+                                        1 -> ({ RedDot(mode = RedDotMode.PointWithNum(8)) })
+                                        2 -> ({ RedDot(mode = RedDotMode.PointOnly) })
                                         else -> null
                                     },
                                 )
@@ -92,7 +93,7 @@ fun NavigationRailDemo() {
                         ) {
                             Text(
                                 text = "Current: ${pages[selectedIndex]}",
-                                style = MiuixTheme.textStyles.title1,
+                                style = RmuixTheme.textStyles.title1,
                             )
                         }
                     }

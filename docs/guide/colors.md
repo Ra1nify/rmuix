@@ -1,10 +1,10 @@
 # Color System
 
-This page lists all colors in the Miuix color scheme with their default light and dark values. Values are shown in ARGB hex.
+This page lists all colors in the Rmuix color scheme with their default light and dark values. Values are shown in ARGB hex.
 
 ## Accessing Colors
 
-- Use `MiuixTheme.colorScheme.<name>` in composables.
+- Use `RmuixTheme.colorScheme.<name>` in composables.
 - The colors shown below apply to non-Monet mode.
 
 ## Colors

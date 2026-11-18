@@ -31,9 +31,9 @@ jobs:
           cache-encryption-key: ${{ secrets.GRADLE_ENCRYPTION_KEY }}
       - name: Build Docs
         run: |
-          ./gradlew :miuix-ui:dokkaGenerate -Prelease
+          ./gradlew :rmuix-ui:dokkaGenerate -Prelease
           mkdir -p ./docs/public/dokka
-          mv ./miuix-ui/build/dokka/html/* ./docs/public/dokka
+          mv ./rmuix-ui/build/dokka/html/* ./docs/public/dokka
           ./gradlew :docs:demo:jsBrowserDistribution
           mkdir -p ./docs/public/compose
           mv ./docs/demo/build/dist/js/productionExecutable/* ./docs/public/compose

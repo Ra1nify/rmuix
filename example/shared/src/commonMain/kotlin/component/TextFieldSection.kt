@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -17,8 +17,8 @@ import androidx.compose.ui.platform.LocalFocusManager
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.TextField
+import io.github.ra1nify.rmuix.kmp.basic.CategoryTitle
+import io.github.ra1nify.rmuix.kmp.basic.TextField
 
 fun LazyListScope.textFieldSection() {
     item(key = "textField") {
@@ -29,13 +29,16 @@ fun LazyListScope.textFieldSection() {
         val text3 = rememberTextFieldState(initialText = "")
         var text4 by remember { mutableStateOf("") }
 
-        SmallTitle(text = "TextField")
+        CategoryTitle(text = "TextField")
         TextField(
             value = text1,
             onValueChange = { text1 = it },
-            modifier = Modifier
-                .padding(horizontal = 12.dp)
-                .padding(bottom = 12.dp),
+            label = "With clear button",
+            showClearButton = true,
+            modifier =
+                Modifier
+                    .padding(horizontal = 12.dp)
+                    .padding(bottom = 12.dp),
             keyboardActions = KeyboardActions(onDone = { focusManager.clearFocus() }),
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
         )
@@ -43,18 +46,20 @@ fun LazyListScope.textFieldSection() {
             value = text2,
             onValueChange = { text2 = it },
             label = "With title",
-            modifier = Modifier
-                .padding(horizontal = 12.dp)
-                .padding(bottom = 12.dp),
+            modifier =
+                Modifier
+                    .padding(horizontal = 12.dp)
+                    .padding(bottom = 12.dp),
             keyboardActions = KeyboardActions(onDone = { focusManager.clearFocus() }),
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
         )
         TextField(
             state = text3,
             label = "State-based",
-            modifier = Modifier
-                .padding(horizontal = 12.dp)
-                .padding(bottom = 12.dp),
+            modifier =
+                Modifier
+                    .padding(horizontal = 12.dp)
+                    .padding(bottom = 12.dp),
             onKeyboardAction = { focusManager.clearFocus() },
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
         )
@@ -64,11 +69,22 @@ fun LazyListScope.textFieldSection() {
             label = "Placeholder & SingleLine",
             useLabelAsPlaceholder = true,
             singleLine = true,
-            modifier = Modifier
-                .padding(horizontal = 12.dp)
-                .padding(bottom = 12.dp),
+            modifier =
+                Modifier
+                    .padding(horizontal = 12.dp)
+                    .padding(bottom = 12.dp),
             keyboardActions = KeyboardActions(onDone = { focusManager.clearFocus() }),
             keyboardOptions = KeyboardOptions(imeAction = ImeAction.Done),
+        )
+        TextField(
+            value = "",
+            onValueChange = { },
+            label = "Disabled stock hairline",
+            enabled = false,
+            modifier =
+                Modifier
+                    .padding(horizontal = 12.dp)
+                    .padding(bottom = 12.dp),
         )
     }
 }

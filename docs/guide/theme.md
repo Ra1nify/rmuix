@@ -1,18 +1,18 @@
 # Theme System
 
-Miuix provides a complete theme system that allows you to easily maintain a consistent design style
+Rmuix provides a complete theme system that allows you to easily maintain a consistent design style
 throughout your application. The theme system consists of color schemes and text styles.
 
-## Using MiuixTheme
+## Using RmuixTheme
 
-Use `ThemeController` to control the color scheme mode, then wrap your content with `MiuixTheme`:
+Use `ThemeController` to control the color scheme mode, then wrap your content with `RmuixTheme`:
 
 ```kotlin
 @Composable
 fun App() {
     // Available modes: System, Light, Dark, MonetSystem, MonetLight, MonetDark
     val controller = remember { ThemeController(ColorSchemeMode.System) }
-    MiuixTheme(controller = controller) { /* Content */ }
+    RmuixTheme(controller = controller) { /* Content */ }
 }
 ```
 
@@ -35,7 +35,7 @@ fun App() {
               // keyColor = Color(0xFF3482FF) // Optional: Custom seed color
           )
       }
-      MiuixTheme(controller = controller) { /* Content */ }
+      RmuixTheme(controller = controller) { /* Content */ }
   }
   ```
 
@@ -52,7 +52,7 @@ fun App() {
           colorSpec = ThemeColorSpec.Spec2025
       )
   }
-  MiuixTheme(controller = controller) { /* Content */ }
+  RmuixTheme(controller = controller) { /* Content */ }
   ```
 
   ::: tip
@@ -88,19 +88,19 @@ fun App() {
 
 - **Direct Usage**
 
-  Provide a color scheme directly to `MiuixTheme(colors = ...)` for full customization without a controller:
+  Provide a color scheme directly to `RmuixTheme(colors = ...)` for full customization without a controller:
 
   ```kotlin
   @Composable
   fun AppWithColors() {
       val colors = lightColorScheme() // or darkColorScheme()
-      MiuixTheme(colors = colors) { /* Content */ }
+      RmuixTheme(colors = colors) { /* Content */ }
   }
   ```
 
 ## ThemeController
 
-The `ThemeController` manages the current color scheme of the Miuix theme.
+The `ThemeController` manages the current color scheme of the Rmuix theme.
 
 ### ThemeController Properties
 
@@ -147,15 +147,15 @@ The `ThemeController` manages the current color scheme of the Miuix theme.
 | Spec2021 | Original Material Design 3 color specification                                          |
 | Spec2025 | 2025 color specification (supported by TonalSpot, Neutral, Vibrant, Expressive) |
 
-## MiuixTheme Object
+## RmuixTheme Object
 
-Access the current theme values through the `MiuixTheme` object:
+Access the current theme values through the `RmuixTheme` object:
 
 ```kotlin
-val colors = MiuixTheme.colorScheme
-val textStyles = MiuixTheme.textStyles
-val mode = MiuixTheme.colorSchemeMode
-val isDynamic = MiuixTheme.isDynamicColor
+val colors = RmuixTheme.colorScheme
+val textStyles = RmuixTheme.textStyles
+val mode = RmuixTheme.colorSchemeMode
+val isDynamic = RmuixTheme.isDynamicColor
 ```
 
 | Property        | Type             | Description                                                        |
@@ -184,7 +184,7 @@ val customTextStyles = defaultTextStyles(
 )
 
 val controller = remember { ThemeController(ColorSchemeMode.Light) }
-MiuixTheme(
+RmuixTheme(
     controller = controller,
     textStyles = customTextStyles
 ) {
@@ -200,14 +200,14 @@ Following the system's dark mode is built-in. Use `ColorSchemeMode.System`:
 @Composable
 fun MyApp() {
     val controller = remember { ThemeController(ColorSchemeMode.System) }
-    MiuixTheme(controller = controller) {
+    RmuixTheme(controller = controller) {
         // Application content
     }
 }
 
 ## Display Cutout Adaptation (`ProvideDisplayCutoutFix`)
 
-Miuix automatically integrates `ProvideDisplayCutoutFix` into `MiuixTheme`.
+Rmuix automatically integrates `ProvideDisplayCutoutFix` into `RmuixTheme`.
 
 On certain Android devices (especially tablets in landscape orientation and foldable devices), the OEM system window insets dispatch mechanism may fail to report the display cutout to the View tree (`WindowInsets.displayCutout` evaluates to 0) even when the window extends into the cutout area.
 
@@ -215,7 +215,7 @@ On certain Android devices (especially tablets in landscape orientation and fold
 
 ### Manual Usage
 
-Normally this is handled automatically by `MiuixTheme`. If you have a custom root window or overlay outside of `MiuixTheme`, you can also invoke it directly:
+Normally this is handled automatically by `RmuixTheme`. If you have a custom root window or overlay outside of `RmuixTheme`, you can also invoke it directly:
 
 ```kotlin
 ProvideDisplayCutoutFix()
@@ -227,7 +227,7 @@ If your application handles display cutouts manually or requires the default sys
 
 ```kotlin
 CompositionLocalProvider(LocalDisplayCutoutFixEnabled provides false) {
-    MiuixTheme {
+    RmuixTheme {
         // Content with automatic cutout fix disabled
     }
 }

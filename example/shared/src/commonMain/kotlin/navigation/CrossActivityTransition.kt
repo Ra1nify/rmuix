@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package navigation
@@ -8,16 +8,16 @@ import androidx.compose.animation.core.Easing
 import androidx.compose.ui.unit.Density
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.util.fastRoundToInt
-import top.yukonga.miuix.kmp.nav.transition.NavGesture
-import top.yukonga.miuix.kmp.nav.transition.NavMotion
-import top.yukonga.miuix.kmp.nav.transition.NavRole
-import top.yukonga.miuix.kmp.nav.transition.NavSettle
-import top.yukonga.miuix.kmp.nav.transition.NavSettlePhase
-import top.yukonga.miuix.kmp.nav.transition.NavSettleSpec
-import top.yukonga.miuix.kmp.nav.transition.NavSwipeEdge
-import top.yukonga.miuix.kmp.nav.transition.NavTransition
-import top.yukonga.miuix.kmp.nav.transition.navDirectionalTransition
-import top.yukonga.miuix.kmp.nav.transition.navGraphicsTransition
+import io.github.ra1nify.rmuix.kmp.nav.transition.NavGesture
+import io.github.ra1nify.rmuix.kmp.nav.transition.NavMotion
+import io.github.ra1nify.rmuix.kmp.nav.transition.NavRole
+import io.github.ra1nify.rmuix.kmp.nav.transition.NavSettle
+import io.github.ra1nify.rmuix.kmp.nav.transition.NavSettlePhase
+import io.github.ra1nify.rmuix.kmp.nav.transition.NavSettleSpec
+import io.github.ra1nify.rmuix.kmp.nav.transition.NavSwipeEdge
+import io.github.ra1nify.rmuix.kmp.nav.transition.NavTransition
+import io.github.ra1nify.rmuix.kmp.nav.transition.navDirectionalTransition
+import io.github.ra1nify.rmuix.kmp.nav.transition.navGraphicsTransition
 import kotlin.math.abs
 import kotlin.math.exp
 import kotlin.math.min
@@ -338,9 +338,9 @@ private val CrossActivityPredictive: NavTransition = navGraphicsTransition(
  *   overlay), wall-clock card/scrim fades, gesture-progress shaping, and the stiff reference
  *   cancel spring.
  *
- * Lives in the example app — NOT in miuix-nav — as a demonstration that the public customization
+ * Lives in the example app — NOT in rmuix-nav — as a demonstration that the public customization
  * surface (`navDirectionalTransition` + `navGraphicsTransition` + `NavMotion` + `NavSettle` +
- * [top.yukonga.miuix.kmp.nav.transition.NavTransitionScope]) is sufficient to express the
+ * [io.github.ra1nify.rmuix.kmp.nav.transition.NavTransitionScope]) is sufficient to express the
  * complete platform transition pair, both channels included, entirely outside the library.
  *
  * Values sourced from the reference: `MAX_SCALE = 0.9`, the 96dp entering start offset, the 8dp

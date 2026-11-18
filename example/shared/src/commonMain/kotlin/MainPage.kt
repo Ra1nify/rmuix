@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
@@ -9,11 +9,8 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxHeight
-import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.runtime.Composable
@@ -29,58 +26,33 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import component.arrowSection
-import component.badgeSection
-import component.basicComponentSection
-import component.blurSection
-import component.bottomSheetSection
-import component.breadcrumbBarSection
-import component.buttonSection
-import component.cardSection
-import component.checkboxSection
-import component.colorPickerSection
-import component.dialogSection
-import component.dropdownSection
-import component.glassEntrySection
-import component.numberPickerSection
-import component.otherPageSection
-import component.progressIndicatorSection
-import component.radioButtonSection
-import component.sliderSection
-import component.snackbarSection
-import component.spinnerSection
-import component.switchSection
-import component.tabRowSection
-import component.textFieldSection
-import component.tooltipSection
-import top.yukonga.miuix.kmp.basic.BasicComponent
-import top.yukonga.miuix.kmp.basic.DropdownEntry
-import top.yukonga.miuix.kmp.basic.DropdownItem
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.InputField
-import top.yukonga.miuix.kmp.basic.MiuixScrollBehavior
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.SearchBar
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.SnackbarHostState
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.basic.TooltipBox
-import top.yukonga.miuix.kmp.basic.VerticalScrollBar
-import top.yukonga.miuix.kmp.basic.rememberScrollBarAdapter
-import top.yukonga.miuix.kmp.blur.layerBackdrop
-import top.yukonga.miuix.kmp.glass.GlassIconButton
-import top.yukonga.miuix.kmp.glass.GlassIconDropdownMenu
-import top.yukonga.miuix.kmp.glass.GlassTopAppBarDefaults
-import top.yukonga.miuix.kmp.glass.glassPopupAnchor
-import top.yukonga.miuix.kmp.glass.glassPopupAnchorContent
-import top.yukonga.miuix.kmp.glass.rememberGlassPopupAnchor
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.More
-import top.yukonga.miuix.kmp.icon.extended.Tune
-import top.yukonga.miuix.kmp.interfaces.ExperimentalScrollBarApi
-import top.yukonga.miuix.kmp.menu.OverlayIconCascadingDropdownMenu
-import top.yukonga.miuix.kmp.menu.OverlayIconDropdownMenu
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.BasicComponent
+import component.ExampleCatalog
+import io.github.ra1nify.rmuix.kmp.basic.BasicComponentGroup
+import io.github.ra1nify.rmuix.kmp.preference.JumpPreference
+import navigation.Route
+import io.github.ra1nify.rmuix.kmp.basic.DropdownEntry
+import io.github.ra1nify.rmuix.kmp.basic.DropdownItem
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.InputField
+import io.github.ra1nify.rmuix.kmp.basic.RmuixScrollBehavior
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.SearchBar
+import io.github.ra1nify.rmuix.kmp.basic.CategoryTitle
+import io.github.ra1nify.rmuix.kmp.basic.SnackbarHostState
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.TooltipBox
+import io.github.ra1nify.rmuix.kmp.basic.VerticalScrollBar
+import io.github.ra1nify.rmuix.kmp.basic.rememberScrollBarAdapter
+import io.github.ra1nify.rmuix.kmp.blur.layerBackdrop
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.SelectAll
+import io.github.ra1nify.rmuix.kmp.icon.extended.Sort
+import io.github.ra1nify.rmuix.kmp.icon.extended.Tune
+import io.github.ra1nify.rmuix.kmp.interfaces.ExperimentalScrollBarApi
+import io.github.ra1nify.rmuix.kmp.menu.OverlayIconCascadingDropdownMenu
+import io.github.ra1nify.rmuix.kmp.menu.OverlayIconDropdownMenu
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 import utils.AdaptiveTopAppBar
 import utils.BlurredBar
 import utils.pageContentPadding
@@ -93,12 +65,9 @@ fun MainPage(
     padding: PaddingValues,
 ) {
     val appState = LocalAppState.current
+    val navigator = LocalNavigator.current
     val isWideScreen = LocalIsWideScreen.current
     var searchValue by remember { mutableStateOf("") }
-    var showOptionsMenu by remember { mutableStateOf(false) }
-    var showMoreMenu by remember { mutableStateOf(false) }
-    val optionsAnchor = rememberGlassPopupAnchor()
-    val moreAnchor = rememberGlassPopupAnchor()
     var expanded by remember { mutableStateOf(false) }
 
     val notExpanded by remember { derivedStateOf { !expanded } }
@@ -110,18 +79,23 @@ fun MainPage(
     }
 
     val backdrop = rememberBlurBackdrop()
-    val pageBackdrop = rememberBlurBackdrop()
     val blurActive = backdrop != null
-    val barColor = if (blurActive) Color.Transparent else MiuixTheme.colorScheme.surface
+    val barColor = if (blurActive) Color.Transparent else RmuixTheme.colorScheme.surface
 
-    val topAppBarScrollBehavior = MiuixScrollBehavior()
+    val topAppBarScrollBehavior = RmuixScrollBehavior()
     val lazyListState = rememberLazyListState()
 
     var selectedIndex1 by remember { mutableIntStateOf(0) }
-    val optionItems = remember(selectedIndex1) {
+    var selectedIndex2 by remember { mutableIntStateOf(1) }
+    var selectedIndex3 by remember { mutableIntStateOf(2) }
+    val optionItems = remember(
+        selectedIndex1,
+        selectedIndex2,
+        selectedIndex3,
+    ) {
         listOf(
             DropdownEntry(
-                items = listOf("Selection 1", "Selection 2")
+                items = listOf("Selection A-1", "Selection A-2")
                     .mapIndexed { index, text ->
                         DropdownItem(
                             text = text,
@@ -130,12 +104,32 @@ fun MainPage(
                         )
                     },
             ),
+            DropdownEntry(
+                items = listOf("Selection B-1", "Selection B-2", "Selection B-3")
+                    .mapIndexed { index, text ->
+                        DropdownItem(
+                            text = text,
+                            selected = selectedIndex2 == index,
+                            onClick = { selectedIndex2 = index },
+                        )
+                    },
+            ),
+            DropdownEntry(
+                items = listOf("Selection C-1", "Selection C-2", "Selection C-3", "Selection C-4")
+                    .mapIndexed { index, text ->
+                        DropdownItem(
+                            text = text,
+                            selected = selectedIndex3 == index,
+                            onClick = { selectedIndex3 = index },
+                        )
+                    },
+            ),
         )
     }
     var cascadingSortIndex by remember { mutableIntStateOf(0) }
     var cascadingViewIndex by remember { mutableIntStateOf(0) }
     var cascadingFilterIndex by remember { mutableIntStateOf(0) }
-    var cascadingCollapseOnSelection by remember { mutableStateOf(true) }
+    var cascadingCollapseOnSelection by remember { mutableStateOf(false) }
     val cascadingEntries = remember(
         cascadingSortIndex,
         cascadingViewIndex,
@@ -188,211 +182,188 @@ fun MainPage(
             ),
         )
     }
-    val multiSelectOptions = remember {
-        listOf("Multi selection 1", "Multi selection 2", "Multi selection 3")
+    var multiSelectedItems by remember {
+        mutableStateOf(
+            setOf(
+                "Multi selection A-1",
+                "Multi selection B-2",
+                "Multi selection B-3",
+            ),
+        )
     }
-    var selectedMultiOptions by remember {
-        mutableStateOf(setOf("Multi selection 2", "Multi selection 3"))
-    }
-    val multiSelectItems = remember(multiSelectOptions, selectedMultiOptions) {
-        val items = multiSelectOptions.map { option ->
-            DropdownItem(
-                text = option,
-                selected = option in selectedMultiOptions,
-                onClick = {
-                    selectedMultiOptions = if (option in selectedMultiOptions) {
-                        selectedMultiOptions - option
-                    } else {
-                        selectedMultiOptions + option
-                    }
-                },
-            )
-        }
-        listOf(DropdownEntry(items = items))
-    }
-
-    val moreItems = remember(optionItems, multiSelectItems) {
-        optionItems + multiSelectItems
-    }
-
-    Box(Modifier.fillMaxSize()) {
-        Scaffold(
-            modifier = if (pageBackdrop != null) Modifier.layerBackdrop(pageBackdrop) else Modifier,
-            topBar = {
-                BlurredBar(backdrop, blurActive) {
-                    AdaptiveTopAppBar(
-                        title = "Home",
-                        showTopAppBar = appState.showTopAppBar,
-                        isWideScreen = isWideScreen,
-                        scrollBehavior = topAppBarScrollBehavior,
-                        color = barColor,
-                        actions = {
-                            TooltipBox(text = "Options") {
-                                if (appState.topAppBarStyle == 1) {
-                                    GlassIconButton(
-                                        onClick = { showOptionsMenu = !showOptionsMenu },
-                                        modifier = Modifier.glassPopupAnchor(
-                                            anchor = optionsAnchor,
-                                            cornerRadius = GlassTopAppBarDefaults.ButtonSize / 2,
-                                            floating = true,
-                                        ),
-                                    ) {
-                                        Icon(
-                                            imageVector = MiuixIcons.Tune,
-                                            contentDescription = "Tune",
-                                            modifier = Modifier.size(24.dp).glassPopupAnchorContent(optionsAnchor),
-                                        )
-                                    }
+    val multiSelectItems = remember(multiSelectedItems) {
+        listOf(
+            DropdownEntry(
+                items = listOf(
+                    "Multi selection A-1",
+                    "Multi selection A-2",
+                ).map { text ->
+                    DropdownItem(
+                        text = text,
+                        selected = text in multiSelectedItems,
+                        onClick = {
+                            multiSelectedItems =
+                                if (text in multiSelectedItems) {
+                                    multiSelectedItems - text
                                 } else {
-                                    OverlayIconCascadingDropdownMenu(
-                                        entries = cascadingEntries,
-                                        collapseOnSelection = cascadingCollapseOnSelection,
-                                    ) {
-                                        Icon(MiuixIcons.Tune, contentDescription = "Tune")
-                                    }
+                                    multiSelectedItems + text
                                 }
-                            }
-                            Spacer(Modifier.width(8.dp))
-                            TooltipBox(text = "More") {
-                                if (appState.topAppBarStyle == 1) {
-                                    GlassIconButton(
-                                        onClick = { showMoreMenu = !showMoreMenu },
-                                        modifier = Modifier.glassPopupAnchor(
-                                            anchor = moreAnchor,
-                                            cornerRadius = GlassTopAppBarDefaults.ButtonSize / 2,
-                                            floating = true,
-                                        ),
-                                    ) {
-                                        Icon(
-                                            imageVector = MiuixIcons.More,
-                                            contentDescription = "More",
-                                            modifier = Modifier.size(24.dp).glassPopupAnchorContent(moreAnchor),
-                                        )
-                                    }
-                                } else {
-                                    OverlayIconDropdownMenu(
-                                        entries = moreItems,
-                                        collapseOnSelection = false,
-                                    ) {
-                                        Icon(MiuixIcons.More, contentDescription = "More")
-                                    }
-                                }
-                            }
                         },
                     )
-                }
-            },
-        ) { innerPadding ->
-            val contentPadding = pageContentPadding(innerPadding, padding, isWideScreen)
-            Box(modifier = if (backdrop != null) Modifier.layerBackdrop(backdrop) else Modifier) {
-                LazyColumn(
-                    state = lazyListState,
-                    modifier = Modifier.pageScrollModifiers(
-                        appState.enableScrollEndHaptic,
-                        appState.showTopAppBar,
-                        topAppBarScrollBehavior,
-                    ),
-                    contentPadding = contentPadding,
-                ) {
-                    item(key = "searchbar") {
-                        SmallTitle(text = "SearchBar")
-                        SearchBar(
-                            modifier = Modifier.padding(bottom = 12.dp),
-                            inputField = {
-                                InputField(
-                                    query = searchValue,
-                                    onQueryChange = { searchValue = it },
-                                    onSearch = { expanded = false },
-                                    expanded = expanded,
-                                    onExpandedChange = { expanded = it },
-                                    label = "Search",
-                                )
-                            },
-                            outsideEndAction = {
-                                Text(
-                                    modifier = Modifier
-                                        .padding(end = 12.dp)
-                                        .clickable(
-                                            interactionSource = null,
-                                            indication = null,
-                                            onClick = onCancelSearch,
-                                        ),
-                                    text = "Cancel",
-                                    fontSize = 17.sp,
-                                    fontWeight = FontWeight.Bold,
-                                    color = MiuixTheme.colorScheme.primary,
-                                )
-                            },
-                            expanded = expanded,
-                            onExpandedChange = { expanded = it },
-                        ) {
-                            Column {
-                                repeat(4) { idx ->
-                                    val resultText = "Suggestion $idx"
-                                    BasicComponent(
-                                        title = resultText,
-                                        onClick = {
-                                            searchValue = resultText
-                                            expanded = false
-                                        },
-                                    )
+                },
+            ),
+            DropdownEntry(
+                items = listOf(
+                    "Multi selection B-1",
+                    "Multi selection B-2",
+                    "Multi selection B-3",
+                ).map { text ->
+                    DropdownItem(
+                        text = text,
+                        selected = text in multiSelectedItems,
+                        onClick = {
+                            multiSelectedItems =
+                                if (text in multiSelectedItems) {
+                                    multiSelectedItems - text
+                                } else {
+                                    multiSelectedItems + text
                                 }
+                        },
+                    )
+                },
+            ),
+        )
+    }
+
+    Scaffold(
+        topBar = {
+            BlurredBar(backdrop, blurActive) {
+                AdaptiveTopAppBar(
+                    title = "Home",
+                    showTopAppBar = appState.showTopAppBar,
+                    isWideScreen = isWideScreen,
+                    scrollBehavior = topAppBarScrollBehavior,
+                    color = barColor,
+                    actions = {
+                        TooltipBox(text = "Options") {
+                            OverlayIconCascadingDropdownMenu(
+                                entries = cascadingEntries,
+                                collapseOnSelection = cascadingCollapseOnSelection,
+                            ) {
+                                Icon(
+                                    imageVector = RmuixIcons.Tune,
+                                    contentDescription = "Tune",
+                                )
+                            }
+                        }
+                        TooltipBox(text = "Sort") {
+                            OverlayIconDropdownMenu(
+                                entries = optionItems,
+                                collapseOnSelection = false,
+                            ) {
+                                Icon(
+                                    imageVector = RmuixIcons.Sort,
+                                    contentDescription = "Sort",
+                                )
+                            }
+                        }
+                        TooltipBox(text = "Select all") {
+                            OverlayIconDropdownMenu(
+                                entries = multiSelectItems,
+                                collapseOnSelection = false,
+                            ) {
+                                Icon(
+                                    imageVector = RmuixIcons.SelectAll,
+                                    contentDescription = "SelectAll",
+                                )
+                            }
+                        }
+                    },
+                )
+            }
+        },
+    ) { innerPadding ->
+        val contentPadding = pageContentPadding(innerPadding, padding, isWideScreen)
+        Box(modifier = if (backdrop != null) Modifier.layerBackdrop(backdrop) else Modifier) {
+            LazyColumn(
+                state = lazyListState,
+                modifier = Modifier.pageScrollModifiers(
+                    appState.enableScrollEndHaptic,
+                    appState.showTopAppBar,
+                    topAppBarScrollBehavior,
+                ),
+                contentPadding = contentPadding,
+            ) {
+                item(key = "searchbar") {
+                    CategoryTitle(text = "SearchBar")
+                    SearchBar(
+                        modifier = Modifier.padding(bottom = 12.dp),
+                        inputField = {
+                            InputField(
+                                query = searchValue,
+                                onQueryChange = { searchValue = it },
+                                onSearch = { expanded = false },
+                                expanded = expanded,
+                                onExpandedChange = { expanded = it },
+                                label = "Search",
+                            )
+                        },
+                        outsideEndAction = {
+                            Text(
+                                modifier = Modifier
+                                    .padding(end = 12.dp)
+                                    .clickable(
+                                        interactionSource = null,
+                                        indication = null,
+                                        onClick = onCancelSearch,
+                                    ),
+                                text = "Cancel",
+                                fontSize = 17.sp,
+                                fontWeight = FontWeight.Bold,
+                                color = RmuixTheme.colorScheme.primary,
+                            )
+                        },
+                        expanded = expanded,
+                        onExpandedChange = { expanded = it },
+                    ) {
+                        Column {
+                            repeat(4) { idx ->
+                                val resultText = "Suggestion $idx"
+                                BasicComponent(
+                                    title = resultText,
+                                    onClick = {
+                                        searchValue = resultText
+                                        expanded = false
+                                    },
+                                )
                             }
                         }
                     }
-                    if (notExpanded) {
-                        glassEntrySection()
-                        basicComponentSection()
-                        switchSection()
-                        checkboxSection()
-                        radioButtonSection()
-                        buttonSection()
-                        tabRowSection()
-                        breadcrumbBarSection()
-                        arrowSection()
-                        dialogSection()
-                        bottomSheetSection()
-                        dropdownSection()
-                        spinnerSection()
-                        snackbarSection(snackbarHostState)
-                        textFieldSection()
-                        progressIndicatorSection()
-                        sliderSection()
-                        cardSection()
-                        tooltipSection()
-                        badgeSection()
-                        numberPickerSection()
-                        colorPickerSection()
-                        blurSection()
-                        otherPageSection()
-                        item { Spacer(modifier = Modifier.height(12.dp)) }
-                    }
                 }
-                VerticalScrollBar(
-                    adapter = rememberScrollBarAdapter(lazyListState),
-                    modifier = Modifier.align(Alignment.CenterEnd).fillMaxHeight(),
-                    trackPadding = contentPadding,
-                )
+                if (notExpanded) {
+                    item(key = "componentCatalog") {
+                        // ColorOS settings list: rows share one rounded card and a hairline divider is
+                        // drawn only between rows (COUICardListHelper / COUIPreferenceItemDecoration).
+                        BasicComponentGroup(
+                            modifier = Modifier.padding(bottom = 12.dp),
+                            title = "Component categories",
+                        ) {
+                            ExampleCatalog.categories.forEach { category ->
+                                JumpPreference(
+                                    title = category.title,
+                                    summary = "${category.sectionCount} demos · ${category.description}",
+                                    onClick = { navigator.push(Route.Category(category.key)) },
+                                )
+                            }
+                        }
+                    }
+                    item { Spacer(modifier = Modifier.height(12.dp)) }
+                }
             }
-        }
-        if (appState.topAppBarStyle == 1) {
-            GlassIconDropdownMenu(
-                show = showOptionsMenu,
-                onDismissRequest = { showOptionsMenu = false },
-                anchor = optionsAnchor,
-                anchorContent = { Icon(MiuixIcons.Tune, contentDescription = null) },
-                entries = cascadingEntries,
-                backdrop = pageBackdrop,
-                collapseOnSelection = cascadingCollapseOnSelection,
-            )
-            GlassIconDropdownMenu(
-                show = showMoreMenu,
-                onDismissRequest = { showMoreMenu = false },
-                anchor = moreAnchor,
-                anchorContent = { Icon(MiuixIcons.More, contentDescription = null) },
-                entries = moreItems,
-                backdrop = pageBackdrop,
-                collapseOnSelection = false,
+            VerticalScrollBar(
+                adapter = rememberScrollBarAdapter(lazyListState),
+                modifier = Modifier.align(Alignment.CenterEnd).fillMaxHeight(),
+                trackPadding = contentPadding,
             )
         }
     }

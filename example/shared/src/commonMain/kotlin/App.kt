@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.layout.PaddingValues
@@ -12,10 +12,9 @@ import androidx.compose.runtime.rememberUpdatedState
 import androidx.compose.runtime.setValue
 import androidx.compose.runtime.snapshotFlow
 import androidx.compose.ui.unit.dp
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
+import io.github.ra1nify.rmuix.kmp.theme.TextStyles
 import kotlinx.coroutines.flow.drop
-import top.yukonga.miuix.kmp.squircle.LocalSquircleEnabled
-import top.yukonga.miuix.kmp.theme.MiuixTheme
-import top.yukonga.miuix.kmp.theme.TextStyles
 import ui.AppTheme
 import ui.keyColorFor
 
@@ -23,7 +22,7 @@ import ui.keyColorFor
 fun App(
     padding: PaddingValues = PaddingValues(0.dp),
     onColorModeChange: ((Int) -> Unit)? = null,
-    textStyles: TextStyles = MiuixTheme.textStyles,
+    textStyles: TextStyles = RmuixTheme.textStyles,
 ) {
     var appState by remember { mutableStateOf(AppState()) }
     val updateAppState: ((AppState) -> AppState) -> Unit = remember {
@@ -62,7 +61,6 @@ fun App(
     CompositionLocalProvider(
         LocalAppState provides appState,
         LocalUpdateAppState provides onUpdateAppState,
-        LocalSquircleEnabled provides appState.enableSquircle,
     ) {
         AppContent(padding = padding)
     }

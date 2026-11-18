@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="rmuix" pattern="(file[rmuix.docs*]:*//*||file[rmuix.example*]:*//*||file[rmuix.rmuix*]:*//*)&amp;&amp;!file[rmuix.docs]:.vitepress//*&amp;&amp;!file[rmuix.docs]:.vitepress/locales//*&amp;&amp;!file[rmuix.docs]:.vitepress/theme//*&amp;&amp;!file[rmuix.docs]:.vitepress/theme/style//*&amp;&amp;!file[rmuix.docs]:components//*&amp;&amp;!file[rmuix.docs]:guide//*&amp;&amp;!file[rmuix.docs]:public//*&amp;&amp;!file[rmuix.docs]:zh_CN//*&amp;&amp;!file[rmuix.docs]:zh_CN/components//*&amp;&amp;!file[rmuix.docs]:zh_CN/guide//*||file[rmuix.docs.demo]:*/||file[rmuix.example]:*/||file[rmuix.example]:kotlin-js-store//*||file[rmuix.example]:webpack.config.d//*||file[rmuix.rmuix]:*/" />
+</component>

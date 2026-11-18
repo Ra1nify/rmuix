@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -12,20 +12,23 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Switch
+import io.github.ra1nify.rmuix.kmp.basic.Switch
+import io.github.ra1nify.rmuix.kmp.basic.Text
 
 @Composable
 fun SwitchDemo() {
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(demoBackground()),
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .background(demoBackground()),
         contentAlignment = Alignment.Center,
     ) {
         Column(
@@ -38,12 +41,16 @@ fun SwitchDemo() {
         ) {
             var switch1 by remember { mutableStateOf(false) }
             var switch2 by remember { mutableStateOf(true) }
+            var changes by remember { mutableIntStateOf(0) }
             Row(
                 horizontalArrangement = Arrangement.spacedBy(32.dp),
             ) {
                 Switch(
                     checked = switch1,
-                    onCheckedChange = { switch1 = it },
+                    onCheckedChange = {
+                        switch1 = it
+                        changes++
+                    },
                 )
                 Switch(
                     checked = switch2,
@@ -59,6 +66,15 @@ fun SwitchDemo() {
                     onCheckedChange = { },
                     enabled = false,
                 )
+            }
+            Text("Committed: $switch1 · $changes changes")
+            Row(
+                horizontalArrangement = Arrangement.spacedBy(32.dp),
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text("Read-only")
+                Switch(checked = false, onCheckedChange = null)
+                Switch(checked = true, onCheckedChange = null)
             }
         }
     }

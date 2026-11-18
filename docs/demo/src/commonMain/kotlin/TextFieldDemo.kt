@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -17,14 +17,17 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.TextField
+import io.github.ra1nify.rmuix.kmp.basic.TextField
+import io.github.ra1nify.rmuix.kmp.basic.TextFieldDefaults
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 @Composable
 fun TextFieldDemo() {
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(demoBackground()),
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .background(demoBackground()),
         contentAlignment = Alignment.Center,
     ) {
         Column(
@@ -43,6 +46,7 @@ fun TextFieldDemo() {
                 value = text1,
                 onValueChange = { text1 = it },
                 label = "Username",
+                showClearButton = true,
             )
 
             TextField(
@@ -62,6 +66,15 @@ fun TextFieldDemo() {
                 onValueChange = { text3 = it },
                 label = "Read-Only Input Field",
                 readOnly = true,
+            )
+            TextField(
+                value = "",
+                onValueChange = { },
+                label = "Custom resting stroke",
+                colors =
+                    TextFieldDefaults.textFieldColors(
+                        restingBorderColor = RmuixTheme.colorScheme.primary.copy(alpha = 0.35f),
+                    ),
             )
         }
     }

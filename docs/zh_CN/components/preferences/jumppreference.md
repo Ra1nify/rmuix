@@ -1,0 +1,205 @@
+# JumpPreference
+
+`JumpPreference` 是 Rmuix 中的箭头指示组件，通常用于导航或展示更多内容。提供了标题、摘要和右侧箭头图标，支持点击交互，常用于设置项、菜单项或列表项中。
+
+<div style="position: relative; height: 260px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
+    <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../../compose/index.html?id=arrowPreference" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+
+## Stock ColorOS 静态复核（2026-11-12）
+
+本轮读 Settings APK 的 `res/layout/coui_preference_widget_jump.xml` 与 `support_preference_widget_focus_jump_*` / `support_preference_image_margin_start` 尺寸。
+
+- 官方跳转控件自身有 12dp 上下内边距（`support_preference_widget_focus_jump_padding_top/bottom`）；行的 48dp 最小高度已覆盖，未单独复现。
+- 其箭头带 `android:layout_marginStart="@dimen/support_preference_image_margin_start"` = **4dp**。`JumpPreference` 之前是在自定义尾部行上加了一个无出处的 16dp 尾部内边距；现在箭头改用 `JumpPreferenceDefaults.ArrowMarginStart`（4dp），那个自造的 16dp 已删除。
+- 同一布局在箭头前可显示可选状态文字（`coui_statusText1`：162dp 上限、24dp 起始、`PreferenceStatusText.Tiny`）。`JumpPreference` 与 `JumpPreference` 新增 `statusText` / `statusTextColor` 以表达该槽位。
+
+**BREAKING：** 自定义尾部内容与箭头之间的间距由 16dp 改为 4dp；`JumpPreferenceDefaults` 新增 `ArrowMarginStart`。
+
+## 引入
+
+```kotlin
+import io.github.ra1nify.rmuix.kmp.preference.JumpPreference
+```
+
+## 基本用法
+
+JumpPreference 组件提供了基本的点击导航功能：
+
+```kotlin
+JumpPreference(
+    title = "设置项",
+    onClick = { /* 处理点击事件 */ }
+)
+```
+
+## 带摘要的箭头
+
+```kotlin
+JumpPreference(
+    title = "无线网络",
+    summary = "已连接到 WIFI-HOME",
+    onClick = { /* 处理点击事件 */ }
+)
+```
+
+## 组件状态
+
+### 禁用状态
+
+```kotlin
+JumpPreference(
+    title = "禁用项",
+    summary = "此项目当前不可用",
+    enabled = false,
+    onClick = { /* 不会被触发 */ }
+)
+```
+
+### 按下状态
+
+JumpPreference 支持通过 `holdDownState` 参数控制按下状态，通常用于显示弹出对话框时的视觉反馈：
+
+```kotlin
+var showDialog by remember { mutableStateOf(false) }
+
+Scaffold {
+    JumpPreference(
+        title = "打开对话框",
+        summary = "点击显示对话框",
+        onClick = { showDialog = true },
+        holdDownState = showDialog
+    )
+    // 在其他地方定义对话框
+    OverlayDialog(
+        title = "对话框",
+        show = showDialog,
+        onDismissRequest = { showDialog = false } // 关闭对话框
+    ) {
+        // 对话框内容
+    }
+}
+```
+
+## 属性
+
+### JumpPreference 属性
+
+| 属性名        | 类型                            | 说明                       | 默认值                                | 是否必须 |
+| ------------- | ------------------------------- | -------------------------- | ------------------------------------- | -------- |
+| title         | String                          | 箭头项的标题               | -                                     | 是       |
+| modifier      | Modifier                        | 应用于组件的修饰符         | Modifier                              | 否       |
+| titleColor    | BasicComponentColors            | 标题文本的颜色配置         | BasicComponentDefaults.titleColor()   | 否       |
+| summary       | String?                         | 箭头项的摘要说明           | null                                  | 否       |
+| summaryColor  | BasicComponentColors            | 摘要文本的颜色配置         | BasicComponentDefaults.summaryColor() | 否       |
+| startAction   | @Composable (() -> Unit)?       | 左侧自定义内容             | null                                  | 否       |
+| endActions    | @Composable RowScope.() -> Unit | 右侧自定义内容插槽（slot） | {}                                    | 否       |
+| bottomAction  | @Composable (() -> Unit)?       | 底部自定义内容             | null                                  | 否       |
+| insideMargin  | PaddingValues                   | 组件内部内容的边距         | BasicComponentDefaults.InsideMargin   | 否       |
+| onClick       | (() -> Unit)?                   | 点击时触发的回调           | null                                  | 否       |
+| holdDownState | Boolean                         | 组件是否处于按下状态       | false                                 | 否       |
+| enabled       | Boolean                         | 组件是否可交互             | true                                  | 否       |
+
+### JumpPreferenceDefaults 对象
+
+JumpPreferenceDefaults 对象提供右侧箭头图标的默认颜色配置。
+
+#### JumpPreferenceDefaults 方法
+
+| 方法名            | 类型              | 说明                                   |
+| ----------------- | ----------------- | -------------------------------------- |
+| endActionColors   | EndActionColors   | 返回用于右侧箭头图标的着色（tint）配置 |
+
+### 箭头着色说明
+
+- 尾部箭头始终显示，颜色自动适配。
+- 启用态：亮色 `#42000000` / 暗色 `#4DFFFFFF`，对应 ColorOS `couiColorLabelTertiary`（26% 透明度），
+  与复选框、单选框的描边同色。
+- 禁用态：亮色 `#14000000` / 暗色 `#26FFFFFF`，对应 `couiColorLabelQuaternary`（8% 透明度）。
+- 箭头保留官方 4dp 起始边距（`coui_preference_widget_jump.xml` 的
+  `support_preference_image_margin_start`）；该控件本身没有尾部内边距。
+
+
+## 进阶用法
+
+### 带左侧图标
+
+```kotlin
+JumpPreference(
+    title = "个人信息",
+    summary = "查看和修改您的个人资料",
+    startAction = {
+        Icon(
+            imageVector = RmuixIcons.Contacts,
+            contentDescription = "个人图标",
+            tint = RmuixTheme.colorScheme.onBackground,
+            modifier = Modifier.padding(end = 16.dp)
+        )
+    },
+    onClick = { /* 处理点击事件 */ }
+)
+```
+
+### 带右侧操作
+
+```kotlin
+JumpPreference(
+    title = "存储空间",
+    summary = "管理应用存储空间",
+    endActions = {
+        Text("12.5 GB")
+    },
+    onClick = { /* 处理点击事件 */ }
+)
+```
+
+### 结合对话框使用
+
+```kotlin
+var showDialog by remember { mutableStateOf(false) }
+var language by remember { mutableStateOf("简体中文") }
+
+Scaffold {
+JumpPreference(
+    title = "语言设置",
+    summary = "选择应用显示语言",
+    endActions = {
+        Text(language)
+    },
+    onClick = { showDialog = true },
+    holdDownState = showDialog
+)
+    OverlayDialog(
+        title = "选择语言",
+        show = showDialog,
+        onDismissRequest = { showDialog = false } // 关闭对话框
+    ) {
+        // 对话框内容
+        Card {
+            JumpPreference(
+                title = "简体中文",
+                onClick = {
+                    language = "简体中文"
+                    showDialog = false // 关闭对话框
+                }
+            )
+            JumpPreference(
+                title = "English",
+                onClick = {
+                    language = "English"
+                    showDialog = false // 关闭对话框
+                }
+            )
+        }
+        Row(
+            horizontalArrangement = Arrangement.SpaceBetween
+        ) {
+            TextButton(
+                text = "取消",
+                onClick = { showDialog = false },  // 关闭对话框
+                modifier = Modifier.weight(1f).padding(top = 8.dp)
+            )
+        }
+    }
+}
+```

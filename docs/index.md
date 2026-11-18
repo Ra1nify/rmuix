@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: Miuix
+  name: Rmuix
   text: A UI library for Compose MultiPlatform
-  tagline: Provides components with Xiaomi HyperOS design style
+  tagline: Provides components with ColorOS 17 design language
   image:
     src: /Icon.webp
     alt: Logo
@@ -18,15 +18,15 @@ hero:
       link: /components/index
     - theme: alt
       text: GitHub
-      link: https://github.com/compose-miuix-ui/miuix
+      link: https://github.com/compose-rmuix-ui/rmuix
 
 features:
   - icon: 🚀
     title: Easy to Use
     details: Similar to Compose Material with low learning curve for quick integration.
   - icon: 🎨
-    title: Xiaomi Aesthetics
-    details: Authentic Xiaomi HyperOS design language and interactive effects for your apps.
+    title: ColorOS Aesthetics
+    details: ColorOS 17 design language and interactive effects, measured against the stock COUI resources.
   - icon: 📦
     title: Rich Components
     details: Comprehensive basic and complex components for most application scenarios.

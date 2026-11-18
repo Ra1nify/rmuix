@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -13,40 +13,48 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListScope
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.Switch
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.preference.SwitchPreference
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.CategoryTitle
+import io.github.ra1nify.rmuix.kmp.basic.Switch
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.preference.SwitchPreference
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 fun LazyListScope.switchSection() {
     item(key = "switch") {
         val switch = remember { mutableStateOf(false) }
         val switchTrue = remember { mutableStateOf(true) }
+        val changes = remember { mutableIntStateOf(0) }
         val superSwitch = remember { mutableStateOf("false") }
         val superSwitchState = remember { mutableStateOf(false) }
         val superSwitchAnimState = remember { mutableStateOf(false) }
 
-        SmallTitle(text = "Switch")
+        CategoryTitle(text = "Switch")
         Card(
-            modifier = Modifier
-                .padding(horizontal = 12.dp)
-                .padding(bottom = 12.dp),
+            modifier =
+                Modifier
+                    .padding(horizontal = 12.dp)
+                    .padding(bottom = 12.dp),
         ) {
             Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(16.dp),
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
                 horizontalArrangement = Arrangement.SpaceBetween,
             ) {
                 Switch(
                     checked = switch.value,
-                    onCheckedChange = { switch.value = it },
+                    onCheckedChange = {
+                        switch.value = it
+                        changes.intValue++
+                    },
                 )
                 Switch(
                     checked = switchTrue.value,
@@ -66,6 +74,10 @@ fun LazyListScope.switchSection() {
                     enabled = false,
                 )
             }
+            Text(
+                text = "Committed: ${switch.value} · ${changes.intValue} changes",
+                modifier = Modifier.padding(horizontal = 16.dp, vertical = 8.dp),
+            )
             SwitchPreference(
                 title = "Switch",
                 summary = "Click to expand a Switch",
@@ -74,6 +86,19 @@ fun LazyListScope.switchSection() {
                     superSwitchAnimState.value = it
                 },
             )
+
+            Row(
+                modifier =
+                    Modifier
+                        .fillMaxWidth()
+                        .padding(16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                Text("Read-only")
+                Switch(checked = false, onCheckedChange = null)
+                Switch(checked = true, onCheckedChange = null)
+            }
 
             AnimatedVisibility(
                 visible = superSwitchAnimState.value,
@@ -86,7 +111,7 @@ fun LazyListScope.switchSection() {
                     endActions = {
                         Text(
                             text = superSwitch.value,
-                            color = MiuixTheme.colorScheme.onSurfaceVariantActions,
+                            color = RmuixTheme.colorScheme.onSurfaceVariantActions,
                         )
                     },
                     onCheckedChange = {

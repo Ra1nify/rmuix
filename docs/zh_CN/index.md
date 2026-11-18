@@ -3,9 +3,9 @@
 layout: home
 
 hero:
-  name: Miuix
+  name: Rmuix
   text: A UI library for Compose MultiPlatform
-  tagline: 提供 Xiaomi HyperOS 设计风格的组件库
+  tagline: 提供 ColorOS 17 设计语言的组件库
   image:
     src: /Icon.webp
     alt: Logo
@@ -18,15 +18,15 @@ hero:
       link: /zh_CN/components/index
     - theme: alt
       text: GitHub
-      link: https://github.com/compose-miuix-ui/miuix
+      link: https://github.com/compose-rmuix-ui/rmuix
 
 features:
   - icon: 🚀
     title: 简单易用
     details: 类似 Compose Material 的使用方式，低学习成本，快速上手。
   - icon: 🎨
-    title: 小米美学
-    details: 精确还原小米 HyperOS 原生组件的设计与交互体验。
+    title: ColorOS 美学
+    details: 按 ColorOS 17 原生 COUI 资源逐项度量还原的设计语言与交互效果。
   - icon: 📦
     title: 组件丰富
     details: 提供全面的基础组件和部分复杂的交互组件，满足大多数应用开发需求。

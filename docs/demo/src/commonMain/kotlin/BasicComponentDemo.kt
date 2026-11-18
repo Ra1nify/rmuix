@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -13,19 +13,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.BasicComponent
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Contacts
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.BasicComponent
+import io.github.ra1nify.rmuix.kmp.basic.BasicComponentGroup
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Contacts
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 @Composable
 fun BasicComponentDemo() {
     Box(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(demoBackground()),
+        modifier =
+            Modifier
+                .fillMaxSize()
+                .background(demoBackground()),
         contentAlignment = Alignment.Center,
     ) {
         Column(
@@ -36,7 +37,7 @@ fun BasicComponentDemo() {
             verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Card {
+            BasicComponentGroup {
                 BasicComponent(
                     title = "BasicComponent",
                     summary = "Without onClick",
@@ -44,6 +45,14 @@ fun BasicComponentDemo() {
                 BasicComponent(
                     title = "Wi-Fi",
                     summary = "Connected to MIUI-WiFi",
+                    assignment = "Connected",
+                    onClick = { /* Handle click event */ },
+                )
+                BasicComponent(
+                    title = "App icon",
+                    summary = "Show the app icon on the home screen",
+                    assignment = "Default",
+                    assignmentInRight = true,
                     onClick = { /* Handle click event */ },
                 )
                 BasicComponent(
@@ -52,9 +61,9 @@ fun BasicComponentDemo() {
                     startAction = {
                         Icon(
                             modifier = Modifier.padding(end = 16.dp),
-                            imageVector = MiuixIcons.Contacts,
+                            imageVector = RmuixIcons.Contacts,
                             contentDescription = "Avatar Icon",
-                            tint = MiuixTheme.colorScheme.onBackground,
+                            tint = RmuixTheme.colorScheme.onBackground,
                         )
                     },
                     onClick = { /* Handle click event */ },

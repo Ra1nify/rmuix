@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -17,14 +17,14 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.CircularProgressIndicator
-import top.yukonga.miuix.kmp.basic.InfiniteProgressIndicator
-import top.yukonga.miuix.kmp.basic.LinearProgressIndicator
-import top.yukonga.miuix.kmp.basic.SmallTitle
+import io.github.ra1nify.rmuix.kmp.basic.CircularProgressIndicator
+import io.github.ra1nify.rmuix.kmp.basic.InfiniteProgressIndicator
+import io.github.ra1nify.rmuix.kmp.basic.LinearProgressIndicator
+import io.github.ra1nify.rmuix.kmp.basic.CategoryTitle
 
 fun LazyListScope.progressIndicatorSection() {
     item(key = "progressIndicator") {
-        SmallTitle(text = "ProgressIndicator")
+        CategoryTitle(text = "ProgressIndicator")
         val progressValues = listOf(0.0f, 0.25f, 0.5f, 0.75f, 1.0f, null)
         val animatedProgressValue by rememberInfiniteTransition().animateFloat(
             initialValue = 0f,

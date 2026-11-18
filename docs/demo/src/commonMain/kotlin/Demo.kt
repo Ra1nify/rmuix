@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -16,19 +16,20 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.ButtonDefaults
-import top.yukonga.miuix.kmp.basic.TextButton
-import top.yukonga.miuix.kmp.nav.core.NavDisplay
-import top.yukonga.miuix.kmp.nav.core.NavKey
-import top.yukonga.miuix.kmp.nav.core.navBackStackOf
-import top.yukonga.miuix.kmp.theme.ColorSchemeMode
-import top.yukonga.miuix.kmp.theme.MiuixTheme
-import top.yukonga.miuix.kmp.theme.ThemeController
+import io.github.ra1nify.rmuix.kmp.basic.ButtonDefaults
+import io.github.ra1nify.rmuix.kmp.basic.TextButton
+import io.github.ra1nify.rmuix.kmp.nav.core.NavDisplay
+import io.github.ra1nify.rmuix.kmp.nav.core.NavKey
+import io.github.ra1nify.rmuix.kmp.nav.core.navBackStackOf
+import io.github.ra1nify.rmuix.kmp.preference.JumpPreference
+import io.github.ra1nify.rmuix.kmp.theme.ColorSchemeMode
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
+import io.github.ra1nify.rmuix.kmp.theme.ThemeController
 
 @Composable
 fun Demo(demoId: String? = null) {
     val controller = remember { ThemeController(ColorSchemeMode.System) }
-    MiuixTheme(controller = controller) {
+    RmuixTheme(controller = controller) {
         if (demoId == null) {
             DemoSelection()
         } else {
@@ -45,33 +46,58 @@ private val availableComponents = listOf(
     AvailableComponent("TopAppBar", "topAppBar") { TopAppBarDemo() },
     AvailableComponent("NavigationBar", "navigationBar") { NavigationBarDemo() },
     AvailableComponent("NavigationRail", "navigationRail") { NavigationRailDemo() },
+    AvailableComponent("SideNavigationDrawer", "sideNavigationDrawer") { SideNavigationDrawerDemo() },
     AvailableComponent("TabRow", "tabRow") { TabRowDemo() },
-    AvailableComponent("BreadcrumbBar", "breadcrumbBar") { BreadcrumbBarDemo() },
     AvailableComponent("Card", "card") { CardDemo() },
+    AvailableComponent("EmptyState", "emptyState") { EmptyStateDemo() },
+    AvailableComponent("ColorPicker", "colorPicker") { ColorPickerDemo() },
+    AvailableComponent("ImageCropper", "imageCropper") { ImageCropperDemo() },
+    AvailableComponent("GlassDialog", "glassDialog") { GlassDialogDemo() },
     AvailableComponent("BasicComponent", "basicComponent") { BasicComponentDemo() },
     AvailableComponent("Button", "button") { ButtonDemo() },
     AvailableComponent("IconButton", "iconButton") { IconButtonDemo() },
     AvailableComponent("Text", "text") { TextDemo() },
-    AvailableComponent("SmallTitle", "smallTitle") { SmallTitleDemo() },
+    AvailableComponent("CategoryTitle", "categoryTitle") { CategoryTitleDemo() },
     AvailableComponent("TextField", "textField") { TextFieldDemo() },
+    AvailableComponent("CodeInput", "codeInput") { CodeInputDemo() },
+    AvailableComponent("SimpleLock", "simpleLock") { SimpleLockDemo() },
+    AvailableComponent("NumericKeyboard", "numericKeyboard") { NumericKeyboardDemo() },
+    AvailableComponent("LockPatternView", "lockPatternView") { LockPatternViewDemo() },
+    AvailableComponent("EditToolbar", "editToolbar") { EditToolbarDemo() },
+    AvailableComponent("SingleInputCard", "singleInputCard") { SingleInputCardDemo() },
+    AvailableComponent("CalendarPicker", "calendarPicker") { CalendarPickerDemo() },
+    AvailableComponent("AlphabetIndexBar", "alphabetIndexBar") { AlphabetIndexBarDemo() },
+    AvailableComponent("RoundImage", "roundImage") { RoundImageDemo() },
     AvailableComponent("Switch", "switch") { SwitchDemo() },
     AvailableComponent("Checkbox", "checkbox") { CheckboxDemo() },
     AvailableComponent("RadioButton", "radioButton") { RadioButtonDemo() },
     AvailableComponent("Slider", "slider") { SliderDemo() },
+    AvailableComponent("VerticalSeekBar", "verticalSeekBar") { VerticalSeekBarDemo() },
     AvailableComponent("NumberPicker", "numberPicker") { NumberPickerDemo() },
+    AvailableComponent("DatePicker", "datePicker") { DatePickerDemo() },
+    AvailableComponent("TimePicker", "timePicker") { TimePickerDemo() },
+    AvailableComponent("TimeLimitPicker", "timeLimitPicker") { TimeLimitPickerDemo() },
     AvailableComponent("ProgressIndicator", "progressIndicator") { ProgressIndicatorDemo() },
     AvailableComponent("Snackbar", "snackbar") { SnackbarDemo() },
     AvailableComponent("Tooltip", "tooltip") { TooltipDemo() },
-    AvailableComponent("Badge", "badge") { BadgeDemo() },
+    AvailableComponent("TopTips", "topTips") { TopTipsDemo() },
+    AvailableComponent("RedDotBox", "redDotBox") { RedDotBoxDemo() },
+    AvailableComponent("RedDot", "redDot") { RedDotDemo() },
+    AvailableComponent("ScrollBar", "scrollBar") { ScrollBarDemo() },
+    AvailableComponent("ChipTabRow", "chipTabRow") { ChipTabRowDemo() },
+    AvailableComponent("Spotlight", "spotlight") { SpotlightDemo() },
+    AvailableComponent("SliderPreference", "sliderPreference") { SliderPreferenceDemo() },
+    AvailableComponent("RangeSliderPreference", "rangeSliderPreference") { RangeSliderPreferenceDemo() },
+    AvailableComponent("Chip", "chip") { ChipDemo() },
+    AvailableComponent("ChipGroup", "chipGroup") { ChipGroupDemo() },
     AvailableComponent("Icon", "icon") { IconDemo() },
     AvailableComponent("FloatingActionButton", "floatingActionButton") { FloatingActionButtonDemo() },
     AvailableComponent("FloatingToolbar", "floatingToolbar") { FloatingToolbarDemo() },
     AvailableComponent("Divider", "divider") { DividerDemo() },
-    AvailableComponent("PullToRefresh", "pullToRefresh") { PullToRefreshDemo() },
+    AvailableComponent("Stepper", "stepper") { StepperDemo() },
     AvailableComponent("SearchBar", "searchBar") { SearchBarDemo() },
-    AvailableComponent("ColorPicker", "colorPicker") { ColorPickerDemo() },
-    AvailableComponent("ColorPalette", "colorPalette") { ColorPaletteDemo() },
-    AvailableComponent("ArrowPreference", "arrowPreference") { ArrowPreferenceDemo() },
+    AvailableComponent("AppInfoPreference", "appInfoPreference") { AppInfoPreferenceDemo() },
+    AvailableComponent("JumpPreference", "jumpPreference") { JumpPreferenceDemo() },
     AvailableComponent("SwitchPreference", "switchPreference") { SwitchPreferenceDemo() },
     AvailableComponent("CheckboxPreference", "checkboxPreference") { CheckboxPreferenceDemo() },
     AvailableComponent("RadioButtonPreference", "radioButtonPreference") { RadioButtonPreferenceDemo() },
@@ -93,17 +119,6 @@ private val availableComponents = listOf(
     AvailableComponent("WindowIconCascadingDropdownMenu", "windowIconCascadingDropdownMenu") { WindowIconCascadingDropdownMenuDemo() },
     AvailableComponent("WindowBottomSheet", "windowBottomSheet") { WindowBottomSheetDemo() },
     AvailableComponent("WindowDialog", "windowDialog") { WindowDialogDemo() },
-    AvailableComponent("GlassIconButton", "glassIconButton") { GlassIconButtonDemo() },
-    AvailableComponent("GlassTopAppBar", "glassTopAppBar") { GlassTopAppBarDemo() },
-    AvailableComponent("GlassNavigationBar", "glassNavigationBar") { GlassNavigationBarDemo() },
-    AvailableComponent("GlassTabRow", "glassTabRow") { GlassTabRowDemo() },
-    AvailableComponent("GlassTransformPopup", "glassTransformPopup") { GlassTransformPopupDemo() },
-    AvailableComponent("GlassPopup", "glassPopup") { GlassPopupDemo() },
-    AvailableComponent("GlassSecondaryPopup", "glassSecondaryPopup") { GlassSecondaryPopupDemo() },
-    AvailableComponent("GlassDropdownPopup", "glassDropdownPopup") { GlassDropdownPopupDemo() },
-    AvailableComponent("GlassDropdownPreference", "glassDropdownPreference") { GlassDropdownPreferenceDemo() },
-    AvailableComponent("GlassDialog", "glassDialog") { GlassDialogDemo() },
-    AvailableComponent("GlassBottomSheet", "glassBottomSheet") { GlassBottomSheetDemo() },
 )
 
 @Composable

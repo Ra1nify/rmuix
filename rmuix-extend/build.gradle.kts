@@ -1,0 +1,70 @@
+// Copyright 2026, compose-rmuix-ui contributors
+// SPDX-License-Identifier: Apache-2.0
+
+import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
+
+plugins {
+    alias(libs.plugins.androidKotlinMultiplatformLibrary)
+    alias(libs.plugins.composeCompiler)
+    alias(libs.plugins.composeMultiplatform)
+    alias(libs.plugins.kotlinMultiplatform)
+    id("module.kotlin-jvm-toolchain")
+    id("module.publication")
+    id("module.spotless")
+}
+
+rmuixPublication {
+    description.set("Extended components for Rmuix")
+}
+
+kotlin {
+    withSourcesJar(true)
+
+    android {
+        buildToolsVersion = BuildConfig.BUILD_TOOLS_VERSION
+        compileSdk {
+            version =
+                release(BuildConfig.COMPILE_SDK) {
+                    minorApiLevel = BuildConfig.COMPILE_SDK_MINOR
+                }
+        }
+        minSdk = BuildConfig.MIN_SDK
+        namespace = "${BuildConfig.LIBRARY_ID}.extend"
+    }
+
+    jvm("desktop")
+
+    iosArm64()
+    iosSimulatorArm64()
+    macosArm64()
+
+    @OptIn(ExperimentalWasmDsl::class)
+    wasmJs {
+        browser()
+    }
+
+    js {
+        browser()
+    }
+
+    applyRmuixSourceSetHierarchy()
+
+    sourceSets {
+        commonTest.dependencies {
+            implementation(kotlin("test"))
+        }
+
+        val desktopTest by getting {
+            dependencies {
+                implementation(compose.desktop.currentOs)
+                implementation(libs.jetbrains.compose.ui.test)
+            }
+        }
+
+        commonMain.dependencies {
+            api(projects.rmuixUi)
+            api(projects.rmuixPreference)
+            api(libs.jetbrains.compose.foundation)
+        }
+    }
+}

@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -11,20 +11,21 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.Icon
-import top.yukonga.miuix.kmp.basic.IconButton
-import top.yukonga.miuix.kmp.basic.RichTooltipBox
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.TooltipBox
-import top.yukonga.miuix.kmp.basic.rememberTooltipState
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Edit
-import top.yukonga.miuix.kmp.icon.extended.Info
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.Icon
+import io.github.ra1nify.rmuix.kmp.basic.IconButton
+import io.github.ra1nify.rmuix.kmp.basic.RichTooltipBox
+import io.github.ra1nify.rmuix.kmp.basic.CategoryTitle
+import io.github.ra1nify.rmuix.kmp.basic.TooltipBox
+import io.github.ra1nify.rmuix.kmp.basic.TooltipDefaults
+import io.github.ra1nify.rmuix.kmp.basic.rememberTooltipState
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Edit
+import io.github.ra1nify.rmuix.kmp.icon.extended.Info
 
 fun LazyListScope.tooltipSection() {
     item(key = "tooltip") {
-        SmallTitle(text = "Tooltip")
+        CategoryTitle(text = "Tooltip")
         val richState = rememberTooltipState(isPersistent = true)
         Card(
             modifier = Modifier
@@ -41,7 +42,18 @@ fun LazyListScope.tooltipSection() {
                 ) {
                     TooltipBox(text = "Edit") {
                         IconButton(onClick = {}) {
-                            Icon(imageVector = MiuixIcons.Edit, contentDescription = "Edit")
+                            Icon(imageVector = RmuixIcons.Edit, contentDescription = "Edit")
+                        }
+                    }
+                    // `COUIToolTips.DetailFloating`: opaque surface, neutral text, 12dp on all four margins.
+                    TooltipBox(
+                        text = "DetailFloating",
+                        containerColor = TooltipDefaults.detailFloatingContainerColor(),
+                        contentColor = TooltipDefaults.detailFloatingContentColor(),
+                        containerMargins = TooltipDefaults.DetailFloatingContainerMargins,
+                    ) {
+                        IconButton(onClick = {}) {
+                            Icon(imageVector = RmuixIcons.Info, contentDescription = "DetailFloating")
                         }
                     }
                     RichTooltipBox(
@@ -53,7 +65,7 @@ fun LazyListScope.tooltipSection() {
                         state = richState,
                     ) {
                         IconButton(onClick = {}) {
-                            Icon(imageVector = MiuixIcons.Info, contentDescription = "Rich tooltip")
+                            Icon(imageVector = RmuixIcons.Info, contentDescription = "Rich tooltip")
                         }
                     }
                 }

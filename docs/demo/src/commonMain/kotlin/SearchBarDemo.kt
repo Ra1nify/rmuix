@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -19,12 +19,13 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.BasicComponent
-import top.yukonga.miuix.kmp.basic.BasicComponentDefaults
-import top.yukonga.miuix.kmp.basic.InputField
-import top.yukonga.miuix.kmp.basic.SearchBar
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.BasicComponent
+import io.github.ra1nify.rmuix.kmp.basic.BasicComponentDefaults
+import io.github.ra1nify.rmuix.kmp.basic.InputField
+import io.github.ra1nify.rmuix.kmp.basic.SearchBar
+import io.github.ra1nify.rmuix.kmp.basic.SearchBarFunctionButton
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 @Composable
 fun SearchBarDemo() {
@@ -56,17 +57,12 @@ fun SearchBarDemo() {
                     )
                 },
                 outsideEndAction = {
-                    Text(
-                        modifier = Modifier
-                            .clickable(
-                                interactionSource = null,
-                                indication = null,
-                            ) {
-                                expanded = false
-                                searchValue = ""
-                            },
+                    SearchBarFunctionButton(
                         text = "Cancel",
-                        color = MiuixTheme.colorScheme.primary,
+                        onClick = {
+                            expanded = false
+                            searchValue = ""
+                        },
                     )
                 },
                 expanded = expanded,

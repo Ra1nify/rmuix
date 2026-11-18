@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.Image
@@ -27,18 +27,18 @@ import androidx.compose.ui.window.WindowPosition
 import androidx.compose.ui.window.application
 import androidx.compose.ui.window.rememberWindowState
 import dev.nucleusframework.darkmodedetector.isSystemInDarkMode
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.shared.generated.resources.Res
+import io.github.ra1nify.rmuix.kmp.shared.generated.resources.icon
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
+import io.github.ra1nify.rmuix.kmp.window.LocalRmuixWindowInfo
+import io.github.ra1nify.rmuix.kmp.window.LocalWindowState
+import io.github.ra1nify.rmuix.kmp.window.RmuixCaptionBar
+import io.github.ra1nify.rmuix.kmp.window.RmuixWindow
+import io.github.ra1nify.rmuix.kmp.window.RmuixWindowBackgroundType
+import io.github.ra1nify.rmuix.kmp.window.RmuixWindowProperties
+import io.github.ra1nify.rmuix.kmp.window.WindowDraggableArea
 import org.jetbrains.compose.resources.painterResource
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.shared.generated.resources.Res
-import top.yukonga.miuix.kmp.shared.generated.resources.icon
-import top.yukonga.miuix.kmp.theme.MiuixTheme
-import top.yukonga.miuix.kmp.window.LocalMiuixWindowInfo
-import top.yukonga.miuix.kmp.window.LocalWindowState
-import top.yukonga.miuix.kmp.window.MiuixCaptionBar
-import top.yukonga.miuix.kmp.window.MiuixWindow
-import top.yukonga.miuix.kmp.window.MiuixWindowBackgroundType
-import top.yukonga.miuix.kmp.window.MiuixWindowProperties
-import top.yukonga.miuix.kmp.window.WindowDraggableArea
 import ui.AppTheme
 import ui.keyColorFor
 
@@ -62,40 +62,40 @@ fun main() = application {
         colorSpec = appState.colorSpec,
         isDark = systemIsDark,
     ) {
-        val isDark = MiuixTheme.colorScheme.surface.luminance() < 0.5f
-        MiuixWindow(
+        val isDark = RmuixTheme.colorScheme.surface.luminance() < 0.5f
+        RmuixWindow(
             state = state,
             onCloseRequest = ::exitApplication,
             alwaysOnTop = isHotReloadMode,
-            title = "Miuix",
+            title = "Rmuix",
             icon = painterResource(Res.drawable.icon),
-            properties = MiuixWindowProperties.default(
+            properties = RmuixWindowProperties.default(
                 minSize = DpSize(380.dp, 600.dp),
                 captionButtonIsDarkTheme = isDark,
                 backgroundIsDarkTheme = isDark,
                 backgroundType = when {
-                    MiuixWindowBackgroundType.Vibrancy.isSupported() -> MiuixWindowBackgroundType.Vibrancy
-                    MiuixWindowBackgroundType.Mica.isSupported() -> MiuixWindowBackgroundType.Mica
-                    else -> MiuixWindowBackgroundType.None
+                    RmuixWindowBackgroundType.Vibrancy.isSupported() -> RmuixWindowBackgroundType.Vibrancy
+                    RmuixWindowBackgroundType.Mica.isSupported() -> RmuixWindowBackgroundType.Mica
+                    else -> RmuixWindowBackgroundType.None
                 },
             ),
         ) {
             val isFullscreen = LocalWindowState.current.placement == WindowPlacement.Fullscreen
-            val captionBarHeight = LocalMiuixWindowInfo.current.captionBarHeight
+            val captionBarHeight = LocalRmuixWindowInfo.current.captionBarHeight
             Column(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(MiuixTheme.colorScheme.surface),
+                    .background(RmuixTheme.colorScheme.surface),
             ) {
                 if (!isFullscreen && captionBarHeight > 0.dp) {
                     Box(
                         modifier = Modifier
                             .fillMaxWidth()
                             .height(captionBarHeight)
-                            .background(MiuixTheme.colorScheme.surface),
+                            .background(RmuixTheme.colorScheme.surface),
                     ) {
                         WindowDraggableArea()
-                        MiuixCaptionBar {
+                        RmuixCaptionBar {
                             Row(
                                 modifier = Modifier.fillMaxSize(),
                                 verticalAlignment = Alignment.CenterVertically,
@@ -103,13 +103,13 @@ fun main() = application {
                                 Spacer(Modifier.width(8.dp))
                                 Image(
                                     painter = painterResource(Res.drawable.icon),
-                                    contentDescription = "Miuix",
+                                    contentDescription = "Rmuix",
                                     modifier = Modifier.size(18.dp),
                                 )
                                 Spacer(Modifier.width(8.dp))
                                 Text(
-                                    text = "Miuix",
-                                    style = MiuixTheme.textStyles.body2,
+                                    text = "Rmuix",
+                                    style = RmuixTheme.textStyles.body2,
                                 )
                             }
                         }

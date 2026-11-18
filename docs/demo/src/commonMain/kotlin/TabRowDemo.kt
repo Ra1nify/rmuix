@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -18,8 +18,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.TabRow
-import top.yukonga.miuix.kmp.basic.TabRowWithContour
+import io.github.ra1nify.rmuix.kmp.basic.TabRow
 
 @Composable
 fun TabRowDemo() {
@@ -48,16 +47,6 @@ fun TabRowDemo() {
                 listState = tabListState1,
             )
 
-            val tabs2 = listOf("All", "Photos", "Videos", "Documents")
-            var selectedTabIndex2 by remember { mutableIntStateOf(0) }
-            val contourTabListState2 = rememberLazyListState()
-
-            TabRowWithContour(
-                tabs = tabs2,
-                selectedTabIndex = selectedTabIndex2,
-                onTabSelected = { selectedTabIndex2 = it },
-                listState = contourTabListState2,
-            )
         }
     }
 }

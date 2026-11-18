@@ -1,4 +1,4 @@
-// Copyright 2026, compose-miuix-ui contributors
+// Copyright 2026, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package utils
@@ -10,7 +10,7 @@ import androidx.compose.runtime.Stable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
-import top.yukonga.miuix.kmp.theme.MiuixTheme.colorScheme
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme.colorScheme
 
 @Stable
 data class SearchStatus(

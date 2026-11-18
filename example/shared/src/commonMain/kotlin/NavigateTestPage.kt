@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 @file:OptIn(ExperimentalScrollBarApi::class)
@@ -23,21 +23,21 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.LayoutDirection
 import androidx.compose.ui.unit.dp
 import component.BackNavigationIcon
+import io.github.ra1nify.rmuix.kmp.basic.BasicComponent
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.RmuixScrollBehavior
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.CategoryTitle
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.basic.VerticalScrollBar
+import io.github.ra1nify.rmuix.kmp.basic.rememberScrollBarAdapter
+import io.github.ra1nify.rmuix.kmp.blur.isRuntimeShaderSupported
+import io.github.ra1nify.rmuix.kmp.blur.layerBackdrop
+import io.github.ra1nify.rmuix.kmp.blur.rememberLayerBackdrop
+import io.github.ra1nify.rmuix.kmp.interfaces.ExperimentalScrollBarApi
+import io.github.ra1nify.rmuix.kmp.preference.JumpPreference
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 import navigation.Route
-import top.yukonga.miuix.kmp.basic.BasicComponent
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.MiuixScrollBehavior
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.basic.VerticalScrollBar
-import top.yukonga.miuix.kmp.basic.rememberScrollBarAdapter
-import top.yukonga.miuix.kmp.blur.isRuntimeShaderSupported
-import top.yukonga.miuix.kmp.blur.layerBackdrop
-import top.yukonga.miuix.kmp.blur.rememberLayerBackdrop
-import top.yukonga.miuix.kmp.interfaces.ExperimentalScrollBarApi
-import top.yukonga.miuix.kmp.preference.ArrowPreference
-import top.yukonga.miuix.kmp.theme.MiuixTheme
 import utils.AdaptiveTopAppBar
 import utils.BlurredBar
 import utils.pageContentPadding
@@ -52,7 +52,7 @@ fun NavTestPage(
     val appState = LocalAppState.current
     val isWideScreen = LocalIsWideScreen.current
     val blurSupported = isRuntimeShaderSupported()
-    val surfaceColor = MiuixTheme.colorScheme.surface
+    val surfaceColor = RmuixTheme.colorScheme.surface
     val backdrop = if (blurSupported) {
         rememberLayerBackdrop {
             drawRect(surfaceColor)
@@ -62,8 +62,8 @@ fun NavTestPage(
         null
     }
     val blurActive = appState.enableBlur && blurSupported
-    val barColor = if (blurActive) Color.Transparent else MiuixTheme.colorScheme.surface
-    val topAppBarScrollBehavior = MiuixScrollBehavior()
+    val barColor = if (blurActive) Color.Transparent else RmuixTheme.colorScheme.surface
+    val topAppBarScrollBehavior = RmuixScrollBehavior()
     val navigator = LocalNavigator.current
 
     Scaffold(
@@ -106,14 +106,14 @@ fun NavTestPage(
                 item(key = "nav_continuous") {
                     val navigator = LocalNavigator.current
                     Column {
-                        SmallTitle(text = "Continuous depth")
+                        CategoryTitle(text = "Continuous depth")
                         Card(modifier = Modifier.padding(horizontal = 12.dp).padding(bottom = 12.dp)) {
-                            ArrowPreference(
+                            JumpPreference(
                                 title = "Push another Navigation page",
                                 summary = "Single push (animatedTop N -> N+1)",
                                 onClick = { navigator.push(Route.Navigation(Random.nextLong().toString())) },
                             )
-                            ArrowPreference(
+                            JumpPreference(
                                 title = "Push three pages at once",
                                 summary = "Continuous multi-push (N -> N+3, one shared spring)",
                                 onClick = {
@@ -122,7 +122,7 @@ fun NavTestPage(
                                     navigator.push(Route.Navigation(Random.nextLong().toString()))
                                 },
                             )
-                            ArrowPreference(
+                            JumpPreference(
                                 title = "Pop all Navigation pages",
                                 summary = "Continuous multi-pop back to the entry",
                                 onClick = { navigator.popUntil { it !is Route.Navigation } },
@@ -132,7 +132,7 @@ fun NavTestPage(
                 }
                 item(key = "nav_gesture") {
                     Column {
-                        SmallTitle(text = "Gesture back")
+                        CategoryTitle(text = "Gesture back")
                         Card(modifier = Modifier.padding(horizontal = 12.dp).padding(bottom = 12.dp)) {
                             BasicComponent(
                                 title = "Swipe to go back",
@@ -144,12 +144,12 @@ fun NavTestPage(
                     }
                 }
                 item(key = "nav_layout") {
-                    SmallTitle(text = "Layout test")
+                    CategoryTitle(text = "Layout test")
                     Card(
                         modifier = Modifier
                             .padding(horizontal = 12.dp),
                     ) {
-                        ArrowPreference(
+                        JumpPreference(
                             title = "Long Long Long Long Long Title",
                             summary = "Summary",
                             startAction = {
@@ -163,7 +163,7 @@ fun NavTestPage(
                             onClick = { /* Do nothing */ },
                             enabled = true,
                         )
-                        ArrowPreference(
+                        JumpPreference(
                             title = "Title",
                             summary = "Long Long Long Long Long Summary",
                             startAction = {
@@ -177,7 +177,7 @@ fun NavTestPage(
                             onClick = { /* Do nothing */ },
                             enabled = true,
                         )
-                        ArrowPreference(
+                        JumpPreference(
                             title = "Title",
                             summary = "Summary",
                             startAction = {
@@ -192,7 +192,7 @@ fun NavTestPage(
                             onClick = { /* Do nothing */ },
                             enabled = true,
                         )
-                        ArrowPreference(
+                        JumpPreference(
                             title = "Long Long Long Long Long Title",
                             summary = "Summary",
                             startAction = {
@@ -207,7 +207,7 @@ fun NavTestPage(
                             onClick = { /* Do nothing */ },
                             enabled = true,
                         )
-                        ArrowPreference(
+                        JumpPreference(
                             title = "Title",
                             summary = "Long Long Long Long Long Summary",
                             endActions = {
@@ -219,7 +219,7 @@ fun NavTestPage(
                             onClick = { /* Do nothing */ },
                             enabled = true,
                         )
-                        ArrowPreference(
+                        JumpPreference(
                             title = "Long Long Long Long Long Title",
                             summary = "Summary",
                             endActions = {
@@ -228,7 +228,7 @@ fun NavTestPage(
                             onClick = { /* Do nothing */ },
                             enabled = true,
                         )
-                        ArrowPreference(
+                        JumpPreference(
                             title = "Title",
                             summary = "Long Long Long Long Long Summary",
                             endActions = {

@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 package component
@@ -18,18 +18,17 @@ import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.CategoryTitle
+import io.github.ra1nify.rmuix.kmp.basic.TabRow
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.utils.PagerNavigationSpringSpec
+import io.github.ra1nify.rmuix.kmp.utils.springAnimateToPage
 import kotlinx.coroutines.launch
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.SmallTitle
-import top.yukonga.miuix.kmp.basic.TabRow
-import top.yukonga.miuix.kmp.basic.TabRowWithContour
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.utils.PagerNavigationSpringSpec
-import top.yukonga.miuix.kmp.utils.springAnimateToPage
 
 fun LazyListScope.tabRowSection() {
     item(key = "tabRow") {
-        SmallTitle(text = "TabRow")
+        CategoryTitle(text = "TabRow")
         val tabTexts = remember { listOf("Tab 1", "Tab 2", "Tab 3") }
         val tabTexts1 = remember { listOf("Tab 1", "Tab 2", "Tab 3", "Tab 4", "Tab 5", "Tab 6") }
         var selectedTabIndex by remember { mutableIntStateOf(0) }
@@ -54,8 +53,7 @@ fun LazyListScope.tabRowSection() {
         ) {
             val scope = rememberCoroutineScope()
             val pagerState = rememberPagerState(pageCount = { tabTexts1.size })
-            val contourTabListState = rememberLazyListState()
-            TabRowWithContour(
+            TabRow(
                 tabs = tabTexts1,
                 selectedTabIndex = pagerState.currentPage,
                 onTabSelected = {
@@ -63,7 +61,7 @@ fun LazyListScope.tabRowSection() {
                         pagerState.springAnimateToPage(it)
                     }
                 },
-                listState = contourTabListState,
+                listState = rememberLazyListState(),
             )
             val flingBehavior = PagerDefaults.flingBehavior(
                 state = pagerState,

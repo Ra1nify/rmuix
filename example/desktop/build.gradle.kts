@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
@@ -22,7 +22,7 @@ kotlin {
     sourceSets {
         named("desktopMain") {
             dependencies {
-                implementation(projects.miuixWindow)
+                implementation(projects.rmuixWindow)
                 implementation(projects.example.shared)
                 implementation(compose.desktop.currentOs)
                 implementation(libs.nucleus.darkmode.detector)

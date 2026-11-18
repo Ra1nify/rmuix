@@ -1,6 +1,6 @@
 # Squircle Shapes
 
-`miuix-squircle` is a standalone library that provides squircle (continuous-corner)
+`rmuix-squircle` is a standalone library that provides squircle (continuous-corner)
 rounded-rectangle shapes for Compose Multiplatform. It exposes `Modifier` extensions
 for fill / clip / border and a low-level `Path` builder. The library supports
 Android, Desktop (JVM), iOS, macOS, and Web (WasmJs/Js).
@@ -17,18 +17,19 @@ are most apparent at moderate to large radii.
 Shader-backed modifiers (`squircleBackground`, `squircleSurface`,
 `squircleClip`, `squircleBorder`) require Android API 33+. On older API levels
 they fall back to the matching `RoundedCornerShape` rendering — no crash, no
-manual gating. See [Global Toggle](#global-toggle) for the runtime opt-out.
+manual gating. There is no user-facing switch: ColorOS 17 draws continuous
+corners everywhere, so the fallback follows platform capability only.
 :::
 
 ## Setup
 
-Add the `miuix-squircle` dependency to your project:
+Add the `rmuix-squircle` dependency to your project:
 
 ```kotlin
 kotlin {
     sourceSets {
         commonMain.dependencies {
-            implementation("top.yukonga.miuix.kmp:miuix-squircle:<version>")
+            implementation("io.github.ra1nify.rmuix.kmp:rmuix-squircle:<version>")
         }
     }
 }
@@ -38,7 +39,7 @@ For Android-only projects:
 
 ```kotlin
 dependencies {
-    implementation("top.yukonga.miuix.kmp:miuix-squircle-android:<version>")
+    implementation("io.github.ra1nify.rmuix.kmp:rmuix-squircle-android:<version>")
 }
 ```
 
@@ -62,13 +63,13 @@ need consistency.
 import androidx.compose.foundation.layout.size
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.squircle.squircleBackground
+import io.github.ra1nify.rmuix.kmp.squircle.squircleBackground
 
 Box(
     modifier = Modifier
         .size(120.dp, 80.dp)
         .squircleBackground(
-            color = MiuixTheme.colorScheme.primaryVariant,
+            color = RmuixTheme.colorScheme.primaryVariant,
             cornerRadius = 20.dp,
         ),
 )
@@ -84,7 +85,7 @@ let children overflow or paint their own corners.
 
 ```kotlin
 Modifier.squircleBackground(
-    color = MiuixTheme.colorScheme.primaryVariant,
+    color = RmuixTheme.colorScheme.primaryVariant,
     cornerRadius = 16.dp,
 )
 ```
@@ -97,7 +98,7 @@ the same offscreen layer as the fill, so there is no double-pass cost.
 
 ```kotlin
 Modifier.squircleSurface(
-    color = MiuixTheme.colorScheme.primaryVariant,
+    color = RmuixTheme.colorScheme.primaryVariant,
     cornerRadius = 16.dp,
 )
 ```
@@ -126,11 +127,11 @@ width so it lines up with a same-radius `squircleBackground` / `squircleSurface`
 Path-based (no shader required); cheaper than the shader variants.
 
 ```kotlin
-import top.yukonga.miuix.kmp.squircle.squircleBorder
+import io.github.ra1nify.rmuix.kmp.squircle.squircleBorder
 
 Modifier.squircleBorder(
     width = 1.dp,
-    color = MiuixTheme.colorScheme.outline,
+    color = RmuixTheme.colorScheme.outline,
     cornerRadius = 16.dp,
 )
 ```
@@ -143,7 +144,7 @@ Every shader-backed modifier has a per-corner overload that matches
 
 ```kotlin
 Modifier.squircleSurface(
-    color = MiuixTheme.colorScheme.secondaryVariant,
+    color = RmuixTheme.colorScheme.secondaryVariant,
     topStart = 24.dp,
     topEnd = 24.dp,
     bottomEnd = 0.dp,
@@ -165,7 +166,7 @@ regardless of RTL/LTR (e.g. a transition reveal tied to a swipe edge).
 
 ```kotlin
 Modifier.absoluteSquircleSurface(
-    color = MiuixTheme.colorScheme.surface,
+    color = RmuixTheme.colorScheme.surface,
     topLeft = 24.dp,
     topRight = 24.dp,
     bottomRight = 0.dp,
@@ -185,7 +186,7 @@ squircle look.
 
 ```kotlin
 Modifier.squircleBackground(
-    color = MiuixTheme.colorScheme.primaryVariant,
+    color = RmuixTheme.colorScheme.primaryVariant,
     cornerRadius = 24.dp,
     extension = 1.2f,
 )
@@ -201,7 +202,7 @@ non-shader Shape, etc.), build the path directly:
 
 ```kotlin
 import androidx.compose.ui.graphics.Path
-import top.yukonga.miuix.kmp.squircle.addSquircleRect
+import io.github.ra1nify.rmuix.kmp.squircle.addSquircleRect
 
 val path = Path().apply {
     addSquircleRect(
@@ -215,23 +216,16 @@ val path = Path().apply {
 For static fills and clips prefer the shader-backed modifiers — they cache
 their distance field once per process.
 
-## Global Toggle
+## Platform Fallback
 
-`LocalSquircleEnabled` (default `true`) gates every shader-backed squircle
-modifier. Set it to `false` to force the `RoundedCornerShape` fallback at
-runtime — useful for visual preferences or A/B comparisons:
+ColorOS 17 draws continuous corners everywhere, so there is no user-facing
+squircle switch. `isSquircleEnabled()` reports whether the runtime shader is
+available in the current composition, and every shader-backed modifier runs the
+same check — when it returns `false` the whole surface degrades to a rounded
+rectangle, shadow and border included.
 
-```kotlin
-import top.yukonga.miuix.kmp.squircle.LocalSquircleEnabled
-
-CompositionLocalProvider(LocalSquircleEnabled provides userPrefersRoundedRects) {
-    AppContent()
-}
-```
-
-`isSquircleEnabled()` combines `LocalSquircleEnabled.current` with the runtime
-shader-support check. Use it inside `@Composable` to keep mixed shader+path
-visuals in sync — capture the boolean and pass it to `addSquircleRect`:
+Use it inside `@Composable` when a component mixes shader-backed modifiers with
+the path API, so both halves pick the same silhouette:
 
 ```kotlin
 @Composable
@@ -240,7 +234,7 @@ fun OutlinedSurface(cornerRadius: Dp) {
     val path = remember { Path() }
     Box(
         Modifier
-            .squircleBackground(MiuixTheme.colorScheme.surface, cornerRadius)
+            .squircleBackground(RmuixTheme.colorScheme.surface, cornerRadius)
             .drawWithContent {
                 drawContent()
                 path.rewind()
@@ -250,7 +244,7 @@ fun OutlinedSurface(cornerRadius: Dp) {
                     cornerRadius = cornerRadius.toPx(),
                     squircleEnabled = squircleEnabled,
                 )
-                drawPath(path, MiuixTheme.colorScheme.outline, style = Stroke(1.dp.toPx()))
+                drawPath(path, RmuixTheme.colorScheme.outline, style = Stroke(1.dp.toPx()))
             },
     )
 }

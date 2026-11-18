@@ -1,0 +1,225 @@
+# SwitchPreference
+
+`SwitchPreference` is a switch component in Rmuix that provides a title, summary, and a switch control on the right. It supports click interaction and is commonly used in settings items and preference toggles.
+
+<div style="position: relative; height: 231px; border-radius: 10px; overflow: hidden; border: 1px solid #777;">
+    <iframe id="demoIframe" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;" src="../../compose/index.html?id=switchPreference" title="Demo" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>
+</div>
+
+## Stock ColorOS static review (2026-11-12)
+
+This pass reads `res/layout/coui_preference_widget_switch.xml` and the `android_preference_switch_margin_left` dimen of the Settings APK.
+
+- The official preference builds its trailing widget from that layout: the switch carries `android:layout_marginStart="@dimen/android_preference_switch_margin_left"` = **16dp**, i.e. the gap between the text/end content and the switch.
+- `SwitchPreference` used a hard-coded `padding(end = 8.dp)` on its end-action row, so the gap was half the stock spacing; it now resolves `SwitchPreferenceDefaults.SwitchMarginStart` (16dp).
+- Row-level metrics (48dp minimum height, 32dp horizontal inset, 16sp title, 13sp summary) come from the base preference layout and were already aligned.
+
+**BREAKING:** the gap between the trailing content and the switch grows from 8dp to 16dp (`SwitchPreferenceDefaults` is new).
+
+**Correction (2026-11-17):** the checkbox widget margins are aligned now - `CheckboxPreference` applies `coui_preference_checkbox_margin_right` (-10dp) through a custom layout plus its 1dp `paddingRight`, verified by a rendering test (see `checkboxpreference.md`). The sibling rows still place `PreferenceRowDefaults.EndActionsEndPadding` (8dp, a library value: no dimen describes the gap to the row edge) before their trailing widget when a caller passes `endActions`; radio / slider / dropdown / spinner have no dedicated COUI widget layouts in this APK (radio uses `preference_widget_radiobutton.xml`, slider / dropdown use the SettingsLib or M3 layouts).
+## Import
+
+```kotlin
+import io.github.ra1nify.rmuix.kmp.preference.SwitchPreference
+```
+
+## Basic Usage
+
+The SwitchPreference component provides basic switch functionality:
+
+```kotlin
+var isChecked by remember { mutableStateOf(false) }
+
+SwitchPreference(
+    title = "Switch Option",
+    checked = isChecked,
+    onCheckedChange = { isChecked = it }
+)
+```
+
+## Switch with Summary
+
+```kotlin
+var wifiEnabled by remember { mutableStateOf(false) }
+
+SwitchPreference(
+    title = "WiFi",
+    summary = "Turn on to connect to wireless networks",
+    checked = wifiEnabled,
+    onCheckedChange = { wifiEnabled = it }
+)
+```
+
+## Component States
+
+### Disabled State
+
+```kotlin
+SwitchPreference(
+    title = "Disabled Switch",
+    summary = "This switch is currently unavailable",
+    checked = true,
+    onCheckedChange = {},
+    enabled = false
+)
+```
+
+## Properties
+
+### SwitchPreference Properties
+
+| Property Name   | Type                            | Description                             | Default Value                         | Required |
+| --------------- | ------------------------------- | --------------------------------------- | ------------------------------------- | -------- |
+| checked         | Boolean                         | Switch checked state                    | -                                     | Yes      |
+| onCheckedChange | (Boolean) -> Unit               | Switch state change callback            | -                                     | Yes      |
+| title           | String                          | Switch item title                       | -                                     | Yes      |
+| modifier        | Modifier                        | Component modifier                      | Modifier                              | No       |
+| titleColor      | BasicComponentColors            | Title text color configuration          | BasicComponentDefaults.titleColor()   | No       |
+| summary         | String?                         | Switch item summary                     | null                                  | No       |
+| shortcutHint    | String?                         | Summary shown instead of `summary` while the switch is on (roui shortcut-switch row) | null | No |
+| summaryColor    | BasicComponentColors            | Summary text color configuration        | BasicComponentDefaults.summaryColor() | No       |
+| startAction     | @Composable (() -> Unit)?       | Custom start side content               | null                                  | No       |
+| endActions      | @Composable RowScope.() -> Unit | Custom end side content (before switch) | {}                                    | No       |
+| bottomAction    | @Composable (() -> Unit)?       | Custom bottom side content              | null                                  | No       |
+| switchColors    | SwitchColors                    | Switch control color configuration      | SwitchDefaults.switchColors()         | No       |
+| insideMargin    | PaddingValues                   | Component internal content padding      | BasicComponentDefaults.InsideMargin   | No       |
+| holdDownState   | Boolean                         | Whether the component is held down      | false                                 | No       |
+| enabled         | Boolean                         | Component interactive state             | true                                  | No       |
+
+## Advanced Usage
+
+### With Start Icon
+
+```kotlin
+var enabled by remember { mutableStateOf(false) }
+
+SwitchPreference(
+    title = "Test",
+    summary = "Enable to allow testing",
+    checked = enabled,
+    onCheckedChange = { enabled = it },
+    startAction = {
+        Icon(
+            imageVector = RmuixIcons.Sort,
+            contentDescription = "Command Icon",
+            tint = RmuixTheme.colorScheme.onBackground,
+            modifier = Modifier.padding(end = 12.dp)
+        )
+    }
+)
+```
+
+### With End Actions
+
+```kotlin
+var locationEnabled by remember { mutableStateOf(false) }
+
+SwitchPreference(
+    title = "Location Services",
+    summary = "Allow apps to access location information",
+    checked = locationEnabled,
+    onCheckedChange = { locationEnabled = it },
+    endActions = {
+        Text(
+            text = if (locationEnabled) "Enabled" else "Disabled",
+            color = RmuixTheme.colorScheme.onSurfaceVariantActions,
+            modifier = Modifier.padding(end = 6.dp)
+        )
+    }
+)
+```
+
+### With Animated Content Visibility
+
+```kotlin
+var parentEnabled by remember { mutableStateOf(false) }
+var childEnabled by remember { mutableStateOf(false) }
+
+Column {
+    SwitchPreference(
+        title = "Main Setting",
+        summary = "Turn on to show more options",
+        checked = parentEnabled,
+        onCheckedChange = { parentEnabled = it }
+    )
+    AnimatedVisibility(
+        visible = parentEnabled
+    ) {
+        SwitchPreference(
+            title = "Sub Setting",
+            summary = "Only available when main setting is enabled",
+            checked = childEnabled,
+            onCheckedChange = { childEnabled = it }
+        )
+    }
+}
+```
+
+### Custom Colors
+
+```kotlin
+var customEnabled by remember { mutableStateOf(false) }
+
+SwitchPreference(
+    title = "Custom Colors",
+    titleColor = BasicComponentDefaults.titleColor(
+        color = RmuixTheme.colorScheme.primary
+    ),
+    summary = "Switch with custom colors",
+    summaryColor = BasicComponentDefaults.summaryColor(
+        color = RmuixTheme.colorScheme.secondary
+    ),
+    checked = customEnabled,
+    onCheckedChange = { customEnabled = it },
+    switchColors = SwitchDefaults.switchColors(
+        checkedThumbColor = RmuixTheme.colorScheme.primary,
+        checkedTrackColor = RmuixTheme.colorScheme.primary.copy(alpha = 0.2f)
+    )
+)
+```
+
+### Use with Dialog
+
+```kotlin
+var showDialog by remember { mutableStateOf(false) }
+var option by remember { mutableStateOf(false) }
+
+Scaffold {
+    JumpPreference(
+        title = "Advanced Settings",
+        onClick = { showDialog = true },
+        holdDownState = showDialog
+    )
+    OverlayDialog(
+        title = "Advanced Settings",
+        show = showDialog,
+        onDismissRequest = { showDialog = false }
+    ) {
+        Card {
+            SwitchPreference(
+                title = "Experimental Features",
+                summary = "Enable features under development",
+                checked = option,
+                onCheckedChange = { option = it }
+            )
+        }
+        Row(
+            horizontalArrangement = Arrangement.SpaceBetween,
+            modifier = Modifier.padding(top = 12.dp)
+        ) {
+            TextButton(
+                text = "Cancel",
+                onClick = { showDialog = false },
+                modifier = Modifier.weight(1f)
+            )
+            Spacer(Modifier.width(16.dp))
+            TextButton(
+                text = "Confirm",
+                onClick = { showDialog = false },
+                modifier = Modifier.weight(1f),
+                colors = ButtonDefaults.textButtonColorsPrimary()
+            )
+        }
+    }
+}
+```

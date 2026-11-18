@@ -1,5 +1,5 @@
 TEAM_ID=
-BUNDLE_ID=top.yukonga.miuix.kmp
-APP_NAME=Miuix
+BUNDLE_ID=io.github.ra1nify.rmuix.kmp
+APP_NAME=Rmuix
 
 #include? "../iosApp/Generated.xcconfig"

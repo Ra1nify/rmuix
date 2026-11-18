@@ -1,4 +1,4 @@
-// Copyright 2025, compose-miuix-ui contributors
+// Copyright 2025, compose-rmuix-ui contributors
 // SPDX-License-Identifier: Apache-2.0
 
 import androidx.compose.foundation.background
@@ -18,20 +18,21 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
-import top.yukonga.miuix.kmp.basic.Badge
-import top.yukonga.miuix.kmp.basic.Card
-import top.yukonga.miuix.kmp.basic.FloatingNavigationBar
-import top.yukonga.miuix.kmp.basic.FloatingNavigationBarItem
-import top.yukonga.miuix.kmp.basic.NavigationBar
-import top.yukonga.miuix.kmp.basic.NavigationBarItem
-import top.yukonga.miuix.kmp.basic.NavigationItem
-import top.yukonga.miuix.kmp.basic.Scaffold
-import top.yukonga.miuix.kmp.basic.Text
-import top.yukonga.miuix.kmp.icon.MiuixIcons
-import top.yukonga.miuix.kmp.icon.extended.Contacts
-import top.yukonga.miuix.kmp.icon.extended.Settings
-import top.yukonga.miuix.kmp.icon.extended.VerticalSplit
-import top.yukonga.miuix.kmp.theme.MiuixTheme
+import io.github.ra1nify.rmuix.kmp.basic.RedDot
+import io.github.ra1nify.rmuix.kmp.basic.RedDotMode
+import io.github.ra1nify.rmuix.kmp.basic.Card
+import io.github.ra1nify.rmuix.kmp.basic.FloatingNavigationBar
+import io.github.ra1nify.rmuix.kmp.basic.FloatingNavigationBarItem
+import io.github.ra1nify.rmuix.kmp.basic.NavigationBar
+import io.github.ra1nify.rmuix.kmp.basic.NavigationBarItem
+import io.github.ra1nify.rmuix.kmp.basic.NavigationItem
+import io.github.ra1nify.rmuix.kmp.basic.Scaffold
+import io.github.ra1nify.rmuix.kmp.basic.Text
+import io.github.ra1nify.rmuix.kmp.icon.RmuixIcons
+import io.github.ra1nify.rmuix.kmp.icon.extended.Contacts
+import io.github.ra1nify.rmuix.kmp.icon.extended.Settings
+import io.github.ra1nify.rmuix.kmp.icon.extended.VerticalSplit
+import io.github.ra1nify.rmuix.kmp.theme.RmuixTheme
 
 @Composable
 fun NavigationBarDemo() {
@@ -49,14 +50,40 @@ fun NavigationBarDemo() {
             verticalArrangement = Arrangement.spacedBy(16.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
+            // `navigationType=enlarge`: 70dp items, the selected item grows its icon to 64dp.
+            Card {
+                Column(Modifier.padding(12.dp), verticalArrangement = Arrangement.spacedBy(8.dp)) {
+                    Text(
+                        text = "enlarged = true (navigationType=enlarge)",
+                        style = RmuixTheme.textStyles.body2,
+                    )
+                    var enlargedIndex by remember { mutableIntStateOf(0) }
+                    val enlargedItems =
+                        listOf(
+                            "Home" to RmuixIcons.VerticalSplit,
+                            "Profile" to RmuixIcons.Contacts,
+                            "Settings" to RmuixIcons.Settings,
+                        )
+                    NavigationBar(enlarged = true) {
+                        enlargedItems.forEachIndexed { index, (label, icon) ->
+                            NavigationBarItem(
+                                selected = enlargedIndex == index,
+                                onClick = { enlargedIndex = index },
+                                icon = icon,
+                                label = label,
+                            )
+                        }
+                    }
+                }
+            }
             Row(
                 horizontalArrangement = Arrangement.spacedBy(16.dp),
             ) {
                 val pages = listOf("Home", "Profile", "Settings")
                 val items = listOf(
-                    NavigationItem("Home", MiuixIcons.VerticalSplit),
-                    NavigationItem("Profile", MiuixIcons.Contacts),
-                    NavigationItem("Settings", MiuixIcons.Settings),
+                    NavigationItem("Home", RmuixIcons.VerticalSplit),
+                    NavigationItem("Profile", RmuixIcons.Contacts),
+                    NavigationItem("Settings", RmuixIcons.Settings),
                 )
                 var selectedIndex1 by remember { mutableIntStateOf(0) }
                 var selectedIndex2 by remember { mutableIntStateOf(0) }
@@ -73,8 +100,8 @@ fun NavigationBarDemo() {
                                         icon = item.icon,
                                         label = item.label,
                                         badge = when (index) {
-                                            1 -> ({ Badge { Text("8") } })
-                                            2 -> ({ Badge() })
+                                            1 -> ({ RedDot(mode = RedDotMode.PointWithNum(8)) })
+                                            2 -> ({ RedDot(mode = RedDotMode.PointOnly) })
                                             else -> null
                                         },
                                     )
@@ -90,7 +117,7 @@ fun NavigationBarDemo() {
                         ) {
                             Text(
                                 text = "Current: ${pages[selectedIndex1]}",
-                                style = MiuixTheme.textStyles.title1,
+                                style = RmuixTheme.textStyles.title1,
                             )
                         }
                     }
@@ -108,8 +135,8 @@ fun NavigationBarDemo() {
                                         icon = item.icon,
                                         label = item.label,
                                         badge = when (index) {
-                                            1 -> ({ Badge { Text("8") } })
-                                            2 -> ({ Badge() })
+                                            1 -> ({ RedDot(mode = RedDotMode.PointWithNum(8)) })
+                                            2 -> ({ RedDot(mode = RedDotMode.PointOnly) })
                                             else -> null
                                         },
                                     )
@@ -125,7 +152,7 @@ fun NavigationBarDemo() {
                         ) {
                             Text(
                                 text = "Current: ${pages[selectedIndex2]}",
-                                style = MiuixTheme.textStyles.title1,
+                                style = RmuixTheme.textStyles.title1,
                             )
                         }
                     }
